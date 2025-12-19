@@ -43,13 +43,13 @@ var equippedArts : Array = [
 ]
 
 func set_stats(new_stats: Array):
-	stats.StatType.HEALTH = new_stats[0]
-	stats.StatType.ARTISTRY = new_stats[1]
-	stats.StatType.ATTACK = new_stats[2]
-	stats.StatType.MAGIC = new_stats[3]
-	stats.StatType.DEFENSE = new_stats[4]
-	stats.StatType.RESISTANCE = new_stats[5]
-	stats.StatType.SPEED = new_stats[6]
+	stats[StatType.HEALTH] = new_stats[0]
+	stats[StatType.ARTISTRY] = new_stats[1]
+	stats[StatType.ATTACK] = new_stats[2]
+	stats[StatType.MAGIC] = new_stats[3]
+	stats[StatType.DEFENSE] = new_stats[4]
+	stats[StatType.RESISTANCE] = new_stats[5]
+	stats[StatType.SPEED] = new_stats[6]
 
 func set_arts(new_arts: Array):
 	equippedArts = new_arts
