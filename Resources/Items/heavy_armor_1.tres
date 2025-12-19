@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=2 format=3 uid="uid://hsmd7qphbihg"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/item_data.gd" id="1_4186a"]
+
+[resource]
+script = ExtResource("1_4186a")
+id = "HeavyArmor_1"
+name = "Cheap Heavy Armor"
+pic = "Mushroom.png"
+buyCost = 200
+sellCost = 100
+owned = 0
+item_type = 3
+weapon_type = 0
+armor_type = 2
+accessory_type = 0
+value = 0
+stats = {}
+description = "Cheap heavy gear."
+flavor = "Hastily made given to trainees or poor fighters."

@@ -1,0 +1,239 @@
+[gd_scene load_steps=4 format=3 uid="uid://8oc11jks8n8k"]
+
+[ext_resource type="Script" path="res://Scripts/Town/inn_ui.gd" id="1_f8yp6"]
+[ext_resource type="PackedScene" uid="uid://7sdsm0yitoij" path="res://Scenes/UI/InnSaveSlot.tscn" id="2_lag4h"]
+[ext_resource type="PackedScene" uid="uid://cd6k2iyfjxsyb" path="res://Scenes/UI/InnPartySlot.tscn" id="3_xwd4s"]
+
+[node name="InnUI" type="Control" node_paths=PackedStringArray("ownerImg", "nameTxt", "dialogTxt", "moneyTxt", "exitBtn")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f8yp6")
+ownerImg = NodePath("BaseUI/TalkBox/OwnerImg")
+nameTxt = NodePath("BaseUI/TalkBox/NameImg/NameTxt")
+dialogTxt = NodePath("BaseUI/TalkBox/DialogImg/DialogTxt")
+moneyTxt = NodePath("BaseUI/MoneyImg/MoneyTxt")
+exitBtn = NodePath("BaseUI/ExitBtn")
+
+[node name="BaseUI" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TalkBox" type="Panel" parent="BaseUI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="OwnerImg" type="TextureRect" parent="BaseUI/TalkBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -65.0
+offset_bottom = 65.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="NameImg" type="Panel" parent="BaseUI/TalkBox"]
+layout_mode = 1
+offset_top = -19.0
+offset_right = 218.0
+offset_bottom = 21.0
+
+[node name="NameTxt" type="Label" parent="BaseUI/TalkBox/NameImg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Name"
+vertical_alignment = 1
+
+[node name="DialogImg" type="Panel" parent="BaseUI/TalkBox"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+offset_right = 1020.0
+grow_vertical = 0
+
+[node name="DialogTxt" type="Label" parent="BaseUI/TalkBox/DialogImg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "Basic dialog text just to test sizes, spacing, and so on..."
+autowrap_mode = 2
+
+[node name="MoneyImg" type="Panel" parent="BaseUI"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+
+[node name="MoneyTxt" type="Label" parent="BaseUI/MoneyImg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Money: $99999"
+vertical_alignment = 1
+
+[node name="ExitBtn" type="Button" parent="BaseUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 30.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 15
+text = "Exit"
+
+[node name="MainUI" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = -246.0
+offset_right = 567.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnContainer" type="HBoxContainer" parent="MainUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = -40.0
+grow_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="SaveBtn" type="Button" parent="MainUI/BtnContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save"
+
+[node name="RestBtn" type="Button" parent="MainUI/BtnContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rest"
+
+[node name="SaveUI" type="Panel" parent="MainUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="MainUI/SaveUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="InnSaveSlot" parent="MainUI/SaveUI/HBox" instance=ExtResource("2_lag4h")]
+layout_mode = 2
+slot = 1
+
+[node name="InnSaveSlot2" parent="MainUI/SaveUI/HBox" instance=ExtResource("2_lag4h")]
+layout_mode = 2
+slot = 2
+
+[node name="InnSaveSlot3" parent="MainUI/SaveUI/HBox" instance=ExtResource("2_lag4h")]
+layout_mode = 2
+slot = 3
+
+[node name="RestUI" type="Panel" parent="MainUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="MainUI/RestUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PartyBox" type="HBoxContainer" parent="MainUI/RestUI/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+theme_override_constants/separation = 9
+
+[node name="InnPartySlot" parent="MainUI/RestUI/VBox/PartyBox" instance=ExtResource("3_xwd4s")]
+layout_mode = 2
+
+[node name="InnPartySlot2" parent="MainUI/RestUI/VBox/PartyBox" instance=ExtResource("3_xwd4s")]
+layout_mode = 2
+num = 1
+
+[node name="InnPartySlot3" parent="MainUI/RestUI/VBox/PartyBox" instance=ExtResource("3_xwd4s")]
+layout_mode = 2
+num = 2
+
+[node name="InnPartySlot4" parent="MainUI/RestUI/VBox/PartyBox" instance=ExtResource("3_xwd4s")]
+layout_mode = 2
+num = 3
+
+[node name="InfoBar" type="HBoxContainer" parent="MainUI/RestUI/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="CostTxt" type="Label" parent="MainUI/RestUI/VBox/InfoBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 60
+text = "Cost: 99999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealBtn" type="Button" parent="MainUI/RestUI/VBox/InfoBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Heal Party?"
+
+[connection signal="button_up" from="BaseUI/ExitBtn" to="." method="_on_exit_btn_button_up"]
+[connection signal="button_up" from="MainUI/BtnContainer/SaveBtn" to="." method="save_click"]
+[connection signal="button_up" from="MainUI/BtnContainer/RestBtn" to="." method="rest_click"]

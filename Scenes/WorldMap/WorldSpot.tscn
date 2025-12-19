@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmamsrk1wackt"]
+
+[ext_resource type="Script" path="res://Scripts/WorldMap/world_spot.gd" id="1_0ofam"]
+[ext_resource type="Texture2D" uid="uid://367lbofltl1t" path="res://Images/Textures/Icons/Spots/Town.png" id="2_g4hlx"]
+[ext_resource type="PackedScene" uid="uid://ix1cfcmaihci" path="res://Scenes/UI/WorldSpotUI.tscn" id="3_vvmhn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_44gyx"]
+radius = 1.82198
+
+[sub_resource type="BoxMesh" id="BoxMesh_17i76"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wajj6"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lrgla"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_gbeqb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_412fj"]
+viewport_path = NodePath("Sprite3D/SubViewport")
+
+[node name="WorldSpot" type="Node3D" node_paths=PackedStringArray("spot_ui")]
+script = ExtResource("1_0ofam")
+displayName = "Town"
+description = "A Basic Town"
+icon = ExtResource("2_g4hlx")
+spot_ui = NodePath("Sprite3D/SubViewport/Control/WorldSpotUI")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0860023, 0.0401359, 0.554457)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0157804)
+shape = SubResource("SphereShape3D_44gyx")
+
+[node name="Body" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.496565, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Body"]
+mesh = SubResource("BoxMesh_17i76")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body"]
+shape = SubResource("BoxShape3D_wajj6")
+
+[node name="Spot" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0536825, 1.24884)
+
+[node name="Mesh" type="MeshInstance3D" parent="Spot"]
+transform = Transform3D(1, 0, 0, 0, 0.0535469, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_lrgla")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spot"]
+transform = Transform3D(1, 0, 0, 0, 0.054, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_gbeqb")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.995366, 0.637612)
+visible = false
+no_depth_test = true
+texture = SubResource("ViewportTexture_412fj")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+size = Vector2i(1200, 700)
+
+[node name="Control" type="Control" parent="Sprite3D/SubViewport"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WorldSpotUI" parent="Sprite3D/SubViewport/Control" instance=ExtResource("3_vvmhn")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

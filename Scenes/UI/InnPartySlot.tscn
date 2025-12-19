@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd6k2iyfjxsyb"]
+
+[ext_resource type="Script" path="res://Scripts/Town/inn_party_slot.gd" id="1_0qyrm"]
+[ext_resource type="Texture2D" uid="uid://bdej8fbirl1ui" path="res://Images/Textures/Icons/Characters/Cleric.png" id="1_16pbn"]
+
+[node name="InnPartySlot" type="Button"]
+custom_minimum_size = Vector2(275, 0)
+script = ExtResource("1_0qyrm")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameTxt" type="Label" parent="VBox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SlotImg" type="TextureRect" parent="VBox"]
+custom_minimum_size = Vector2(175, 175)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_16pbn")
+expand_mode = 4
+
+[node name="HealthBar" type="ProgressBar" parent="VBox"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+value = 67.0
+show_percentage = false
+
+[node name="HealthTxt" type="Label" parent="VBox/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "HP: 67/100"
+
+[node name="ArtistryBar" type="ProgressBar" parent="VBox"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+value = 44.0
+show_percentage = false
+
+[node name="HealthTxt" type="Label" parent="VBox/ArtistryBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "AP: 44/100"

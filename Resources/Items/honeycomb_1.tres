@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=2 format=3 uid="uid://u2fhr6sf3jn0"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/item_data.gd" id="1_lhau4"]
+
+[resource]
+script = ExtResource("1_lhau4")
+id = "Honeycomb1"
+name = "Honeycomb"
+pic = "Honey.png"
+buyCost = 30
+sellCost = 15
+owned = 0
+item_type = 0
+weapon_type = 0
+armor_type = 0
+accessory_type = 0
+value = 30
+stats = {}
+description = "A raw honeycomb restores some AP."
+flavor = "A sweet and refreshing treat stolen from some Buzzins."

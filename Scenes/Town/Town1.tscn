@@ -1,0 +1,214 @@
+[gd_scene load_steps=25 format=3 uid="uid://btu1v6saoqr4b"]
+
+[ext_resource type="Script" path="res://Scripts/Town/town.gd" id="1_cj8ww"]
+[ext_resource type="PackedScene" uid="uid://io47n3nqwx51" path="res://Scenes/Town/Building.tscn" id="2_hcele"]
+[ext_resource type="Texture2D" uid="uid://uc20vlk0v6b2" path="res://Images/Textures/Npcs/Town/ItemShopOwner.png" id="3_4bqyj"]
+[ext_resource type="PackedScene" uid="uid://cpb2aldgant03" path="res://Scenes/UI/ShopUI.tscn" id="3_jqrpi"]
+[ext_resource type="Texture2D" uid="uid://cnxrbk584ajnu" path="res://Images/Textures/Icons/Npcs/InnPic.png" id="5_l6vfj"]
+[ext_resource type="Texture2D" uid="uid://cijg17vcjkdsw" path="res://Images/Textures/Npcs/Town/InnOwner.png" id="6_u5ev1"]
+[ext_resource type="PackedScene" uid="uid://8oc11jks8n8k" path="res://Scenes/UI/InnUI.tscn" id="7_6h7jr"]
+[ext_resource type="Texture2D" uid="uid://cig64i1a756ot" path="res://Images/Textures/Icons/Npcs/GuildPic.png" id="7_b3h2h"]
+[ext_resource type="Texture2D" uid="uid://cc4t6srf1kt6y" path="res://Images/Textures/Npcs/Town/GuildOwner.png" id="8_aofag"]
+[ext_resource type="Texture2D" uid="uid://c3bsrvo8rhpf5" path="res://Images/Textures/Icons/Npcs/SmithyPic.png" id="9_2prvw"]
+[ext_resource type="Texture2D" uid="uid://b21ep4qjfgef3" path="res://Images/Textures/Npcs/Town/SmithyOwner.png" id="10_873y6"]
+[ext_resource type="PackedScene" uid="uid://bkagh8e3ncg41" path="res://Scenes/UI/GuildUI.tscn" id="10_p0kjc"]
+[ext_resource type="PackedScene" uid="uid://c77sgm2qt62yn" path="res://Scenes/UI/SmithUI.tscn" id="13_etg2t"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uxqnv"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_prh3m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ayox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8728"]
+atlas = ExtResource("3_4bqyj")
+region = Rect2(0, 0, 800, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eyp22"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8728")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amblj"]
+atlas = ExtResource("6_u5ev1")
+region = Rect2(0, 0, 800, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qn3mv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amblj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7c7e"]
+atlas = ExtResource("8_aofag")
+region = Rect2(0, 0, 800, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7i1n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7c7e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5fwi"]
+atlas = ExtResource("10_873y6")
+region = Rect2(0, 0, 800, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_su586"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5fwi")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Town1" type="Node3D"]
+script = ExtResource("1_cj8ww")
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_uxqnv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_prh3m")
+
+[node name="Buildings" type="Node" parent="."]
+
+[node name="Interacts" type="Node" parent="Buildings"]
+
+[node name="Shop" parent="Buildings/Interacts" node_paths=PackedStringArray("BuildingUI") instance=ExtResource("2_hcele")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.84683, 0, -2.56078)
+ownerName = "Esme"
+ownerDialogue = {
+"First": "I got the good stuff..."
+}
+ownerRespones = {
+"Begin": "What can I get you?",
+"Broke": "Need some money first.",
+"Buy": "Here you go.",
+"End": "Enjoy my friend.",
+"Normal": "Anything else?",
+"Sell": "Thanks for the new inventory",
+"Too Much": "I think you got enough..."
+}
+BuildingUI = NodePath("ShopUI")
+
+[node name="Mesh" type="MeshInstance3D" parent="Buildings/Interacts/Shop"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.5, -2.10237)
+mesh = SubResource("BoxMesh_8ayox")
+
+[node name="AnimSprite3D" type="AnimatedSprite3D" parent="Buildings/Interacts/Shop"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
+sprite_frames = SubResource("SpriteFrames_eyp22")
+animation = &"idle"
+
+[node name="ShopUI" parent="Buildings/Interacts/Shop" instance=ExtResource("3_jqrpi")]
+shop_inventory = Array[String](["Mushroom1", "Honeycomb1", "Bomb1"])
+
+[node name="Inn" parent="Buildings/Interacts" node_paths=PackedStringArray("BuildingUI") instance=ExtResource("2_hcele")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.90062, 0, 4.84253)
+ownerName = "Julie"
+ownerPic = ExtResource("5_l6vfj")
+ownerDialogue = {
+"First": "Hope y'all doing good. Beds are open if you need."
+}
+ownerRespones = {
+"Begin": "How y'all doing?",
+"Both": "Get a good nights rest.",
+"End": "Stay safe.",
+"Normal": "Found anything interesting while traveling?",
+"Rest": "I'll go fluff the beds.",
+"Save": "Let me check your progress..."
+}
+BuildingUI = NodePath("InnUi")
+
+[node name="Mesh" type="MeshInstance3D" parent="Buildings/Interacts/Inn"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.5, -2.10237)
+mesh = SubResource("BoxMesh_8ayox")
+
+[node name="AnimSprite3D" type="AnimatedSprite3D" parent="Buildings/Interacts/Inn"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
+sprite_frames = SubResource("SpriteFrames_qn3mv")
+animation = &"idle"
+
+[node name="InnUi" parent="Buildings/Interacts/Inn" instance=ExtResource("7_6h7jr")]
+
+[node name="Guild" parent="Buildings/Interacts" node_paths=PackedStringArray("BuildingUI") instance=ExtResource("2_hcele")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18712, 0, -5.83463)
+ownerName = "Aron"
+ownerPic = ExtResource("7_b3h2h")
+ownerDialogue = {
+"First": "Looking to hire the best mercs in town?"
+}
+ownerRespones = {
+"Begin": "We're at your service.",
+"End": "Glad to be of service.",
+"Fire": "Hope they served you well.",
+"Hire": "Who you need? We got the best only!",
+"Normal": "We take pride in our work. You're in good hands."
+}
+BuildingUI = NodePath("GuildUi")
+
+[node name="Mesh" type="MeshInstance3D" parent="Buildings/Interacts/Guild"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.5, -2.10237)
+mesh = SubResource("BoxMesh_8ayox")
+
+[node name="AnimSprite3D" type="AnimatedSprite3D" parent="Buildings/Interacts/Guild"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
+sprite_frames = SubResource("SpriteFrames_k7i1n")
+animation = &"idle"
+
+[node name="GuildUi" parent="Buildings/Interacts/Guild" instance=ExtResource("10_p0kjc")]
+
+[node name="Smith" parent="Buildings/Interacts" node_paths=PackedStringArray("BuildingUI") instance=ExtResource("2_hcele")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.50237, 0, 7.81048)
+ownerName = "Jeramiah"
+ownerPic = ExtResource("9_2prvw")
+ownerDialogue = {
+"First": "That @#$% unicorn! Wish I could smash it with my hammer!"
+}
+ownerRespones = {
+"Begin": "How ya wanna hurt 'em?",
+"Broke": "I ain't doing this for free.",
+"Buy": "Careful it's sharp, heh.",
+"End": "Have fun!",
+"Normal": "Got more where that came from.",
+"Too Much": "Don't think ya got the pocket space for that."
+}
+BuildingUI = NodePath("SmithUi")
+
+[node name="Mesh" type="MeshInstance3D" parent="Buildings/Interacts/Smith"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.5, -2.10237)
+mesh = SubResource("BoxMesh_8ayox")
+
+[node name="AnimSprite3D" type="AnimatedSprite3D" parent="Buildings/Interacts/Smith"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
+sprite_frames = SubResource("SpriteFrames_su586")
+animation = &"idle"
+
+[node name="SmithUi" parent="Buildings/Interacts/Smith" instance=ExtResource("13_etg2t")]
+weapon_inventory = Array[String](["SwordShield_1"])
+armor_inventory = Array[String](["HeavyArmor_1"])
+accessory_inventory = Array[String](["Hairpin_1"])
+
+[node name="Non" type="Node" parent="Buildings"]

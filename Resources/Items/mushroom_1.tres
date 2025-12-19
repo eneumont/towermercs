@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=2 format=3 uid="uid://b0k3lrfk2edf4"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/item_data.gd" id="1_qmi1b"]
+
+[resource]
+script = ExtResource("1_qmi1b")
+id = "Mushroom1"
+name = "Mushroom"
+pic = "Mushroom.png"
+buyCost = 10
+sellCost = 5
+owned = 0
+item_type = 0
+weapon_type = 0
+armor_type = 0
+accessory_type = 0
+value = 70
+stats = {}
+description = "A colorful mushroom restores small amount of health."
+flavor = "Often given to sick children who complain about the bitter taste."

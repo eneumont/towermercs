@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=2 format=3 uid="uid://d3nw2lt06g2ok"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/item_data.gd" id="1_eqikt"]
+
+[resource]
+script = ExtResource("1_eqikt")
+id = "SwordShield_1"
+name = "Cheap Sword"
+pic = "Bomb.png"
+buyCost = 100
+sellCost = 50
+owned = 0
+item_type = 2
+weapon_type = 1
+armor_type = 0
+accessory_type = 0
+value = 0
+stats = {}
+description = "A cheap weapon for knights."
+flavor = "Hastily made given to trainees or poor fighters."

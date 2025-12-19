@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddo6ivruo5ap6"]
+
+[ext_resource type="Script" path="res://Scripts/Field/field_char.gd" id="1_om8w3"]
+[ext_resource type="Texture2D" uid="uid://bcw8qfn36rlma" path="res://Images/Textures/Classes/Thief/thief_field.png" id="2_b70oe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be0aq"]
+atlas = ExtResource("2_b70oe")
+region = Rect2(12800, 0, 800, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sasfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be0aq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2f0qm"]
+
+[node name="FieldChar" type="CharacterBody3D"]
+script = ExtResource("1_om8w3")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
+sprite_frames = SubResource("SpriteFrames_sasfl")
+animation = &"idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_2f0qm")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4, 4)

@@ -1,0 +1,366 @@
+[gd_scene load_steps=4 format=3 uid="uid://brbjfgp2m57v6"]
+
+[ext_resource type="Script" path="res://Scripts/Title/title_ui.gd" id="1_0sc1q"]
+[ext_resource type="PackedScene" uid="uid://hcptrv3t5bku" path="res://Scenes/Title/TitleSaveSlot.tscn" id="2_fv6gq"]
+[ext_resource type="PackedScene" uid="uid://7yxg2t1tjna7" path="res://Scenes/UI/ClassSlot.tscn" id="3_cxqlk"]
+
+[node name="TitleUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0sc1q")
+
+[node name="TitleScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleTxt" type="Label" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -305.5
+offset_top = 67.0
+offset_right = 305.5
+offset_bottom = 202.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 99
+text = "Tower Mercs"
+
+[node name="TitleButtons" type="VBoxContainer" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -189.0
+offset_top = -241.0
+offset_right = 189.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayBtn" type="Button" parent="TitleScreen/TitleButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Play"
+
+[node name="OptionsBtn" type="Button" parent="TitleScreen/TitleButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="QuitBtn" type="Button" parent="TitleScreen/TitleButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="PlayScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayTitle" type="Label" parent="PlayScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -409.0
+offset_top = 123.0
+offset_right = 409.0
+offset_bottom = 214.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 66
+text = "How do you want to play?"
+
+[node name="PlayButtons" type="VBoxContainer" parent="PlayScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.5
+offset_top = -92.0
+offset_right = 161.5
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SoloBtn" type="Button" parent="PlayScreen/PlayButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Solo"
+
+[node name="MultiBtn" type="Button" parent="PlayScreen/PlayButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Multi"
+
+[node name="SaveScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveTitle" type="Label" parent="SaveScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -254.0
+offset_top = 31.0
+offset_right = 254.0
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 66
+text = "Pick your save..."
+
+[node name="SavesBox" type="HBoxContainer" parent="SaveScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -516.0
+offset_top = -190.0
+offset_right = 516.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveSlot" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
+layout_mode = 2
+slot = 1
+
+[node name="SaveSlot2" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
+layout_mode = 2
+slot = 2
+
+[node name="SaveSlot3" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
+layout_mode = 2
+slot = 3
+
+[node name="SaveSlot4" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
+layout_mode = 2
+slot = 4
+
+[node name="SaveButtons" type="HBoxContainer" parent="SaveScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_top = -150.0
+offset_right = 276.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NewBtn" type="Button" parent="SaveScreen/SaveButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "New Game"
+
+[node name="DeleteBtn" type="Button" parent="SaveScreen/SaveButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Delete"
+
+[node name="MultiScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsTitle" type="Label" parent="OptionsScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -126.0
+offset_top = 29.0
+offset_right = 126.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 66
+text = "Options"
+
+[node name="OptionsScroll" type="ScrollContainer" parent="OptionsScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -293.5
+offset_top = -522.0
+offset_right = 293.5
+grow_horizontal = 2
+grow_vertical = 0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="OptionsList" type="VBoxContainer" parent="OptionsScreen/OptionsScroll"]
+custom_minimum_size = Vector2(579, 522)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ModeScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModelTitle" type="Label" parent="ModeScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -213.5
+offset_top = 33.0
+offset_right = 213.5
+offset_bottom = 124.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 66
+text = "Which mode?"
+
+[node name="ModesBox" type="HBoxContainer" parent="ModeScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.5
+offset_top = -64.0
+offset_right = 275.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StoryBtn" type="Button" parent="ModeScreen/ModesBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Story"
+
+[node name="ArenaBtn" type="Button" parent="ModeScreen/ModesBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Arena"
+
+[node name="PartyScreen" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PartyTitle" type="Label" parent="PartyScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -386.5
+offset_top = 11.0
+offset_right = 386.5
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 66
+text = "Choose your members..."
+
+[node name="PartyBox" type="HBoxContainer" parent="PartyScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -541.0
+offset_top = -209.0
+offset_right = 541.0
+offset_bottom = 251.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClassSlot" parent="PartyScreen/PartyBox" instance=ExtResource("3_cxqlk")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ClassSlot2" parent="PartyScreen/PartyBox" instance=ExtResource("3_cxqlk")]
+layout_mode = 2
+size_flags_horizontal = 3
+type = 1
+slot = 1
+
+[node name="ClassSlot3" parent="PartyScreen/PartyBox" instance=ExtResource("3_cxqlk")]
+layout_mode = 2
+size_flags_horizontal = 3
+type = 2
+slot = 2
+
+[node name="ClassSlot4" parent="PartyScreen/PartyBox" instance=ExtResource("3_cxqlk")]
+layout_mode = 2
+size_flags_horizontal = 3
+type = 3
+slot = 3
+
+[node name="DoneBtn" type="Button" parent="PartyScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -54.0
+offset_right = 90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 33
+text = "DONE"
+
+[connection signal="button_up" from="TitleScreen/TitleButtons/PlayBtn" to="." method="play_screen"]
+[connection signal="button_up" from="TitleScreen/TitleButtons/OptionsBtn" to="." method="options_screen"]
+[connection signal="button_up" from="TitleScreen/TitleButtons/QuitBtn" to="." method="quit"]
+[connection signal="button_up" from="PlayScreen/PlayButtons/SoloBtn" to="." method="solo_click"]
+[connection signal="button_up" from="PlayScreen/PlayButtons/MultiBtn" to="." method="multi_screen"]
+[connection signal="button_up" from="SaveScreen/SaveButtons/NewBtn" to="." method="new_click"]
+[connection signal="button_up" from="SaveScreen/SaveButtons/DeleteBtn" to="." method="delete_click"]
+[connection signal="button_up" from="ModeScreen/ModesBox/StoryBtn" to="." method="story_click"]
+[connection signal="button_up" from="ModeScreen/ModesBox/ArenaBtn" to="." method="arena_click"]
+[connection signal="button_up" from="PartyScreen/DoneBtn" to="." method="party_done"]

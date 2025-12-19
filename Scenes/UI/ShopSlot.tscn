@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8m4hewmjcnwi"]
+
+[ext_resource type="Script" path="res://Scripts/Town/shop_item.gd" id="1_joorl"]
+[ext_resource type="Texture2D" uid="uid://bwg0cyjfngyl2" path="res://Images/Textures/Icons/Items/Mushroom.png" id="2_8v64x"]
+
+[node name="ShopSlot" type="Button"]
+custom_minimum_size = Vector2(0, 100)
+script = ExtResource("1_joorl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemPic" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_8v64x")
+
+[node name="ItemName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Name"
+horizontal_alignment = 1
+
+[node name="ItemCost" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "cost: 99999"
+horizontal_alignment = 2
+
+[node name="ItemOwn" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "owned: 99999"
+horizontal_alignment = 2
+
+[connection signal="button_up" from="." to="." method="click"]

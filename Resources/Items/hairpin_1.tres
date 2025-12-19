@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemRes" load_steps=2 format=3 uid="uid://d06x67gl2n8cq"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/item_data.gd" id="1_kyol7"]
+
+[resource]
+script = ExtResource("1_kyol7")
+id = "Hairpin_1"
+name = "Cheap Hairpin"
+pic = "Honey.png"
+buyCost = 70
+sellCost = 35
+owned = 0
+item_type = 4
+weapon_type = 0
+armor_type = 0
+accessory_type = 1
+value = 0
+stats = {}
+description = "A cheap accessory for knights."
+flavor = "Hastily made given to trainees or poor fighters."

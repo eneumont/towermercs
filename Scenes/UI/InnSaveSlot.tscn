@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=3 uid="uid://7sdsm0yitoij"]
+
+[ext_resource type="Script" path="res://Scripts/Town/inn_save_slot.gd" id="1_ywond"]
+[ext_resource type="Texture2D" uid="uid://bdej8fbirl1ui" path="res://Images/Textures/Icons/Characters/Cleric.png" id="2_jjt8a"]
+
+[node name="InnSaveSlot" type="Button"]
+size_flags_horizontal = 3
+script = ExtResource("1_ywond")
+
+[node name="FullSave" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameTxt" type="Label" parent="FullSave"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PartyImg" type="HBoxContainer" parent="FullSave"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ImgOne" type="TextureRect" parent="FullSave/PartyImg"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_jjt8a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ImgTwo" type="TextureRect" parent="FullSave/PartyImg"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_jjt8a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ImgThree" type="TextureRect" parent="FullSave/PartyImg"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_jjt8a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ImgFour" type="TextureRect" parent="FullSave/PartyImg"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_jjt8a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AreaTxt" type="Label" parent="FullSave"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Area: Place"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyTxt" type="Label" parent="FullSave"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Money: $99999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollectionTxt" type="Label" parent="FullSave"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Collection: 99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeTxt" type="Label" parent="FullSave"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Time: 99:99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EmptySave" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.5
+offset_top = 47.5
+offset_right = 168.5
+offset_bottom = 180.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.554231
+theme_override_font_sizes/font_size = 97
+text = "Empty"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://ix1cfcmaihci"]
+
+[ext_resource type="Texture2D" uid="uid://367lbofltl1t" path="res://Images/Textures/Icons/Spots/Town.png" id="1_376jx"]
+[ext_resource type="Script" path="res://Scripts/WorldMap/world_spot_ui.gd" id="1_xndtc"]
+
+[node name="WorldSpotUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 48.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xndtc")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+offset_right = 600.0
+offset_bottom = 600.0
+texture = ExtResource("1_376jx")
+
+[node name="NameBg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 600.0
+grow_vertical = 0
+color = Color(0.552956, 0.552956, 0.552956, 1)
+
+[node name="Name" type="Label" parent="NameBg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 70
+text = "Long Area Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionBg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -600.0
+offset_bottom = 700.0
+grow_horizontal = 0
+color = Color(0.552956, 0.552956, 0.552956, 1)
+
+[node name="Description" type="Label" parent="DescriptionBg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "This is a bit of text, that is here just to help show what size the font should be along with how long the descriptions should be as well. And other stuff..."
+vertical_alignment = 1
+autowrap_mode = 2

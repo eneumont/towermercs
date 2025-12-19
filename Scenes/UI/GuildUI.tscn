@@ -1,0 +1,165 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkagh8e3ncg41"]
+
+[ext_resource type="Script" path="res://Scripts/Town/guild_ui.gd" id="1_2w71w"]
+
+[node name="GuildUI" type="Control" node_paths=PackedStringArray("ownerImg", "nameTxt", "dialogTxt", "moneyTxt", "exitBtn")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2w71w")
+ownerImg = NodePath("BaseUI/TalkBox/OwnerImg")
+nameTxt = NodePath("BaseUI/TalkBox/NameImg/NameTxt")
+dialogTxt = NodePath("BaseUI/TalkBox/DialogImg/DialogTxt")
+moneyTxt = NodePath("BaseUI/MoneyImg/MoneyTxt")
+exitBtn = NodePath("BaseUI/ExitBtn")
+
+[node name="BaseUI" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TalkBox" type="Panel" parent="BaseUI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="OwnerImg" type="TextureRect" parent="BaseUI/TalkBox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -130.0
+offset_top = -65.0
+offset_bottom = 65.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="NameImg" type="Panel" parent="BaseUI/TalkBox"]
+layout_mode = 1
+offset_top = -19.0
+offset_right = 218.0
+offset_bottom = 21.0
+
+[node name="NameTxt" type="Label" parent="BaseUI/TalkBox/NameImg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Name"
+vertical_alignment = 1
+
+[node name="DialogImg" type="Panel" parent="BaseUI/TalkBox"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+offset_right = 1020.0
+grow_vertical = 0
+
+[node name="DialogTxt" type="Label" parent="BaseUI/TalkBox/DialogImg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "Basic dialog text just to test sizes, spacing, and so on..."
+autowrap_mode = 2
+
+[node name="MoneyImg" type="Panel" parent="BaseUI"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+
+[node name="MoneyTxt" type="Label" parent="BaseUI/MoneyImg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Money: $99999"
+vertical_alignment = 1
+
+[node name="ExitBtn" type="Button" parent="BaseUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 30.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 15
+text = "Exit"
+
+[node name="MainUI" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -560.0
+offset_top = -246.0
+offset_right = 567.0
+offset_bottom = 173.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BtnContainer" type="HBoxContainer" parent="MainUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = -40.0
+grow_horizontal = 0
+theme_override_constants/separation = 0
+
+[node name="HireBtn" type="Button" parent="MainUI/BtnContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hire"
+
+[node name="FireBtn" type="Button" parent="MainUI/BtnContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fire"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="ItemsBox" type="HBoxContainer" parent="MainUI/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="button_up" from="BaseUI/ExitBtn" to="." method="_on_exit_btn_button_up"]
+[connection signal="button_up" from="MainUI/BtnContainer/HireBtn" to="." method="hire_click"]
+[connection signal="button_up" from="MainUI/BtnContainer/FireBtn" to="." method="fire_click"]
