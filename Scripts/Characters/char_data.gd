@@ -50,6 +50,7 @@ func make_base(c_name: String, type: ClassType) -> CharData:
 	base.display_name = c_name
 	base.cur_level = 1
 	base.cur_exp = 0
+	base.class_type = type
 	
 	match type:
 		ClassType.KNIGHT:

@@ -4,9 +4,9 @@ var money: int = 100
 var inventory: Dictionary
 
 var party: Array[CharData] = [
-	CharData.new().make_base("Test1", CharData.ClassType.KNIGHT),
+	CharData.new().make_base("Test1", CharData.ClassType.MAGE),
 	CharData.new().make_base("Test2", CharData.ClassType.THIEF),
-	CharData.new().make_base("Test3", CharData.ClassType.MAGE),
+	CharData.new().make_base("Test3", CharData.ClassType.KNIGHT),
 	CharData.new().make_base("Test4", CharData.ClassType.CLERIC)
 ]
 var collection: Array[CharData] = []

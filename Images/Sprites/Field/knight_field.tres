@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://c03lag1oqqk8o"]
+
+[ext_resource type="Texture2D" uid="uid://dkdnypn7fcj5v" path="res://Images/Textures/Classes/Knight/knight_field.png" id="1_86by0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hddee"]
+atlas = ExtResource("1_86by0")
+region = Rect2(15200, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecbdf"]
+atlas = ExtResource("1_86by0")
+region = Rect2(14400, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnp4q"]
+atlas = ExtResource("1_86by0")
+region = Rect2(14400, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cr5vn"]
+atlas = ExtResource("1_86by0")
+region = Rect2(13600, 0, 800, 1000)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hddee")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ecbdf")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnp4q")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cr5vn")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 5.0
+}]

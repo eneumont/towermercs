@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dt7jxjraf2ebt"]
+
+[ext_resource type="Texture2D" uid="uid://xvgjurtxpvqs" path="res://Images/Textures/Classes/Mage/mage_field.png" id="1_aquuq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3uj7"]
+atlas = ExtResource("1_aquuq")
+region = Rect2(11200, 0, 800, 1000)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3uj7")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}]
