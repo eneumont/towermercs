@@ -65,6 +65,14 @@ var skills
 
 var equipment
 
+func _init(is_player: bool, c_data: CharData = null, f_data: FoeData = null, control: Controller = Controller.PLAYER1) -> void:
+	if is_player:
+		team = Team.ALLY
+		player = Player.PLAYER
+	else:
+		team = Team.FOE
+		player = Player.AI
+
 func start_turn():
 	defending = false
 

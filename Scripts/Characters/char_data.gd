@@ -44,20 +44,19 @@ var equipment: Dictionary = {
 	ItemRes.ItemType.ACCESSORY : "",
 }
 
-func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
-	var base: CharData = CharData.new()
-	base.act_name = str(type) + "" #figure what actual names should be made
-	base.display_name = c_name
-	base.cur_level = 1
-	base.cur_exp = 0
-	base.class_type = type
+func _init(c_name: String, type: ClassType, pos: int = 0) -> void:
+	act_name = str(type) + "" #figure what actual names should be made
+	display_name = c_name
+	cur_level = 1
+	cur_exp = 0
+	class_type = type
 	
 	match type:
 		ClassType.KNIGHT:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -69,10 +68,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.THIEF:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -84,10 +83,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.MAGE:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -99,10 +98,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.CLERIC:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -114,10 +113,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.ALCHEMIST:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -129,10 +128,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.BARD:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -144,10 +143,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.BRAWLER:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -159,10 +158,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.MEDIC:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -174,10 +173,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.CLOWN:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -189,10 +188,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.ARCANIST:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -204,10 +203,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.DRUID:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -219,10 +218,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.SWORDMASTER:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -234,10 +233,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.HORROR:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -249,10 +248,10 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
 		ClassType.WITCH:
-			base.set_stats([10, 10, 10, 10, 10, 10, 10])
-			base.set_arts(["", "", ""])
-			base.set_equipment(["", "", ""])
-			base.set_affinities({
+			set_stats([10, 10, 10, 10, 10, 10, 10])
+			set_arts(["", "", ""])
+			set_equipment(["", "", ""])
+			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
 				AffinityType.PIERCE : AffinityRate.NEUTRAL,
 				AffinityType.SLASH : AffinityRate.NEUTRAL,
@@ -263,8 +262,6 @@ func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 				AffinityType.LIGHT : AffinityRate.NEUTRAL,
 				AffinityType.DARK : AffinityRate.NEUTRAL,
 			})
-	
-	return base
 
 func set_equipment(new_equip: Array[String]):
 	if not new_equip[0].is_empty(): equipment[ItemRes.ItemType.WEAPON] = new_equip[0]

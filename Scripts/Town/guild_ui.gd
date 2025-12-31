@@ -36,7 +36,7 @@ func hire(display: String, type: CharData.ClassType, cost: int):
 		pass
 	else:
 		PlayerData.money -= cost
-		PlayerData.collection.append(CharData.new().make_base(display, type))
+		PlayerData.collection.append(CharData.new(display, type))
 	
 func fire(display: String, cost: int):
 	PlayerData.money += cost

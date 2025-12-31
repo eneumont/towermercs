@@ -56,7 +56,7 @@ func done_click():
 	done = !done
 	if done: 
 		c_name = name_input.text
-		PlayerData.party[slot] = CharData.new().make_base(c_name, type)
+		PlayerData.party[slot] = CharData.new(c_name, type)
 
 func class_scroll(num: int):
 	var options = PlayerData.available_classes
@@ -66,9 +66,9 @@ func class_scroll(num: int):
 	elif (type + num) > options.size() - 1:
 		type = options[0]
 	else:
-		type = type + num
+		type += num
 	
-	PlayerData.party[slot] = CharData.new().make_base(c_name, type)
+	PlayerData.party[slot] = CharData.new(c_name, type)
 	
 	class_setup()
 

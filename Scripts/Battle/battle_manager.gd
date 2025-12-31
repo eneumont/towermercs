@@ -14,6 +14,7 @@ extends Node3D
 var feedback: String
 
 func _ready() -> void:
+	spawn_battlers()
 	new_turnOrder(true)
 
 func new_turn():
@@ -50,3 +51,7 @@ func new_nextTurnOrder():
 				var temp = next_turnOrder[c]
 				next_turnOrder[c] = next_turnOrder[c + 1]
 				next_turnOrder[c + 1] = temp
+
+func spawn_battlers():
+	for p in PlayerData.party:
+		PlayerBattlers.append(Battler.new(true, p))

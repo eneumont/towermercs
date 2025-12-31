@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctppvbio80ngj"]
 
-[ext_resource type="Script" path="res://Scripts/Battle/battle_manager.gd" id="1_fwcjq"]
+[ext_resource type="Script" uid="uid://cfbkivpm28lux" path="res://Scripts/Battle/battle_manager.gd" id="1_fwcjq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jwteh"]
 
@@ -14,6 +14,7 @@ script = ExtResource("1_fwcjq")
 [node name="Ground" type="StaticBody3D" parent="Layout"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Layout/Ground"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("PlaneMesh_jwteh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Ground"]

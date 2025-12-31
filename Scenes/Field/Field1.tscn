@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://dyxmexnwwt7i3"]
+[gd_scene load_steps=4 format=3 uid="uid://dyxmexnwwt7i3"]
+
+[ext_resource type="Script" uid="uid://dcxxouomxwvev" path="res://Scripts/Field/field.gd" id="1_46v5i"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xqksw"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_46v5i"]
 
 [node name="Field1" type="Node3D"]
+script = ExtResource("1_46v5i")
+
+[node name="Layout" type="Node3D" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="Layout"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Layout/Ground"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_xqksw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Ground"]
+shape = SubResource("WorldBoundaryShape3D_46v5i")
+
+[node name="Spawns" type="Node3D" parent="."]
+
+[node name="Enemies" type="Node3D" parent="Spawns"]
+
+[node name="Items" type="Node3D" parent="Spawns"]
