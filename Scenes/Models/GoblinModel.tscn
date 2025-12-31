@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpcrab6x40y70"]
+
+[ext_resource type="PackedScene" uid="uid://c0xrx4nkxuipd" path="res://Models/Test/Orc.glb" id="1_ydnbf"]
+
+[node name="Orc" instance=ExtResource("1_ydnbf")]

@@ -1,13 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyxmexnwwt7i3"]
+[gd_scene load_steps=6 format=3 uid="uid://dyxmexnwwt7i3"]
 
 [ext_resource type="Script" uid="uid://dcxxouomxwvev" path="res://Scripts/Field/field.gd" id="1_46v5i"]
+[ext_resource type="Script" uid="uid://bhcbewusdisi2" path="res://Scripts/Field/field_spawner.gd" id="2_rcrrr"]
+[ext_resource type="PackedScene" uid="uid://c0ga7cfl0du24" path="res://Scenes/Field/Foes/FieldFoe-Goblin.tscn" id="3_elxp8"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xqksw"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_46v5i"]
 
-[node name="Field1" type="Node3D"]
+[node name="Field1" type="Node3D" node_paths=PackedStringArray("spawners")]
 script = ExtResource("1_46v5i")
+spawners = [NodePath("Spawners/Enemies/Foe1"), NodePath("Spawners/Enemies/Foe2"), NodePath("Spawners/Enemies/Foe3")]
 
 [node name="Layout" type="Node3D" parent="."]
 
@@ -20,8 +23,26 @@ mesh = SubResource("PlaneMesh_xqksw")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Ground"]
 shape = SubResource("WorldBoundaryShape3D_46v5i")
 
-[node name="Spawns" type="Node3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Layout"]
+transform = Transform3D(1, 0, 0, 0, 0.89712733, 0.44177204, 0, -0.44177204, 0.89712733, 0.2790215, 4.516794, 6.681136)
 
-[node name="Enemies" type="Node3D" parent="Spawns"]
+[node name="Spawners" type="Node3D" parent="."]
 
-[node name="Items" type="Node3D" parent="Spawns"]
+[node name="Enemies" type="Node3D" parent="Spawners"]
+
+[node name="Foe1" type="Node3D" parent="Spawners/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7817707, 0, -5.5594087)
+script = ExtResource("2_rcrrr")
+spawn_node = ExtResource("3_elxp8")
+
+[node name="Foe2" type="Node3D" parent="Spawners/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6703806, 0, -0.08108759)
+script = ExtResource("2_rcrrr")
+spawn_node = ExtResource("3_elxp8")
+
+[node name="Foe3" type="Node3D" parent="Spawners/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4367266, 0, 6.2175174)
+script = ExtResource("2_rcrrr")
+spawn_node = ExtResource("3_elxp8")
+
+[node name="Items" type="Node3D" parent="Spawners"]

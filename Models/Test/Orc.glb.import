@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Orc.glb-88147ea2d79961254e9f4da6ecb6169b.scn"
 
 [params]
 
-nodes/root_type="CharacterBody3D"
+nodes/root_type="Node3D"
 nodes/root_name="Orc"
 nodes/root_script=null
 nodes/apply_root_scale=true
