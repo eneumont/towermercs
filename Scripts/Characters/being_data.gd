@@ -11,6 +11,28 @@ enum StatType {
 	SPEED
 }
 
+enum AffinityType {
+	PURE_PHYSICAL,
+	BLUNT,
+	PIERCE,
+	SLASH,
+	FIRE,
+	WATER,
+	EARTH,
+	WIND,
+	LIGHT,
+	DARK,
+	PURE_MAGICAL,
+}
+
+enum AffinityRate {
+	GREAT,
+	OK,
+	NEUTRAL,
+	BAD,
+	POOR,
+}
+
 var act_name: String
 var display_name: String
 var cur_level: int
@@ -42,6 +64,18 @@ var equippedArts : Array = [
 	
 ]
 
+var affinities: Dictionary = {
+	AffinityType.BLUNT : AffinityRate.NEUTRAL,
+	AffinityType.PIERCE : AffinityRate.NEUTRAL,
+	AffinityType.SLASH : AffinityRate.NEUTRAL,
+	AffinityType.FIRE : AffinityRate.NEUTRAL,
+	AffinityType.WATER : AffinityRate.NEUTRAL,
+	AffinityType.EARTH : AffinityRate.NEUTRAL,
+	AffinityType.WIND : AffinityRate.NEUTRAL,
+	AffinityType.LIGHT : AffinityRate.NEUTRAL,
+	AffinityType.DARK : AffinityRate.NEUTRAL,
+}
+
 func set_stats(new_stats: Array):
 	stats[StatType.HEALTH] = new_stats[0]
 	stats[StatType.ARTISTRY] = new_stats[1]
@@ -53,3 +87,6 @@ func set_stats(new_stats: Array):
 
 func set_arts(new_arts: Array):
 	equippedArts = new_arts
+
+func set_affinities(new_affinities: Dictionary):
+	affinities = new_affinities

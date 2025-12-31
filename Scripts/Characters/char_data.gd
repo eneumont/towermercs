@@ -44,9 +44,9 @@ var equipment: Dictionary = {
 	ItemRes.ItemType.ACCESSORY : "",
 }
 
-func make_base(c_name: String, type: ClassType) -> CharData:
+func make_base(c_name: String, type: ClassType, pos: int = 0) -> CharData:
 	var base: CharData = CharData.new()
-	base.act_name = str(type) + "" #figure what actual names should be or if needed
+	base.act_name = str(type) + "" #figure what actual names should be made
 	base.display_name = c_name
 	base.cur_level = 1
 	base.cur_exp = 0
@@ -56,45 +56,213 @@ func make_base(c_name: String, type: ClassType) -> CharData:
 		ClassType.KNIGHT:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.THIEF:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.MAGE:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.CLERIC:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.ALCHEMIST:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.BARD:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.BRAWLER:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.MEDIC:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.CLOWN:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.ARCANIST:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.DRUID:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.SWORDMASTER:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.HORROR:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 		ClassType.WITCH:
 			base.set_stats([10, 10, 10, 10, 10, 10, 10])
 			base.set_arts(["", "", ""])
+			base.set_equipment(["", "", ""])
+			base.set_affinities({
+				AffinityType.BLUNT : AffinityRate.NEUTRAL,
+				AffinityType.PIERCE : AffinityRate.NEUTRAL,
+				AffinityType.SLASH : AffinityRate.NEUTRAL,
+				AffinityType.FIRE : AffinityRate.NEUTRAL,
+				AffinityType.WATER : AffinityRate.NEUTRAL,
+				AffinityType.EARTH : AffinityRate.NEUTRAL,
+				AffinityType.WIND : AffinityRate.NEUTRAL,
+				AffinityType.LIGHT : AffinityRate.NEUTRAL,
+				AffinityType.DARK : AffinityRate.NEUTRAL,
+			})
 	
 	return base
 

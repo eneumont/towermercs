@@ -15,7 +15,7 @@ class_name ArtRes
 @export var type: ArtType
 @export var anim: String
 @export var crit_art: String
-#whether to stay in place or move to target, or just have when doing action move slightly forward
+@export var description: String
 
 enum GroupType {
 	SINGLE,
@@ -37,16 +37,33 @@ enum ArtType {
 	RUN,
 }
 
-func cast():
+func cast(caster: Battler, targets: Array):
 	#move character forward
 	match (type):
 		ArtType.ATTACK:
-			pass
+			attack_cast(caster, targets)
 		ArtType.MAGIC:
-			pass
+			magic_cast(caster, targets)
 		ArtType.DEFEND:
-			pass
+			defend_cast(caster, targets)
 		ArtType.ITEM:
-			pass
+			item_cast(caster, targets)
 		ArtType.RUN:
-			pass
+			run_cast(caster, targets)
+
+func attack_cast(caster: Battler, targets: Array):
+	for t in targets:
+		t.take_damage(10)
+
+func magic_cast(caster: Battler, targets: Array):
+	for t in targets:
+		t.take_damage(10)
+	
+func defend_cast(caster: Battler, targets: Array):
+	caster.defending = true
+	
+func item_cast(caster: Battler, targets: Array):
+	pass
+	
+func run_cast(caster: Battler, targets: Array):
+	pass
