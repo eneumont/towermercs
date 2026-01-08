@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c0xrx4nkxuipd"
-path="res://.godot/imported/Orc.glb-88147ea2d79961254e9f4da6ecb6169b.scn"
+path="res://.godot/imported/Goblin.glb-00736613498056eb29e6ccf37d8c94f6.scn"
 
 [deps]
 
-source_file="res://Models/Test/Orc.glb"
-dest_files=["res://.godot/imported/Orc.glb-88147ea2d79961254e9f4da6ecb6169b.scn"]
+source_file="res://Models/Test/Goblin.glb"
+dest_files=["res://.godot/imported/Goblin.glb-00736613498056eb29e6ccf37d8c94f6.scn"]
 
 [params]
 

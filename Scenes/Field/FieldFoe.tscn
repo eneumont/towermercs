@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b506hr54qt135"]
+
+[ext_resource type="Script" uid="uid://bl76v205yksnu" path="res://Scripts/Field/field_foe.gd" id="1_oc55i"]
+
+[node name="FieldFoe" type="CharacterBody3D"]
+script = ExtResource("1_oc55i")
