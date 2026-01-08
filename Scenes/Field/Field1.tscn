@@ -34,15 +34,21 @@ transform = Transform3D(1, 0, 0, 0, 0.89712733, 0.44177204, 0, -0.44177204, 0.89
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7817707, 0, -5.5594087)
 script = ExtResource("2_rcrrr")
 spawn_node = ExtResource("3_elxp8")
+type = 1
+encounters = Array[String](["Goblin,Goblin,Goblin,Goblin", "Goblin,Goblin,Goblin", "Goblin,Goblin", "Goblin,Goblin,Slime,Slime", "Goblin,Goblin,Goblin,Slime", "Goblin,Slime", "Goblin,Fairy,Goblin,Fairy", "Goblin,Fairy,Slime", "Goblin,Fairy"])
 
 [node name="Foe2" type="Node3D" parent="Spawners/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6703806, 0, -0.08108759)
 script = ExtResource("2_rcrrr")
 spawn_node = ExtResource("3_elxp8")
+type = 1
+encounters = Array[String](["Goblin,Goblin,Goblin,Goblin", "Goblin,Goblin,Goblin", "Goblin,Goblin", "Goblin,Goblin,Slime,Slime", "Goblin,Goblin,Goblin,Slime", "Goblin,Slime", "Goblin,Fairy,Goblin,Fairy", "Goblin,Fairy,Slime", "Goblin,Fairy"])
 
 [node name="Foe3" type="Node3D" parent="Spawners/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4367266, 0, 6.2175174)
 script = ExtResource("2_rcrrr")
 spawn_node = ExtResource("3_elxp8")
+type = 1
+encounters = Array[String](["Goblin,Goblin,Goblin,Goblin", "Goblin,Goblin,Goblin", "Goblin,Goblin", "Goblin,Goblin,Slime,Slime", "Goblin,Goblin,Goblin,Slime", "Goblin,Slime", "Goblin,Fairy,Goblin,Fairy", "Goblin,Fairy,Slime", "Goblin,Fairy"])
 
 [node name="Items" type="Node3D" parent="Spawners"]
