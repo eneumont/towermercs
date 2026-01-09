@@ -4,6 +4,7 @@ var speed  = randf_range(2.0, 4.0)
 var anim_tree: AnimationTree
 var encounters: Array[String]
 var model: Node3D
+var area: Area3D
 
 var player
 var foe_id
@@ -12,6 +13,8 @@ var spawner
 func _ready() -> void:
 	model = get_node("Model")
 	anim_tree = model.get_node("AnimationTree")
+	area = get_node("Area")
+	
 
 func _physics_process(delta: float) -> void:
 	var space_state = get_world_3d().direct_space_state
@@ -38,7 +41,13 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-func _on_area_3d_body_entered(body: Node3D) -> void:
+#func _on_area_3d_body_entered(body: Node3D) -> void:
+#print("Works")
+#	if body.name == "FieldChar":
+#		#startbattle
+#		print("Encounter!")
+#		pass
+func body_enter(body: Node3D) -> void:
 	print("Works")
 	if body.name == "FieldChar":
 		#startbattle
