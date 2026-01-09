@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 PlayerData="*res://Scripts/Save/player_data.gd"
 ItemDatabase="*res://Scripts/Data/item_database.gd"
 SaveManager="*res://Scripts/Save/save_manager.gd"
+MusicManager="*res://Scripts/Audio/music_manager.gd"
 
 [editor_plugins]
 

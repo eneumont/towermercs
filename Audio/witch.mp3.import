@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/witch.mp3-7fc3d0570404e3eace1c10e3c872dc6a.mp
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

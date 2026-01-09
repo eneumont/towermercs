@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctppvbio80ngj"]
+[gd_scene load_steps=5 format=3 uid="uid://ctppvbio80ngj"]
 
 [ext_resource type="Script" uid="uid://cfbkivpm28lux" path="res://Scripts/Battle/battle_manager.gd" id="1_fwcjq"]
+[ext_resource type="AudioStream" uid="uid://dc62bp4laqwkx" path="res://Audio/battle.mp3" id="2_s7my8"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jwteh"]
 
@@ -8,6 +9,7 @@
 
 [node name="DemoBattle" type="Node3D"]
 script = ExtResource("1_fwcjq")
+audio = ExtResource("2_s7my8")
 
 [node name="Layout" type="Node3D" parent="."]
 

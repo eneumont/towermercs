@@ -2,10 +2,14 @@ extends Node
 
 @export var spawners: Array[Node3D]
 @export var items: Array
+@export var audio: AudioStream
 
 var player_scn: PackedScene = preload("res://Scenes/Field/FieldChar.tscn")
 
 func _ready() -> void:
+	MusicManager.stream = audio
+	MusicManager.play()
+	
 	if PlayerData.loadin:
 		var foes = PlayerData.foes
 		

@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var audio: AudioStream
+
 @export var BattlerPosList = []
 @export var Battlers = []
 @export var aliveBattlers = []
@@ -14,6 +16,9 @@ extends Node3D
 var feedback: String
 
 func _ready() -> void:
+	MusicManager.stream = audio
+	MusicManager.play()
+	
 	spawn_battlers()
 	new_turnOrder(true)
 
