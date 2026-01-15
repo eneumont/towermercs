@@ -1,6 +1,6 @@
 extends Node
 
-var money: int = 100
+var money: int = 100 #0
 var inventory: Dictionary
 
 var party: Array[CharData] = [
