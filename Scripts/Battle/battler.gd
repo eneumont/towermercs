@@ -1,3 +1,4 @@
+extends CharacterBody3D
 class_name Battler
 
 enum Team {
@@ -17,7 +18,9 @@ enum Controller {
 	PLAYER4,
 }
 
-var name: String
+var bm
+
+var act_name: String
 var displayName: String
 var level: int
 var curExp: int
@@ -65,7 +68,7 @@ var skills
 
 var equipment
 
-func _init(is_player: bool, c_data: CharData = null, f_data: FoeData = null, control: Controller = Controller.PLAYER1) -> void:
+func create(is_player: bool, c_data: CharData = null, f_data: EnemyData = null, control: Controller = Controller.PLAYER1) -> void:
 	if is_player:
 		team = Team.ALLY
 		player = Player.PLAYER
@@ -75,6 +78,10 @@ func _init(is_player: bool, c_data: CharData = null, f_data: FoeData = null, con
 
 func start_turn():
 	defending = false
+
+func end_turn():
+	bm.cur_turnOrder.remove_at(0)
+	bm.new_turn()
 
 func take_damage(dmg: int):
 	curHP += dmg

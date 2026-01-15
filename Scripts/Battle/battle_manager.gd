@@ -2,16 +2,16 @@ extends Node3D
 
 @export var audio: AudioStream
 
-@export var BattlerPosList = []
-@export var Battlers = []
-@export var aliveBattlers = []
-@export var PlayerBattlers = []
-@export var FoeBattlers = []
-@export var Encounter = []
-@export var casted_skill: String #or SkillRes
-@export var cur_turnOrder = []
-@export var next_turnOrder = []
-@export var targets = []
+@export var BattlerPosList: Array[Marker3D]
+@export var Battlers: Array[Battler]
+@export var aliveBattlers: Array[Battler]
+@export var PlayerBattlers: Array[BattlerP]
+@export var FoeBattlers: Array[BattlerE]
+
+var casted_skill: String #or SkillRes
+var cur_turnOrder = []
+var next_turnOrder = []
+var targets = []
 
 var feedback: String
 
@@ -29,6 +29,7 @@ func new_turn():
 		new_turnOrder(false)
 
 func new_turnOrder(begin: bool):
+	print("new turn order...")
 	if begin:
 		cur_turnOrder = aliveBattlers
 		
@@ -58,5 +59,32 @@ func new_nextTurnOrder():
 				next_turnOrder[c + 1] = temp
 
 func spawn_battlers():
-	for p in PlayerData.party:
-		PlayerBattlers.append(Battler.new(true, p))
+	var scn = load("res://Scenes/Battle/Characters/BattlerPlayer.tscn")
+	
+	for i in PlayerData.party.size():
+		var new_battler = scn.instantiate()
+		new_battler.bm = self
+		new_battler.create(true, PlayerData.party[i])
+		PlayerBattlers.append(new_battler)
+		Battlers.append(new_battler)
+		if new_battler.curHP > 0: aliveBattlers.append(new_battler)
+		BattlerPosList[i].add_child(new_battler)
+	
+	scn = load("res://Scenes/Battle/Characters/BattlerEnemy.tscn")
+	
+	for i in SceneManager.encounter.split(",").size():
+		var new_battler = scn.instantiate()
+		new_battler.bm = self
+		new_battler.create(false, null, EnemyDatabase.get_foe(SceneManager.encounter.split(",")[i]))
+		FoeBattlers.append(new_battler)
+		Battlers.append(new_battler)
+		aliveBattlers.append(new_battler)
+		BattlerPosList[i + 4].add_child(new_battler)
+
+func battle_end(win: bool):
+	if win:
+		SceneManager.pop_scene()
+	else:
+		#go to main menu or something else
+		pass
+	

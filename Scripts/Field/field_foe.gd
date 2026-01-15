@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var speed  = randf_range(2.0, 4.0)
+var speed  = randf_range(3.0, 6.0)
 var anim_tree: AnimationTree
 var encounters: Array[String]
 var model: Node3D
@@ -8,6 +8,7 @@ var area: Area3D
 
 var player
 var foe_id
+var battle
 
 func _ready() -> void:
 	model = get_node("Model")
@@ -42,5 +43,5 @@ func _physics_process(delta: float) -> void:
 
 func body_enter(body: Node3D) -> void:
 	if body.name == "FieldChar":
-		print("Encounter!")
-		
+		SceneManager.encounter = encounters[randi_range(0, encounters.size() - 1)]
+		SceneManager.push_scene("res://Scenes/Battle/Fields/" + battle + ".tscn")

@@ -1,10 +1,10 @@
 extends Resource
 class_name EnemyData
 
-var act_name: String
-var display_name: String
-var cur_level: int
-var cur_exp: int
+@export var id: String
+@export var display_name: String
+@export var cur_level: int
+@export var cur_exp: int
 var curHP: int
 var maxHP: int #iffy on curHP and maxHP vs stats and cur_stats Health
 

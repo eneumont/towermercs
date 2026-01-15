@@ -3,6 +3,7 @@ extends Node3D
 @export var spawn_node: PackedScene
 @export var type: Spawner_Type
 @export var encounters: Array[String]
+@export var battle: String
 
 #what dict looks like {"id": ["alive", "0,0,0"]}
 var spawn_id: String
@@ -19,8 +20,9 @@ func spawn(new_pos: Vector3 = position):
 	add_child(new_spawn)
 	new_spawn.global_position = new_pos
 	new_spawn.foe_id = spawn_id
-	new_spawn.spawner = self
+	#new_spawn.spawner = self
 	new_spawn.encounters = encounters
+	new_spawn.battle = battle
 
 	match (type):
 		Spawner_Type.ITEM:

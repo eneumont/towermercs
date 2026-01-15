@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://cf5p3n3ek8f68"]
+
+[ext_resource type="Script" uid="uid://c8b48af2qipn0" path="res://Scripts/Battle/battlerP.gd" id="1_q5msn"]
+[ext_resource type="Texture2D" uid="uid://dxl38cypdf47x" path="res://Images/Textures/Classes/Mage/mage_battle.png" id="2_hqnuu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkk3a"]
+atlas = ExtResource("2_hqnuu")
+region = Rect2(7200, 0, 800, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h3dt3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkk3a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qko8o"]
+
+[node name="BattlerPlayer" type="CharacterBody3D"]
+script = ExtResource("1_q5msn")
+metadata/_custom_type_script = "uid://c8b48af2qipn0"
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
+sprite_frames = SubResource("SpriteFrames_h3dt3")
+animation = &"idle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_qko8o")

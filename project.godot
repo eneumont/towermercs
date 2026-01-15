@@ -22,6 +22,9 @@ PlayerData="*res://Scripts/Save/player_data.gd"
 ItemDatabase="*res://Scripts/Data/item_database.gd"
 SaveManager="*res://Scripts/Save/save_manager.gd"
 MusicManager="*res://Scripts/Audio/music_manager.gd"
+SceneManager="*res://Scripts/Save/scene_manager.gd"
+EnemyDatabase="*res://Scripts/Data/enemy_database.gd"
+ArtDatabase="*res://Scripts/Data/art_database.gd"
 
 [editor_plugins]
 

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyqrkgg6wkrk3"]
+
+[ext_resource type="Script" uid="uid://crm8p23mbax35" path="res://Scripts/Battle/battlerE.gd" id="1_qjpua"]
+
+[node name="BattlerEnemy" type="CharacterBody3D"]
+script = ExtResource("1_qjpua")
+metadata/_custom_type_script = "uid://crm8p23mbax35"

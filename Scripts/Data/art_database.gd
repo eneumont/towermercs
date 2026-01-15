@@ -10,9 +10,9 @@ func _load_foes():
 	if dir:
 		for file_name in dir.get_files():
 			if file_name.ends_with(".tres"):
-				var art: ItemRes = load("res://Resources/Arts/" + file_name)
+				var art: ArtRes = load("res://Resources/Arts/" + file_name)
 				if art and art.id != "":
 					arts[art.id] = art
 
-func get_foe(id: String) -> ItemRes:
+func get_foe(id: String) -> ArtRes:
 	return arts.get(id)

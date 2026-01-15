@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://v7c03db0p8gn"]
+
+[ext_resource type="Script" uid="uid://cik62ltryynnf" path="res://Scripts/Characters/foe_data.gd" id="1_ou8jh"]
+
+[resource]
+script = ExtResource("1_ou8jh")
+id = "Goblin1"
+metadata/_custom_type_script = "uid://cik62ltryynnf"

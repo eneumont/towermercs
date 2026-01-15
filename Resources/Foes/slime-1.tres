@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://ch0nsgy5dchwp"]
+
+[ext_resource type="Script" uid="uid://cik62ltryynnf" path="res://Scripts/Characters/foe_data.gd" id="1_6e2ew"]
+
+[resource]
+script = ExtResource("1_6e2ew")
+id = "Slime1"
+metadata/_custom_type_script = "uid://cik62ltryynnf"
