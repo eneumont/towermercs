@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkkhnrq0u474q"]
+
+[ext_resource type="Script" uid="uid://de2jgdhqku2os" path="res://Scripts/Battle/party_slot_ui.gd" id="1_0sg7b"]
+[ext_resource type="Texture2D" uid="uid://cw6q1pybabire" path="res://Images/Textures/Icons/Characters/Mage.png" id="2_4yqlx"]
+
+[node name="PartyUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0sg7b")
+
+[node name="Slot" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -712.0
+offset_bottom = -448.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="Slot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Info" type="VBoxContainer" parent="Slot/HBox"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Slot/HBox/Info"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 35
+text = "Dan"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HPBar" type="ProgressBar" parent="Slot/HBox/Info"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 39.16
+exp_edit = true
+show_percentage = false
+
+[node name="HPText" type="Label" parent="Slot/HBox/Info/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 33
+text = "HP 10/20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="APBar" type="ProgressBar" parent="Slot/HBox/Info"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 7.48
+exp_edit = true
+show_percentage = false
+
+[node name="APText" type="Label" parent="Slot/HBox/Info/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 33
+text = "AP 10/20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Img" type="TextureRect" parent="Slot/HBox"]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+texture = ExtResource("2_4yqlx")
+expand_mode = 1

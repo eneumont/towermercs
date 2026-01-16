@@ -8,6 +8,8 @@ extends Node3D
 @export var PlayerBattlers: Array[BattlerP]
 @export var FoeBattlers: Array[BattlerE]
 
+@onready var UI = $BattleUI
+
 var casted_skill: String #or SkillRes
 var cur_turnOrder = []
 var next_turnOrder = []
@@ -19,31 +21,33 @@ func _ready() -> void:
 	MusicManager.stream = audio
 	MusicManager.play()
 	
+	UI.set_bm(self)
+	
 	spawn_battlers()
 	new_turnOrder(true)
 
 func new_turn():
 	if not cur_turnOrder.is_empty():
+		UI.set_turns()
 		cur_turnOrder[0].start_turn()
 	else:
 		new_turnOrder(false)
 
 func new_turnOrder(begin: bool):
-	print("new turn order...")
 	if begin:
 		cur_turnOrder = aliveBattlers
 		
 		#maybe add a check for ties
-		for b in cur_turnOrder.size():
-			for c in cur_turnOrder.size() - 1:
-				if (cur_turnOrder[c].currentStats[CharData.StatType.SPEED] > cur_turnOrder[c + 1].currentStats[CharData.StatType.SPEED]):
+		for b in cur_turnOrder.size() - 1:
+			for c in cur_turnOrder.size() - b - 1:
+				if (cur_turnOrder[c].currentStats[CharData.StatType.SPEED] < cur_turnOrder[c + 1].currentStats[CharData.StatType.SPEED]):
 					var temp = cur_turnOrder[c]
 					cur_turnOrder[c] = cur_turnOrder[c + 1]
 					cur_turnOrder[c + 1] = temp
 			
 	else:
 		cur_turnOrder = next_turnOrder
-
+	
 	new_nextTurnOrder()
 	new_turn()
 	
@@ -51,9 +55,9 @@ func new_nextTurnOrder():
 	next_turnOrder = aliveBattlers
 		
 	#maybe add a check for ties
-	for b in next_turnOrder.size():
-		for c in next_turnOrder.size() - 1:
-			if (next_turnOrder[c].currentStats[CharData.StatType.SPEED] > next_turnOrder[c + 1].currentStats[CharData.StatType.SPEED]):
+	for b in next_turnOrder.size() - 1:
+		for c in next_turnOrder.size() - b - 1:
+			if (next_turnOrder[c].currentStats[CharData.StatType.SPEED] < next_turnOrder[c + 1].currentStats[CharData.StatType.SPEED]):
 				var temp = next_turnOrder[c]
 				next_turnOrder[c] = next_turnOrder[c + 1]
 				next_turnOrder[c + 1] = temp
@@ -67,7 +71,7 @@ func spawn_battlers():
 		new_battler.create(true, PlayerData.party[i])
 		PlayerBattlers.append(new_battler)
 		Battlers.append(new_battler)
-		if new_battler.curHP > 0: aliveBattlers.append(new_battler)
+		#if new_battler.curHP > 0: aliveBattlers.append(new_battler)
 		BattlerPosList[i].add_child(new_battler)
 	
 	scn = load("res://Scenes/Battle/Characters/BattlerEnemy.tscn")

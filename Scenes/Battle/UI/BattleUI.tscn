@@ -1,9 +1,54 @@
-[gd_scene format=3 uid="uid://d2855ggg0hct0"]
+[gd_scene load_steps=4 format=3 uid="uid://d2855ggg0hct0"]
 
-[node name="BattleUI" type="Control"]
+[ext_resource type="Script" uid="uid://dlyn3ndu5bpm4" path="res://Scripts/Battle/battle_ui.gd" id="1_nkmye"]
+[ext_resource type="PackedScene" uid="uid://dea6lfh22ghef" path="res://Scenes/Battle/UI/TurnOrderUI.tscn" id="1_pwnkg"]
+[ext_resource type="PackedScene" uid="uid://bkkhnrq0u474q" path="res://Scenes/Battle/UI/PartyUI.tscn" id="2_cdxc5"]
+
+[node name="BattleUI" type="Control" node_paths=PackedStringArray("party_slots", "turnOrder")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nkmye")
+party_slots = [NodePath("PartyUI4"), NodePath("PartyUI3"), NodePath("PartyUI2"), NodePath("PartyUI")]
+turnOrder = NodePath("TurnOrderUI")
+
+[node name="TurnOrderUI" parent="." instance=ExtResource("1_pwnkg")]
+layout_mode = 1
+
+[node name="PartyUI" parent="." instance=ExtResource("2_cdxc5")]
+layout_mode = 1
+offset_left = 974.0
+offset_top = 568.0
+offset_right = 974.0
+offset_bottom = 568.0
+scale = Vector2(0.4, 0.4)
+num = 3
+
+[node name="PartyUI2" parent="." instance=ExtResource("2_cdxc5")]
+layout_mode = 1
+offset_left = 795.0
+offset_top = 568.0
+offset_right = 795.0
+offset_bottom = 568.0
+scale = Vector2(0.4, 0.4)
+num = 2
+
+[node name="PartyUI3" parent="." instance=ExtResource("2_cdxc5")]
+layout_mode = 1
+offset_left = 617.0
+offset_top = 568.0
+offset_right = 617.0
+offset_bottom = 568.0
+scale = Vector2(0.4, 0.4)
+num = 1
+
+[node name="PartyUI4" parent="." instance=ExtResource("2_cdxc5")]
+layout_mode = 1
+offset_left = 439.0
+offset_top = 568.0
+offset_right = 439.0
+offset_bottom = 568.0
+scale = Vector2(0.4, 0.4)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://4e3g1yxgyibp"]
+
+[ext_resource type="Texture2D" uid="uid://bdej8fbirl1ui" path="res://Images/Textures/Icons/Characters/Cleric.png" id="1_ri004"]
+
+[node name="TurnImg" type="TextureRect"]
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("1_ri004")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -26.5
+offset_top = -3.0
+offset_right = 26.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Cleric1"
+horizontal_alignment = 1
+vertical_alignment = 1

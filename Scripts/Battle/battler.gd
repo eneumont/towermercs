@@ -72,9 +72,11 @@ func create(is_player: bool, c_data: CharData = null, f_data: EnemyData = null, 
 	if is_player:
 		team = Team.ALLY
 		player = Player.PLAYER
+		displayName = c_data.display_name
 	else:
 		team = Team.FOE
 		player = Player.AI
+		displayName = f_data.display_name
 
 func start_turn():
 	defending = false

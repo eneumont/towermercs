@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctppvbio80ngj"]
+[gd_scene load_steps=6 format=3 uid="uid://ctppvbio80ngj"]
 
 [ext_resource type="Script" uid="uid://cfbkivpm28lux" path="res://Scripts/Battle/battle_manager.gd" id="1_b8ys1"]
 [ext_resource type="AudioStream" uid="uid://dc62bp4laqwkx" path="res://Audio/battle.mp3" id="2_oqfcn"]
+[ext_resource type="PackedScene" uid="uid://d2855ggg0hct0" path="res://Scenes/Battle/UI/BattleUI.tscn" id="3_oqfcn"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jwteh"]
 
@@ -48,3 +49,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 
 [node name="EnemyPos4" type="Marker3D" parent="Layout/Positions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="BattleUI" parent="." instance=ExtResource("3_oqfcn")]
