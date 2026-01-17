@@ -10,7 +10,7 @@ extends Node3D
 
 @onready var UI = $BattleUI
 
-var casted_skill: String #or SkillRes
+var casted_art: String
 var cur_turnOrder = []
 var next_turnOrder = []
 var targets = []
@@ -99,3 +99,6 @@ func battle_end(win: bool):
 
 func new_feed(f: String):
 	UI.feed(f)
+
+func cast():
+	ArtDatabase.get_art(casted_art).cast(cur_turnOrder[0], targets)

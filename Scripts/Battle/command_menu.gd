@@ -3,10 +3,16 @@ extends Control
 var bm
 
 func attack_click():
-	pass
+	if bm.casted_art.empty():
+		bm.casted_art = "test_attack"
+	else:
+		bm.casted_art = ""
 	
 func defend_click():
-	pass
+	if bm.casted_art.empty():
+		bm.casted_art = "test_defend"
+	else:
+		bm.casted_art = ""
 	
 func arts_click():
 	pass

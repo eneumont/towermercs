@@ -61,6 +61,7 @@ func magic_cast(caster: Battler, targets: Array):
 	
 func defend_cast(caster: Battler, targets: Array):
 	caster.defending = true
+	caster.end_turn()
 	
 func item_cast(caster: Battler, targets: Array):
 	pass

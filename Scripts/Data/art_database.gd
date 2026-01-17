@@ -3,9 +3,9 @@ extends Node
 var arts: Dictionary = {}
 
 func _ready():
-	_load_foes()
+	_load_arts()
 
-func _load_foes():
+func _load_arts():
 	var dir := DirAccess.open("res://Resources/Arts/")
 	if dir:
 		for file_name in dir.get_files():
@@ -14,5 +14,5 @@ func _load_foes():
 				if art and art.id != "":
 					arts[art.id] = art
 
-func get_foe(id: String) -> ArtRes:
+func get_art(id: String) -> ArtRes:
 	return arts.get(id)
