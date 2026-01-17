@@ -6,6 +6,8 @@ var newTurnStartPos: Vector2 = Vector2(600, 20)
 var turnImg = preload("res://Scenes/Battle/UI/TurnImg.tscn")
 var bm
 
+@onready var bg = $Background
+
 func update_both():
 	update_cur()
 	update_next()
@@ -13,9 +15,11 @@ func update_both():
 func update_cur():
 	for i in bm.cur_turnOrder.size():
 		var img = turnImg.instantiate()
-		$Background.add_child(img)
+		img.position = Vector2(5 + (55 * i), 20)
+		bg.add_child(img)
 	
 func update_next():
 	for i in bm.next_turnOrder.size():
 		var img = turnImg.instantiate()
-		$Background.add_child(img)
+		img.position = Vector2(600 + (55 * i), 20)
+		bg.add_child(img)

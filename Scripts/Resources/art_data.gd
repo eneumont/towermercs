@@ -1,7 +1,7 @@
 extends Resource
 class_name ArtRes
 
-@export var act_name: String
+@export var id: String
 @export var display_name: String
 @export var power: float
 @export var ranges: Array[int]

@@ -6,4 +6,6 @@
 script = ExtResource("1_6e2ew")
 id = "Slime1"
 display_name = "Slime"
+cur_level = 1
+cur_exp = 11
 metadata/_custom_type_script = "uid://cik62ltryynnf"

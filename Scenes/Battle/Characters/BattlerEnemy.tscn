@@ -1,7 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyqrkgg6wkrk3"]
+[gd_scene load_steps=5 format=3 uid="uid://cyqrkgg6wkrk3"]
 
 [ext_resource type="Script" uid="uid://crm8p23mbax35" path="res://Scripts/Battle/battlerE.gd" id="1_qjpua"]
+[ext_resource type="PackedScene" uid="uid://cimcggwvtovg1" path="res://Scenes/Battle/UI/SelectUI.tscn" id="2_v3p1c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qjpua"]
+radius = 1.5246701
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5gb2v"]
+viewport_path = NodePath("Sprite3D/SubViewport")
 
 [node name="BattlerEnemy" type="CharacterBody3D"]
 script = ExtResource("1_qjpua")
 metadata/_custom_type_script = "uid://crm8p23mbax35"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5375781, 0)
+shape = SubResource("SphereShape3D_qjpua")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.3536442, 0, 0, 0, 0.3536442, 0, 0, 0, 1, 0, 2.2431972, 0)
+visible = false
+texture = SubResource("ViewportTexture_5gb2v")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+size = Vector2i(600, 100)
+
+[node name="SelectUI" parent="Sprite3D/SubViewport" instance=ExtResource("2_v3p1c")]
+
+[connection signal="mouse_entered" from="." to="." method="show_select"]
+[connection signal="mouse_exited" from="." to="." method="hide_select"]

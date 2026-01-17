@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ArtRes" load_steps=3 format=3 uid="uid://c3gbno5omnedq"]
+
+[ext_resource type="Script" uid="uid://ys26fldtku2b" path="res://Scripts/Resources/art_data.gd" id="1_kqxnt"]
+[ext_resource type="Script" uid="uid://dxgcds3j52eam" path="res://Scripts/Resources/status_data.gd" id="2_ctbjl"]
+
+[resource]
+script = ExtResource("1_kqxnt")
+id = "test_attack"
+display_name = "Attack"
+power = 1.0
+ranges = Array[int]([1])
+accuracy = 100.0
+critical = 1.0
+team = 1
+anim = "anim_name"
+crit_art = "test_attack_crit"
+description = "Hit a foe... hard!"
+metadata/_custom_type_script = "uid://ys26fldtku2b"

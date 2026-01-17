@@ -54,7 +54,7 @@ func _init(c_name: String, type: ClassType, pos: int = 0) -> void:
 	match type:
 		ClassType.KNIGHT:
 			set_stats([10, 10, 10, 10, 10, 10, 10])
-			set_arts(["", "", ""])
+			set_arts(["test_attack", "", ""])
 			set_equipment(["", "", ""])
 			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
@@ -69,7 +69,7 @@ func _init(c_name: String, type: ClassType, pos: int = 0) -> void:
 			})
 		ClassType.THIEF:
 			set_stats([10, 10, 10, 10, 10, 10, 10])
-			set_arts(["", "", ""])
+			set_arts(["test_attack", "", ""])
 			set_equipment(["", "", ""])
 			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
@@ -84,7 +84,7 @@ func _init(c_name: String, type: ClassType, pos: int = 0) -> void:
 			})
 		ClassType.MAGE:
 			set_stats([10, 10, 10, 10, 10, 10, 10])
-			set_arts(["", "", ""])
+			set_arts(["test_attack", "", ""])
 			set_equipment(["", "", ""])
 			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,
@@ -99,7 +99,7 @@ func _init(c_name: String, type: ClassType, pos: int = 0) -> void:
 			})
 		ClassType.CLERIC:
 			set_stats([10, 10, 10, 10, 10, 10, 10])
-			set_arts(["", "", ""])
+			set_arts(["test_attack", "", ""])
 			set_equipment(["", "", ""])
 			set_affinities({
 				AffinityType.BLUNT : AffinityRate.NEUTRAL,

@@ -3,7 +3,7 @@ extends Control
 @export var party_slots: Array[Control]
 @export var turnOrder: Control
 
-var feedback: String
+@onready var fb = $Feedback
 
 func set_bm(b: Node3D):
 	turnOrder.bm = b
@@ -14,3 +14,9 @@ func set_turns():
 func set_party():
 	for p in party_slots:
 		p.update_self()
+
+func feed(f: String):
+	fb.visible = true
+	fb.text = f
+	await get_tree().create_timer(3.0).timeout
+	fb.visible = false

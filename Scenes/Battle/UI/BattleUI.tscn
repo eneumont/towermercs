@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2855ggg0hct0"]
+[gd_scene load_steps=5 format=3 uid="uid://d2855ggg0hct0"]
 
 [ext_resource type="Script" uid="uid://dlyn3ndu5bpm4" path="res://Scripts/Battle/battle_ui.gd" id="1_nkmye"]
 [ext_resource type="PackedScene" uid="uid://dea6lfh22ghef" path="res://Scenes/Battle/UI/TurnOrderUI.tscn" id="1_pwnkg"]
 [ext_resource type="PackedScene" uid="uid://bkkhnrq0u474q" path="res://Scenes/Battle/UI/PartyUI.tscn" id="2_cdxc5"]
+[ext_resource type="PackedScene" uid="uid://0aseox2fxwgw" path="res://Scenes/Battle/UI/FeedbackUI.tscn" id="3_ykgc2"]
 
 [node name="BattleUI" type="Control" node_paths=PackedStringArray("party_slots", "turnOrder")]
 layout_mode = 3
@@ -17,6 +18,17 @@ turnOrder = NodePath("TurnOrderUI")
 
 [node name="TurnOrderUI" parent="." instance=ExtResource("1_pwnkg")]
 layout_mode = 1
+
+[node name="Feedback" parent="." instance=ExtResource("3_ykgc2")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -310.0
+offset_top = 100.0
+offset_right = 310.0
+offset_bottom = 142.0
+grow_horizontal = 2
 
 [node name="PartyUI" parent="." instance=ExtResource("2_cdxc5")]
 layout_mode = 1

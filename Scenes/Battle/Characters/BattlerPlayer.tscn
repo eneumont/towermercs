@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cf5p3n3ek8f68"]
+[gd_scene load_steps=8 format=3 uid="uid://cf5p3n3ek8f68"]
 
 [ext_resource type="Script" uid="uid://c8b48af2qipn0" path="res://Scripts/Battle/battlerP.gd" id="1_q5msn"]
 [ext_resource type="Texture2D" uid="uid://dxl38cypdf47x" path="res://Images/Textures/Classes/Mage/mage_battle.png" id="2_hqnuu"]
+[ext_resource type="PackedScene" uid="uid://cimcggwvtovg1" path="res://Scenes/Battle/UI/SelectUI.tscn" id="3_wkk3a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qko8o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wkk3a"]
 atlas = ExtResource("2_hqnuu")
@@ -18,17 +21,31 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qko8o"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_h3dt3"]
+viewport_path = NodePath("Sprite3D/SubViewport")
 
 [node name="BattlerPlayer" type="CharacterBody3D"]
 script = ExtResource("1_q5msn")
 metadata/_custom_type_script = "uid://c8b48af2qipn0"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_qko8o")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
 sprite_frames = SubResource("SpriteFrames_h3dt3")
 animation = &"idle"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_qko8o")
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.3536442, 0, 0, 0, 0.3536442, 0, 0, 0, 1, 0, 2.2431972, 0)
+visible = false
+texture = SubResource("ViewportTexture_h3dt3")
+
+[node name="SubViewport" type="SubViewport" parent="Sprite3D"]
+size = Vector2i(600, 100)
+
+[node name="SelectUI" parent="Sprite3D/SubViewport" instance=ExtResource("3_wkk3a")]
+
+[connection signal="mouse_entered" from="." to="." method="show_select"]
+[connection signal="mouse_exited" from="." to="." method="hide_select"]

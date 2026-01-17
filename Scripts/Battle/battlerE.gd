@@ -3,7 +3,12 @@ class_name BattlerE
 
 func start_turn():
 	super()
-	end_turn()
 
 func end_turn():
 	super()
+
+func show_select():
+	selector.visible = true
+
+func hide_select():
+	selector.visible = false

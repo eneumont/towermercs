@@ -51,3 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
 
 [node name="BattleUI" parent="." instance=ExtResource("3_oqfcn")]
+
+[node name="BattleCam" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.833751, 0.55214065, 0, -0.55214065, 0.833751, 0, 4.054781, 5.573721)

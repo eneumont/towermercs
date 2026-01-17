@@ -1,13 +1,18 @@
 extends Node
 
 var money: int = 100 #0
-var inventory: Dictionary
+var inventory: Dictionary[ItemRes, int]
 
 var party: Array[CharData] = [
 	CharData.new("Test1", CharData.ClassType.MAGE),
 	CharData.new("Test2", CharData.ClassType.THIEF),
 	CharData.new("Test3", CharData.ClassType.KNIGHT),
-	CharData.new("Test4", CharData.ClassType.CLERIC)
+	CharData.new("Test4", CharData.ClassType.CLERIC),
+]
+var reserve: Array[CharData] = [
+	CharData.new("Test5", CharData.ClassType.CLERIC),
+	CharData.new("Test6", CharData.ClassType.THIEF),
+	CharData.new("Test7", CharData.ClassType.KNIGHT),
 ]
 var collection: Array[CharData] = []
 var available_classes: Array[CharData.ClassType] = [ 
@@ -30,6 +35,7 @@ func save() -> Dictionary:
 		"money": money,
 		"inventory": inventory,
 		"party": party,
+		"reserve": reserve,
 		"collection": collection,
 		"available_classes": available_classes,
 		"player_pos": player_pos,

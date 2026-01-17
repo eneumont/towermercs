@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cimcggwvtovg1"]
+
+[node name="SelectUI" type="Control"]
+layout_mode = 3
+anchor_right = 0.521
+anchor_bottom = 0.15400001
+offset_right = -0.1920166
+offset_bottom = 0.20799255
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 100.0
+
+[node name="SelectorImg" type="ColorRect" parent="VBox"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="SelectHP" type="ProgressBar" parent="VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 39.16
+exp_edit = true
+show_percentage = false

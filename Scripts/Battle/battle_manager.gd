@@ -15,8 +15,6 @@ var cur_turnOrder = []
 var next_turnOrder = []
 var targets = []
 
-var feedback: String
-
 func _ready() -> void:
 	MusicManager.stream = audio
 	MusicManager.play()
@@ -24,6 +22,12 @@ func _ready() -> void:
 	UI.set_bm(self)
 	
 	spawn_battlers()
+	UI.set_turns()
+	UI.set_party()
+	
+	#play jump-ins and roars
+	new_feed("Kill them all!!!")
+	
 	new_turnOrder(true)
 
 func new_turn():
@@ -35,7 +39,7 @@ func new_turn():
 
 func new_turnOrder(begin: bool):
 	if begin:
-		cur_turnOrder = aliveBattlers
+		cur_turnOrder = aliveBattlers.duplicate()
 		
 		#maybe add a check for ties
 		for b in cur_turnOrder.size() - 1:
@@ -52,7 +56,7 @@ func new_turnOrder(begin: bool):
 	new_turn()
 	
 func new_nextTurnOrder():
-	next_turnOrder = aliveBattlers
+	next_turnOrder = aliveBattlers.duplicate()
 		
 	#maybe add a check for ties
 	for b in next_turnOrder.size() - 1:
@@ -71,6 +75,7 @@ func spawn_battlers():
 		new_battler.create(true, PlayerData.party[i])
 		PlayerBattlers.append(new_battler)
 		Battlers.append(new_battler)
+		aliveBattlers.append(new_battler) #remove/change
 		#if new_battler.curHP > 0: aliveBattlers.append(new_battler)
 		BattlerPosList[i].add_child(new_battler)
 	
@@ -91,4 +96,6 @@ func battle_end(win: bool):
 	else:
 		#go to main menu or something else
 		pass
-	
+
+func new_feed(f: String):
+	UI.feed(f)

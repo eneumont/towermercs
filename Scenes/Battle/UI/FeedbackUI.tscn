@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://0aseox2fxwgw"]
+
+[node name="Feedback" type="Label"]
+z_index = 1
+offset_right = 620.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "Testing length of string for feedback ui size"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

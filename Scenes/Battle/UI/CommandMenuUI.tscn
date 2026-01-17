@@ -1,0 +1,125 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2ngtar5oskti"]
+
+[ext_resource type="Script" uid="uid://5h0bx4n86xhi" path="res://Scripts/Battle/command_menu.gd" id="1_h3hwq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dtoyl"]
+blend_mode = 3
+light_mode = 1
+
+[node name="CommandMenu" type="Control"]
+layout_mode = 3
+anchor_right = 0.36100003
+anchor_bottom = 0.574
+offset_right = 0.1279602
+offset_bottom = 0.04800415
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h3hwq")
+
+[node name="Panel2" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("CanvasItemMaterial_dtoyl")
+layout_mode = 0
+offset_left = 22.0
+offset_top = 69.0
+offset_right = 410.0
+offset_bottom = 367.0
+
+[node name="VBox" type="VBoxContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SwapBtn" type="Button" parent="Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "Swap"
+icon_alignment = 2
+
+[node name="RunBtn" type="Button" parent="Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "Run"
+icon_alignment = 2
+
+[node name="StatusBtn" type="Button" parent="Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "Status"
+icon_alignment = 2
+
+[node name="AnalyseBtn" type="Button" parent="Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "Analyse"
+icon_alignment = 2
+
+[node name="Panel1" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 52.0
+offset_right = 389.0
+offset_bottom = 350.0
+
+[node name="VBox" type="VBoxContainer" parent="Panel1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttackBtn" type="Button" parent="Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "Attack"
+icon_alignment = 2
+
+[node name="DefendBtn" type="Button" parent="Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "Defend"
+icon_alignment = 2
+
+[node name="ArtsBtn" type="Button" parent="Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "Arts"
+icon_alignment = 2
+
+[node name="ItemsBtn" type="Button" parent="Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 44
+text = "Items"
+icon_alignment = 2
+
+[node name="FlipBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 2.0
+offset_right = 387.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 30
+text = "Flip"
+icon_alignment = 2
+
+[connection signal="button_up" from="Panel2/VBox/SwapBtn" to="." method="swap_click"]
+[connection signal="button_up" from="Panel2/VBox/RunBtn" to="." method="run_click"]
+[connection signal="button_up" from="Panel2/VBox/StatusBtn" to="." method="status_click"]
+[connection signal="button_up" from="Panel2/VBox/AnalyseBtn" to="." method="analyse_click"]
+[connection signal="button_up" from="Panel1/VBox/AttackBtn" to="." method="attack_click"]
+[connection signal="button_up" from="Panel1/VBox/DefendBtn" to="." method="defend_click"]
+[connection signal="button_up" from="Panel1/VBox/ArtsBtn" to="." method="arts_click"]
+[connection signal="button_up" from="Panel1/VBox/ItemsBtn" to="." method="items_click"]
+[connection signal="button_up" from="FlipBtn" to="." method="flip_click"]

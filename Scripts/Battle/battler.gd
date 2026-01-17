@@ -18,6 +18,8 @@ enum Controller {
 	PLAYER4,
 }
 
+@onready var selector = $Sprite3D
+
 var bm
 
 var act_name: String
@@ -32,6 +34,7 @@ var player: Player
 var controller: Controller
 
 var defending: bool = false
+var dead: bool = false
 var effects: Array
 
 var currentStats = {
@@ -64,7 +67,7 @@ var modifiers = {
 	CharData.StatType.SPEED: 10.0,
 }
 
-var skills
+var arts: Array
 
 var equipment
 
@@ -73,6 +76,7 @@ func create(is_player: bool, c_data: CharData = null, f_data: EnemyData = null, 
 		team = Team.ALLY
 		player = Player.PLAYER
 		displayName = c_data.display_name
+		arts = c_data.equippedArts
 	else:
 		team = Team.FOE
 		player = Player.AI
@@ -88,6 +92,13 @@ func end_turn():
 func take_damage(dmg: int):
 	curHP += dmg
 	if curHP > maxHP: curHP = maxHP
+	if curHP <= 0:
+		curHP = 0
+		die()
+
+func die():
+	dead = true
+	bm.aliveBattlers.remove(self)
 
 func do_effects():
 	pass
