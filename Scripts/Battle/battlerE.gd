@@ -3,19 +3,22 @@ class_name BattlerE
 
 func start_turn():
 	super()
+	
+	var select_art := ArtDatabase.get_art(arts[randi_range(0, arts.size() - 1)])
+	var select_targets
+	
+	match select_art.team:
+		ArtRes.TargetTeam.ALL:
+			select_targets = bm.aliveBattlers
+		ArtRes.TargetTeam.ALLY:
+			select_targets = bm.aliveBattlers.filter(func(b): return b.team == Team.FOE)
+		ArtRes.TargetTeam.FOE:
+			select_targets = bm.aliveBattlers.filter(func(b): return b.team == Team.ALLY)
+
+	if (select_art.group == ArtRes.GroupType.SINGLE):
+		select_targets = select_targets[randi_range(0, select_targets.size() - 1)]
+	
+	select_art.cast(self, select_targets)
 
 func end_turn():
 	super()
-
-func show_select():
-	selector.visible = true
-
-func hide_select():
-	selector.visible = false
-
-func clicked(cam: Node, evt: InputEvent, pos: Vector3, nor: Vector3, shape: int):
-	if Input.is_action_just_released("l_click"):
-		if not bm.casted_art.empty(): #prob add lot of checks here...
-			var art := ArtDatabase.get_art(bm.casted_art)
-			bm.targets += self
-			bm.cast()

@@ -81,6 +81,7 @@ func create(is_player: bool, c_data: CharData = null, f_data: EnemyData = null, 
 		team = Team.FOE
 		player = Player.AI
 		displayName = f_data.display_name
+		arts = f_data.equippedArts
 
 func start_turn():
 	defending = false
@@ -102,3 +103,18 @@ func die():
 
 func do_effects():
 	pass
+
+func show_select():
+	selector.visible = true
+
+func hide_select():
+	selector.visible = false
+
+func clicked(cam: Node, evt: InputEvent, pos: Vector3, nor: Vector3, shape: int):
+	if Input.is_action_just_released("l_click"):
+		if not bm.casted_art.is_empty(): #prob add lot of checks here...
+			var art := ArtDatabase.get_art(bm.casted_art)
+			bm.targets += self
+			bm.cast()
+		else:
+			pass

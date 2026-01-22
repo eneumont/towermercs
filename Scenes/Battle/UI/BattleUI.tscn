@@ -12,12 +12,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_nkmye")
 party_slots = [NodePath("PartyUI4"), NodePath("PartyUI3"), NodePath("PartyUI2"), NodePath("PartyUI")]
 turnOrder = NodePath("TurnOrderUI")
 
 [node name="TurnOrderUI" parent="." instance=ExtResource("1_pwnkg")]
 layout_mode = 1
+mouse_filter = 1
 
 [node name="Feedback" parent="." instance=ExtResource("3_ykgc2")]
 layout_mode = 1
@@ -37,6 +39,7 @@ offset_top = 568.0
 offset_right = 974.0
 offset_bottom = 568.0
 scale = Vector2(0.4, 0.4)
+mouse_filter = 1
 num = 3
 
 [node name="PartyUI2" parent="." instance=ExtResource("2_cdxc5")]
@@ -46,6 +49,7 @@ offset_top = 568.0
 offset_right = 795.0
 offset_bottom = 568.0
 scale = Vector2(0.4, 0.4)
+mouse_filter = 1
 num = 2
 
 [node name="PartyUI3" parent="." instance=ExtResource("2_cdxc5")]
@@ -55,6 +59,7 @@ offset_top = 568.0
 offset_right = 617.0
 offset_bottom = 568.0
 scale = Vector2(0.4, 0.4)
+mouse_filter = 1
 num = 1
 
 [node name="PartyUI4" parent="." instance=ExtResource("2_cdxc5")]
@@ -64,3 +69,4 @@ offset_top = 568.0
 offset_right = 439.0
 offset_bottom = 568.0
 scale = Vector2(0.4, 0.4)
+mouse_filter = 1

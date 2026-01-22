@@ -31,6 +31,7 @@ func _ready() -> void:
 	new_turnOrder(true)
 
 func new_turn():
+	casted_art = ""
 	if not cur_turnOrder.is_empty():
 		UI.set_turns()
 		cur_turnOrder[0].start_turn()
@@ -54,7 +55,7 @@ func new_turnOrder(begin: bool):
 	
 	new_nextTurnOrder()
 	new_turn()
-	
+
 func new_nextTurnOrder():
 	next_turnOrder = aliveBattlers.duplicate()
 		

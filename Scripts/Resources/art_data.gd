@@ -52,19 +52,28 @@ func cast(caster: Battler, targets: Array):
 			run_cast(caster, targets)
 
 func attack_cast(caster: Battler, targets: Array):
-	for t in targets:
-		t.take_damage(10)
-
-func magic_cast(caster: Battler, targets: Array):
+	print("attack")
 	for t in targets:
 		t.take_damage(10)
 	
+	caster.end_turn()
+
+func magic_cast(caster: Battler, targets: Array):
+	print("magic")
+	for t in targets:
+		t.take_damage(10)
+	
+	caster.end_turn()
+	
 func defend_cast(caster: Battler, targets: Array):
+	print("defend")
 	caster.defending = true
 	caster.end_turn()
 	
 func item_cast(caster: Battler, targets: Array):
-	pass
+	print("item")
+	caster.end_turn()
 	
 func run_cast(caster: Battler, targets: Array):
-	pass
+	print("run")
+	caster.end_turn()
