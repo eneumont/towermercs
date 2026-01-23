@@ -10,6 +10,8 @@ extends Node3D
 
 @onready var UI = $BattleUI
 
+#prob gonna need to change how casting arts work
+#to rely on bm more to allow more interactivity
 var casted_art: String
 var cur_turnOrder = []
 var next_turnOrder = []
@@ -32,6 +34,7 @@ func _ready() -> void:
 
 func new_turn():
 	casted_art = ""
+	targets = []
 	if not cur_turnOrder.is_empty():
 		UI.set_turns()
 		cur_turnOrder[0].start_turn()

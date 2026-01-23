@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ArtRes" load_steps=3 format=3 uid="uid://ce2wg1n5h3h2w"]
+
+[ext_resource type="Script" uid="uid://ys26fldtku2b" path="res://Scripts/Resources/art_data.gd" id="1_kcqr6"]
+[ext_resource type="Script" uid="uid://dxgcds3j52eam" path="res://Scripts/Resources/status_data.gd" id="2_y7qi6"]
+
+[resource]
+script = ExtResource("1_kcqr6")
+id = "test_defend"
+display_name = "Defend"
+accuracy = 100.0
+critical = 1.0
+team = 1
+type = 2
+anim = "anim_name"
+crit_art = "test_defend_crit"
+description = "Brace for impact and prepare for the next turn."
+metadata/_custom_type_script = "uid://ys26fldtku2b"

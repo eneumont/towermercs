@@ -114,7 +114,26 @@ func clicked(cam: Node, evt: InputEvent, pos: Vector3, nor: Vector3, shape: int)
 	if Input.is_action_just_released("l_click"):
 		if not bm.casted_art.is_empty(): #prob add lot of checks here...
 			var art := ArtDatabase.get_art(bm.casted_art)
-			bm.targets += self
+			var a_targets: Array[Battler]
+			
+			if art.team == ArtRes.TargetTeam.ALL:
+				a_targets = bm.aliveBattlers
+			else:
+				if team == Team.ALLY && art.team == ArtRes.TargetTeam.ALLY:
+					match art.group:
+						ArtRes.GroupType.SINGLE:
+							a_targets.append(self)
+						ArtRes.GroupType.TEAM:
+							a_targets.append_array(bm.aliveBattlers.filter(func(b): return b.team == Battler.Team.ALLY))
+				elif team == Team.FOE && art.team == ArtRes.TargetTeam.FOE:
+					match art.group:
+						ArtRes.GroupType.SINGLE:
+							a_targets.append(self)
+						ArtRes.GroupType.TEAM:
+							a_targets.append_array(bm.aliveBattlers.filter(func(b): return b.team == Battler.Team.FOE))
+			
+			bm.targets.append_array(a_targets)
 			bm.cast()
 		else:
+			#show analyse menu or somethin
 			pass
