@@ -5,7 +5,7 @@ func start_turn():
 	super()
 	
 	var select_art := ArtDatabase.get_art(arts[randi_range(0, arts.size() - 1)])
-	var select_targets
+	var select_targets: Array
 	
 	match select_art.team:
 		ArtRes.TargetTeam.ALL:
@@ -16,7 +16,7 @@ func start_turn():
 			select_targets = bm.aliveBattlers.filter(func(b): return b.team == Team.ALLY)
 
 	if (select_art.group == ArtRes.GroupType.SINGLE):
-		select_targets = select_targets[randi_range(0, select_targets.size() - 1)]
+		select_targets = [select_targets[randi_range(0, select_targets.size() - 1)]]
 	
 	select_art.cast(self, select_targets)
 

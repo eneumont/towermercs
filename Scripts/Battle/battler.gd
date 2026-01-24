@@ -99,7 +99,7 @@ func take_damage(dmg: int):
 
 func die():
 	dead = true
-	bm.aliveBattlers.remove(self)
+	bm.aliveBattlers.erase(self)
 
 func do_effects():
 	pass

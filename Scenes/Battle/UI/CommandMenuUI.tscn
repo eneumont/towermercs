@@ -37,28 +37,28 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 44
-text = "Swap"
+text = "Swap (J)"
 icon_alignment = 2
 
 [node name="RunBtn" type="Button" parent="Panel2/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 44
-text = "Run"
+text = "Run (L)"
 icon_alignment = 2
 
 [node name="StatusBtn" type="Button" parent="Panel2/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 44
-text = "Status"
+text = "Status (I)"
 icon_alignment = 2
 
 [node name="AnalyseBtn" type="Button" parent="Panel2/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 44
-text = "Analyse"
+text = "Analyse (K)"
 icon_alignment = 2
 
 [node name="Panel1" type="Panel" parent="."]
@@ -80,38 +80,38 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 44
-text = "Attack"
+text = "Attack (J)"
 icon_alignment = 2
 
 [node name="DefendBtn" type="Button" parent="Panel1/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 44
-text = "Defend"
+text = "Defend (L)"
 icon_alignment = 2
 
 [node name="ArtsBtn" type="Button" parent="Panel1/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 44
-text = "Arts"
+text = "Arts (I)"
 icon_alignment = 2
 
 [node name="ItemsBtn" type="Button" parent="Panel1/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 44
-text = "Items"
+text = "Items (K)"
 icon_alignment = 2
 
 [node name="FlipBtn" type="Button" parent="."]
 layout_mode = 0
-offset_left = 328.0
+offset_left = 280.0
 offset_top = 2.0
-offset_right = 387.0
+offset_right = 389.0
 offset_bottom = 52.0
 theme_override_font_sizes/font_size = 30
-text = "Flip"
+text = "Flip (O)"
 icon_alignment = 2
 
 [connection signal="button_up" from="Panel2/VBox/SwapBtn" to="." method="swap_click"]

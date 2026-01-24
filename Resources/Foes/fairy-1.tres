@@ -8,4 +8,5 @@ id = "Fairy1"
 display_name = "Fairy"
 cur_level = 1
 cur_exp = 8
+equippedArts = Array[String](["test_attack"])
 metadata/_custom_type_script = "uid://cik62ltryynnf"

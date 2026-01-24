@@ -28,9 +28,7 @@ var cur_stats: Dictionary = {
 	BeingData.StatType.SPEED : 1,
 }
 
-var equippedArts : Array = [
-	
-]
+@export var equippedArts : Array[String]
 
 var affinities: Dictionary = {
 	BeingData.AffinityType.BLUNT : BeingData.AffinityRate.NEUTRAL,
