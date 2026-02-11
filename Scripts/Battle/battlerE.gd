@@ -1,6 +1,14 @@
 extends Battler
 class_name BattlerE
 
+func create(is_player: bool, c_data: CharData = null, f_data: EnemyData = null, control: Controller = Controller.PLAYER1) -> void:
+	super(is_player, c_data, f_data, control)
+	var model = f_data.model.instantiate()
+	add_child(model)
+	model.position = f_data.pos
+	model.rotation = f_data.rot
+	model.scale = f_data.sca
+
 func start_turn():
 	super()
 	
@@ -14,11 +22,14 @@ func start_turn():
 			select_targets = bm.aliveBattlers.filter(func(b): return b.team == Team.FOE)
 		ArtRes.TargetTeam.FOE:
 			select_targets = bm.aliveBattlers.filter(func(b): return b.team == Team.ALLY)
+		ArtRes.TargetTeam.SELF:
+			select_targets = bm.aliveBattlers.filter(func(b): return b == self)
 
-	if (select_art.group == ArtRes.GroupType.SINGLE):
+	if (select_art.team != ArtRes.TargetTeam.SELF && select_art.group == ArtRes.GroupType.SINGLE):
 		select_targets = [select_targets[randi_range(0, select_targets.size() - 1)]]
 	
-	select_art.cast(self, select_targets)
+	bm.targets.append_array(select_targets)
+	bm.cast()
 
 func end_turn():
 	super()

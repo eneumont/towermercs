@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://ch0nsgy5dchwp"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://ch0nsgy5dchwp"]
 
 [ext_resource type="Script" uid="uid://cik62ltryynnf" path="res://Scripts/Characters/foe_data.gd" id="1_6e2ew"]
+[ext_resource type="PackedScene" uid="uid://dpcrab6x40y70" path="res://Scenes/Models/GoblinModel.tscn" id="1_whr73"]
 
 [resource]
 script = ExtResource("1_6e2ew")
@@ -8,5 +9,8 @@ id = "Slime1"
 display_name = "Slime"
 cur_level = 1
 cur_exp = 11
+model = ExtResource("1_whr73")
+rot = Vector3(0, -90, 0)
+sca = Vector3(0.6, 0.6, 0.6)
 equippedArts = Array[String](["test_attack"])
 metadata/_custom_type_script = "uid://cik62ltryynnf"

@@ -5,6 +5,11 @@ class_name EnemyData
 @export var display_name: String
 @export var cur_level: int
 @export var cur_exp: int
+@export var model: PackedScene
+@export var pos: Vector3
+@export var rot: Vector3
+@export var sca: Vector3
+
 var curHP: int
 var maxHP: int #iffy on curHP and maxHP vs stats and cur_stats Health
 

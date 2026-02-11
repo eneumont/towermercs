@@ -58,13 +58,13 @@ var stats = {
 }
 
 var modifiers = {
-	CharData.StatType.HEALTH: 10.0,
-	CharData.StatType.ARTISTRY: 10.0,
-	CharData.StatType.ATTACK: 10.0,
-	CharData.StatType.MAGIC: 10.0,
-	CharData.StatType.DEFENSE: 10.0,
-	CharData.StatType.RESISTANCE: 10.0,
-	CharData.StatType.SPEED: 10.0,
+	CharData.StatType.HEALTH: 1.0,
+	CharData.StatType.ARTISTRY: 1.0,
+	CharData.StatType.ATTACK: 1.0,
+	CharData.StatType.MAGIC: 1.0,
+	CharData.StatType.DEFENSE: 1.0,
+	CharData.StatType.RESISTANCE: 1.0,
+	CharData.StatType.SPEED: 1.0,
 }
 
 var arts: Array
@@ -116,8 +116,14 @@ func clicked(cam: Node, evt: InputEvent, pos: Vector3, nor: Vector3, shape: int)
 			var art := ArtDatabase.get_art(bm.casted_art)
 			var a_targets: Array[Battler]
 			
+			if (art.hp_cost >= bm.cur_turnOrder[0].currentStats[CharData.StatType.HEALTH]) || (art.ap_cost > bm.cur_turnOrder[0].currentStats[CharData.StatType.ARTISTRY]):
+				bm.new_feed(bm.cur_turnOrder[0].displayName + " can't muster the strength to do that...")
+				return
+			
 			if art.team == ArtRes.TargetTeam.ALL:
 				a_targets = bm.aliveBattlers
+			elif art.team == ArtRes.TargetTeam.SELF:
+				a_targets = bm.aliveBattlers.filter(func(b): return b == self)
 			else:
 				if team == Team.ALLY && art.team == ArtRes.TargetTeam.ALLY:
 					match art.group:

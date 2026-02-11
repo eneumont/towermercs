@@ -43,7 +43,7 @@ func new_turn():
 
 func new_turnOrder(begin: bool):
 	if begin:
-		cur_turnOrder = aliveBattlers.duplicate()
+		cur_turnOrder = aliveBattlers.duplicate(true)
 		
 		#maybe add a check for ties
 		for b in cur_turnOrder.size() - 1:
@@ -60,7 +60,7 @@ func new_turnOrder(begin: bool):
 	new_turn()
 
 func new_nextTurnOrder():
-	next_turnOrder = aliveBattlers.duplicate()
+	next_turnOrder = aliveBattlers.duplicate(true)
 		
 	#maybe add a check for ties
 	for b in next_turnOrder.size() - 1:
@@ -105,4 +105,6 @@ func new_feed(f: String):
 	UI.feed(f)
 
 func cast():
-	ArtDatabase.get_art(casted_art).cast(cur_turnOrder[0], targets)
+	var art = ArtDatabase.get_art(casted_art)
+	art.cast(cur_turnOrder[0], targets)
+	new_feed(art.feedback.replace("NAME", cur_turnOrder[0].displayName))

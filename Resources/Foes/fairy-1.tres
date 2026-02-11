@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=2 format=3 uid="uid://qg0w7dufqrvp"]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://qg0w7dufqrvp"]
 
 [ext_resource type="Script" uid="uid://cik62ltryynnf" path="res://Scripts/Characters/foe_data.gd" id="1_4lbf4"]
+[ext_resource type="PackedScene" uid="uid://dpcrab6x40y70" path="res://Scenes/Models/GoblinModel.tscn" id="1_67pwq"]
 
 [resource]
 script = ExtResource("1_4lbf4")
@@ -8,5 +9,8 @@ id = "Fairy1"
 display_name = "Fairy"
 cur_level = 1
 cur_exp = 8
+model = ExtResource("1_67pwq")
+rot = Vector3(0, -90, 0)
+sca = Vector3(0.6, 0.6, 0.6)
 equippedArts = Array[String](["test_attack"])
 metadata/_custom_type_script = "uid://cik62ltryynnf"

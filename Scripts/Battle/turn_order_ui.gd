@@ -1,25 +1,36 @@
 extends Control
 
 #in x by 55
-var turnStartPos: Vector2 = Vector2(5, 20)
-var newTurnStartPos: Vector2 = Vector2(600, 20)
 var turnImg = preload("res://Scenes/Battle/UI/TurnImg.tscn")
 var bm
 
-@onready var bg = $Background
+@onready var cr = $Background/Cur
+@onready var nx = $Background/Next
 
 func update_both():
 	update_cur()
 	update_next()
 	
 func update_cur():
-	for i in bm.cur_turnOrder.size():
-		var img = turnImg.instantiate()
-		img.position = Vector2(5 + (55 * i), 20)
-		bg.add_child(img)
+	#iffy bout this
+	for i in cr.get_children():
+		cr.remove_child(i)
+		i.queue_free()
+	
+	create_order(bm.cur_turnOrder, 5, cr)
 	
 func update_next():
-	for i in bm.next_turnOrder.size():
+	#iffy bout this
+	for i in nx.get_children():
+		nx.remove_child(i)
+		i.queue_free()
+	
+	create_order(bm.cur_turnOrder, 600, nx)
+
+func create_order(order: Array, startI: int, pl: Panel):
+	for i in order.size():
 		var img = turnImg.instantiate()
-		img.position = Vector2(600 + (55 * i), 20)
-		bg.add_child(img)
+		img.position = Vector2(startI + (55 * i), 20)
+		img.texture = load("res://Images/Textures/Icons/Characters/PlayerTurn.png") if order[i].team == Battler.Team.ALLY else load("res://Images/Textures/Icons/Characters/EnemyTurn.png")
+		img.get_child(0).text = order[i].displayName
+		pl.add_child(img)

@@ -3,6 +3,11 @@ extends Control
 var bm
 var flip: bool = false
 
+@onready var attack_btn: Button = $Panel1/VBox/AttackBtn
+@onready var defend_btn: Button = $Panel1/VBox/DefendBtn
+@onready var arts_btn: Button = $Panel1/VBox/ArtsBtn
+@onready var items_btn: Button = $Panel1/VBox/ItemsBtn
+
 #controls 
 #square attack/swap
 #triangle arts/status
@@ -51,3 +56,7 @@ func analyse_click():
 	
 func flip_click():
 	flip = !flip
+	attack_btn.text = "Swap (J)" if flip else "Attack (J)"
+	defend_btn.text = "Run (L)" if flip else "Defend (L)"
+	arts_btn.text = "Status (I)" if flip else "Arts (I)"
+	items_btn.text = "Analyse (K)" if flip else "Items (K)"

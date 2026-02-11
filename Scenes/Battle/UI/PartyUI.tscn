@@ -46,7 +46,7 @@ vertical_alignment = 1
 self_modulate = Color(0, 1, 0, 1)
 layout_mode = 2
 size_flags_vertical = 3
-value = 39.16
+value = 40.0
 exp_edit = true
 show_percentage = false
 

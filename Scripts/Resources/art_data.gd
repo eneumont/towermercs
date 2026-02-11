@@ -16,6 +16,7 @@ class_name ArtRes
 @export var anim: String
 @export var crit_art: String
 @export var description: String
+@export var feedback: String
 
 enum GroupType {
 	SINGLE,
@@ -27,6 +28,7 @@ enum TargetTeam {
 	ALLY,
 	FOE,
 	ALL,
+	SELF,
 }
 
 enum ArtType {

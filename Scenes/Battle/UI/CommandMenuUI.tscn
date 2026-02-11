@@ -25,42 +25,6 @@ offset_top = 69.0
 offset_right = 410.0
 offset_bottom = 367.0
 
-[node name="VBox" type="VBoxContainer" parent="Panel2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SwapBtn" type="Button" parent="Panel2/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 44
-text = "Swap (J)"
-icon_alignment = 2
-
-[node name="RunBtn" type="Button" parent="Panel2/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 44
-text = "Run (L)"
-icon_alignment = 2
-
-[node name="StatusBtn" type="Button" parent="Panel2/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 44
-text = "Status (I)"
-icon_alignment = 2
-
-[node name="AnalyseBtn" type="Button" parent="Panel2/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 44
-text = "Analyse (K)"
-icon_alignment = 2
-
 [node name="Panel1" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 1.0
@@ -114,10 +78,6 @@ theme_override_font_sizes/font_size = 30
 text = "Flip (O)"
 icon_alignment = 2
 
-[connection signal="button_up" from="Panel2/VBox/SwapBtn" to="." method="swap_click"]
-[connection signal="button_up" from="Panel2/VBox/RunBtn" to="." method="run_click"]
-[connection signal="button_up" from="Panel2/VBox/StatusBtn" to="." method="status_click"]
-[connection signal="button_up" from="Panel2/VBox/AnalyseBtn" to="." method="analyse_click"]
 [connection signal="button_up" from="Panel1/VBox/AttackBtn" to="." method="attack_click"]
 [connection signal="button_up" from="Panel1/VBox/DefendBtn" to="." method="defend_click"]
 [connection signal="button_up" from="Panel1/VBox/ArtsBtn" to="." method="arts_click"]

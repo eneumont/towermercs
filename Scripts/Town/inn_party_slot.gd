@@ -15,4 +15,4 @@ func setup():
 	health_bar.value = int(PlayerData.party[num].curHP / PlayerData.party[num].maxHP)
 	artistry_txt.txt = "AP: " + str(PlayerData.party[num].curAP) + "/" + str(PlayerData.party[num].maxAP)
 	artistry_bar.value = int(PlayerData.party[num].curAP / PlayerData.party[num].maxAP)
-	slot_img.texture = load("res://Images/Textures/Icons/Characters/");
+	slot_img.texture = load("res://Images/Textures/Icons/Characters/")
