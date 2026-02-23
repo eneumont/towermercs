@@ -38,6 +38,7 @@ shape = SubResource("CapsuleShape3D_qko8o")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
+flip_h = true
 sprite_frames = SubResource("SpriteFrames_h3dt3")
 animation = &"idle"
 

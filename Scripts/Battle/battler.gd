@@ -106,6 +106,8 @@ func do_effects():
 
 func show_select():
 	selector.visible = true
+	#might want to change how select is updated
+	selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100 * (currentStats[CharData.StatType.HEALTH] / (stats[CharData.StatType.HEALTH] * modifiers[CharData.StatType.HEALTH]))
 
 func hide_select():
 	selector.visible = false
