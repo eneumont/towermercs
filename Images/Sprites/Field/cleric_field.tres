@@ -1,8 +1,17 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://l3v5qj5we0ae"]
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://l3v5qj5we0ae"]
+
+[ext_resource type="Texture2D" uid="uid://ca1imrga28per" path="res://Images/Textures/Classes/Cleric/cleric_field.png" id="1_2yxlr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kexap"]
+atlas = ExtResource("1_2yxlr")
+region = Rect2(1600, 0, 800, 1000)
 
 [resource]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kexap")
+}],
 "loop": true,
 "name": &"idle_down",
 "speed": 5.0

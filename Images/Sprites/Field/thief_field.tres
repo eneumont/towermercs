@@ -1,3 +1,18 @@
-[gd_resource type="SpriteFrames" format=3 uid="uid://48eskg22ndxd"]
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://48eskg22ndxd"]
+
+[ext_resource type="Texture2D" uid="uid://bcw8qfn36rlma" path="res://Images/Textures/Classes/Thief/thief_field.png" id="1_2b8n0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nkee"]
+atlas = ExtResource("1_2b8n0")
+region = Rect2(12800, 0, 800, 1000)
 
 [resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nkee")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}]
