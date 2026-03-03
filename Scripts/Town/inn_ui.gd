@@ -39,7 +39,7 @@ func heal_click():
 		rest_set()
 
 func saving_click(slot: int):
-	SaveManager.save_game(1, PlayerData.save())
+	SaveManager.save_game(slot, PlayerData.save())
 	save_set()
 
 func save_click():

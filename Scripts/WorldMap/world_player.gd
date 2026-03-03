@@ -60,4 +60,5 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("confirm") && next_scn != "":
 		get_tree().change_scene_to_file("res://Scenes/" + next_scn + ".tscn")
+		PlayerData.cur_scn = next_scn
 		# might want to use return

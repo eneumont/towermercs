@@ -20,16 +20,61 @@ var title_ui
 
 func _ready() -> void:
 	full_game = FileAccess.file_exists("user://saves/save_" + str(slot) + ".json")
-	
-	if full_game:
-		var data = SaveManager.load_game(slot)
-		full.visible = true
-		empty.visible = false
-		
-	else:
-		full.visible = false
-		empty.visible = true
+	design(full_game)
 
 func click():
+	if title_ui.delete:
+		if slot > 1:
+			delete_save()
+			design(false)
+		title_ui.delete = false
+	else:
+		if full_game: title_ui.pick_save()
+
+func delete_save():
 	if full_game:
-		title_ui.pick_save()
+		SaveManager.delete_save(slot)
+
+func design(used: bool):
+	full.visible = used
+	empty.visible = !used
+	
+	if used:
+		var data = SaveManager.load_game(slot)
+		
+		for p in party_imgs.get_child_count():\
+			match data["party"][slot - 1].class_type:
+				CharData.ClassType.KNIGHT:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Knight.png")
+				CharData.ClassType.THIEF:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Thief.png")
+				CharData.ClassType.MAGE:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Mage.png")
+				CharData.ClassType.CLERIC:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Cleric.png")
+				CharData.ClassType.ALCHEMIST:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Alchemist.png")
+				CharData.ClassType.BARD:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Bard.png")
+				CharData.ClassType.BRAWLER:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Brawler.png")
+				CharData.ClassType.MEDIC:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Medic.png")
+				CharData.ClassType.CLOWN:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Clown.png")
+				CharData.ClassType.ARCANIST:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Arcanist.png")
+				CharData.ClassType.DRUID:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Druid.png")
+				CharData.ClassType.SWORDMASTER:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Swordmaster.png")
+				CharData.ClassType.HORROR:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Horror.png")
+				CharData.ClassType.WITCH:
+					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Witch.png")
+					
+		area_txt.text = data["cur_scn"]
+		money_txt.text = data["money"]
+		collection_txt.text = data["collection"].count() + data["party"].count() + data["reserve"].count()
+		time_txt.text = data["time"]
+		name_txt.text = data["name"]

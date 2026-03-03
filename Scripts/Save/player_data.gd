@@ -1,7 +1,9 @@
 extends Node
 
+var s_name: String = ""
+var time: String = ""
 var money: int = 100 #0
-var inventory: Dictionary[ItemRes, int]
+var inventory: Dictionary[String, int]
 
 var party: Array[CharData] = [
 	CharData.new("Test1", CharData.ClassType.MAGE),
@@ -19,7 +21,7 @@ var available_classes: Array[CharData.ClassType] = [
 	CharData.ClassType.KNIGHT, 
 	CharData.ClassType.THIEF, 
 	CharData.ClassType.MAGE, 
-	CharData.ClassType.CLERIC 
+	CharData.ClassType.CLERIC, 
 ]
 
 var player_pos: Vector3 = Vector3(0, 0, 0)
@@ -31,7 +33,11 @@ var ui_open: bool = false
 var loadin: bool = false
 
 func save() -> Dictionary:
+	#get player pos
+	
 	return {
+		"name": s_name,
+		"time": time,
 		"money": money,
 		"inventory": inventory,
 		"party": party,

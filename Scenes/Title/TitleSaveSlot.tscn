@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://hcptrv3t5bku"]
 
-[ext_resource type="Script" path="res://Scripts/Title/title_save_slot.gd" id="1_0ilca"]
+[ext_resource type="Script" uid="uid://d3x67fxtejfhk" path="res://Scripts/Title/title_save_slot.gd" id="1_0ilca"]
 
 [node name="SaveSlot" type="Button"]
 size_flags_horizontal = 3

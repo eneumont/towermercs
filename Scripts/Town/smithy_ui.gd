@@ -77,12 +77,12 @@ func item_click(cost: int, id: String):
 func buy(cost: int, id: String):
 	if (PlayerData.money - cost) < 0:
 		talk(false, "Broke") 
-	elif PlayerData.inventory.has(id) && (PlayerData.inventory[id].owned + 1) > 99:
+	elif PlayerData.inventory.has(id) && (PlayerData.inventory[id] + 1) > 99:
 		talk(false, "Too Much")
 	else:
 		PlayerData.money -= cost
-		if !PlayerData.inventory.has(id): PlayerData.inventory[id] = ItemDatabase.get_item(id)
-		PlayerData.inventory[id].owned += 1 
+		if !PlayerData.inventory.has(id): PlayerData.inventory[id] = 0
+		PlayerData.inventory[id] += 1 
 		shop_setup()
 		talk(false, "Buy")
 
