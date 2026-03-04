@@ -12,8 +12,8 @@ var level: int
 @onready var description_txt: Label = $VBox/DescriptionTxt
 @onready var cost_txt: Label = $VBox/CostTxt
 
-func setup(type: CharData.ClassType):
-	match type:
+func setup(c_type: CharData.ClassType):
+	match c_type:
 		CharData.ClassType.KNIGHT:
 			make("Knight", "Knight.png", "A warrior who fights with sword and shield to protect allies. Specializes in protecting and buffing the party.", 100 if shop.hireMode else 50 * level)
 		CharData.ClassType.THIEF:
@@ -33,7 +33,7 @@ func setup(type: CharData.ClassType):
 		CharData.ClassType.CLOWN:
 			make("Clown", "Clown.png", "", 100 if shop.hireMode else 50 * level)
 		CharData.ClassType.ARCANIST:
-			make("Arcanist", "Arcanist.png", "", 200 if shop.hireMode else 50 * level)
+			make("Arcanist", "Arcanist.png", "", 200 if shop.hireMode else 100 * level)
 		CharData.ClassType.SWORDMASTER:
 			make("Swordmaster", "Swordmaster.png", "", 200 if shop.hireMode else 100 * level)
 		CharData.ClassType.WITCH:

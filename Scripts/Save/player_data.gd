@@ -25,7 +25,7 @@ var available_classes: Array[CharData.ClassType] = [
 ]
 
 var player_pos: Vector3 = Vector3(0, 0, 0)
-var cur_scn: String = "WorldMap/WorldMap.tscn"
+var cur_scn: String = "WorldMap/WorldMap"
 var foes: Dictionary
 
 var ui_open: bool = false

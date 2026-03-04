@@ -65,7 +65,7 @@ func party_done():
 	story_click()
 
 func story_click():
-	get_tree().change_scene_to_file("res://Scenes/" + PlayerData.cur_scn)
+	SceneManager.new_scene(PlayerData.cur_scn, PlayerData.player_pos)
 	
 func arena_click():
 	#get_tree().change_scene_to_file("res://Scenes/" + "Arena/ArenaBase" + ".tscn")

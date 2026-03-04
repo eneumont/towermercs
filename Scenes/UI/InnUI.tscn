@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://8oc11jks8n8k"]
 
-[ext_resource type="Script" path="res://Scripts/Town/inn_ui.gd" id="1_f8yp6"]
+[ext_resource type="Script" uid="uid://cyb7r1cdn0vfo" path="res://Scripts/Town/inn_ui.gd" id="1_f8yp6"]
 [ext_resource type="PackedScene" uid="uid://7sdsm0yitoij" path="res://Scenes/UI/InnSaveSlot.tscn" id="2_lag4h"]
 [ext_resource type="PackedScene" uid="uid://cd6k2iyfjxsyb" path="res://Scenes/UI/InnPartySlot.tscn" id="3_xwd4s"]
 

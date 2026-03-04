@@ -10,3 +10,5 @@ func _ready() -> void:
 	var worldPlayer = player_scn.instantiate()
 	add_child(worldPlayer)
 	worldPlayer.position = PlayerData.player_pos
+	
+	SaveManager.save_game(0, PlayerData.save(), true)

@@ -23,3 +23,5 @@ func _ready() -> void:
 	var fieldChar = player_scn.instantiate()
 	add_child(fieldChar)
 	fieldChar.position = PlayerData.player_pos
+	
+	SaveManager.save_game(0, PlayerData.save(), true)

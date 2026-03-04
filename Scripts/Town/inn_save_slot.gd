@@ -20,9 +20,10 @@ func setup():
 		empty.visible = true
 		full.visible = false
 	else:
-		var save = SaveManager.list_saves()[slot]
+		var s_data = SaveManager.list_saves()[slot]
 		empty.visible = false
 		full.visible = true
+		name_txt.text = s_data["name"]
 
 func save():
 	SaveManager.save_game(slot, PlayerData.save())

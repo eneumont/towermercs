@@ -30,7 +30,7 @@ func rest_set():
 		slot.setup()
 	
 	cost = ((PlayerData.party[0].maxHP - PlayerData.party[0].curHP) + (PlayerData.party[1].maxHP - PlayerData.party[1].curHP) + (PlayerData.party[2].maxHP - PlayerData.party[2].curHP) + (PlayerData.party[3].maxHP - PlayerData.party[3].curHP)) * 10
-	cost_txt.txt = "Cost: " + str(cost)
+	cost_txt.text = "Cost: " + str(cost)
 	
 func heal_click():
 	if not cost > PlayerData.money:

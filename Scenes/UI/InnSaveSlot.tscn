@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://7sdsm0yitoij"]
 
-[ext_resource type="Script" path="res://Scripts/Town/inn_save_slot.gd" id="1_ywond"]
+[ext_resource type="Script" uid="uid://buoxiaj0guxyd" path="res://Scripts/Town/inn_save_slot.gd" id="1_ywond"]
 [ext_resource type="Texture2D" uid="uid://bdej8fbirl1ui" path="res://Images/Textures/Icons/Characters/Cleric.png" id="2_jjt8a"]
 
 [node name="InnSaveSlot" type="Button"]
@@ -100,3 +100,5 @@ theme_override_font_sizes/font_size = 97
 text = "Empty"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="button_up" from="." to="." method="save"]
