@@ -42,8 +42,9 @@ func design(used: bool):
 	if used:
 		var data = SaveManager.load_game(slot)
 		
-		for p in party_imgs.get_child_count():\
-			match data["party"][slot - 1].class_type:
+		for p in party_imgs.get_child_count():
+			var test = data["meta"]["party"][slot - 1]
+			match data["meta"]["party"][slot - 1].class_type:
 				CharData.ClassType.KNIGHT:
 					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Knight.png")
 				CharData.ClassType.THIEF:

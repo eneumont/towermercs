@@ -6,6 +6,11 @@ const SAVE_EXT := ".json"
 var save_slots: Dictionary = {}
 
 func _ready():
+	#SaveManager.delete_save(0, true)
+	#SaveManager.delete_save(1)
+	#SaveManager.delete_save(2)
+	#SaveManager.delete_save(3)
+	
 	_load_save_metadata()
 
 func save_game(slot: int, data: Dictionary, autosave := false) -> void:
@@ -16,11 +21,10 @@ func save_game(slot: int, data: Dictionary, autosave := false) -> void:
 	var path := _get_save_path(slot, autosave)
 	var file := FileAccess.open_encrypted_with_pass(path, FileAccess.WRITE, "4578ri82bhe")
 	if file:
-		data["meta"] = {
+		data["meta"] = data.merged({
 			"timestamp": Time.get_datetime_string_from_system(),
-			"scene": get_tree().current_scene.scene_file_path,
 			"playtime": _get_playtime_string()
-		}
+		})
 		
 		file.store_string(JSON.stringify(data, "\t"))
 		file.close()
@@ -42,29 +46,6 @@ func load_game(slot: int, autosave := false) -> Dictionary:
 		return {}
 	
 	return parsed
-
-func clear_save(slot: int) -> void:
-	var dir := DirAccess.open(SAVE_DIR)
-	if not dir:
-		DirAccess.make_dir_recursive_absolute(SAVE_DIR)
-	
-	var path := _get_save_path(slot)
-	var file := FileAccess.open_encrypted_with_pass(path, FileAccess.WRITE, "4578ri82bhe")
-	
-	var data := {
-		"full" : false,
-	}
-	
-	if file:
-		data["meta"] = {
-			"timestamp": Time.get_datetime_string_from_system(),
-			"scene": get_tree().current_scene.scene_file_path,
-			"playtime": _get_playtime_string()
-		}
-		
-		file.store_string(JSON.stringify(data, "\t"))
-		file.close()
-		_load_save_metadata()
 
 func delete_save(slot: int, autosave := false) -> void:
 	var path := _get_save_path(slot, autosave)

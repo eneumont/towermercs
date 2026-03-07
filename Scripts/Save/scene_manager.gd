@@ -41,3 +41,4 @@ func new_scene(next: String, pos: Vector3 = Vector3.ZERO):
 	get_tree().change_scene_to_file("res://Scenes/" + next + ".tscn")
 	PlayerData.cur_scn = next
 	PlayerData.player_pos = pos
+	SaveManager.save_game(0, PlayerData.save(), true)

@@ -68,7 +68,7 @@ func story_click():
 	SceneManager.new_scene(PlayerData.cur_scn, PlayerData.player_pos)
 	
 func arena_click():
-	#get_tree().change_scene_to_file("res://Scenes/" + "Arena/ArenaBase" + ".tscn")
+	#SceneManager.new_scene("Arena/ArenaBase", Vector3(0,0,0)
 	pass
 
 func pick_screen(num: int):
