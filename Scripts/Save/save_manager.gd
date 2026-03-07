@@ -6,10 +6,10 @@ const SAVE_EXT := ".json"
 var save_slots: Dictionary = {}
 
 func _ready():
-	#SaveManager.delete_save(0, true)
-	#SaveManager.delete_save(1)
-	#SaveManager.delete_save(2)
-	#SaveManager.delete_save(3)
+	SaveManager.delete_save(0, true)
+	SaveManager.delete_save(1)
+	SaveManager.delete_save(2)
+	SaveManager.delete_save(3)
 	
 	_load_save_metadata()
 
@@ -26,7 +26,9 @@ func save_game(slot: int, data: Dictionary, autosave := false) -> void:
 			"playtime": _get_playtime_string()
 		})
 		
-		file.store_string(JSON.stringify(data, "\t"))
+		file.store_string(JSONSerialization.stringify(data))
+		#file.store_string(JSONSerialization.stringify_2(data, "\t"))
+		#file.store_string(JSON.stringify(data, "\t"))
 		file.close()
 		_load_save_metadata()
 
@@ -40,7 +42,8 @@ func load_game(slot: int, autosave := false) -> Dictionary:
 	var content := file.get_as_text()
 	file.close()
 	
-	var parsed = JSON.parse_string(content)
+	#var parsed = JSON.parse_string(content)
+	var parsed = JSONSerialization.parse(content)
 	if typeof(parsed) != TYPE_DICTIONARY:
 		push_warning("Invalid save format.")
 		return {}
@@ -64,7 +67,8 @@ func _load_save_metadata():
 			var path := SAVE_DIR + file_name
 			var slot_id := int(file_name.trim_prefix("save_").trim_suffix(SAVE_EXT))
 			var file := FileAccess.open_encrypted_with_pass(path, FileAccess.READ, "4578ri82bhe")
-			var parsed = JSON.parse_string(file.get_as_text())
+			#var parsed = JSON.parse_string(file.get_as_text())
+			var parsed = JSONSerialization.parse(file.get_as_text())
 			file.close()
 			
 			if typeof(parsed) == TYPE_DICTIONARY and parsed.has("meta"):

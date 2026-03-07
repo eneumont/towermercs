@@ -8,6 +8,19 @@
 
 config_version=5
 
+[addons]
+
+resources_spreadsheet_view/array_color_tint=100.0
+resources_spreadsheet_view/color_rows=true
+resources_spreadsheet_view/array_min_width=128.0
+resources_spreadsheet_view/resource_preview_size=32.0
+resources_spreadsheet_view/clip_headers=false
+resources_spreadsheet_view/dupe_arrays=true
+resources_spreadsheet_view/context_menu_on_leftclick=false
+resources_spreadsheet_view/fold_docks=true
+resources_spreadsheet_view/resource_cell_label_mode=1
+resources_spreadsheet_view/freeze_first_column=true
+
 [application]
 
 config/name="TowerMercs"
@@ -25,10 +38,11 @@ MusicManager="*res://Scripts/Audio/music_manager.gd"
 SceneManager="*res://Scripts/Save/scene_manager.gd"
 EnemyDatabase="*res://Scripts/Data/enemy_database.gd"
 ArtDatabase="*res://Scripts/Data/art_database.gd"
+JSONSerialization="*res://addons/godot-improved-json/serialize/json_serialization.tscn"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/godot-improved-json/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
 
 [file_customization]
 
@@ -39,7 +53,8 @@ folder_colors={
 "res://Models/": "pink",
 "res://Resources/": "orange",
 "res://Scenes/": "green",
-"res://Scripts/": "purple"
+"res://Scripts/": "purple",
+"res://addons/": "gray"
 }
 
 [input]
