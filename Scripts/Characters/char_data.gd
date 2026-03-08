@@ -267,3 +267,6 @@ func set_equipment(new_equip: Array[String]):
 	if not new_equip[0].is_empty(): equipment[ItemRes.ItemType.WEAPON] = new_equip[0]
 	if not new_equip[1].is_empty(): equipment[ItemRes.ItemType.ARMOR] = new_equip[1]
 	if not new_equip[2].is_empty(): equipment[ItemRes.ItemType.ACCESSORY] = new_equip[2]
+
+func char_save() -> Dictionary:
+	return {}

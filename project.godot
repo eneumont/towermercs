@@ -38,11 +38,10 @@ MusicManager="*res://Scripts/Audio/music_manager.gd"
 SceneManager="*res://Scripts/Save/scene_manager.gd"
 EnemyDatabase="*res://Scripts/Data/enemy_database.gd"
 ArtDatabase="*res://Scripts/Data/art_database.gd"
-JSONSerialization="*res://addons/godot-improved-json/serialize/json_serialization.tscn"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-improved-json/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray("res://addons/resources_spreadsheet_view/plugin.cfg")
 
 [file_customization]
 
