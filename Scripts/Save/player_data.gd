@@ -40,9 +40,9 @@ func save() -> Dictionary:
 		"time": time,
 		"money": money,
 		"inventory": inventory,
-		"party": party,
-		"reserve": reserve,
-		"collection": collection,
+		"party": data_array(party),
+		"reserve": data_array(reserve),
+		"collection": data_array(collection),
 		"available_classes": available_classes,
 		"player_pos": player_pos,
 		"cur_scn": cur_scn,
@@ -50,3 +50,11 @@ func save() -> Dictionary:
 		"ui_open": ui_open,
 		"loadin": loadin,
 	}
+
+func data_array(c_array: Array[CharData]) -> Array[Dictionary]:
+	var out := []
+	
+	for c in c_array:
+		out.append(c.char_save())
+	
+	return out
