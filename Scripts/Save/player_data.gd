@@ -47,11 +47,11 @@ func save() -> Dictionary:
 		"player_pos": player_pos,
 		"cur_scn": cur_scn,
 		"foes": foes,
-		"ui_open": ui_open,
+		#"ui_open": ui_open,dont think ui_open is needed
 		"loadin": loadin,
 	}
 
-func data_array(c_array: Array[CharData]) -> Array[Dictionary]:
+func data_array(c_array: Array[CharData]) -> Array:
 	var out := []
 	
 	for c in c_array:

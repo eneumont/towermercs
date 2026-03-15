@@ -24,7 +24,7 @@ var class_type: ClassType
 var curAP: int
 var maxAP: int
 
-var stat_growths: Dictionary = {
+var growths: Dictionary = {
 	StatType.HEALTH : 50.0,
 	StatType.ARTISTRY : 50.0,
 	StatType.ATTACK : 50.0,
@@ -268,14 +268,17 @@ func set_equipment(new_equip: Array[String]):
 	if not new_equip[1].is_empty(): equipment[ItemRes.ItemType.ARMOR] = new_equip[1]
 	if not new_equip[2].is_empty(): equipment[ItemRes.ItemType.ACCESSORY] = new_equip[2]
 
-func set_growths(new_growths: Array[String]):
-	stat_growths[StatType.HEALTH] = new_growths[0]
-	stat_growths[StatType.ARTISTRY] = new_growths[1]
-	stat_growths[StatType.ATTACK] = new_growths[2]
-	stat_growths[StatType.MAGIC] = new_growths[3]
-	stat_growths[StatType.DEFENSE] = new_growths[4]
-	stat_growths[StatType.RESISTANCE] = new_growths[5]
-	stat_growths[StatType.SPEED] = new_growths[6]
+func set_growths(new_growths: Array[float]):
+	growths[StatType.HEALTH] = new_growths[0]
+	growths[StatType.ARTISTRY] = new_growths[1]
+	growths[StatType.ATTACK] = new_growths[2]
+	growths[StatType.MAGIC] = new_growths[3]
+	growths[StatType.DEFENSE] = new_growths[4]
+	growths[StatType.RESISTANCE] = new_growths[5]
+	growths[StatType.SPEED] = new_growths[6]
+
+func set_other_arts(new_arts: Array[String]):
+	pass
 
 func char_save() -> Dictionary:
 	return {
@@ -285,11 +288,17 @@ func char_save() -> Dictionary:
 		"cur_exp": cur_exp,
 		"curHP": curHP,
 		"maxHP": maxHP,
-		"class_type": class_type,
+		"class_type": int(class_type),
 		"max_exp": max_exp,
 		"cur_sp": cur_sp,
 		"curAP": curAP,
-		"maxAP": maxAP
+		"maxAP": maxAP,
+		"stats": [stats[StatType.HEALTH], stats[StatType.ARTISTRY], stats[StatType.ATTACK], stats[StatType.MAGIC], stats[StatType.DEFENSE], stats[StatType.RESISTANCE], stats[StatType.SPEED]],
+		"arts": arts,
+		"equippedArts": equippedArts,
+		"affinities": affinities,
+		"growths": [growths[StatType.HEALTH], growths[StatType.ARTISTRY], growths[StatType.ATTACK], growths[StatType.MAGIC], growths[StatType.DEFENSE], growths[StatType.RESISTANCE], growths[StatType.SPEED]],
+		"equipment": [equipment[ItemRes.ItemType.WEAPON], equipment[ItemRes.ItemType.ARMOR], equipment[ItemRes.ItemType.ACCESSORY]]
 	}
 
 func char_load(c_data: Dictionary):
@@ -304,3 +313,9 @@ func char_load(c_data: Dictionary):
 	cur_sp = c_data["cur_sp"]
 	curAP = c_data["curAP"]
 	maxAP = c_data["maxAP"]
+	set_stats(c_data["stats"])
+	set_arts(c_data["equippedArts"])
+	set_other_arts(c_data["arts"])
+	set_affinities(c_data["affinities"])
+	set_growths(c_data["growths"])
+	set_equipment(c_data["equipment"])

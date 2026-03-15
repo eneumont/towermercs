@@ -6,10 +6,10 @@ const SAVE_EXT := ".json"
 var save_slots: Dictionary = {}
 
 func _ready():
-	SaveManager.delete_save(0, true)
-	SaveManager.delete_save(1)
-	SaveManager.delete_save(2)
-	SaveManager.delete_save(3)
+	#SaveManager.delete_save(0, true)
+	#SaveManager.delete_save(1)
+	#SaveManager.delete_save(2)
+	#SaveManager.delete_save(3)
 	
 	_load_save_metadata()
 

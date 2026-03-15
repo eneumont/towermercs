@@ -42,9 +42,10 @@ func design(used: bool):
 	if used:
 		var data = SaveManager.load_game(slot)
 		
+		var i = 0
 		for p in party_imgs.get_child_count():
-			var test = data["meta"]["party"][slot - 1]
-			match data["meta"]["party"][slot - 1].class_type:
+			var val = int(data["meta"]["party"][i]["class_type"])
+			match int(data["meta"]["party"][i]["class_type"]):
 				CharData.ClassType.KNIGHT:
 					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Knight.png")
 				CharData.ClassType.THIEF:
@@ -74,8 +75,9 @@ func design(used: bool):
 				CharData.ClassType.WITCH:
 					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Witch.png")
 					
+		i += 1
 		area_txt.text = data["cur_scn"]
-		money_txt.text = data["money"]
-		collection_txt.text = data["collection"].count() + data["party"].count() + data["reserve"].count()
+		money_txt.text = str(data["money"])
+		collection_txt.text = str(data["collection"].size() + data["party"].size() + data["reserve"].size())
 		time_txt.text = data["time"]
 		name_txt.text = data["name"]
