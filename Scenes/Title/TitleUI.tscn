@@ -147,19 +147,18 @@ grow_vertical = 2
 
 [node name="SaveSlot" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
 layout_mode = 2
-slot = 1
 
 [node name="SaveSlot2" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
 layout_mode = 2
-slot = 2
+slot = 1
 
 [node name="SaveSlot3" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
 layout_mode = 2
-slot = 3
+slot = 2
 
 [node name="SaveSlot4" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
 layout_mode = 2
-slot = 4
+slot = 3
 
 [node name="SaveButtons" type="HBoxContainer" parent="SaveScreen"]
 layout_mode = 1

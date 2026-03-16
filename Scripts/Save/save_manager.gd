@@ -13,6 +13,7 @@ func _ready():
 	
 	_load_save_metadata()
 
+##saving note 0 -> auto, 1,2,3 -> regular
 func save_game(slot: int, data: Dictionary, autosave := false) -> void:
 	var dir := DirAccess.open(SAVE_DIR)
 	if not dir:
@@ -30,6 +31,7 @@ func save_game(slot: int, data: Dictionary, autosave := false) -> void:
 		file.close()
 		_load_save_metadata()
 
+##saving note 0 -> auto, 1,2,3 -> regular
 func load_game(slot: int, autosave := false) -> Dictionary:
 	var path := _get_save_path(slot, autosave)
 	if not FileAccess.file_exists(path):
@@ -78,3 +80,5 @@ func _get_save_path(slot: int, autosave: bool = false) -> String:
 
 func _get_playtime_string() -> String:
 	return "%02d:%02d:%02d" % [randi() % 24, randi() % 60, randi() % 60]
+
+#saving note 0 -> auto, 1,2,3 -> regular

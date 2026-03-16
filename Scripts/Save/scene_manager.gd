@@ -37,6 +37,7 @@ func pop_scene():
 	
 	get_tree().current_scene = pre
 
+##saving note 0 -> auto, 1,2,3 -> regular
 func new_scene(next: String, pos: Vector3 = Vector3.ZERO):
 	get_tree().change_scene_to_file("res://Scenes/" + next + ".tscn")
 	PlayerData.cur_scn = next

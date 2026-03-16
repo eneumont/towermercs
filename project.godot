@@ -25,7 +25,7 @@ resources_spreadsheet_view/freeze_first_column=true
 
 config/name="TowerMercs"
 config/tags=PackedStringArray("current", "personal_project")
-run/main_scene="res://Scenes/WorldMap/WorldMap.tscn"
+run/main_scene="uid://brbjfgp2m57v6"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

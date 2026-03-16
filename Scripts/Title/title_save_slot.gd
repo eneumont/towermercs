@@ -19,19 +19,19 @@ var full_game: bool
 var title_ui
 
 func _ready() -> void:
-	full_game = FileAccess.file_exists("user://saves/save_" + str(slot) + ".json") if slot > 1 else FileAccess.file_exists("user://saves/autosave.json")
+	full_game = FileAccess.file_exists("user://saves/save_" + str(slot) + ".json") if slot > 0 else FileAccess.file_exists("user://saves/autosave.json")
 	design(full_game)
 
 func click():
 	if title_ui.delete:
-		if slot > 1:
+		if slot > 0:
 			full_game = false
 			delete_save()
 			design(false)
 		title_ui.delete = false
 	else:
-		if full_game: 
-			PlayerData.load_save(SaveManager.load_game(slot))
+		if full_game:
+			PlayerData.load_save(SaveManager.load_game(slot) if slot > 0 else SaveManager.load_game(slot, true))
 			title_ui.pick_save()
 
 func delete_save():
@@ -43,7 +43,7 @@ func design(used: bool):
 	empty.visible = !used
 	
 	if used:
-		var data = SaveManager.load_game(slot) if slot > 1 else SaveManager.load_game(slot, true)
+		var data = SaveManager.load_game(slot) if slot > 0 else SaveManager.load_game(slot, true)
 		
 		var i = 0
 		for p in party_imgs.get_child_count():
@@ -79,8 +79,8 @@ func design(used: bool):
 				
 			i += 1
 		
-		area_txt.text = data["cur_scn"]
-		money_txt.text = str(data["money"])
-		collection_txt.text = str(data["collection"].size() + data["party"].size() + data["reserve"].size())
-		time_txt.text = data["time"]
+		area_txt.text = "Area: " + data["cur_scn"]
+		money_txt.text = "Money: " + str(data["money"])
+		collection_txt.text = "Collection: " + (str(data["collection"].size() + data["party"].size() + data["reserve"].size()))
+		time_txt.text = "Time: " + data["time"]
 		name_txt.text = data["name"]
