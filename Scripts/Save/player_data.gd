@@ -3,7 +3,7 @@ extends Node
 var s_name: String = ""
 var time: String = ""
 var money: int = 100 #0
-var inventory: Dictionary[String, int]
+var inventory: Dictionary #[String, int]
 
 var party: Array[CharData] = [
 	CharData.new("Test1", CharData.ClassType.MAGE),
@@ -17,7 +17,7 @@ var reserve: Array[CharData] = [
 	CharData.new("Test7", CharData.ClassType.KNIGHT),
 ]
 var collection: Array[CharData] = []
-var available_classes: Array[CharData.ClassType] = [ 
+var available_classes: Array = [ ##Array[CharData.ClassType]
 	CharData.ClassType.KNIGHT, 
 	CharData.ClassType.THIEF, 
 	CharData.ClassType.MAGE, 
@@ -50,11 +50,34 @@ func save() -> Dictionary:
 		#"ui_open": ui_open,dont think ui_open is needed
 		"loadin": loadin,
 	}
+	
+func load_save(data: Dictionary):
+	s_name = data["name"]
+	time = data["time"]
+	money = data["money"]
+	inventory = data["inventory"]
+	party = array_to_data(data["party"])
+	reserve = array_to_data(data["reserve"])
+	collection = array_to_data(data["collection"])
+	available_classes = data["available_classes"]
+	var a = data["player_pos"].replace("(", "").replace(")", "").split(", ", false)
+	player_pos = Vector3(float(a[0]), float(a[1]), float(a[2]))
+	cur_scn = data["cur_scn"]
+	foes = data["foes"]
+	loadin = data["loadin"]
 
 func data_array(c_array: Array[CharData]) -> Array:
 	var out := []
 	
 	for c in c_array:
 		out.append(c.char_save())
+	
+	return out
+
+func array_to_data(arr: Array) -> Array[CharData]:
+	var out: Array[CharData] = []
+	
+	for c in arr:
+		out.append(CharData.new("", 0, 0, c))
 	
 	return out

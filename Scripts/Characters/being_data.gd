@@ -86,8 +86,8 @@ func set_stats(new_stats: Array):
 	stats[StatType.SPEED] = new_stats[6]
 
 ## sets EQUIPPED ARTS used by both char and foe [br]
-## parameter new_arts an array of art names to be equipped
-func set_arts(new_arts: Array[String]):
+## parameter new_arts an array of art names  (Array[String]) to be equipped
+func set_arts(new_arts: Array):
 	equippedArts = new_arts
 
 func set_affinities(new_affinities: Dictionary):

@@ -19,17 +19,20 @@ var full_game: bool
 var title_ui
 
 func _ready() -> void:
-	full_game = FileAccess.file_exists("user://saves/save_" + str(slot) + ".json")
+	full_game = FileAccess.file_exists("user://saves/save_" + str(slot) + ".json") if slot > 1 else FileAccess.file_exists("user://saves/autosave.json")
 	design(full_game)
 
 func click():
 	if title_ui.delete:
 		if slot > 1:
+			full_game = false
 			delete_save()
 			design(false)
 		title_ui.delete = false
 	else:
-		if full_game: title_ui.pick_save()
+		if full_game: 
+			PlayerData.load_save(SaveManager.load_game(slot))
+			title_ui.pick_save()
 
 func delete_save():
 	if full_game:
@@ -40,11 +43,10 @@ func design(used: bool):
 	empty.visible = !used
 	
 	if used:
-		var data = SaveManager.load_game(slot)
+		var data = SaveManager.load_game(slot) if slot > 1 else SaveManager.load_game(slot, true)
 		
 		var i = 0
 		for p in party_imgs.get_child_count():
-			var val = int(data["meta"]["party"][i]["class_type"])
 			match int(data["meta"]["party"][i]["class_type"]):
 				CharData.ClassType.KNIGHT:
 					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Knight.png")
@@ -74,8 +76,9 @@ func design(used: bool):
 					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Horror.png")
 				CharData.ClassType.WITCH:
 					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Witch.png")
-					
-		i += 1
+				
+			i += 1
+		
 		area_txt.text = data["cur_scn"]
 		money_txt.text = str(data["money"])
 		collection_txt.text = str(data["collection"].size() + data["party"].size() + data["reserve"].size())
