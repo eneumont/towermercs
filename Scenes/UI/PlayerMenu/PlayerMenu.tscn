@@ -1,0 +1,639 @@
+[gd_scene load_steps=5 format=3 uid="uid://buwla5ajslfd8"]
+
+[ext_resource type="Script" uid="uid://uvdaytgedds2" path="res://Scripts/UI/PlayerMenuScreen/player_menu.gd" id="1_exswu"]
+[ext_resource type="Script" uid="uid://bnw72p14tn87n" path="res://Scripts/UI/PlayerMenuScreen/player_menu_screen.gd" id="1_ygwso"]
+[ext_resource type="Script" uid="uid://dg7qmc80pyrax" path="res://Scripts/UI/PlayerMenuScreen/player_menu_buttons.gd" id="2_a0fii"]
+[ext_resource type="Script" uid="uid://dphalhif0ydgq" path="res://Scripts/UI/PlayerMenuScreen/player_char_button.gd" id="3_exswu"]
+
+[node name="PlayerMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_exswu")
+
+[node name="MainMenu" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygwso")
+
+[node name="ButtonsBox" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 220.0
+
+[node name="TopBox" type="HBoxContainer" parent="MainMenu/ButtonsBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MenuBtns" type="Button" parent="MainMenu/ButtonsBox/TopBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+script = ExtResource("2_a0fii")
+
+[node name="MenuBtns2" type="Button" parent="MainMenu/ButtonsBox/TopBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+script = ExtResource("2_a0fii")
+
+[node name="MenuBtns3" type="Button" parent="MainMenu/ButtonsBox/TopBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+script = ExtResource("2_a0fii")
+
+[node name="MidBox" type="HBoxContainer" parent="MainMenu/ButtonsBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MenuBtns" type="Button" parent="MainMenu/ButtonsBox/MidBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+script = ExtResource("2_a0fii")
+
+[node name="MenuBtns2" type="Button" parent="MainMenu/ButtonsBox/MidBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+script = ExtResource("2_a0fii")
+
+[node name="BotBox" type="HBoxContainer" parent="MainMenu/ButtonsBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MenuBtns" type="Button" parent="MainMenu/ButtonsBox/BotBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+script = ExtResource("2_a0fii")
+
+[node name="Button1" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 3.9999847
+offset_top = 379.0
+offset_right = 205.71605
+offset_bottom = 747.2745
+rotation = -0.76373196
+script = ExtResource("3_exswu")
+
+[node name="NameTxt" type="Label" parent="MainMenu/Button1"]
+layout_mode = 0
+offset_left = 48.01071
+offset_top = -3.8694587
+offset_right = 150.01071
+offset_bottom = 24.13054
+rotation = 0.634861
+theme_override_font_sizes/font_size = 20
+text = "Name Lv.1"
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/Button1"]
+layout_mode = 0
+offset_left = 101.28716
+offset_top = 72.068794
+offset_right = 242.3978
+offset_bottom = 214.30484
+rotation = 0.7848573
+expand_mode = 5
+
+[node name="ValuesBox" type="VBoxContainer" parent="MainMenu/Button1"]
+layout_mode = 0
+offset_left = 42.21042
+offset_top = 231.6405
+offset_right = 180.0299
+offset_bottom = 291.53186
+rotation = 0.74837226
+
+[node name="HealthBar" type="ProgressBar" parent="MainMenu/Button1/ValuesBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="HPtxt" type="Label" parent="MainMenu/Button1/ValuesBox/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "HP: 999/999"
+
+[node name="ArtistryBar" type="ProgressBar" parent="MainMenu/Button1/ValuesBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="APtxt" type="Label" parent="MainMenu/Button1/ValuesBox/ArtistryBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "AP: 99/99"
+
+[node name="SPtxt" type="Label" parent="MainMenu/Button1/ValuesBox"]
+self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+layout_mode = 2
+text = "SP: 99999"
+horizontal_alignment = 1
+
+[node name="Button4" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 144.0
+offset_right = 866.71606
+offset_bottom = 512.2745
+rotation = -0.76373196
+script = ExtResource("3_exswu")
+pos = 3
+
+[node name="NameTxt" type="Label" parent="MainMenu/Button4"]
+layout_mode = 0
+offset_left = 48.01071
+offset_top = -3.8694587
+offset_right = 150.01071
+offset_bottom = 24.13054
+rotation = 0.634861
+theme_override_font_sizes/font_size = 20
+text = "Name Lv.1"
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/Button4"]
+layout_mode = 0
+offset_left = 101.28716
+offset_top = 72.068794
+offset_right = 242.3978
+offset_bottom = 214.30484
+rotation = 0.7848573
+expand_mode = 5
+
+[node name="ValuesBox" type="VBoxContainer" parent="MainMenu/Button4"]
+layout_mode = 0
+offset_left = 42.21042
+offset_top = 231.6405
+offset_right = 180.0299
+offset_bottom = 291.53186
+rotation = 0.74837226
+
+[node name="HealthBar" type="ProgressBar" parent="MainMenu/Button4/ValuesBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="HPtxt" type="Label" parent="MainMenu/Button4/ValuesBox/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "HP: 999/999"
+
+[node name="ArtistryBar" type="ProgressBar" parent="MainMenu/Button4/ValuesBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="APtxt" type="Label" parent="MainMenu/Button4/ValuesBox/ArtistryBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "AP: 99/99"
+
+[node name="SPtxt" type="Label" parent="MainMenu/Button4/ValuesBox"]
+self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+layout_mode = 2
+text = "SP: 99999"
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 298.0
+offset_right = 421.71606
+offset_bottom = 666.2745
+rotation = -0.76373196
+script = ExtResource("3_exswu")
+pos = 1
+
+[node name="NameTxt" type="Label" parent="MainMenu/Button2"]
+layout_mode = 0
+offset_left = 48.01071
+offset_top = -3.8694587
+offset_right = 150.01071
+offset_bottom = 24.13054
+rotation = 0.634861
+theme_override_font_sizes/font_size = 20
+text = "Name Lv.1"
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/Button2"]
+layout_mode = 0
+offset_left = 101.28716
+offset_top = 72.068794
+offset_right = 242.3978
+offset_bottom = 214.30484
+rotation = 0.7848573
+expand_mode = 5
+
+[node name="ValuesBox" type="VBoxContainer" parent="MainMenu/Button2"]
+layout_mode = 0
+offset_left = 42.21042
+offset_top = 231.6405
+offset_right = 180.0299
+offset_bottom = 291.53186
+rotation = 0.74837226
+
+[node name="HealthBar" type="ProgressBar" parent="MainMenu/Button2/ValuesBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="HPtxt" type="Label" parent="MainMenu/Button2/ValuesBox/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "HP: 999/999"
+
+[node name="ArtistryBar" type="ProgressBar" parent="MainMenu/Button2/ValuesBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="APtxt" type="Label" parent="MainMenu/Button2/ValuesBox/ArtistryBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "AP: 99/99"
+
+[node name="SPtxt" type="Label" parent="MainMenu/Button2/ValuesBox"]
+self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+layout_mode = 2
+text = "SP: 99999"
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 220.0
+offset_right = 644.71606
+offset_bottom = 588.2745
+rotation = -0.76373196
+script = ExtResource("3_exswu")
+pos = 2
+
+[node name="NameTxt" type="Label" parent="MainMenu/Button3"]
+layout_mode = 0
+offset_left = 48.01071
+offset_top = -3.8694587
+offset_right = 150.01071
+offset_bottom = 24.13054
+rotation = 0.634861
+theme_override_font_sizes/font_size = 20
+text = "Name Lv.1"
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/Button3"]
+layout_mode = 0
+offset_left = 101.28716
+offset_top = 72.068794
+offset_right = 242.3978
+offset_bottom = 214.30484
+rotation = 0.7848573
+expand_mode = 5
+
+[node name="ValuesBox" type="VBoxContainer" parent="MainMenu/Button3"]
+layout_mode = 0
+offset_left = 42.21042
+offset_top = 231.6405
+offset_right = 180.0299
+offset_bottom = 291.53186
+rotation = 0.74837226
+
+[node name="HealthBar" type="ProgressBar" parent="MainMenu/Button3/ValuesBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="HPtxt" type="Label" parent="MainMenu/Button3/ValuesBox/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "HP: 999/999"
+
+[node name="ArtistryBar" type="ProgressBar" parent="MainMenu/Button3/ValuesBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="APtxt" type="Label" parent="MainMenu/Button3/ValuesBox/ArtistryBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "AP: 99/99"
+
+[node name="SPtxt" type="Label" parent="MainMenu/Button3/ValuesBox"]
+self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+layout_mode = 2
+text = "SP: 99999"
+horizontal_alignment = 1
+
+[node name="Button5" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 799.0
+offset_top = 388.0
+offset_right = 969.6084
+offset_bottom = 610.0041
+rotation = 0.22854872
+script = ExtResource("3_exswu")
+pos = 4
+
+[node name="NameTxt" type="Label" parent="MainMenu/Button5"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "Name Lv.1"
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/Button5"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -83.360016
+offset_bottom = 33.10791
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+
+[node name="ValuesBox" type="VBoxContainer" parent="MainMenu/Button5"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -70.793335
+offset_right = -0.00039672852
+offset_bottom = 4.206665
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HealthBar" type="ProgressBar" parent="MainMenu/Button5/ValuesBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="HPtxt" type="Label" parent="MainMenu/Button5/ValuesBox/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "HP: 999/999"
+
+[node name="ArtistryBar" type="ProgressBar" parent="MainMenu/Button5/ValuesBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="APtxt" type="Label" parent="MainMenu/Button5/ValuesBox/ArtistryBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "AP: 99/99"
+
+[node name="SPtxt" type="Label" parent="MainMenu/Button5/ValuesBox"]
+self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+layout_mode = 2
+text = "SP: 99999"
+horizontal_alignment = 1
+
+[node name="Button6" type="Button" parent="MainMenu"]
+layout_mode = 0
+offset_left = 982.99994
+offset_top = 384.0
+offset_right = 1153.6084
+offset_bottom = 606.0041
+rotation = 0.22854872
+script = ExtResource("3_exswu")
+pos = 5
+
+[node name="NameTxt" type="Label" parent="MainMenu/Button6"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "Name Lv.1"
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/Button6"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -83.360016
+offset_bottom = 33.10791
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+
+[node name="ValuesBox" type="VBoxContainer" parent="MainMenu/Button6"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -70.793335
+offset_right = -0.00039672852
+offset_bottom = 4.206665
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HealthBar" type="ProgressBar" parent="MainMenu/Button6/ValuesBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="HPtxt" type="Label" parent="MainMenu/Button6/ValuesBox/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "HP: 999/999"
+
+[node name="ArtistryBar" type="ProgressBar" parent="MainMenu/Button6/ValuesBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+value = 68.98
+show_percentage = false
+
+[node name="APtxt" type="Label" parent="MainMenu/Button6/ValuesBox/ArtistryBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 14
+text = "AP: 99/99"
+
+[node name="SPtxt" type="Label" parent="MainMenu/Button6/ValuesBox"]
+self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+layout_mode = 2
+text = "SP: 99999"
+horizontal_alignment = 1
+
+[node name="TimeTxt" type="Label" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -572.0
+offset_top = 286.0
+offset_right = -400.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Time: 00:00:00"
+
+[node name="MoneyTxt" type="Label" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -573.0
+offset_top = 250.0
+offset_right = -401.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Money: 99999"
+
+[node name="ReserveTxt" type="Label" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 275.99994
+offset_top = 38.0
+offset_right = 420.99994
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.13362159
+theme_override_font_sizes/font_size = 40
+text = "reserve"
+
+[node name="MainTxt" type="Label" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -274.0
+offset_top = -181.0
+offset_right = -87.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.22716673
+theme_override_font_sizes/font_size = 70
+text = "MAIN"
+
+[node name="CharMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygwso")
+
+[connection signal="button_up" from="MainMenu/Button1" to="MainMenu/Button1" method="char_click"]
+[connection signal="button_up" from="MainMenu/Button4" to="MainMenu/Button4" method="char_click"]
+[connection signal="button_up" from="MainMenu/Button2" to="MainMenu/Button2" method="char_click"]
+[connection signal="button_up" from="MainMenu/Button3" to="MainMenu/Button3" method="char_click"]
+[connection signal="button_up" from="MainMenu/Button5" to="MainMenu/Button5" method="char_click"]
+[connection signal="button_up" from="MainMenu/Button6" to="MainMenu/Button6" method="char_click"]

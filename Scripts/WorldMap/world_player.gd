@@ -57,6 +57,9 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("menu"):
+		PlayerData.ui_open = true
 
 	if Input.is_action_just_pressed("confirm") && next_scn != "":
 		SceneManager.new_scene(next_scn, Vector3(0, 0, 0)) #might want to create var for player pos tracking
