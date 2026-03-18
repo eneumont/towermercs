@@ -23,66 +23,72 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ygwso")
 
-[node name="ButtonsBox" type="VBoxContainer" parent="MainMenu"]
+[node name="MenuBtns" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 220.0
 
-[node name="TopBox" type="HBoxContainer" parent="MainMenu/ButtonsBox"]
+[node name="TopBox" type="HBoxContainer" parent="MainMenu/MenuBtns"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MenuBtns" type="Button" parent="MainMenu/ButtonsBox/TopBox"]
+[node name="MenuBtns" type="Button" parent="MainMenu/MenuBtns/TopBox" node_paths=PackedStringArray("menu")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
+menu = NodePath("../../../..")
 
-[node name="MenuBtns2" type="Button" parent="MainMenu/ButtonsBox/TopBox"]
+[node name="MenuBtns2" type="Button" parent="MainMenu/MenuBtns/TopBox" node_paths=PackedStringArray("menu")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
+menu = NodePath("../../../..")
 
-[node name="MenuBtns3" type="Button" parent="MainMenu/ButtonsBox/TopBox"]
+[node name="MenuBtns3" type="Button" parent="MainMenu/MenuBtns/TopBox" node_paths=PackedStringArray("menu")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
+menu = NodePath("../../../..")
 
-[node name="MidBox" type="HBoxContainer" parent="MainMenu/ButtonsBox"]
+[node name="MidBox" type="HBoxContainer" parent="MainMenu/MenuBtns"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MenuBtns" type="Button" parent="MainMenu/ButtonsBox/MidBox"]
+[node name="MenuBtns" type="Button" parent="MainMenu/MenuBtns/MidBox" node_paths=PackedStringArray("menu")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
+menu = NodePath("../../../..")
 
-[node name="MenuBtns2" type="Button" parent="MainMenu/ButtonsBox/MidBox"]
+[node name="MenuBtns2" type="Button" parent="MainMenu/MenuBtns/MidBox" node_paths=PackedStringArray("menu")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
+menu = NodePath("../../../..")
 
-[node name="BotBox" type="HBoxContainer" parent="MainMenu/ButtonsBox"]
+[node name="BotBox" type="HBoxContainer" parent="MainMenu/MenuBtns"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MenuBtns" type="Button" parent="MainMenu/ButtonsBox/BotBox"]
+[node name="MenuBtns" type="Button" parent="MainMenu/MenuBtns/BotBox" node_paths=PackedStringArray("menu")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
+menu = NodePath("../../../..")
 
-[node name="Button1" type="Button" parent="MainMenu"]
+[node name="Button1" type="Button" parent="MainMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 0
 offset_left = 3.9999847
 offset_top = 379.0
@@ -90,6 +96,7 @@ offset_right = 205.71605
 offset_bottom = 747.2745
 rotation = -0.76373196
 script = ExtResource("3_exswu")
+menu = NodePath("../..")
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button1"]
 layout_mode = 0
@@ -158,7 +165,7 @@ layout_mode = 2
 text = "SP: 99999"
 horizontal_alignment = 1
 
-[node name="Button4" type="Button" parent="MainMenu"]
+[node name="Button4" type="Button" parent="MainMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 0
 offset_left = 665.0
 offset_top = 144.0
@@ -166,6 +173,7 @@ offset_right = 866.71606
 offset_bottom = 512.2745
 rotation = -0.76373196
 script = ExtResource("3_exswu")
+menu = NodePath("../..")
 pos = 3
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button4"]
@@ -235,7 +243,7 @@ layout_mode = 2
 text = "SP: 99999"
 horizontal_alignment = 1
 
-[node name="Button2" type="Button" parent="MainMenu"]
+[node name="Button2" type="Button" parent="MainMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 0
 offset_left = 220.0
 offset_top = 298.0
@@ -243,6 +251,7 @@ offset_right = 421.71606
 offset_bottom = 666.2745
 rotation = -0.76373196
 script = ExtResource("3_exswu")
+menu = NodePath("../..")
 pos = 1
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button2"]
@@ -312,7 +321,7 @@ layout_mode = 2
 text = "SP: 99999"
 horizontal_alignment = 1
 
-[node name="Button3" type="Button" parent="MainMenu"]
+[node name="Button3" type="Button" parent="MainMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 0
 offset_left = 443.0
 offset_top = 220.0
@@ -320,6 +329,7 @@ offset_right = 644.71606
 offset_bottom = 588.2745
 rotation = -0.76373196
 script = ExtResource("3_exswu")
+menu = NodePath("../..")
 pos = 2
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button3"]
@@ -389,7 +399,7 @@ layout_mode = 2
 text = "SP: 99999"
 horizontal_alignment = 1
 
-[node name="Button5" type="Button" parent="MainMenu"]
+[node name="Button5" type="Button" parent="MainMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 0
 offset_left = 799.0
 offset_top = 388.0
@@ -397,6 +407,7 @@ offset_right = 969.6084
 offset_bottom = 610.0041
 rotation = 0.22854872
 script = ExtResource("3_exswu")
+menu = NodePath("../..")
 pos = 4
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button5"]
@@ -472,7 +483,7 @@ layout_mode = 2
 text = "SP: 99999"
 horizontal_alignment = 1
 
-[node name="Button6" type="Button" parent="MainMenu"]
+[node name="Button6" type="Button" parent="MainMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 0
 offset_left = 982.99994
 offset_top = 384.0
@@ -480,6 +491,7 @@ offset_right = 1153.6084
 offset_bottom = 606.0041
 rotation = 0.22854872
 script = ExtResource("3_exswu")
+menu = NodePath("../..")
 pos = 5
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button6"]
@@ -621,6 +633,41 @@ rotation = -0.22716673
 theme_override_font_sizes/font_size = 70
 text = "MAIN"
 
+[node name="ExitBtn" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -139.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = 70.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 33
+text = "Exit"
+
+[node name="ItemMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygwso")
+scr = 1
+
+[node name="ArtMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygwso")
+scr = 2
+
 [node name="CharMenu" type="Panel" parent="."]
 visible = false
 layout_mode = 1
@@ -630,10 +677,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ygwso")
+scr = 9
 
+[connection signal="button_up" from="MainMenu/MenuBtns/TopBox/MenuBtns" to="MainMenu/MenuBtns/TopBox/MenuBtns" method="menu_click"]
+[connection signal="button_up" from="MainMenu/MenuBtns/TopBox/MenuBtns2" to="MainMenu/MenuBtns/TopBox/MenuBtns2" method="menu_click"]
+[connection signal="button_up" from="MainMenu/MenuBtns/TopBox/MenuBtns3" to="MainMenu/MenuBtns/TopBox/MenuBtns3" method="menu_click"]
+[connection signal="button_up" from="MainMenu/MenuBtns/MidBox/MenuBtns" to="MainMenu/MenuBtns/MidBox/MenuBtns" method="menu_click"]
+[connection signal="button_up" from="MainMenu/MenuBtns/MidBox/MenuBtns2" to="MainMenu/MenuBtns/MidBox/MenuBtns2" method="menu_click"]
+[connection signal="button_up" from="MainMenu/MenuBtns/BotBox/MenuBtns" to="MainMenu/MenuBtns/BotBox/MenuBtns" method="menu_click"]
 [connection signal="button_up" from="MainMenu/Button1" to="MainMenu/Button1" method="char_click"]
 [connection signal="button_up" from="MainMenu/Button4" to="MainMenu/Button4" method="char_click"]
 [connection signal="button_up" from="MainMenu/Button2" to="MainMenu/Button2" method="char_click"]
 [connection signal="button_up" from="MainMenu/Button3" to="MainMenu/Button3" method="char_click"]
 [connection signal="button_up" from="MainMenu/Button5" to="MainMenu/Button5" method="char_click"]
 [connection signal="button_up" from="MainMenu/Button6" to="MainMenu/Button6" method="char_click"]
+[connection signal="button_up" from="MainMenu/ExitBtn" to="." method="exit_click"]

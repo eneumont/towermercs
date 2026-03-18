@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddo6ivruo5ap6"]
+[gd_scene load_steps=7 format=3 uid="uid://ddo6ivruo5ap6"]
 
 [ext_resource type="Script" uid="uid://cqsnrjq7fv110" path="res://Scripts/Field/field_char.gd" id="1_om8w3"]
 [ext_resource type="Texture2D" uid="uid://bcw8qfn36rlma" path="res://Images/Textures/Classes/Thief/thief_field.png" id="2_b70oe"]
+[ext_resource type="PackedScene" uid="uid://buwla5ajslfd8" path="res://Scenes/UI/PlayerMenu/PlayerMenu.tscn" id="3_mgob6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_be0aq"]
 atlas = ExtResource("2_b70oe")
@@ -20,8 +21,9 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2f0qm"]
 
-[node name="FieldChar" type="CharacterBody3D"]
+[node name="FieldChar" type="CharacterBody3D" node_paths=PackedStringArray("ui")]
 script = ExtResource("1_om8w3")
+ui = NodePath("PlayerMenu")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
@@ -34,3 +36,5 @@ shape = SubResource("CapsuleShape3D_2f0qm")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4, 4)
+
+[node name="PlayerMenu" parent="." instance=ExtResource("3_mgob6")]

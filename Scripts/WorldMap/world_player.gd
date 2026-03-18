@@ -5,9 +5,13 @@ const JUMP_VELOCITY = 4.5
 
 var next_scn: String = ""
 
+@export var ui: Control
+
 @onready var anim_sprite: AnimatedSprite3D = $AnimatedSprite3D
 
 func _ready() -> void:
+	ui.player = self
+	
 	match (PlayerData.party[0].class_type):
 		CharData.ClassType.KNIGHT:
 			anim_sprite.sprite_frames = load("res://Images/Sprites/Field/knight_field.tres")
@@ -59,8 +63,13 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("menu"):
-		PlayerData.ui_open = true
+		ui_show()
 
 	if Input.is_action_just_pressed("confirm") && next_scn != "":
 		SceneManager.new_scene(next_scn, Vector3(0, 0, 0)) #might want to create var for player pos tracking
 		# might want to use return
+
+func ui_show():
+	ui.visible = !ui.visible
+	ui.set_process(ui.visible)
+	PlayerData.ui_open = ui.visible

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c16aa5v6qe5pt"]
+[gd_scene load_steps=7 format=3 uid="uid://c16aa5v6qe5pt"]
 
 [ext_resource type="Texture2D" uid="uid://dkdnypn7fcj5v" path="res://Images/Textures/Classes/Knight/knight_field.png" id="1_dr7c5"]
-[ext_resource type="Script" path="res://Scripts/WorldMap/world_player.gd" id="1_w7s1y"]
+[ext_resource type="Script" uid="uid://db58xjf1bsera" path="res://Scripts/WorldMap/world_player.gd" id="1_w7s1y"]
+[ext_resource type="PackedScene" uid="uid://buwla5ajslfd8" path="res://Scenes/UI/PlayerMenu/PlayerMenu.tscn" id="3_u4uij"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kj0d"]
 atlas = ExtResource("1_dr7c5")
@@ -20,8 +21,9 @@ animations = [{
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2f0qm"]
 
-[node name="WorldPlayer" type="CharacterBody3D"]
+[node name="WorldPlayer" type="CharacterBody3D" node_paths=PackedStringArray("ui")]
 script = ExtResource("1_w7s1y")
+ui = NodePath("PlayerMenu")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
@@ -34,3 +36,5 @@ shape = SubResource("CapsuleShape3D_2f0qm")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 4, 4)
+
+[node name="PlayerMenu" parent="." instance=ExtResource("3_u4uij")]
