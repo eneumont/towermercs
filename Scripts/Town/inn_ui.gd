@@ -38,10 +38,6 @@ func heal_click():
 		updateMoney()
 		rest_set()
 
-func saving_click(slot: int):
-	SaveManager.save_game(slot, PlayerData.save())
-	save_set()
-
 func save_click():
 	rest_mode = false
 	shop_setup()

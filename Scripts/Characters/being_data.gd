@@ -37,8 +37,8 @@ var act_name: String
 var display_name: String
 var cur_level: int
 var cur_exp: int
-var curHP: int
-var maxHP: int #iffy on curHP and maxHP vs stats and cur_stats Health
+var curHP: int = 10
+var maxHP: int = 10
 
 var stats: Dictionary = {
 	StatType.HEALTH : 1,

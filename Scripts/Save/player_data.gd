@@ -14,7 +14,6 @@ var party: Array[CharData] = [
 var reserve: Array[CharData] = [
 	CharData.new("Test5", CharData.ClassType.CLERIC),
 	CharData.new("Test6", CharData.ClassType.THIEF),
-	CharData.new("Test7", CharData.ClassType.KNIGHT),
 ]
 var collection: Array[CharData] = []
 var available_classes: Array = [ ##Array[CharData.ClassType]

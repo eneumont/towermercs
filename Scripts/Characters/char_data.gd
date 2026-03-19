@@ -21,8 +21,8 @@ enum ClassType {
 var max_exp: int
 var cur_sp: int
 var class_type: ClassType
-var curAP: int
-var maxAP: int
+var curAP: int = 10
+var maxAP: int = 10
 
 var growths: Dictionary = {
 	StatType.HEALTH : 50.0,

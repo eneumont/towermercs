@@ -11,10 +11,10 @@ extends Button
 
 func setup():
 	name_txt.text = PlayerData.party[num].display_name
-	health_txt.text = "HP: " + str(PlayerData.party[num].cur_stats[BeingData.StatType.HEALTH]) + "/" + str(PlayerData.party[num].stats[BeingData.StatType.HEALTH])
-	health_bar.value = int(PlayerData.party[num].cur_stats[BeingData.StatType.HEALTH] / PlayerData.party[num].stats[BeingData.StatType.HEALTH])
-	artistry_txt.text = "AP: " + str(PlayerData.party[num].cur_stats[BeingData.StatType.ARTISTRY]) + "/" + str(PlayerData.party[num].stats[BeingData.StatType.HEALTH])
-	artistry_bar.value = int(PlayerData.party[num].cur_stats[BeingData.StatType.ARTISTRY] / PlayerData.party[num].stats[BeingData.StatType.HEALTH])
+	health_txt.text = "HP: " + str(PlayerData.party[num].curHP) + "/" + str(PlayerData.party[num].maxHP)
+	health_bar.value = int(PlayerData.party[num].curHP / PlayerData.party[num].maxHP) * 100
+	artistry_txt.text = "AP: " + str(PlayerData.party[num].curAP) + "/" + str(PlayerData.party[num].maxAP)
+	artistry_bar.value = int(PlayerData.party[num].curAP / PlayerData.party[num].maxAP) * 100
 	
 	match PlayerData.party[num].class_type:
 		CharData.ClassType.KNIGHT:

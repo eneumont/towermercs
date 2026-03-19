@@ -30,5 +30,5 @@ func setup():
 		time_txt.text = "Time: " + s_data["time"]
 
 func save():
-	SaveManager.save_game(slot, PlayerData.save()) if slot > 0 else SaveManager.save_game(slot, PlayerData.save(), true)
+	SaveManager.save_game(slot, PlayerData.save())
 	setup()

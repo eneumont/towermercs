@@ -1,5 +1,5 @@
 extends Control
-
+#reminder need to pause game or make player uninteractable
 const MAX_SCREEN: int = 0
 const MIN_SCREEN: int = 1
 
@@ -9,6 +9,7 @@ var player
 @onready var screens: Array = [
 	$MainMenu,
 	$ItemMenu,
+	$ArtMenu,
 	$CharMenu,
 ]
 

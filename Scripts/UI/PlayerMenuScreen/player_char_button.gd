@@ -11,15 +11,29 @@ extends Control
 @export var menu: Control
 @export var pos: int
 
+var empty: bool = true
+
 func design():
-	name_txt.text = PlayerData.party[pos].act_name + "Lv." + str(PlayerData.party[pos].cur_level)
-	health_bar.value = (PlayerData.party[pos].curHP / PlayerData.party[pos].maxHP) * 100
-	h_ptxt.text = "HP: " + str(PlayerData.party[pos].maxHP) + "/" + str(PlayerData.party[pos].curHP)
-	artistry_bar.value = (PlayerData.party[pos].curAP / PlayerData.party[pos].maxAP) * 100
-	a_ptxt.text = "AP: " + str(PlayerData.party[pos].maxAP) + "/" + str(PlayerData.party[pos].curAP)
-	s_ptxt.text = "SP: " + str(PlayerData.party[pos].cur_sp)
+	var char: CharData
 	
-	match PlayerData.party[pos].class_type:
+	if pos <= PlayerData.party.size() - 1:
+		char = PlayerData.party[pos]
+		empty = false
+	elif (PlayerData.reserve.size() > 0) && pos - 4  <= PlayerData.reserve.size() - 1:
+		char = PlayerData.reserve[pos - 4]
+		empty = false
+	else:
+		empty = true
+		return
+	
+	name_txt.text = char.act_name + "Lv." + str(char.cur_level)
+	health_bar.value = (char.curHP / char.maxHP) * 100
+	h_ptxt.text = "HP: " + str(char.maxHP) + "/" + str(char.curHP)
+	artistry_bar.value = (char.curAP / char.maxAP) * 100
+	a_ptxt.text = "AP: " + str(char.maxAP) + "/" + str(char.curAP)
+	s_ptxt.text = "SP: " + str(char.cur_sp)
+	
+	match char.class_type:
 		CharData.ClassType.KNIGHT:
 			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Knight.png")
 		CharData.ClassType.THIEF:
@@ -50,4 +64,4 @@ func design():
 			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Witch.png")
 
 func char_click():
-	menu.change_scr(9, 0, pos)
+	if not empty: menu.change_scr(9, 0, pos)

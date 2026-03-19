@@ -11,6 +11,7 @@ var next_scn: String = ""
 
 func _ready() -> void:
 	ui.player = self
+	ui_show()
 	
 	match (PlayerData.party[0].class_type):
 		CharData.ClassType.KNIGHT:
