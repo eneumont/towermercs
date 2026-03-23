@@ -237,3 +237,4 @@ text = "Heal Party?"
 [connection signal="button_up" from="BaseUI/ExitBtn" to="." method="_on_exit_btn_button_up"]
 [connection signal="button_up" from="MainUI/BtnContainer/SaveBtn" to="." method="save_click"]
 [connection signal="button_up" from="MainUI/BtnContainer/RestBtn" to="." method="rest_click"]
+[connection signal="button_up" from="MainUI/RestUI/VBox/InfoBar/HealBtn" to="." method="heal_click"]

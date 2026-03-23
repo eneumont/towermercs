@@ -8,6 +8,8 @@ var rest_mode: bool = false
 
 var cost: int
 
+@export var cost_mul: int = 1
+
 func setup():
 	super()
 	shop_setup()
@@ -26,16 +28,25 @@ func save_set():
 		slot.setup()
 
 func rest_set():
+	cost = 0
+	
 	for slot in rest_ui.get_child(0).get_child(0).get_children():
+		slot.ui = self
+		slot.cost_mult = cost_mul
 		slot.setup()
+		cost += slot.cost
 	
-	cost = ((PlayerData.party[0].maxHP - PlayerData.party[0].curHP) + (PlayerData.party[1].maxHP - PlayerData.party[1].curHP) + (PlayerData.party[2].maxHP - PlayerData.party[2].curHP) + (PlayerData.party[3].maxHP - PlayerData.party[3].curHP)) * 10
 	cost_txt.text = "Cost: " + str(cost)
-	
+
 func heal_click():
 	if not cost > PlayerData.money:
 		PlayerData.money -= cost
 		updateMoney()
+		
+		for p in PlayerData.party:
+			p.curHP = p.maxHP
+			p.curAP = p.maxAP
+		
 		rest_set()
 
 func save_click():

@@ -1,5 +1,6 @@
 extends Button
 
+@onready var cost_txt: Label = $VBox/CostTxt
 @onready var name_txt: Label = $VBox/NameTxt
 @onready var slot_img: TextureRect = $VBox/SlotImg
 @onready var health_bar: ProgressBar = $VBox/HealthBar
@@ -9,39 +10,24 @@ extends Button
 
 @export var num: int
 
+var cost: int
+var cost_mult: int
+var ui
+
 func setup():
+	cost = (PlayerData.party[num].maxHP - PlayerData.party[num].curHP) + (PlayerData.party[num].maxAP - PlayerData.party[num].curAP) * cost_mult
+	cost_txt.text = "Cost: " + str(cost)
 	name_txt.text = PlayerData.party[num].display_name
 	health_txt.text = "HP: " + str(PlayerData.party[num].curHP) + "/" + str(PlayerData.party[num].maxHP)
-	health_bar.value = int(PlayerData.party[num].curHP / PlayerData.party[num].maxHP) * 100
+	health_bar.value = (PlayerData.party[num].curHP / PlayerData.party[num].maxHP) * 100
 	artistry_txt.text = "AP: " + str(PlayerData.party[num].curAP) + "/" + str(PlayerData.party[num].maxAP)
-	artistry_bar.value = int(PlayerData.party[num].curAP / PlayerData.party[num].maxAP) * 100
-	
-	match PlayerData.party[num].class_type:
-		CharData.ClassType.KNIGHT:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Knight.png")
-		CharData.ClassType.THIEF:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Thief.png")
-		CharData.ClassType.MAGE:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Mage.png")
-		CharData.ClassType.CLERIC:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Cleric.png")
-		CharData.ClassType.ALCHEMIST:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Alchemist.png")
-		CharData.ClassType.BARD:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Bard.png")
-		CharData.ClassType.BRAWLER:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Brawler.png")
-		CharData.ClassType.MEDIC:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Medic.png")
-		CharData.ClassType.CLOWN:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Clown.png")
-		CharData.ClassType.ARCANIST:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Arcanist.png")
-		CharData.ClassType.DRUID:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Druid.png")
-		CharData.ClassType.SWORDMASTER:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Swordmaster.png")
-		CharData.ClassType.HORROR:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Horror.png")
-		CharData.ClassType.WITCH:
-			slot_img.texture = load("res://Images/Textures/Icons/Characters/Witch.png")
+	artistry_bar.value = (PlayerData.party[num].curAP / PlayerData.party[num].maxAP) * 100
+	slot_img.texture = load("res://Images/Textures/Icons/Characters/" + CharData.ClassType.keys()[PlayerData.party[num].class_type].capitalize() + ".png")
+
+func heal():
+	if not cost > PlayerData.money:
+		PlayerData.money -= cost
+		ui.updateMoney()
+		PlayerData.party[num].curHP = PlayerData.party[num].maxHP
+		PlayerData.party[num].curAP = PlayerData.party[num].maxAP
+		ui.rest_set()

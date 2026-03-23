@@ -263,6 +263,9 @@ func _init(c_name: String, type: ClassType, pos: int = 0, c_data: Dictionary = {
 					AffinityType.LIGHT : AffinityRate.NEUTRAL,
 					AffinityType.DARK : AffinityRate.NEUTRAL,
 				})
+		
+		maxAP = stats[BeingData.StatType.ARTISTRY]
+		curAP = maxAP
 	else:
 		act_name = c_data["act_name"]
 		display_name = c_data["display_name"]

@@ -84,6 +84,8 @@ func set_stats(new_stats: Array):
 	stats[StatType.DEFENSE] = new_stats[4]
 	stats[StatType.RESISTANCE] = new_stats[5]
 	stats[StatType.SPEED] = new_stats[6]
+	maxHP = stats[BeingData.StatType.HEALTH]
+	curHP = maxHP
 
 ## sets EQUIPPED ARTS used by both char and foe [br]
 ## parameter new_arts an array of art names  (Array[String]) to be equipped

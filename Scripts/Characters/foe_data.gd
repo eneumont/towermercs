@@ -11,7 +11,7 @@ class_name EnemyData
 @export var sca: Vector3
 
 var curHP: int
-var maxHP: int #iffy on curHP and maxHP vs stats and cur_stats Health
+var maxHP: int
 
 var stats: Dictionary = {
 	BeingData.StatType.HEALTH : 1,
@@ -55,6 +55,8 @@ func set_stats(new_stats: Array):
 	stats[BeingData.StatType.DEFENSE] = new_stats[4]
 	stats[BeingData.StatType.RESISTANCE] = new_stats[5]
 	stats[BeingData.StatType.SPEED] = new_stats[6]
+	maxHP = stats[BeingData.StatType.HEALTH]
+	curHP = maxHP
 
 func set_arts(new_arts: Array):
 	equippedArts = new_arts
