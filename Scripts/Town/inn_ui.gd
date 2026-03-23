@@ -12,7 +12,7 @@ func setup():
 	super()
 	shop_setup()
 
-func shop_setup():	
+func shop_setup():
 	if rest_mode: rest_set()
 	else: save_set()
 	

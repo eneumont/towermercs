@@ -25,7 +25,7 @@ func shop_setup():
 		new_item.pic = load("res://Images/Textures/Icons/Items/" + data.pic)
 		new_item.act_name = data.id
 		new_item.display_name = data.name
-		new_item.own = data.owned
+		new_item.own = PlayerData.inventory[data.id] if PlayerData.inventory.has(data.id) else 0
 		new_item.cost = str(data.buyCost) if buymode else str(data.sellCost)
 		new_item.description = data.description
 		new_item.flavor = data.flavor
@@ -60,9 +60,7 @@ func buy(cost: int, id: String):
 	
 func sell(cost: int, id: String):
 	PlayerData.money += cost
-	if PlayerData.inventory[id] - 1 == 0: 
-		PlayerData.inventory[id] = 0
-		PlayerData.inventory.erase(id)
+	if PlayerData.inventory[id] - 1 == 0: PlayerData.inventory.erase(id)
 	else: PlayerData.inventory[id] -= 1
 	shop_setup()
 	talk(false, "Sell")

@@ -46,7 +46,7 @@ func shop_setup():
 		new_item.pic = load("res://Images/Textures/Icons/Items/" + data.pic)
 		new_item.act_name = data.id
 		new_item.display_name = data.name
-		new_item.own = data.owned
+		new_item.own = PlayerData.inventory[data.id] if PlayerData.inventory.has(data.id) else 0
 		new_item.cost = str(data.buyCost)
 		new_item.description = data.description
 		new_item.flavor = data.flavor

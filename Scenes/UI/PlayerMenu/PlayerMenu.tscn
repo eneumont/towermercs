@@ -60,13 +60,14 @@ menu = NodePath("../../../..")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MenuBtns" type="Button" parent="MainMenu/MenuBtns/MidBox" node_paths=PackedStringArray("menu")]
+[node name="MenuArtBtn" type="Button" parent="MainMenu/MenuBtns/MidBox" node_paths=PackedStringArray("menu")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
 menu = NodePath("../../../..")
+menu_num = 2
 
 [node name="MenuBtns2" type="Button" parent="MainMenu/MenuBtns/MidBox" node_paths=PackedStringArray("menu")]
 custom_minimum_size = Vector2(50, 50)
@@ -80,13 +81,14 @@ menu = NodePath("../../../..")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MenuBtns" type="Button" parent="MainMenu/MenuBtns/BotBox" node_paths=PackedStringArray("menu")]
+[node name="MenuItemBtn" type="Button" parent="MainMenu/MenuBtns/BotBox" node_paths=PackedStringArray("menu")]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
 menu = NodePath("../../../..")
+menu_num = 1
 
 [node name="Button1" type="Button" parent="MainMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 0
@@ -99,6 +101,7 @@ script = ExtResource("3_exswu")
 menu = NodePath("../..")
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button1"]
+self_modulate = Color(1, 0.9137255, 0, 1)
 layout_mode = 0
 offset_left = 48.01071
 offset_top = -3.8694587
@@ -160,7 +163,7 @@ theme_override_font_sizes/font_size = 14
 text = "AP: 99/99"
 
 [node name="SPtxt" type="Label" parent="MainMenu/Button1/ValuesBox"]
-self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+self_modulate = Color(1, 0.078431375, 0.7529412, 1)
 layout_mode = 2
 text = "SP: 99999"
 horizontal_alignment = 1
@@ -177,6 +180,7 @@ menu = NodePath("../..")
 pos = 3
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button4"]
+self_modulate = Color(1, 0.9137255, 0, 1)
 layout_mode = 0
 offset_left = 48.01071
 offset_top = -3.8694587
@@ -238,7 +242,7 @@ theme_override_font_sizes/font_size = 14
 text = "AP: 99/99"
 
 [node name="SPtxt" type="Label" parent="MainMenu/Button4/ValuesBox"]
-self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+self_modulate = Color(1, 0.078431375, 0.7529412, 1)
 layout_mode = 2
 text = "SP: 99999"
 horizontal_alignment = 1
@@ -255,6 +259,7 @@ menu = NodePath("../..")
 pos = 1
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button2"]
+self_modulate = Color(1, 0.9137255, 0, 1)
 layout_mode = 0
 offset_left = 48.01071
 offset_top = -3.8694587
@@ -316,7 +321,7 @@ theme_override_font_sizes/font_size = 14
 text = "AP: 99/99"
 
 [node name="SPtxt" type="Label" parent="MainMenu/Button2/ValuesBox"]
-self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+self_modulate = Color(1, 0.078431375, 0.7529412, 1)
 layout_mode = 2
 text = "SP: 99999"
 horizontal_alignment = 1
@@ -333,6 +338,7 @@ menu = NodePath("../..")
 pos = 2
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button3"]
+self_modulate = Color(1, 0.9137255, 0, 1)
 layout_mode = 0
 offset_left = 48.01071
 offset_top = -3.8694587
@@ -394,7 +400,7 @@ theme_override_font_sizes/font_size = 14
 text = "AP: 99/99"
 
 [node name="SPtxt" type="Label" parent="MainMenu/Button3/ValuesBox"]
-self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+self_modulate = Color(1, 0.078431375, 0.7529412, 1)
 layout_mode = 2
 text = "SP: 99999"
 horizontal_alignment = 1
@@ -411,6 +417,7 @@ menu = NodePath("../..")
 pos = 4
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button5"]
+self_modulate = Color(1, 0.9137255, 0, 1)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -478,7 +485,7 @@ theme_override_font_sizes/font_size = 14
 text = "AP: 99/99"
 
 [node name="SPtxt" type="Label" parent="MainMenu/Button5/ValuesBox"]
-self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+self_modulate = Color(1, 0.078431375, 0.7529412, 1)
 layout_mode = 2
 text = "SP: 99999"
 horizontal_alignment = 1
@@ -495,6 +502,7 @@ menu = NodePath("../..")
 pos = 5
 
 [node name="NameTxt" type="Label" parent="MainMenu/Button6"]
+self_modulate = Color(1, 0.9137255, 0, 1)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -562,7 +570,7 @@ theme_override_font_sizes/font_size = 14
 text = "AP: 99/99"
 
 [node name="SPtxt" type="Label" parent="MainMenu/Button6/ValuesBox"]
-self_modulate = Color(1, 0.078431375, 0.16862746, 1)
+self_modulate = Color(1, 0.078431375, 0.7529412, 1)
 layout_mode = 2
 text = "SP: 99999"
 horizontal_alignment = 1
@@ -682,9 +690,9 @@ scr = 9
 [connection signal="button_up" from="MainMenu/MenuBtns/TopBox/MenuBtns" to="MainMenu/MenuBtns/TopBox/MenuBtns" method="menu_click"]
 [connection signal="button_up" from="MainMenu/MenuBtns/TopBox/MenuBtns2" to="MainMenu/MenuBtns/TopBox/MenuBtns2" method="menu_click"]
 [connection signal="button_up" from="MainMenu/MenuBtns/TopBox/MenuBtns3" to="MainMenu/MenuBtns/TopBox/MenuBtns3" method="menu_click"]
-[connection signal="button_up" from="MainMenu/MenuBtns/MidBox/MenuBtns" to="MainMenu/MenuBtns/MidBox/MenuBtns" method="menu_click"]
+[connection signal="button_up" from="MainMenu/MenuBtns/MidBox/MenuArtBtn" to="MainMenu/MenuBtns/MidBox/MenuArtBtn" method="menu_click"]
 [connection signal="button_up" from="MainMenu/MenuBtns/MidBox/MenuBtns2" to="MainMenu/MenuBtns/MidBox/MenuBtns2" method="menu_click"]
-[connection signal="button_up" from="MainMenu/MenuBtns/BotBox/MenuBtns" to="MainMenu/MenuBtns/BotBox/MenuBtns" method="menu_click"]
+[connection signal="button_up" from="MainMenu/MenuBtns/BotBox/MenuItemBtn" to="MainMenu/MenuBtns/BotBox/MenuItemBtn" method="menu_click"]
 [connection signal="button_up" from="MainMenu/Button1" to="MainMenu/Button1" method="char_click"]
 [connection signal="button_up" from="MainMenu/Button4" to="MainMenu/Button4" method="char_click"]
 [connection signal="button_up" from="MainMenu/Button2" to="MainMenu/Button2" method="char_click"]

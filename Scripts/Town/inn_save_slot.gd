@@ -25,9 +25,40 @@ func setup():
 		full.visible = true
 		name_txt.text = s_data["name"]
 		money_txt.text = "Money: " + str(s_data["money"])
-		collection_txt.text = "Collection " + str(s_data["collection"].size())
+		collection_txt.text = "Collection: " + str(s_data["collection"].size() + s_data["party"].size() + s_data["reserve"].size())
 		area_txt.text = "Area: " + s_data["cur_scn"]
 		time_txt.text = "Time: " + s_data["time"]
+		
+		for i in party_img.get_children().size():
+			match int(s_data["party"][i].class_type):
+				CharData.ClassType.KNIGHT:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Knight.png")
+				CharData.ClassType.THIEF:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Thief.png")
+				CharData.ClassType.MAGE:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Mage.png")
+				CharData.ClassType.CLERIC:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Cleric.png")
+				CharData.ClassType.ALCHEMIST:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Alchemist.png")
+				CharData.ClassType.BARD:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Bard.png")
+				CharData.ClassType.BRAWLER:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Brawler.png")
+				CharData.ClassType.MEDIC:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Medic.png")
+				CharData.ClassType.CLOWN:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Clown.png")
+				CharData.ClassType.ARCANIST:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Arcanist.png")
+				CharData.ClassType.DRUID:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Druid.png")
+				CharData.ClassType.SWORDMASTER:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Swordmaster.png")
+				CharData.ClassType.HORROR:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Horror.png")
+				CharData.ClassType.WITCH:
+					party_img.get_children()[i].texture = load("res://Images/Textures/Icons/Characters/Witch.png") 
 
 func save():
 	SaveManager.save_game(slot, PlayerData.save())

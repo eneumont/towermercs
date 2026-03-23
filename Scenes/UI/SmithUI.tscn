@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c77sgm2qt62yn"]
 
-[ext_resource type="Script" path="res://Scripts/Town/smithy_ui.gd" id="1_kvvhg"]
+[ext_resource type="Script" uid="uid://doidrugfequp2" path="res://Scripts/Town/smithy_ui.gd" id="1_kvvhg"]
 
 [node name="SmithUI" type="Control" node_paths=PackedStringArray("ownerImg", "nameTxt", "dialogTxt", "moneyTxt", "exitBtn")]
 layout_mode = 3

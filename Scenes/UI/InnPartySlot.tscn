@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cd6k2iyfjxsyb"]
 
-[ext_resource type="Script" path="res://Scripts/Town/inn_party_slot.gd" id="1_0qyrm"]
+[ext_resource type="Script" uid="uid://2dvuf80rrjuk" path="res://Scripts/Town/inn_party_slot.gd" id="1_0qyrm"]
 [ext_resource type="Texture2D" uid="uid://bdej8fbirl1ui" path="res://Images/Textures/Icons/Characters/Cleric.png" id="1_16pbn"]
 
 [node name="InnPartySlot" type="Button"]
@@ -16,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NameTxt" type="Label" parent="VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 27
@@ -32,6 +33,7 @@ texture = ExtResource("1_16pbn")
 expand_mode = 4
 
 [node name="HealthBar" type="ProgressBar" parent="VBox"]
+self_modulate = Color(0, 1, 0, 1)
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 value = 67.0
@@ -47,6 +49,7 @@ grow_vertical = 2
 text = "HP: 67/100"
 
 [node name="ArtistryBar" type="ProgressBar" parent="VBox"]
+self_modulate = Color(0, 1, 1, 1)
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 value = 44.0

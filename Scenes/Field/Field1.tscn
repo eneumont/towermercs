@@ -1,14 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyxmexnwwt7i3"]
+[gd_scene load_steps=13 format=3 uid="uid://dyxmexnwwt7i3"]
 
 [ext_resource type="Script" uid="uid://dcxxouomxwvev" path="res://Scripts/Field/field.gd" id="1_46v5i"]
 [ext_resource type="AudioStream" uid="uid://basqyoad0w2kt" path="res://Audio/field.mp3" id="2_elxp8"]
 [ext_resource type="Script" uid="uid://bhcbewusdisi2" path="res://Scripts/Field/field_spawner.gd" id="2_rcrrr"]
 [ext_resource type="Script" uid="uid://bl76v205yksnu" path="res://Scripts/Field/field_foe.gd" id="4_ycybe"]
 [ext_resource type="PackedScene" uid="uid://dpcrab6x40y70" path="res://Scenes/Models/GoblinModel.tscn" id="5_ap43e"]
+[ext_resource type="Script" uid="uid://c6hqoke1s4v3d" path="res://Scripts/Field/area_exit.gd" id="6_ap43e"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xqksw"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_46v5i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_il158"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1dmhx"]
 radius = 1.8833563
@@ -48,6 +51,16 @@ shape = SubResource("WorldBoundaryShape3D_46v5i")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Layout"]
 transform = Transform3D(1, 0, 0, 0, 0.89712733, 0.44177204, 0, -0.44177204, 0.89712733, 0.2790215, 4.516794, 6.681136)
 
+[node name="AreaExits" type="Node3D" parent="Layout"]
+
+[node name="Exit1" type="Area3D" parent="Layout/AreaExits"]
+transform = Transform3D(20, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, 0, 0.35931683, 9.850746)
+script = ExtResource("6_ap43e")
+area_name = "WorldMap/WorldMap"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/AreaExits/Exit1"]
+shape = SubResource("BoxShape3D_il158")
+
 [node name="Spawners" type="Node3D" parent="."]
 
 [node name="Enemies" type="Node3D" parent="Spawners"]
@@ -77,3 +90,5 @@ encounters = Array[String](["Goblin1,Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1,
 battle = "Battlefield1"
 
 [node name="Items" type="Node3D" parent="Spawners"]
+
+[connection signal="body_entered" from="Layout/AreaExits/Exit1" to="Layout/AreaExits/Exit1" method="body_enter"]
