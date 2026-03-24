@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bg3jstmfjf16y"]
 
-[ext_resource type="Script" path="res://Scripts/Town/guild_slot.gd" id="1_1cdei"]
+[ext_resource type="Script" uid="uid://bg2yeikt6xapt" path="res://Scripts/Town/guild_slot.gd" id="1_1cdei"]
 
 [node name="ShopClassSlot" type="Button"]
 custom_minimum_size = Vector2(275, 0)
