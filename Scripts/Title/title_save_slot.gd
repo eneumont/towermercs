@@ -26,17 +26,13 @@ func click():
 	if title_ui.delete:
 		if slot > 0:
 			full_game = false
-			delete_save()
+			SaveManager.delete_save(slot)
 			design(false)
 		title_ui.delete = false
 	else:
 		if full_game:
 			PlayerData.load_save(SaveManager.load_game(slot) if slot > 0 else SaveManager.load_game(slot, true))
 			title_ui.pick_save()
-
-func delete_save():
-	if full_game:
-		SaveManager.delete_save(slot)
 
 func design(used: bool):
 	full.visible = used

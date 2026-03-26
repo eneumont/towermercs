@@ -6,14 +6,14 @@ var money: int = 100 #0
 var inventory: Dictionary #[String, int]
 
 var party: Array[CharData] = [
-	CharData.new("Test1", CharData.ClassType.MAGE),
-	CharData.new("Test2", CharData.ClassType.THIEF),
-	CharData.new("Test3", CharData.ClassType.KNIGHT),
-	CharData.new("Test4", CharData.ClassType.CLERIC),
+	#CharData.new("Test1", CharData.ClassType.MAGE),
+	#CharData.new("Test2", CharData.ClassType.THIEF),
+	#CharData.new("Test3", CharData.ClassType.KNIGHT),
+	#CharData.new("Test4", CharData.ClassType.CLERIC),
 ]
 var reserve: Array[CharData] = [
-	CharData.new("Test5", CharData.ClassType.CLERIC),
-	CharData.new("Test6", CharData.ClassType.THIEF),
+	#CharData.new("Test5", CharData.ClassType.CLERIC),
+	#CharData.new("Test6", CharData.ClassType.THIEF),
 ]
 var collection: Array[CharData] = []
 var available_classes: Array = [ ##Array[CharData.ClassType]

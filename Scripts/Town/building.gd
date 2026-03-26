@@ -34,6 +34,7 @@ func setup():
 func openUI():
 	BuildingUI.show()
 	BuildingUI.set_process(true)
+	BuildingUI.updateMoney()
 	PlayerData.ui_open = true
 	
 func closeUI():

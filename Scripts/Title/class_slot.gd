@@ -52,7 +52,7 @@ func setup(char_name: String, c_img: String, des: String):
 	class_img.texture = load("res://Images/Textures/Icons/Characters/" + c_img)
 	description_txt.text = des
 
-func done_click():
+func done_click(): #error could happen if multiple dones could happen at same time
 	done = !done
 	if done: 
 		c_name = name_input.text

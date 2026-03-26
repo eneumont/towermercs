@@ -27,28 +27,6 @@ func shop_setup():
 	
 	updateMoney()
 
-func slot_click(display: String, type: CharData.ClassType, cost: int):
-	if hireMode: hire(display, type, cost)
-	else: fire(display, cost)
-
-func hire(display: String, type: CharData.ClassType, cost: int):
-	if (PlayerData.money - cost) < 0:
-		pass
-	else:
-		PlayerData.money -= cost
-		PlayerData.collection.append(CharData.new(display, type))
-	
-func fire(display: String, cost: int):
-	PlayerData.money += cost
-	
-	var index: int
-	
-	for c in PlayerData.collection:
-		if c.act_name == display:
-			index = PlayerData.collection.find(c)
-	
-	PlayerData.collection.remove_at(index)
-
 func hire_click():
 	hireMode = true
 	shop_setup()

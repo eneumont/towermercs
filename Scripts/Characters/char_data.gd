@@ -46,7 +46,7 @@ var equipment: Dictionary = {
 
 func _init(c_name: String, type: ClassType, pos: int = 0, c_data: Dictionary = {}) -> void:
 	if c_data.is_empty():
-		act_name = str(type) + "" #figure what actual names should be made
+		act_name = assign_name(type)
 		display_name = c_name
 		cur_level = 1
 		cur_exp = 0
@@ -325,3 +325,35 @@ func char_save() -> Dictionary:
 		"growths": [growths[StatType.HEALTH], growths[StatType.ARTISTRY], growths[StatType.ATTACK], growths[StatType.MAGIC], growths[StatType.DEFENSE], growths[StatType.RESISTANCE], growths[StatType.SPEED]],
 		"equipment": [equipment[ItemRes.ItemType.WEAPON], equipment[ItemRes.ItemType.ARMOR], equipment[ItemRes.ItemType.ACCESSORY]]
 	}
+
+## assigns name by type and then next avaible number [br]
+## ex. if creating knight and Knight1 exists then creates Knight2
+func assign_name(type: ClassType) -> String:
+	var out: String = ClassType.keys()[type] #returns KNIGHT, MAGE, etc. note for multiplayer specifically mutliple user partys, temporary add owner name to act name
+	
+	var nums: Array[int]
+	
+	#see if can reduce this to single line of just nums = array of ints 
+	#that are the same class but partioned off act_name
+	var c_array: Array[CharData]
+	#whether or not they're dependent instances doesn't matter since only pulling data
+	c_array.append_array(PlayerData.collection)
+	c_array.append_array(PlayerData.party)
+	c_array.append_array(PlayerData.reserve)
+	for c in c_array.filter(func(t): return t.class_type == type):
+		nums.append(c.act_name.to_int()) #remove all letters
+	
+	nums.sort()
+	
+	#this shit is not efficient...  imma have to do regex...
+	for i in nums.size():
+		#maybe turn to ternary...
+		if i == nums.size() - 1: #if at end add one
+			out = out + str(nums[i] + 1)
+		else:
+			if (nums[i + 1] - i) <= 1: #if dif between cur and next is 1 or less continue
+				continue
+			else: 
+				out = out + str(nums[i] + 1)
+	
+	return out

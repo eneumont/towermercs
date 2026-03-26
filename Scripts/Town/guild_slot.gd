@@ -49,5 +49,23 @@ func make(c_txt: String, c_img: String, d_txt: String, cost: int):
 	description_txt.text = d_txt
 	cost_txt.text = "$" + str(cost)
 
-func _on_button_up() -> void:
-	shop.slot_click(display_name, type, cost_txt.text.to_int())
+func btn_up():
+	if shop.hireMode:
+		if (PlayerData.money - cost_txt.text.to_int()) < 0:
+			pass
+		else:
+			PlayerData.money -= cost_txt.text.to_int()
+			PlayerData.collection.append(CharData.new(display_name, type))
+	else: 
+		PlayerData.money += cost_txt.text.to_int()
+	
+		var index: int
+	
+		for c in PlayerData.collection:
+			if c.act_name == display_name: #actual name?
+				index = PlayerData.collection.find(c)
+				PlayerData.collection.remove_at(index)
+				queue_free()
+				break
+		
+	shop.updateMoney()
