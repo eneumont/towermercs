@@ -22,7 +22,7 @@ enum ItemType {
 	WEAPON,
 	ARMOR,
 	ACCESSORY,
-	KEY
+	KEY,
 }
 
 enum WeaponType {

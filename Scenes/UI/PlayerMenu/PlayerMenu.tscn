@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://buwla5ajslfd8"]
+[gd_scene load_steps=6 format=3 uid="uid://buwla5ajslfd8"]
 
 [ext_resource type="Script" uid="uid://uvdaytgedds2" path="res://Scripts/UI/PlayerMenuScreen/player_menu.gd" id="1_exswu"]
 [ext_resource type="Script" uid="uid://bnw72p14tn87n" path="res://Scripts/UI/PlayerMenuScreen/player_menu_screen.gd" id="1_ygwso"]
 [ext_resource type="Script" uid="uid://dg7qmc80pyrax" path="res://Scripts/UI/PlayerMenuScreen/player_menu_buttons.gd" id="2_a0fii"]
 [ext_resource type="Script" uid="uid://dphalhif0ydgq" path="res://Scripts/UI/PlayerMenuScreen/player_char_button.gd" id="3_exswu"]
+[ext_resource type="Script" uid="uid://b6xeucjnr8mad" path="res://Scripts/UI/PlayerMenuScreen/items_char_btn.gd" id="5_1rcy1"]
 
 [node name="PlayerMenu" type="Control"]
 layout_mode = 3
@@ -15,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_exswu")
 
 [node name="MainMenu" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,6 +41,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
 menu = NodePath("../../../..")
+menu_num = 6
 
 [node name="MenuBtns2" type="Button" parent="MainMenu/MenuBtns/TopBox" node_paths=PackedStringArray("menu")]
 custom_minimum_size = Vector2(50, 50)
@@ -47,6 +50,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
 menu = NodePath("../../../..")
+menu_num = 5
 
 [node name="MenuBtns3" type="Button" parent="MainMenu/MenuBtns/TopBox" node_paths=PackedStringArray("menu")]
 custom_minimum_size = Vector2(50, 50)
@@ -55,6 +59,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
 menu = NodePath("../../../..")
+menu_num = 4
 
 [node name="MidBox" type="HBoxContainer" parent="MainMenu/MenuBtns"]
 layout_mode = 2
@@ -76,6 +81,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 script = ExtResource("2_a0fii")
 menu = NodePath("../../../..")
+menu_num = 3
 
 [node name="BotBox" type="HBoxContainer" parent="MainMenu/MenuBtns"]
 layout_mode = 2
@@ -654,16 +660,484 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 33
 text = "Exit"
 
+[node name="TreeBtn" type="Button" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -151.0
+offset_right = 137.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+icon_alignment = 1
+expand_icon = true
+
 [node name="ItemMenu" type="Panel" parent="."]
-visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygwso")
+scr = 1
+
+[node name="MenuBtnPanel" type="Panel" parent="ItemMenu"]
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 120.0
+
+[node name="LeftBtn" type="Button" parent="ItemMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = 12.0
+offset_right = -41.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 6
+
+[node name="MainBtn" type="Button" parent="ItemMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -31.0
+offset_right = 39.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 1
+
+[node name="RightBtn" type="Button" parent="ItemMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -58.0
+offset_right = 98.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 2
+
+[node name="BackBtn" type="Button" parent="ItemMenu" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -132.0
+offset_top = 16.0
+offset_right = -19.0
+offset_bottom = 83.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 33
+text = "Back"
+script = ExtResource("2_a0fii")
+menu = NodePath("../..")
+
+[node name="Main" type="Panel" parent="ItemMenu"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -465.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ScrollBox" type="ScrollContainer" parent="ItemMenu/Main"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 918.0
+grow_vertical = 2
+
+[node name="ItemsBox" type="VBoxContainer" parent="ItemMenu/Main/ScrollBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CharBox" type="VBoxContainer" parent="ItemMenu/Main"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="CharBtn1" type="Button" parent="ItemMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+
+[node name="HBox" type="HBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ygwso")
-scr = 1
+
+[node name="VBox" type="VBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn1/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ItemMenu/Main/CharBox/CharBtn1/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn1/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn1/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn1/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn1/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ItemMenu/Main/CharBox/CharBtn1/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="CharBtn2" type="Button" parent="ItemMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+pos = 1
+
+[node name="HBox" type="HBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn2/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ItemMenu/Main/CharBox/CharBtn2/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn2/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn2/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn2/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn2/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ItemMenu/Main/CharBox/CharBtn2/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="CharBtn3" type="Button" parent="ItemMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+pos = 2
+
+[node name="HBox" type="HBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn3/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ItemMenu/Main/CharBox/CharBtn3/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn3/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn3/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn3/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn3/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ItemMenu/Main/CharBox/CharBtn3/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="CharBtn4" type="Button" parent="ItemMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+pos = 3
+
+[node name="HBox" type="HBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn4/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ItemMenu/Main/CharBox/CharBtn4/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn4/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn4/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn4/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn4/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ItemMenu/Main/CharBox/CharBtn4/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="CharBtn5" type="Button" parent="ItemMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+pos = 4
+
+[node name="HBox" type="HBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn5/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ItemMenu/Main/CharBox/CharBtn5/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn5/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn5/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn5/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn5/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ItemMenu/Main/CharBox/CharBtn5/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="CharBtn6" type="Button" parent="ItemMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+pos = 5
+
+[node name="HBox" type="HBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ItemMenu/Main/CharBox/CharBtn6/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ItemMenu/Main/CharBox/CharBtn6/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn6/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn6/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ItemMenu/Main/CharBox/CharBtn6/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ItemMenu/Main/CharBox/CharBtn6/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ItemMenu/Main/CharBox/CharBtn6/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="ListBox" type="HBoxContainer" parent="ItemMenu/Main"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -36.0
+offset_bottom = -2.0
+grow_horizontal = 2
+
+[node name="ListBtn" type="Button" parent="ItemMenu/Main/ListBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "All"
 
 [node name="ArtMenu" type="Panel" parent="."]
 visible = false
@@ -676,6 +1150,416 @@ grow_vertical = 2
 script = ExtResource("1_ygwso")
 scr = 2
 
+[node name="MenuBtnPanel" type="Panel" parent="ArtMenu"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 120.0
+
+[node name="LeftBtn" type="Button" parent="ArtMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = 12.0
+offset_right = -41.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 6
+
+[node name="MainBtn" type="Button" parent="ArtMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -31.0
+offset_right = 39.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 1
+
+[node name="RightBtn" type="Button" parent="ArtMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -58.0
+offset_right = 98.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 2
+
+[node name="BackBtn" type="Button" parent="ArtMenu" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -132.0
+offset_top = 16.0
+offset_right = -19.0
+offset_bottom = 83.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 33
+text = "Back"
+script = ExtResource("2_a0fii")
+menu = NodePath("../..")
+
+[node name="EquipMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygwso")
+scr = 3
+
+[node name="MenuBtnPanel" type="Panel" parent="EquipMenu"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 120.0
+
+[node name="LeftBtn" type="Button" parent="EquipMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = 12.0
+offset_right = -41.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 6
+
+[node name="MainBtn" type="Button" parent="EquipMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -31.0
+offset_right = 39.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 1
+
+[node name="RightBtn" type="Button" parent="EquipMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -58.0
+offset_right = 98.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 2
+
+[node name="BackBtn" type="Button" parent="EquipMenu" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -132.0
+offset_top = 16.0
+offset_right = -19.0
+offset_bottom = 83.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 33
+text = "Back"
+script = ExtResource("2_a0fii")
+menu = NodePath("../..")
+
+[node name="TacticsMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygwso")
+scr = 4
+
+[node name="MenuBtnPanel" type="Panel" parent="TacticsMenu"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 120.0
+
+[node name="LeftBtn" type="Button" parent="TacticsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = 12.0
+offset_right = -41.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 6
+
+[node name="MainBtn" type="Button" parent="TacticsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -31.0
+offset_right = 39.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 1
+
+[node name="RightBtn" type="Button" parent="TacticsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -58.0
+offset_right = 98.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 2
+
+[node name="BackBtn" type="Button" parent="TacticsMenu" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -132.0
+offset_top = 16.0
+offset_right = -19.0
+offset_bottom = 83.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 33
+text = "Back"
+script = ExtResource("2_a0fii")
+menu = NodePath("../..")
+
+[node name="QuestsMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygwso")
+scr = 5
+
+[node name="MenuBtnPanel" type="Panel" parent="QuestsMenu"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 120.0
+
+[node name="LeftBtn" type="Button" parent="QuestsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = 12.0
+offset_right = -41.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 6
+
+[node name="MainBtn" type="Button" parent="QuestsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -31.0
+offset_right = 39.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 1
+
+[node name="RightBtn" type="Button" parent="QuestsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -58.0
+offset_right = 98.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 2
+
+[node name="BackBtn" type="Button" parent="QuestsMenu" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -132.0
+offset_top = 16.0
+offset_right = -19.0
+offset_bottom = 83.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 33
+text = "Back"
+script = ExtResource("2_a0fii")
+menu = NodePath("../..")
+
+[node name="SettingsMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygwso")
+scr = 6
+
+[node name="MenuBtnPanel" type="Panel" parent="SettingsMenu"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 120.0
+
+[node name="LeftBtn" type="Button" parent="SettingsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = 12.0
+offset_right = -41.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 6
+
+[node name="MainBtn" type="Button" parent="SettingsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -31.0
+offset_right = 39.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 1
+
+[node name="RightBtn" type="Button" parent="SettingsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -58.0
+offset_right = 98.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_a0fii")
+menu = NodePath("../../..")
+menu_num = 2
+
+[node name="BackBtn" type="Button" parent="SettingsMenu" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -132.0
+offset_top = 16.0
+offset_right = -19.0
+offset_bottom = 83.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 33
+text = "Back"
+script = ExtResource("2_a0fii")
+menu = NodePath("../..")
+
+[node name="TreeMenu" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ygwso")
+scr = 7
+
 [node name="CharMenu" type="Panel" parent="."]
 visible = false
 layout_mode = 1
@@ -685,7 +1569,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ygwso")
-scr = 9
+scr = 8
 
 [connection signal="button_up" from="MainMenu/MenuBtns/TopBox/MenuBtns" to="MainMenu/MenuBtns/TopBox/MenuBtns" method="menu_click"]
 [connection signal="button_up" from="MainMenu/MenuBtns/TopBox/MenuBtns2" to="MainMenu/MenuBtns/TopBox/MenuBtns2" method="menu_click"]
@@ -700,3 +1584,28 @@ scr = 9
 [connection signal="button_up" from="MainMenu/Button5" to="MainMenu/Button5" method="char_click"]
 [connection signal="button_up" from="MainMenu/Button6" to="MainMenu/Button6" method="char_click"]
 [connection signal="button_up" from="MainMenu/ExitBtn" to="." method="exit_click"]
+[connection signal="button_up" from="MainMenu/TreeBtn" to="." method="tree_click"]
+[connection signal="button_up" from="ItemMenu/MenuBtnPanel/LeftBtn" to="ItemMenu/MenuBtnPanel/LeftBtn" method="menu_click"]
+[connection signal="button_up" from="ItemMenu/MenuBtnPanel/MainBtn" to="ItemMenu/MenuBtnPanel/MainBtn" method="menu_click"]
+[connection signal="button_up" from="ItemMenu/MenuBtnPanel/RightBtn" to="ItemMenu/MenuBtnPanel/RightBtn" method="menu_click"]
+[connection signal="button_up" from="ItemMenu/BackBtn" to="ItemMenu/BackBtn" method="menu_click"]
+[connection signal="button_up" from="ArtMenu/MenuBtnPanel/LeftBtn" to="ArtMenu/MenuBtnPanel/LeftBtn" method="menu_click"]
+[connection signal="button_up" from="ArtMenu/MenuBtnPanel/MainBtn" to="ArtMenu/MenuBtnPanel/MainBtn" method="menu_click"]
+[connection signal="button_up" from="ArtMenu/MenuBtnPanel/RightBtn" to="ArtMenu/MenuBtnPanel/RightBtn" method="menu_click"]
+[connection signal="button_up" from="ArtMenu/BackBtn" to="ArtMenu/BackBtn" method="menu_click"]
+[connection signal="button_up" from="EquipMenu/MenuBtnPanel/LeftBtn" to="EquipMenu/MenuBtnPanel/LeftBtn" method="menu_click"]
+[connection signal="button_up" from="EquipMenu/MenuBtnPanel/MainBtn" to="EquipMenu/MenuBtnPanel/MainBtn" method="menu_click"]
+[connection signal="button_up" from="EquipMenu/MenuBtnPanel/RightBtn" to="EquipMenu/MenuBtnPanel/RightBtn" method="menu_click"]
+[connection signal="button_up" from="EquipMenu/BackBtn" to="EquipMenu/BackBtn" method="menu_click"]
+[connection signal="button_up" from="TacticsMenu/MenuBtnPanel/LeftBtn" to="TacticsMenu/MenuBtnPanel/LeftBtn" method="menu_click"]
+[connection signal="button_up" from="TacticsMenu/MenuBtnPanel/MainBtn" to="TacticsMenu/MenuBtnPanel/MainBtn" method="menu_click"]
+[connection signal="button_up" from="TacticsMenu/MenuBtnPanel/RightBtn" to="TacticsMenu/MenuBtnPanel/RightBtn" method="menu_click"]
+[connection signal="button_up" from="TacticsMenu/BackBtn" to="TacticsMenu/BackBtn" method="menu_click"]
+[connection signal="button_up" from="QuestsMenu/MenuBtnPanel/LeftBtn" to="QuestsMenu/MenuBtnPanel/LeftBtn" method="menu_click"]
+[connection signal="button_up" from="QuestsMenu/MenuBtnPanel/MainBtn" to="QuestsMenu/MenuBtnPanel/MainBtn" method="menu_click"]
+[connection signal="button_up" from="QuestsMenu/MenuBtnPanel/RightBtn" to="QuestsMenu/MenuBtnPanel/RightBtn" method="menu_click"]
+[connection signal="button_up" from="QuestsMenu/BackBtn" to="QuestsMenu/BackBtn" method="menu_click"]
+[connection signal="button_up" from="SettingsMenu/MenuBtnPanel/LeftBtn" to="SettingsMenu/MenuBtnPanel/LeftBtn" method="menu_click"]
+[connection signal="button_up" from="SettingsMenu/MenuBtnPanel/MainBtn" to="SettingsMenu/MenuBtnPanel/MainBtn" method="menu_click"]
+[connection signal="button_up" from="SettingsMenu/MenuBtnPanel/RightBtn" to="SettingsMenu/MenuBtnPanel/RightBtn" method="menu_click"]
+[connection signal="button_up" from="SettingsMenu/BackBtn" to="SettingsMenu/BackBtn" method="menu_click"]

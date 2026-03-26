@@ -1,7 +1,7 @@
 extends Control
 #reminder need to pause game or make player uninteractable
-const MAX_SCREEN: int = 0
-const MIN_SCREEN: int = 1
+const MAX_SCREEN: int = 8
+const MIN_SCREEN: int = 0
 
 var cur_scr: int = MIN_SCREEN
 var player
@@ -10,13 +10,18 @@ var player
 	$MainMenu,
 	$ItemMenu,
 	$ArtMenu,
+	$EquipMenu,
+	$TacticsMenu,
+	$QuestsMenu,
+	$SettingsMenu,
+	$TreeMenu,
 	$CharMenu,
 ]
 
 func _ready() -> void:
 	change_scr(0)
 
-## 0 - MAIN, 1 - ITEMS, 2 - ARTS, - SETTINGS, 9 - CHAR [br]
+## 0 - MAIN, 1 - ITEMS, 2 - ARTS, 3 - Equip, 4 - Tactics, 5 - Quests, 6 - SETTINGS, 7 - Tree, 8 - CHAR [br]
 ##  scr - for instant change, change - for next, pos - for party/reserve pos
 func change_scr(scr: int = 0, change: int = 0, pos: int = -1):
 	screens[cur_scr].visible = false
@@ -31,6 +36,9 @@ func change_scr(scr: int = 0, change: int = 0, pos: int = -1):
 	screens[cur_scr].visible = true
 	if pos > -1: screens[cur_scr].party_pos = pos
 	screens[cur_scr].design()
+
+func tree_click():
+	change_scr(7)
 
 func exit_click():
 	player.ui_show()

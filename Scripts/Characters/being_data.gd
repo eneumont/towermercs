@@ -64,6 +64,8 @@ var equippedArts : Array = [
 	
 ]
 
+var statuses : Array = []
+
 var affinities: Dictionary = {
 	AffinityType.BLUNT : AffinityRate.NEUTRAL,
 	AffinityType.PIERCE : AffinityRate.NEUTRAL,
