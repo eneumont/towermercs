@@ -48,6 +48,16 @@ func solo_click():
 	save_screen()
 
 func new_click():
+	PlayerData.party = [
+		CharData.new("Test1", CharData.ClassType.MAGE),
+		CharData.new("Test2", CharData.ClassType.THIEF),
+		CharData.new("Test3", CharData.ClassType.KNIGHT),
+		CharData.new("Test4", CharData.ClassType.CLERIC),
+	]
+	#PlayerData.reserve = [
+		#CharData.new("Test5", CharData.ClassType.CLERIC),
+		#CharData.new("Test6", CharData.ClassType.THIEF),
+	#]
 	pick_screen(6)
 
 func delete_click():

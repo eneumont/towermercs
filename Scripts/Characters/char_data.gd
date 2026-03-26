@@ -343,6 +343,8 @@ func assign_name(type: ClassType) -> String:
 	for c in c_array.filter(func(t): return t.class_type == type):
 		nums.append(c.act_name.to_int()) #remove all letters
 	
+	if nums.is_empty(): return out + "0"
+	
 	nums.sort()
 	
 	#this shit is not efficient...  imma have to do regex...
@@ -350,10 +352,12 @@ func assign_name(type: ClassType) -> String:
 		#maybe turn to ternary...
 		if i == nums.size() - 1: #if at end add one
 			out = out + str(nums[i] + 1)
+			break
 		else:
-			if (nums[i + 1] - i) <= 1: #if dif between cur and next is 1 or less continue
+			if (nums[i + 1] - nums[i]) <= 1: #if dif between cur and next is 1 or less continue
 				continue
-			else: 
+			else: #otherwise add one to cur
 				out = out + str(nums[i] + 1)
+				break
 	
 	return out

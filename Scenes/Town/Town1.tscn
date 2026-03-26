@@ -155,6 +155,7 @@ ownerDialogue = {
 ownerRespones = {
 "Begin": "How y'all doing?",
 "Both": "Get a good nights rest.",
+"Broke": "Sorry, but you're gonna have to cough up more...",
 "End": "Stay safe.",
 "Normal": "Found anything interesting while traveling?",
 "Rest": "I'll go fluff the beds.",
@@ -182,6 +183,7 @@ ownerDialogue = {
 }
 ownerRespones = {
 "Begin": "We're at your service.",
+"Broke": "Please acquire more funds.",
 "End": "Glad to be of service.",
 "Fire": "Hope they served you well.",
 "Hire": "Who you need? We got the best only!",
@@ -208,12 +210,16 @@ ownerDialogue = {
 "First": "That @#$% unicorn! Wish I could smash it with my hammer!"
 }
 ownerRespones = {
+"Accessory": "Got a keen eye for something?",
+"All": "Only my best work, promise!",
+"Armor": "Need to take a few hits?",
 "Begin": "How ya wanna hurt 'em?",
 "Broke": "I ain't doing this for free.",
 "Buy": "Careful it's sharp, heh.",
 "End": "Have fun!",
 "Normal": "Got more where that came from.",
-"Too Much": "Don't think ya got the pocket space for that."
+"Too Much": "Don't think ya got the pocket space for that.",
+"Weapon": "Good for scaring or murder! I don't judge."
 }
 BuildingUI = NodePath("SmithUi")
 

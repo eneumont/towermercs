@@ -2,6 +2,7 @@ extends Button
 
 var shop
 
+var act_name
 var display_name: String
 var type: CharData.ClassType
 var level: int
@@ -13,6 +14,7 @@ var level: int
 @onready var cost_txt: Label = $VBox/CostTxt
 
 func setup(c_type: CharData.ClassType):
+	type = c_type
 	match c_type:
 		CharData.ClassType.KNIGHT:
 			make("Knight", "Knight.png", "A warrior who fights with sword and shield to protect allies. Specializes in protecting and buffing the party.", 100 if shop.hireMode else 50 * level)
@@ -52,7 +54,7 @@ func make(c_txt: String, c_img: String, d_txt: String, cost: int):
 func btn_up():
 	if shop.hireMode:
 		if (PlayerData.money - cost_txt.text.to_int()) < 0:
-			pass
+			shop.talk(false, "Broke")
 		else:
 			PlayerData.money -= cost_txt.text.to_int()
 			PlayerData.collection.append(CharData.new(display_name, type))
@@ -62,7 +64,7 @@ func btn_up():
 		var index: int
 	
 		for c in PlayerData.collection:
-			if c.act_name == display_name: #actual name?
+			if c.act_name == act_name: 
 				index = PlayerData.collection.find(c)
 				PlayerData.collection.remove_at(index)
 				queue_free()

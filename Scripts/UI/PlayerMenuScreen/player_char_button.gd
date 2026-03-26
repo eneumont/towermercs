@@ -26,42 +26,13 @@ func design():
 		empty = true
 		return
 	
-	name_txt.text = char.act_name + "Lv." + str(char.cur_level)
+	name_txt.text = char.display_name + " Lv." + str(char.cur_level)
 	health_bar.value = (char.curHP / char.maxHP) * 100
 	h_ptxt.text = "HP: " + str(char.maxHP) + "/" + str(char.curHP)
 	artistry_bar.value = (char.curAP / char.maxAP) * 100
 	a_ptxt.text = "AP: " + str(char.maxAP) + "/" + str(char.curAP)
 	s_ptxt.text = "SP: " + str(char.cur_sp)
-	
-	match char.class_type:
-		CharData.ClassType.KNIGHT:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Knight.png")
-		CharData.ClassType.THIEF:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Thief.png")
-		CharData.ClassType.MAGE:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Mage.png")
-		CharData.ClassType.CLERIC:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Cleric.png")
-		CharData.ClassType.ALCHEMIST:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Alchemist.png")
-		CharData.ClassType.BARD:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Bard.png")
-		CharData.ClassType.BRAWLER:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Brawler.png")
-		CharData.ClassType.MEDIC:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Medic.png")
-		CharData.ClassType.CLOWN:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Clown.png")
-		CharData.ClassType.ARCANIST:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Arcanist.png")
-		CharData.ClassType.DRUID:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Druid.png")
-		CharData.ClassType.SWORDMASTER:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Swordmaster.png")
-		CharData.ClassType.HORROR:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Horror.png")
-		CharData.ClassType.WITCH:
-			texture_rect.texture = load("res://Images/Textures/Icons/Characters/Witch.png")
+	texture_rect.texture = load("res://Images/Textures/Icons/Characters/" + CharData.ClassType.keys()[char.class_type].capitalize() + ".png")
 
 func char_click():
 	if not empty: menu.change_scr(9, 0, pos)

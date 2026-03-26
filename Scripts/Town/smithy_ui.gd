@@ -58,18 +58,22 @@ func shop_setup():
 func all_click():
 	mode = ShopMode.ALL
 	shop_setup()
+	talk(false, "All")
 	
 func weapon_click():
 	mode = ShopMode.WEAPON
 	shop_setup()
+	talk(false, "Weapon")
 
 func armor_click():
 	mode = ShopMode.ARMOR
 	shop_setup()
+	talk(false, "Armor")
 	
 func accessory_click():
 	mode = ShopMode.ACCESSORY
 	shop_setup()
+	talk(false, "Accessory") 
 
 func item_click(cost: int, id: String):
 	buy(cost, id)

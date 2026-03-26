@@ -48,14 +48,18 @@ func heal_click():
 			p.curAP = p.maxAP
 		
 		rest_set()
+	else:
+		talk(false, "Broke")
 
 func save_click():
 	rest_mode = false
 	shop_setup()
+	talk(false, "Save")
 
 func rest_click():
 	rest_mode = true
 	shop_setup()
+	talk(false, "Rest")
 
 func _on_exit_btn_button_up() -> void:
 	building.closeUI()

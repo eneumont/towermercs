@@ -43,36 +43,7 @@ func design(used: bool):
 		
 		var i = 0
 		for p in party_imgs.get_child_count():
-			match int(data["meta"]["party"][i]["class_type"]):
-				CharData.ClassType.KNIGHT:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Knight.png")
-				CharData.ClassType.THIEF:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Thief.png")
-				CharData.ClassType.MAGE:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Mage.png")
-				CharData.ClassType.CLERIC:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Cleric.png")
-				CharData.ClassType.ALCHEMIST:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Alchemist.png")
-				CharData.ClassType.BARD:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Bard.png")
-				CharData.ClassType.BRAWLER:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Brawler.png")
-				CharData.ClassType.MEDIC:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Medic.png")
-				CharData.ClassType.CLOWN:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Clown.png")
-				CharData.ClassType.ARCANIST:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Arcanist.png")
-				CharData.ClassType.DRUID:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Druid.png")
-				CharData.ClassType.SWORDMASTER:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Swordmaster.png")
-				CharData.ClassType.HORROR:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Horror.png")
-				CharData.ClassType.WITCH:
-					party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/Witch.png")
-				
+			party_imgs.get_children()[p].texture = load("res://Images/Textures/Icons/Characters/" + CharData.ClassType.keys()[int(data["meta"]["party"][i]["class_type"])].capitalize() + ".png")
 			i += 1
 		
 		area_txt.text = "Area: " + data["cur_scn"]

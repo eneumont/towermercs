@@ -31,3 +31,5 @@ func heal():
 		PlayerData.party[num].curHP = PlayerData.party[num].maxHP
 		PlayerData.party[num].curAP = PlayerData.party[num].maxAP
 		ui.rest_set()
+	else:
+		ui.talk(false, "Broke")

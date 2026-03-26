@@ -24,16 +24,19 @@ func shop_setup():
 		if !hireMode: new_slot.level = s.cur_level
 		new_slot.shop = self
 		new_slot.setup(s if hireMode else s.class_type)
+		if !hireMode: new_slot.act_name = s.act_name
 	
 	updateMoney()
 
 func hire_click():
 	hireMode = true
 	shop_setup()
+	talk(false, "Hire")
 	
 func fire_click():
 	hireMode = false
 	shop_setup()
+	talk(false, "Fire")
 
 func _on_exit_btn_button_up() -> void:
 	building.closeUI()
