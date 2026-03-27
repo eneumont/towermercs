@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://buwla5ajslfd8"]
+[gd_scene load_steps=7 format=3 uid="uid://buwla5ajslfd8"]
 
 [ext_resource type="Script" uid="uid://uvdaytgedds2" path="res://Scripts/UI/PlayerMenuScreen/player_menu.gd" id="1_exswu"]
 [ext_resource type="Script" uid="uid://bnw72p14tn87n" path="res://Scripts/UI/PlayerMenuScreen/player_menu_screen.gd" id="1_ygwso"]
 [ext_resource type="Script" uid="uid://dg7qmc80pyrax" path="res://Scripts/UI/PlayerMenuScreen/player_menu_buttons.gd" id="2_a0fii"]
 [ext_resource type="Script" uid="uid://dphalhif0ydgq" path="res://Scripts/UI/PlayerMenuScreen/player_char_button.gd" id="3_exswu"]
 [ext_resource type="Script" uid="uid://b6xeucjnr8mad" path="res://Scripts/UI/PlayerMenuScreen/items_char_btn.gd" id="5_1rcy1"]
+[ext_resource type="Script" uid="uid://dwjbcykqhdokr" path="res://Scripts/UI/PlayerMenuScreen/items_list_btn.gd" id="6_05mor"]
 
 [node name="PlayerMenu" type="Control"]
 layout_mode = 3
@@ -677,6 +678,7 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="ItemMenu" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1134,10 +1136,61 @@ offset_top = -36.0
 offset_bottom = -2.0
 grow_horizontal = 2
 
-[node name="ListBtn" type="Button" parent="ItemMenu/Main/ListBox"]
+[node name="ListBtn" type="Button" parent="ItemMenu/Main/ListBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "All"
+script = ExtResource("6_05mor")
+screen = NodePath("../../..")
+list = "All"
+
+[node name="ListBtn2" type="Button" parent="ItemMenu/Main/ListBox" node_paths=PackedStringArray("screen")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Use"
+script = ExtResource("6_05mor")
+screen = NodePath("../../..")
+list = "Use"
+
+[node name="ListBtn3" type="Button" parent="ItemMenu/Main/ListBox" node_paths=PackedStringArray("screen")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Battle"
+script = ExtResource("6_05mor")
+screen = NodePath("../../..")
+list = "Battle"
+
+[node name="ListBtn4" type="Button" parent="ItemMenu/Main/ListBox" node_paths=PackedStringArray("screen")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapon"
+script = ExtResource("6_05mor")
+screen = NodePath("../../..")
+list = "Weapon"
+
+[node name="ListBtn5" type="Button" parent="ItemMenu/Main/ListBox" node_paths=PackedStringArray("screen")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Armor"
+script = ExtResource("6_05mor")
+screen = NodePath("../../..")
+list = "Armor"
+
+[node name="ListBtn6" type="Button" parent="ItemMenu/Main/ListBox" node_paths=PackedStringArray("screen")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Accessory"
+script = ExtResource("6_05mor")
+screen = NodePath("../../..")
+list = "Accessory"
+
+[node name="ListBtn7" type="Button" parent="ItemMenu/Main/ListBox" node_paths=PackedStringArray("screen")]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Key"
+script = ExtResource("6_05mor")
+screen = NodePath("../../..")
+list = "Key"
 
 [node name="ArtMenu" type="Panel" parent="."]
 visible = false
@@ -1222,7 +1275,6 @@ script = ExtResource("2_a0fii")
 menu = NodePath("../..")
 
 [node name="EquipMenu" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1252,7 +1304,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 6
+menu_num = 2
 
 [node name="MainBtn" type="Button" parent="EquipMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1269,7 +1321,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 1
+menu_num = 3
 
 [node name="RightBtn" type="Button" parent="EquipMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1286,7 +1338,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 2
+menu_num = 4
 
 [node name="BackBtn" type="Button" parent="EquipMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1302,6 +1354,354 @@ theme_override_font_sizes/font_size = 33
 text = "Back"
 script = ExtResource("2_a0fii")
 menu = NodePath("../..")
+
+[node name="Main" type="Panel" parent="EquipMenu"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -519.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CharBox" type="VBoxContainer" parent="EquipMenu/Main"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -441.0
+offset_right = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharRow" type="HBoxContainer" parent="EquipMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharSlot" type="Panel" parent="EquipMenu/Main/CharBox/CharRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow/CharSlot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow/CharSlot/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow/CharSlot/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow/CharSlot/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+expand_mode = 2
+
+[node name="EquipBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow/CharSlot/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow/CharSlot/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapon"
+
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow/CharSlot/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Armor"
+
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow/CharSlot/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Accessory"
+
+[node name="CharSlot2" type="Panel" parent="EquipMenu/Main/CharBox/CharRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow/CharSlot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow/CharSlot2/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow/CharSlot2/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow/CharSlot2/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+expand_mode = 2
+
+[node name="EquipBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow/CharSlot2/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow/CharSlot2/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapon"
+
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow/CharSlot2/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Armor"
+
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow/CharSlot2/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Accessory"
+
+[node name="CharRow2" type="HBoxContainer" parent="EquipMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharSlot" type="Panel" parent="EquipMenu/Main/CharBox/CharRow2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+expand_mode = 2
+
+[node name="EquipBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapon"
+
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Armor"
+
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Accessory"
+
+[node name="CharSlot2" type="Panel" parent="EquipMenu/Main/CharBox/CharRow2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot2/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot2/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot2/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+expand_mode = 2
+
+[node name="EquipBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot2/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot2/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapon"
+
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot2/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Armor"
+
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow2/CharSlot2/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Accessory"
+
+[node name="CharRow3" type="HBoxContainer" parent="EquipMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharSlot" type="Panel" parent="EquipMenu/Main/CharBox/CharRow3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+expand_mode = 2
+
+[node name="EquipBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapon"
+
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Armor"
+
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Accessory"
+
+[node name="CharSlot2" type="Panel" parent="EquipMenu/Main/CharBox/CharRow3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot2/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot2/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot2/Slot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+expand_mode = 2
+
+[node name="EquipBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot2/Slot"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot2/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Weapon"
+
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot2/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Armor"
+
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot2/Slot/EquipBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Accessory"
+
+[node name="EquipScroll" type="ScrollContainer" parent="EquipMenu/Main"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="EquipMenu/Main/EquipScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="TacticsMenu" type="Panel" parent="."]
 visible = false
@@ -1589,6 +1989,13 @@ scr = 8
 [connection signal="button_up" from="ItemMenu/MenuBtnPanel/MainBtn" to="ItemMenu/MenuBtnPanel/MainBtn" method="menu_click"]
 [connection signal="button_up" from="ItemMenu/MenuBtnPanel/RightBtn" to="ItemMenu/MenuBtnPanel/RightBtn" method="menu_click"]
 [connection signal="button_up" from="ItemMenu/BackBtn" to="ItemMenu/BackBtn" method="menu_click"]
+[connection signal="button_up" from="ItemMenu/Main/ListBox/ListBtn" to="ItemMenu/Main/ListBox/ListBtn" method="click"]
+[connection signal="button_up" from="ItemMenu/Main/ListBox/ListBtn2" to="ItemMenu/Main/ListBox/ListBtn2" method="click"]
+[connection signal="button_up" from="ItemMenu/Main/ListBox/ListBtn3" to="ItemMenu/Main/ListBox/ListBtn3" method="click"]
+[connection signal="button_up" from="ItemMenu/Main/ListBox/ListBtn4" to="ItemMenu/Main/ListBox/ListBtn4" method="click"]
+[connection signal="button_up" from="ItemMenu/Main/ListBox/ListBtn5" to="ItemMenu/Main/ListBox/ListBtn5" method="click"]
+[connection signal="button_up" from="ItemMenu/Main/ListBox/ListBtn6" to="ItemMenu/Main/ListBox/ListBtn6" method="click"]
+[connection signal="button_up" from="ItemMenu/Main/ListBox/ListBtn7" to="ItemMenu/Main/ListBox/ListBtn7" method="click"]
 [connection signal="button_up" from="ArtMenu/MenuBtnPanel/LeftBtn" to="ArtMenu/MenuBtnPanel/LeftBtn" method="menu_click"]
 [connection signal="button_up" from="ArtMenu/MenuBtnPanel/MainBtn" to="ArtMenu/MenuBtnPanel/MainBtn" method="menu_click"]
 [connection signal="button_up" from="ArtMenu/MenuBtnPanel/RightBtn" to="ArtMenu/MenuBtnPanel/RightBtn" method="menu_click"]

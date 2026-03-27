@@ -5,6 +5,7 @@ extends Control
 var party_pos: int #for char pos in party/reserve 0-3/4,5
 
 var item_itemBtn: PackedScene = preload("res://Scenes/UI/PlayerMenu/items_item_btn.tscn")
+var item_list: String = "All"
 
 ## 0 - MAIN, 1 - ITEMS, 2 - ARTS, 3 - Equip, 4 - Tactics, 5 - Quests, 6 - SETTINGS, 7 - Tree, 8 - CHAR
 func design():
@@ -36,17 +37,34 @@ func main_design():
 	get_node_or_null("MoneyTxt").text = "Money: " + str(PlayerData.money)
 
 func item_design():
+	list_items()
+	
+	for i in range(1, 7):
+		get_node_or_null("Main/CharBox/CharBtn" + str(i)).setup()
+
+func list_items():
 	for child in get_node_or_null("Main/ScrollBox/ItemsBox").get_children():
 		child.queue_free()
 	
 	for i in PlayerData.inventory.keys():
 		var new_item = item_itemBtn.instantiate()
+		match item_list:
+			"Use":
+				if ItemDatabase.get_item(i).item_type != ItemRes.ItemType.CONSUMABLE: continue
+			"Battle":
+				if ItemDatabase.get_item(i).item_type != ItemRes.ItemType.BATTLE: continue
+			"Weapon":
+				if ItemDatabase.get_item(i).item_type != ItemRes.ItemType.WEAPON: continue
+			"Armor":
+				if ItemDatabase.get_item(i).item_type != ItemRes.ItemType.ARMOR: continue
+			"Accessory":
+				if ItemDatabase.get_item(i).item_type != ItemRes.ItemType.ACCESSORY: continue
+			"Key":
+				if ItemDatabase.get_item(i).item_type != ItemRes.ItemType.KEY: continue
+		
 		get_node_or_null("Main/ScrollBox/ItemsBox").add_child(new_item)
 		new_item.id = i
 		new_item.setup()
-		
-	for i in range(1, 7):
-		get_node_or_null("Main/CharBox/CharBtn" + str(i)).setup()
 
 func art_design():
 	pass
