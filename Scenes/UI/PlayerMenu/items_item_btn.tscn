@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://gxthr3euiq3f"]
 
-[ext_resource type="Script" uid="uid://dgkxbht3escgk" path="res://Scripts/UI/PlayerMenuScreen/items_item_btn.gd" id="1_k3kfg"]
+[ext_resource type="Script" uid="uid://dgkxbht3escgk" path="res://Scripts/UI/PlayerMenuScreen/ItemsScreen/items_item_btn.gd" id="1_k3kfg"]
 [ext_resource type="Texture2D" uid="uid://bwg0cyjfngyl2" path="res://Images/Textures/Icons/Items/Mushroom.png" id="2_omtq0"]
 
 [node name="ItemBtn" type="Button"]

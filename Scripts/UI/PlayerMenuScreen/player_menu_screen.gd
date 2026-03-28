@@ -7,6 +7,8 @@ var party_pos: int #for char pos in party/reserve 0-3/4,5
 var item_itemBtn: PackedScene = preload("res://Scenes/UI/PlayerMenu/items_item_btn.tscn")
 var item_list: String = "All"
 
+var equip_equipBtn: PackedScene = preload("res://Scenes/UI/PlayerMenu/items_item_btn.tscn")
+
 ## 0 - MAIN, 1 - ITEMS, 2 - ARTS, 3 - Equip, 4 - Tactics, 5 - Quests, 6 - SETTINGS, 7 - Tree, 8 - CHAR
 func design():
 	match scr:
@@ -70,7 +72,25 @@ func art_design():
 	pass
 
 func equip_design():
-	pass
+	equip_party()
+	equip_list()
+	
+func equip_party():
+	for i in range(1, PlayerData.party.size() + PlayerData.reserve.size() + 1):
+		get_node("Main/CharBox/CharRow" + str(i if i % 2 != 0 else i + 1) + "/CharSlot" + str(i)).setup(PlayerData.party[i] if i <= 4 else PlayerData.reserve[i - 5])
+
+func equip_list(show: bool = false, type: ItemRes.ItemType = ItemRes.ItemType.WEAPON):
+	get_node("Main/EquipBox").visible = show
+	if show:
+		get_node("Main/EquipBox/EquipBtn").design()
+		
+		for i in PlayerData.inventory:
+			if ItemDatabase.get_item(i).item_type == type:
+				var new_equip = equip_equipBtn.instantiate()
+				get_node("Main/EquipBox/EquipScroll/VBox").add_child(new_equip)
+				new_equip.id = i
+				new_equip.setup()
+				#need to add thing for if multiple equipment
 
 func tactic_design():
 	pass
