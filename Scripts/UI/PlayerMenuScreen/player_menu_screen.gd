@@ -86,11 +86,12 @@ func equip_list(show: bool = false, type: ItemRes.ItemType = ItemRes.ItemType.WE
 		
 		for i in PlayerData.inventory:
 			if ItemDatabase.get_item(i).item_type == type:
-				var new_equip = equip_equipBtn.instantiate()
-				get_node("Main/EquipBox/EquipScroll/VBox").add_child(new_equip)
-				new_equip.id = i
-				new_equip.setup()
-				#need to add thing for if multiple equipment
+				for j in PlayerData.inventory[i]:
+					var new_equip = equip_equipBtn.instantiate()
+					get_node("Main/EquipBox/EquipScroll/VBox").add_child(new_equip)
+					new_equip.id = i
+					new_equip.setup() 
+					#add thing for who wearing said equipment if any (wait weren't gonna remove and add for equipment?... fuck I'm good, prob will need things like shops to check party equipment too etc...)
 
 func tactic_design():
 	pass

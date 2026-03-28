@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://buwla5ajslfd8"]
+[gd_scene load_steps=10 format=3 uid="uid://buwla5ajslfd8"]
 
 [ext_resource type="Script" uid="uid://uvdaytgedds2" path="res://Scripts/UI/PlayerMenuScreen/player_menu.gd" id="1_exswu"]
 [ext_resource type="Script" uid="uid://bnw72p14tn87n" path="res://Scripts/UI/PlayerMenuScreen/player_menu_screen.gd" id="1_ygwso"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://dphalhif0ydgq" path="res://Scripts/UI/PlayerMenuScreen/player_char_button.gd" id="3_exswu"]
 [ext_resource type="Script" uid="uid://b6xeucjnr8mad" path="res://Scripts/UI/PlayerMenuScreen/ItemsScreen/items_char_btn.gd" id="5_1rcy1"]
 [ext_resource type="Script" uid="uid://dwjbcykqhdokr" path="res://Scripts/UI/PlayerMenuScreen/ItemsScreen/items_list_btn.gd" id="6_05mor"]
-[ext_resource type="Texture2D" uid="uid://bwg0cyjfngyl2" path="res://Images/Textures/Icons/Items/Mushroom.png" id="7_03a57"]
+[ext_resource type="Script" uid="uid://khoih627s0ct" path="res://Scripts/UI/PlayerMenuScreen/EquipScreen/equip_char.gd" id="7_xt2cn"]
+[ext_resource type="Script" uid="uid://dn0bf83vxethc" path="res://Scripts/UI/PlayerMenuScreen/EquipScreen/equip_char_equip_btn.gd" id="8_6d2q4"]
+[ext_resource type="Script" uid="uid://bps13lndp5wcb" path="res://Scripts/UI/PlayerMenuScreen/EquipScreen/equip_equip_btn.gd" id="9_eyjxs"]
 
 [node name="PlayerMenu" type="Control"]
 layout_mode = 3
@@ -1384,6 +1386,7 @@ size_flags_vertical = 3
 [node name="CharSlot1" type="Panel" parent="EquipMenu/Main/CharBox/CharRow1"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("7_xt2cn")
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1"]
 layout_mode = 1
@@ -1420,20 +1423,24 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
+script = ExtResource("8_6d2q4")
 
 [node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
+script = ExtResource("8_6d2q4")
 
 [node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
+script = ExtResource("8_6d2q4")
 
 [node name="CharSlot2" type="Panel" parent="EquipMenu/Main/CharBox/CharRow1"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("7_xt2cn")
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2"]
 layout_mode = 1
@@ -1470,16 +1477,19 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
+script = ExtResource("8_6d2q4")
 
 [node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
+script = ExtResource("8_6d2q4")
 
 [node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
+script = ExtResource("8_6d2q4")
 
 [node name="CharRow3" type="HBoxContainer" parent="EquipMenu/Main/CharBox"]
 layout_mode = 2
@@ -1488,6 +1498,7 @@ size_flags_vertical = 3
 [node name="CharSlot3" type="Panel" parent="EquipMenu/Main/CharBox/CharRow3"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("7_xt2cn")
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3"]
 layout_mode = 1
@@ -1524,20 +1535,24 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
+script = ExtResource("8_6d2q4")
 
 [node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
+script = ExtResource("8_6d2q4")
 
 [node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
+script = ExtResource("8_6d2q4")
 
 [node name="CharSlot4" type="Panel" parent="EquipMenu/Main/CharBox/CharRow3"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("7_xt2cn")
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4"]
 layout_mode = 1
@@ -1574,16 +1589,19 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
+script = ExtResource("8_6d2q4")
 
 [node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
+script = ExtResource("8_6d2q4")
 
 [node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
+script = ExtResource("8_6d2q4")
 
 [node name="CharRow5" type="HBoxContainer" parent="EquipMenu/Main/CharBox"]
 layout_mode = 2
@@ -1592,6 +1610,7 @@ size_flags_vertical = 3
 [node name="CharSlot5" type="Panel" parent="EquipMenu/Main/CharBox/CharRow5"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("7_xt2cn")
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5"]
 layout_mode = 1
@@ -1628,20 +1647,24 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
+script = ExtResource("8_6d2q4")
 
 [node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
+script = ExtResource("8_6d2q4")
 
 [node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
+script = ExtResource("8_6d2q4")
 
 [node name="CharSlot6" type="Panel" parent="EquipMenu/Main/CharBox/CharRow5"]
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("7_xt2cn")
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6"]
 layout_mode = 1
@@ -1678,16 +1701,19 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
+script = ExtResource("8_6d2q4")
 
 [node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
+script = ExtResource("8_6d2q4")
 
 [node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
+script = ExtResource("8_6d2q4")
 
 [node name="EquipBox" type="VBoxContainer" parent="EquipMenu/Main"]
 layout_mode = 1
@@ -1703,6 +1729,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.33
+script = ExtResource("9_eyjxs")
 
 [node name="VBox" type="VBoxContainer" parent="EquipMenu/Main/EquipBox/EquipBtn"]
 layout_mode = 1
@@ -1720,7 +1747,6 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
-texture = ExtResource("7_03a57")
 expand_mode = 2
 
 [node name="NameTxt" type="Label" parent="EquipMenu/Main/EquipBox/EquipBtn/VBox/HBox"]
