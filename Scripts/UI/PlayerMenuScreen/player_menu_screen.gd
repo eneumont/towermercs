@@ -74,15 +74,19 @@ func art_design():
 func equip_design():
 	equip_party()
 	equip_list()
-	
+
 func equip_party():
 	for i in range(1, PlayerData.party.size() + PlayerData.reserve.size() + 1):
-		get_node("Main/CharBox/CharRow" + str(i if i % 2 != 0 else i + 1) + "/CharSlot" + str(i)).setup(PlayerData.party[i] if i <= 4 else PlayerData.reserve[i - 5])
+		get_node("Main/CharBox/CharRow" + str(i if i % 2 != 0 else i + 1) + "/CharSlot" + str(i)).setup()
 
-func equip_list(show: bool = false, type: ItemRes.ItemType = ItemRes.ItemType.WEAPON):
+func equip_list(show: bool = false, type: ItemRes.ItemType = ItemRes.ItemType.WEAPON, id: String = ""):
 	get_node("Main/EquipBox").visible = show
 	if show:
-		get_node("Main/EquipBox/EquipBtn").design()
+		get_node("Main/EquipBox/EquipBtn").id = id
+		get_node("Main/EquipBox/EquipBtn").setup()
+		
+		for i in get_node("Main/EquipBox/EquipScroll/VBox").get_children():
+			i.queue_free()
 		
 		for i in PlayerData.inventory:
 			if ItemDatabase.get_item(i).item_type == type:

@@ -6,7 +6,6 @@ class_name ItemRes
 @export var pic: String
 @export var buyCost: int
 @export var sellCost: int
-@export var owned: int = 0
 @export var item_type: ItemType
 @export var weapon_type: WeaponType
 @export var armor_type: ArmorType
@@ -15,6 +14,7 @@ class_name ItemRes
 @export var stats: Dictionary
 @export var description: String
 @export var flavor: String
+@export var owner: String = ""
 
 enum ItemType {
 	CONSUMABLE,

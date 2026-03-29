@@ -1278,6 +1278,7 @@ script = ExtResource("2_a0fii")
 menu = NodePath("../..")
 
 [node name="EquipMenu" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1383,10 +1384,11 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CharSlot1" type="Panel" parent="EquipMenu/Main/CharBox/CharRow1"]
+[node name="CharSlot1" type="Panel" parent="EquipMenu/Main/CharBox/CharRow1" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("7_xt2cn")
+screen = NodePath("../../../..")
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1"]
 layout_mode = 1
@@ -1396,11 +1398,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot"]
+[node name="HBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/HBoxContainer"]
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1409,7 +1411,7 @@ text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/HBoxContainer"]
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -1419,28 +1421,33 @@ expand_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox"]
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox"]
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox"]
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="CharSlot2" type="Panel" parent="EquipMenu/Main/CharBox/CharRow1"]
+[node name="CharSlot2" type="Panel" parent="EquipMenu/Main/CharBox/CharRow1" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("7_xt2cn")
+screen = NodePath("../../../..")
+pos = 1
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2"]
 layout_mode = 1
@@ -1473,32 +1480,37 @@ expand_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox"]
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox"]
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox"]
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
 [node name="CharRow3" type="HBoxContainer" parent="EquipMenu/Main/CharBox"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CharSlot3" type="Panel" parent="EquipMenu/Main/CharBox/CharRow3"]
+[node name="CharSlot3" type="Panel" parent="EquipMenu/Main/CharBox/CharRow3" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("7_xt2cn")
+screen = NodePath("../../../..")
+pos = 2
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3"]
 layout_mode = 1
@@ -1531,28 +1543,33 @@ expand_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox"]
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox"]
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox"]
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="CharSlot4" type="Panel" parent="EquipMenu/Main/CharBox/CharRow3"]
+[node name="CharSlot4" type="Panel" parent="EquipMenu/Main/CharBox/CharRow3" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("7_xt2cn")
+screen = NodePath("../../../..")
+pos = 3
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4"]
 layout_mode = 1
@@ -1585,32 +1602,37 @@ expand_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox"]
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox"]
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox"]
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
 [node name="CharRow5" type="HBoxContainer" parent="EquipMenu/Main/CharBox"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="CharSlot5" type="Panel" parent="EquipMenu/Main/CharBox/CharRow5"]
+[node name="CharSlot5" type="Panel" parent="EquipMenu/Main/CharBox/CharRow5" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("7_xt2cn")
+screen = NodePath("../../../..")
+pos = 4
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5"]
 layout_mode = 1
@@ -1643,28 +1665,33 @@ expand_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox"]
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox"]
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox"]
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="CharSlot6" type="Panel" parent="EquipMenu/Main/CharBox/CharRow5"]
+[node name="CharSlot6" type="Panel" parent="EquipMenu/Main/CharBox/CharRow5" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("7_xt2cn")
+screen = NodePath("../../../..")
+pos = 5
 
 [node name="Slot" type="VBoxContainer" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6"]
 layout_mode = 1
@@ -1697,23 +1724,26 @@ expand_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox"]
+[node name="WpBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Weapon"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox"]
+[node name="ArBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Armor"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
-[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox"]
+[node name="AcBtn" type="Button" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox" node_paths=PackedStringArray("screen")]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Accessory"
 script = ExtResource("8_6d2q4")
+screen = NodePath("../../../../../../..")
 
 [node name="EquipBox" type="VBoxContainer" parent="EquipMenu/Main"]
 layout_mode = 1
@@ -2078,6 +2108,25 @@ scr = 8
 [connection signal="button_up" from="EquipMenu/MenuBtnPanel/MainBtn" to="EquipMenu/MenuBtnPanel/MainBtn" method="menu_click"]
 [connection signal="button_up" from="EquipMenu/MenuBtnPanel/RightBtn" to="EquipMenu/MenuBtnPanel/RightBtn" method="menu_click"]
 [connection signal="button_up" from="EquipMenu/BackBtn" to="EquipMenu/BackBtn" method="menu_click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox/WpBtn" to="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox/WpBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox/ArBtn" to="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox/ArBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox/AcBtn" to="EquipMenu/Main/CharBox/CharRow1/CharSlot1/Slot/EquipBox/AcBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox/WpBtn" to="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox/WpBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox/ArBtn" to="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox/ArBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox/AcBtn" to="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/EquipBox/AcBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox/WpBtn" to="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox/WpBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox/ArBtn" to="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox/ArBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox/AcBtn" to="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/EquipBox/AcBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox/WpBtn" to="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox/WpBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox/ArBtn" to="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox/ArBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox/AcBtn" to="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/EquipBox/AcBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox/WpBtn" to="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox/WpBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox/ArBtn" to="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox/ArBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox/AcBtn" to="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/EquipBox/AcBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/WpBtn" to="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/WpBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/ArBtn" to="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/ArBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/AcBtn" to="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/AcBtn" method="click"]
+[connection signal="button_up" from="EquipMenu/Main/EquipBox/EquipBtn" to="EquipMenu/Main/EquipBox/EquipBtn" method="click"]
 [connection signal="button_up" from="TacticsMenu/MenuBtnPanel/LeftBtn" to="TacticsMenu/MenuBtnPanel/LeftBtn" method="menu_click"]
 [connection signal="button_up" from="TacticsMenu/MenuBtnPanel/MainBtn" to="TacticsMenu/MenuBtnPanel/MainBtn" method="menu_click"]
 [connection signal="button_up" from="TacticsMenu/MenuBtnPanel/RightBtn" to="TacticsMenu/MenuBtnPanel/RightBtn" method="menu_click"]
