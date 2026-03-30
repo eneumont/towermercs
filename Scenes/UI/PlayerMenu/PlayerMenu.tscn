@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dwjbcykqhdokr" path="res://Scripts/UI/PlayerMenuScreen/ItemsScreen/items_list_btn.gd" id="6_05mor"]
 [ext_resource type="Script" uid="uid://khoih627s0ct" path="res://Scripts/UI/PlayerMenuScreen/EquipScreen/equip_char.gd" id="7_xt2cn"]
 [ext_resource type="Script" uid="uid://dn0bf83vxethc" path="res://Scripts/UI/PlayerMenuScreen/EquipScreen/equip_char_equip_btn.gd" id="8_6d2q4"]
-[ext_resource type="Script" uid="uid://bps13lndp5wcb" path="res://Scripts/UI/PlayerMenuScreen/EquipScreen/equip_equip_btn.gd" id="9_eyjxs"]
+[ext_resource type="PackedScene" uid="uid://dyarbk2qps4k6" path="res://Scenes/UI/PlayerMenu/equip_equip_btn.tscn" id="9_xt2cn"]
 
 [node name="PlayerMenu" type="Control"]
 layout_mode = 3
@@ -1457,11 +1457,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot"]
+[node name="HBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/HBoxContainer"]
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1470,7 +1470,7 @@ text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/HBoxContainer"]
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow1/CharSlot2/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -1520,11 +1520,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot"]
+[node name="HBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/HBoxContainer"]
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1533,7 +1533,7 @@ text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/HBoxContainer"]
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot3/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -1579,11 +1579,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot"]
+[node name="HBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/HBoxContainer"]
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1592,7 +1592,7 @@ text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/HBoxContainer"]
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow3/CharSlot4/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -1642,11 +1642,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot"]
+[node name="HBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/HBoxContainer"]
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1655,7 +1655,7 @@ text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/HBoxContainer"]
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot5/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -1701,11 +1701,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot"]
+[node name="HBox" type="HBoxContainer" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/HBoxContainer"]
+[node name="NameTxt" type="Label" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -1714,7 +1714,7 @@ text = "Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/HBoxContainer"]
+[node name="CharPic" type="TextureRect" parent="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -1755,48 +1755,8 @@ offset_left = -391.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="EquipBtn" type="Button" parent="EquipMenu/Main/EquipBox"]
+[node name="EquipBtn" parent="EquipMenu/Main/EquipBox" instance=ExtResource("9_xt2cn")]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.33
-script = ExtResource("9_eyjxs")
-
-[node name="VBox" type="VBoxContainer" parent="EquipMenu/Main/EquipBox/EquipBtn"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBox" type="HBoxContainer" parent="EquipMenu/Main/EquipBox/EquipBtn/VBox"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Pic" type="TextureRect" parent="EquipMenu/Main/EquipBox/EquipBtn/VBox/HBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.2
-expand_mode = 2
-
-[node name="NameTxt" type="Label" parent="EquipMenu/Main/EquipBox/EquipBtn/VBox/HBox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 25
-text = "Name"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StatsTxt" type="Label" parent="EquipMenu/Main/EquipBox/EquipBtn/VBox"]
-custom_minimum_size = Vector2(0, 62)
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 18
-text = "Equip Stats..."
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="EquipScroll" type="ScrollContainer" parent="EquipMenu/Main/EquipBox"]
 layout_mode = 2
@@ -2126,7 +2086,6 @@ scr = 8
 [connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/WpBtn" to="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/WpBtn" method="click"]
 [connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/ArBtn" to="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/ArBtn" method="click"]
 [connection signal="button_up" from="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/AcBtn" to="EquipMenu/Main/CharBox/CharRow5/CharSlot6/Slot/EquipBox/AcBtn" method="click"]
-[connection signal="button_up" from="EquipMenu/Main/EquipBox/EquipBtn" to="EquipMenu/Main/EquipBox/EquipBtn" method="click"]
 [connection signal="button_up" from="TacticsMenu/MenuBtnPanel/LeftBtn" to="TacticsMenu/MenuBtnPanel/LeftBtn" method="menu_click"]
 [connection signal="button_up" from="TacticsMenu/MenuBtnPanel/MainBtn" to="TacticsMenu/MenuBtnPanel/MainBtn" method="menu_click"]
 [connection signal="button_up" from="TacticsMenu/MenuBtnPanel/RightBtn" to="TacticsMenu/MenuBtnPanel/RightBtn" method="menu_click"]

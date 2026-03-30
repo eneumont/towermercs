@@ -17,15 +17,15 @@ func equip_btns():
 	var ac := $Slot/EquipBox/AcBtn
 	
 	var equip := ItemDatabase.get_item(c_data.equipment[ItemRes.ItemType.WEAPON])
-	wp.id = equip.id
+	wp.id = equip.id if equip != null else ""
 	wp.setup()
 	
 	equip = ItemDatabase.get_item(c_data.equipment[ItemRes.ItemType.ARMOR])
-	ar.id = equip.id
+	ar.id = equip.id if equip != null else ""
 	ar.setup()
 	
 	equip = ItemDatabase.get_item(c_data.equipment[ItemRes.ItemType.ACCESSORY])
-	ac.id = equip.id
+	ac.id = equip.id if equip != null else ""
 	ac.setup()
 
 func equip_click():

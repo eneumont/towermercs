@@ -7,7 +7,7 @@ var party_pos: int #for char pos in party/reserve 0-3/4,5
 var item_itemBtn: PackedScene = preload("res://Scenes/UI/PlayerMenu/items_item_btn.tscn")
 var item_list: String = "All"
 
-var equip_equipBtn: PackedScene = preload("res://Scenes/UI/PlayerMenu/items_item_btn.tscn")
+var equip_equipBtn: PackedScene = preload("res://Scenes/UI/PlayerMenu/equip_equip_btn.tscn")
 
 ## 0 - MAIN, 1 - ITEMS, 2 - ARTS, 3 - Equip, 4 - Tactics, 5 - Quests, 6 - SETTINGS, 7 - Tree, 8 - CHAR
 func design():
@@ -77,7 +77,7 @@ func equip_design():
 
 func equip_party():
 	for i in range(1, PlayerData.party.size() + PlayerData.reserve.size() + 1):
-		get_node("Main/CharBox/CharRow" + str(i if i % 2 != 0 else i + 1) + "/CharSlot" + str(i)).setup()
+		get_node("Main/CharBox/CharRow" + str(i if i % 2 != 0 else i - 1) + "/CharSlot" + str(i)).setup()
 
 func equip_list(show: bool = false, type: ItemRes.ItemType = ItemRes.ItemType.WEAPON, id: String = ""):
 	get_node("Main/EquipBox").visible = show
@@ -93,6 +93,8 @@ func equip_list(show: bool = false, type: ItemRes.ItemType = ItemRes.ItemType.WE
 				for j in PlayerData.inventory[i]:
 					var new_equip = equip_equipBtn.instantiate()
 					get_node("Main/EquipBox/EquipScroll/VBox").add_child(new_equip)
+					new_equip.size_flags_vertical = Control.SIZE_FILL
+					new_equip.custom_minimum_size = Vector2(0, 127)
 					new_equip.id = i
 					new_equip.setup() 
 					#add thing for who wearing said equipment if any (wait weren't gonna remove and add for equipment?... fuck I'm good, prob will need things like shops to check party equipment too etc...)

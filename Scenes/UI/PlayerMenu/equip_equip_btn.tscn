@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyarbk2qps4k6"]
+
+[ext_resource type="Script" uid="uid://bps13lndp5wcb" path="res://Scripts/UI/PlayerMenuScreen/EquipScreen/equip_equip_btn.gd" id="1_nwt2m"]
+
+[node name="EquipBtn" type="Button"]
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.33
+script = ExtResource("1_nwt2m")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBox" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Pic" type="TextureRect" parent="VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+expand_mode = 2
+
+[node name="NameTxt" type="Label" parent="VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsTxt" type="Label" parent="VBox"]
+custom_minimum_size = Vector2(0, 62)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 18
+text = "Equip Stats..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="button_up" from="." to="." method="click"]
