@@ -1226,7 +1226,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 6
+menu_num = 1
 
 [node name="MainBtn" type="Button" parent="ArtMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1243,7 +1243,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 1
+menu_num = 2
 
 [node name="RightBtn" type="Button" parent="ArtMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1260,7 +1260,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 2
+menu_num = 3
 
 [node name="BackBtn" type="Button" parent="ArtMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1798,7 +1798,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 6
+menu_num = 3
 
 [node name="MainBtn" type="Button" parent="TacticsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1815,7 +1815,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 1
+menu_num = 4
 
 [node name="RightBtn" type="Button" parent="TacticsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1832,7 +1832,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 2
+menu_num = 5
 
 [node name="BackBtn" type="Button" parent="TacticsMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1880,7 +1880,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 6
+menu_num = 4
 
 [node name="MainBtn" type="Button" parent="QuestsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1897,7 +1897,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 1
+menu_num = 5
 
 [node name="RightBtn" type="Button" parent="QuestsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1914,7 +1914,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 2
+menu_num = 6
 
 [node name="BackBtn" type="Button" parent="QuestsMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1962,7 +1962,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 6
+menu_num = 5
 
 [node name="MainBtn" type="Button" parent="SettingsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1979,7 +1979,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 1
+menu_num = 6
 
 [node name="RightBtn" type="Button" parent="SettingsMenu/MenuBtnPanel" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -1996,7 +1996,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
-menu_num = 2
+menu_num = 1
 
 [node name="BackBtn" type="Button" parent="SettingsMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 1

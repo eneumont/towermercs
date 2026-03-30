@@ -5,4 +5,4 @@ extends Area3D
 
 func body_enter(body: Node3D):
 	if body is CharacterBody3D:
-		SceneManager.new_scene(area_name, pos)
+		SceneManager.new_scene.call_deferred(area_name, pos)

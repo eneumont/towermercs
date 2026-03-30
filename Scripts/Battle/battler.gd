@@ -12,6 +12,7 @@ enum Player {
 }
 
 enum Controller {
+	NONE,
 	PLAYER1,
 	PLYAER2,
 	PLAYER3,
@@ -27,6 +28,7 @@ var displayName: String
 var level: int
 var curExp: int
 var nextExp: int
+var curSp: int
 var curHP: int
 var maxHP: int
 var team: Team
@@ -71,20 +73,43 @@ var arts: Array
 
 var equipment
 
+#figure multiplayer with control
 func create(is_player: bool, c_data: CharData = null, f_data: EnemyData = null, control: Controller = Controller.PLAYER1) -> void:
-	if is_player:
-		team = Team.ALLY
-		player = Player.PLAYER
-		displayName = c_data.display_name
-		arts = c_data.equippedArts
-	else:
-		team = Team.FOE
-		player = Player.AI
-		displayName = f_data.display_name
-		arts = f_data.equippedArts
+	team = Team.ALLY if is_player else Team.FOE
+	player = Player.PLAYER if is_player else Player.AI
+	displayName = c_data.display_name if is_player else f_data.display_name
+	act_name = c_data.act_name if is_player else "" #determine foe act name
+	arts = c_data.equippedArts if is_player else f_data.equippedArts
+	curExp = c_data.cur_exp if is_player else f_data.cur_exp
+	level = c_data.cur_level if is_player else f_data.cur_level
+	curSp = c_data.cur_sp if is_player else f_data.cur_sp
+	if is_player: nextExp = c_data.next_exp #how should give exp?
+	if is_player: controller = control #assign controller, multiplayer though
+	
+	#set player equipment do i wanna give foes equipment?
+	#set affinities too...
+	
+	stats = c_data.stats if is_player else f_data.stats
+	curHP = c_data.curHP if is_player else f_data.curHP
+	maxHP = c_data.maxHP if is_player else f_data.maxHP
+	set_cur_stats()
+
+## sets cur stats to be stats * modifiers  [br]
+## cur stats are primarily used in battle
+func set_cur_stats():
+	currentStats[CharData.StatType.HEALTH] = stats[CharData.StatType.HEALTH] * modifiers[CharData.StatType.HEALTH]
+	currentStats[CharData.StatType.ARTISTRY] = stats[CharData.StatType.ARTISTRY] * modifiers[CharData.StatType.ARTISTRY]
+	currentStats[CharData.StatType.ATTACK] = stats[CharData.StatType.ATTACK] * modifiers[CharData.StatType.ATTACK]
+	currentStats[CharData.StatType.MAGIC] = stats[CharData.StatType.MAGIC] * modifiers[CharData.StatType.MAGIC]
+	currentStats[CharData.StatType.DEFENSE] = stats[CharData.StatType.DEFENSE] * modifiers[CharData.StatType.DEFENSE]
+	currentStats[CharData.StatType.RESISTANCE] = stats[CharData.StatType.RESISTANCE] * modifiers[CharData.StatType.RESISTANCE]
+	currentStats[CharData.StatType.SPEED] = stats[CharData.StatType.SPEED] * modifiers[CharData.StatType.SPEED]
+	curHP = curHP/maxHP * currentStats[CharData.StatType.HEALTH]
+	maxHP = currentStats[CharData.StatType.HEALTH]
 
 func start_turn():
 	defending = false
+	set_cur_stats()
 
 func end_turn():
 	bm.cur_turnOrder.remove_at(0)
@@ -107,7 +132,7 @@ func do_effects():
 func show_select():
 	selector.visible = true
 	#might want to change how select is updated
-	selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100 * (currentStats[CharData.StatType.HEALTH] / (stats[CharData.StatType.HEALTH] * modifiers[CharData.StatType.HEALTH]))
+	selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100 * (curHP / maxHP)
 
 func hide_select():
 	selector.visible = false
@@ -118,7 +143,7 @@ func clicked(cam: Node, evt: InputEvent, pos: Vector3, nor: Vector3, shape: int)
 			var art := ArtDatabase.get_art(bm.casted_art)
 			var a_targets: Array[Battler]
 			
-			if (art.hp_cost >= bm.cur_turnOrder[0].currentStats[CharData.StatType.HEALTH]) || (art.ap_cost > bm.cur_turnOrder[0].currentStats[CharData.StatType.ARTISTRY]):
+			if (art.hp_cost >= bm.cur_turnOrder[0].curHP) || (art.ap_cost > bm.cur_turnOrder[0].curAP):
 				bm.new_feed(bm.cur_turnOrder[0].displayName + " can't muster the strength to do that...")
 				return
 			

@@ -18,6 +18,7 @@ enum ClassType {
 	HORROR,
 }
 
+var next_exp: int
 var max_exp: int
 var cur_sp: int
 var class_type: ClassType

@@ -76,11 +76,10 @@ func spawn_battlers():
 	for i in PlayerData.party.size():
 		var new_battler = scn.instantiate()
 		new_battler.bm = self
-		new_battler.create(true, PlayerData.party[i])
+		new_battler.create(true, PlayerData.party[i]) #assign multiplayer with control
 		PlayerBattlers.append(new_battler)
 		Battlers.append(new_battler)
-		aliveBattlers.append(new_battler) #remove/change
-		#if new_battler.curHP > 0: aliveBattlers.append(new_battler)
+		if new_battler.curHP > 0: aliveBattlers.append(new_battler)
 		BattlerPosList[i].add_child(new_battler)
 	
 	scn = load("res://Scenes/Battle/Characters/BattlerEnemy.tscn")
@@ -89,6 +88,7 @@ func spawn_battlers():
 		var new_battler = scn.instantiate()
 		new_battler.bm = self
 		new_battler.create(false, null, EnemyDatabase.get_foe(SceneManager.encounter.split(",")[i]))
+		new_battler.displayName = new_battler.displayName + str(i) #figure how naming enemies should work
 		FoeBattlers.append(new_battler)
 		Battlers.append(new_battler)
 		aliveBattlers.append(new_battler)
@@ -96,6 +96,7 @@ func spawn_battlers():
 
 func battle_end(win: bool):
 	if win:
+		#give rewards
 		SceneManager.pop_scene()
 	else:
 		#go to main menu or something else

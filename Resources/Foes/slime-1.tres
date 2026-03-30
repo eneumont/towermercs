@@ -9,8 +9,20 @@ id = "Slime1"
 display_name = "Slime"
 cur_level = 1
 cur_exp = 11
+cur_sp = 1
 model = ExtResource("1_whr73")
 rot = Vector3(0, -90, 0)
 sca = Vector3(0.6, 0.6, 0.6)
+maxHP = 10
+curHP = 10
+stats = {
+0: 10,
+1: 10,
+2: 10,
+3: 10,
+4: 10,
+5: 10,
+6: 10
+}
 equippedArts = Array[String](["test_attack"])
 metadata/_custom_type_script = "uid://cik62ltryynnf"

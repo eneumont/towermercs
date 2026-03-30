@@ -5,15 +5,17 @@ class_name EnemyData
 @export var display_name: String
 @export var cur_level: int
 @export var cur_exp: int
+@export var cur_sp: int
 @export var model: PackedScene
 @export var pos: Vector3
 @export var rot: Vector3
 @export var sca: Vector3
 
-var curHP: int
-var maxHP: int
+@export var maxHP: int = 1
+@export var curHP: int = 1
 
-var stats: Dictionary = {
+##
+@export var stats: Dictionary = {
 	BeingData.StatType.HEALTH : 1,
 	BeingData.StatType.ARTISTRY : 1,
 	BeingData.StatType.ATTACK : 1,
@@ -23,19 +25,11 @@ var stats: Dictionary = {
 	BeingData.StatType.SPEED : 1,
 }
 
-var cur_stats: Dictionary = {
-	BeingData.StatType.HEALTH : 1,
-	BeingData.StatType.ARTISTRY : 1,
-	BeingData.StatType.ATTACK : 1,
-	BeingData.StatType.MAGIC : 1,
-	BeingData.StatType.DEFENSE : 1,
-	BeingData.StatType.RESISTANCE : 1,
-	BeingData.StatType.SPEED : 1,
-}
-
+## should i have max? (nah...)
 @export var equippedArts : Array[String]
 
-var affinities: Dictionary = {
+##
+@export var affinities: Dictionary = {
 	BeingData.AffinityType.BLUNT : BeingData.AffinityRate.NEUTRAL,
 	BeingData.AffinityType.PIERCE : BeingData.AffinityRate.NEUTRAL,
 	BeingData.AffinityType.SLASH : BeingData.AffinityRate.NEUTRAL,
