@@ -115,6 +115,8 @@ func end_turn():
 	bm.cur_turnOrder.remove_at(0)
 	bm.new_turn()
 
+## for healing/damaging [br]
+## heal pos num / dmg neg num
 func take_damage(dmg: int):
 	curHP += dmg
 	if curHP > maxHP: curHP = maxHP
@@ -125,6 +127,7 @@ func take_damage(dmg: int):
 func die():
 	dead = true
 	bm.aliveBattlers.erase(self)
+	if team == Team.FOE: queue_free()
 
 func do_effects():
 	pass

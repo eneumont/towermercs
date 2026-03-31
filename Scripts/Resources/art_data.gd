@@ -39,7 +39,7 @@ enum ArtType {
 	RUN,
 }
 
-func cast(caster: Battler, targets: Array[Battler]):
+func cast(caster: Battler, targets: Array):
 	#move character forward
 	match (type):
 		ArtType.ATTACK:
@@ -59,22 +59,22 @@ func cast(caster: Battler, targets: Array[Battler]):
 		
 	caster.end_turn()
 
-func attack_cast(caster: Battler, targets: Array[Battler]):
+func attack_cast(caster: Battler, targets: Array):
 	print("attack")
 	for t in targets:
-		t.take_damage(10)
+		t.take_damage(-5)
 
-func magic_cast(caster: Battler, targets: Array[Battler]):
+func magic_cast(caster: Battler, targets: Array):
 	print("magic")
 	for t in targets:
-		t.take_damage(10)
+		t.take_damage(-5)
 	
-func defend_cast(caster: Battler, targets: Array[Battler]):
+func defend_cast(caster: Battler, targets: Array):
 	print("defend")
 	caster.defending = true
 	
-func item_cast(caster: Battler, targets: Array[Battler]):
+func item_cast(caster: Battler, targets: Array):
 	print("item")
 	
-func run_cast(caster: Battler, targets: Array[Battler]):
+func run_cast(caster: Battler, targets: Array):
 	print("run")

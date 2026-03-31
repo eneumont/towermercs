@@ -21,10 +21,10 @@ var classType: CharData.ClassType
 @onready var anim_sprite: AnimatedSprite3D = $AnimatedSprite3D
 
 func create(is_player: bool, c_data: CharData = null, f_data: EnemyData = null, control: Controller = Controller.PLAYER1) -> void:
-	super(is_player, c_data, f_data, control)
 	classType = c_data.class_type
-	curAP = c_data.curAP * modifiers[CharData.StatType.ARTISTRY]
-	maxAP = c_data.maxAP * modifiers[CharData.StatType.ARTISTRY]
+	curAP = c_data.curAP
+	maxAP = c_data.maxAP
+	super(is_player, c_data, f_data, control)
 
 func set_cur_stats():
 	super()
