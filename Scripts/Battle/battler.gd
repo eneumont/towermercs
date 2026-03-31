@@ -127,7 +127,6 @@ func take_damage(dmg: int):
 func die():
 	dead = true
 	bm.aliveBattlers.erase(self)
-	if team == Team.FOE: queue_free()
 
 func do_effects():
 	pass

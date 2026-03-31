@@ -17,7 +17,6 @@ func set_turns():
 func set_party():
 	for p in party_slots:
 		p.update_self()
-		p.update_image()
 
 func feed(f: String):
 	fb.visible = true

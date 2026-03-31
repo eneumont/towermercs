@@ -28,6 +28,7 @@ func start_turn():
 	if (select_art.team != ArtRes.TargetTeam.SELF && select_art.group == ArtRes.GroupType.SINGLE):
 		select_targets = [select_targets[randi_range(0, select_targets.size() - 1)]]
 	
+	bm.casted_art = select_art.id
 	bm.targets.append_array(select_targets)
 	bm.cast()
 

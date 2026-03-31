@@ -31,6 +31,6 @@ func create_order(order: Array, startI: int, pl: Panel):
 	for i in order.size():
 		var img = turnImg.instantiate()
 		img.position = Vector2(startI + (55 * i), 20)
-		img.texture = load("res://Images/Textures/Icons/Characters/PlayerTurn.png") if order[i].team == Battler.Team.ALLY else load("res://Images/Textures/Icons/Characters/EnemyTurn.png")
+		img.texture = load("res://Images/Textures/Icons/Characters/" + ("PlayerTurn" if order[i].team == Battler.Team.ALLY else "EnemyTurn") + ".png")
 		img.get_child(0).text = order[i].displayName
 		pl.add_child(img)
