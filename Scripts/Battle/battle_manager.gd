@@ -40,7 +40,7 @@ func new_turn():
 
 func new_turnOrder(begin: bool):
 	if begin:
-		cur_turnOrder = aliveBattlers.duplicate(true)
+		cur_turnOrder = aliveBattlers.duplicate()
 		
 		#maybe add a check for ties
 		for b in cur_turnOrder.size() - 1:
@@ -51,13 +51,13 @@ func new_turnOrder(begin: bool):
 					cur_turnOrder[c + 1] = temp
 			
 	else:
-		cur_turnOrder = next_turnOrder
+		cur_turnOrder = next_turnOrder.duplicate()
 	
 	new_nextTurnOrder()
 	new_turn()
 
 func new_nextTurnOrder():
-	next_turnOrder = aliveBattlers.duplicate(true)
+	next_turnOrder = aliveBattlers.duplicate()
 		
 	#maybe add a check for ties
 	for b in next_turnOrder.size() - 1:

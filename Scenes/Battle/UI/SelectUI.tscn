@@ -25,6 +25,5 @@ size_flags_vertical = 3
 self_modulate = Color(0, 1, 0, 1)
 layout_mode = 2
 size_flags_vertical = 3
-value = 39.16
-exp_edit = true
+value = 76.13
 show_percentage = false

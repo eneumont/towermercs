@@ -1,8 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://bmamsrk1wackt"]
 
-[ext_resource type="Script" path="res://Scripts/WorldMap/world_spot.gd" id="1_0ofam"]
+[ext_resource type="Script" uid="uid://drkgobabgcmuu" path="res://Scripts/WorldMap/world_spot.gd" id="1_0ofam"]
 [ext_resource type="Texture2D" uid="uid://367lbofltl1t" path="res://Images/Textures/Icons/Spots/Town.png" id="2_g4hlx"]
-[ext_resource type="PackedScene" uid="uid://ix1cfcmaihci" path="res://Scenes/UI/WorldSpotUI.tscn" id="3_vvmhn"]
+[ext_resource type="PackedScene" uid="uid://ix1cfcmaihci" path="res://Scenes/WorldMap/WorldSpotUI.tscn" id="3_vvmhn"]
+
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_44gyx"]
 radius = 1.82198

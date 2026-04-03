@@ -54,10 +54,14 @@ func cast(caster: Battler, targets: Array):
 			run_cast(caster, targets)
 			
 	caster.set_cur_stats()
+	var out: float = 100.0 * (float(caster.curHP) / caster.maxHP)
+	caster.selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100.0 * (float(caster.curHP) / caster.maxHP)
 	for t in targets:
 		t.set_cur_stats()
-		
-	caster.end_turn()
+		out = 100.0 * (float(t.curHP) / t.maxHP)
+		t.selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100.0 * (float(t.curHP) / t.maxHP)
+	
+	#caster.end_turn()
 
 func attack_cast(caster: Battler, targets: Array):
 	print("attack")

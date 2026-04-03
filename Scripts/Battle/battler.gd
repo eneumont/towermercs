@@ -126,7 +126,14 @@ func take_damage(dmg: int):
 
 func die():
 	dead = true
+	
 	bm.aliveBattlers.erase(self)
+	bm.Battlers.erase(self)
+	if team == Team.FOE: bm.FoeBattlers.erase(self)
+	bm.cur_turnOrder.erase(self)
+	bm.next_turnOrder.erase(self)
+	
+	if player == Player.AI: queue_free() # checks ai for multiplayer... maybe...
 
 func do_effects():
 	pass
@@ -134,7 +141,7 @@ func do_effects():
 func show_select():
 	selector.visible = true
 	#might want to change how select is updated
-	selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100 * (curHP / maxHP)
+	selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100.0 * (float(curHP) / maxHP)
 
 func hide_select():
 	selector.visible = false
@@ -166,9 +173,17 @@ func clicked(cam: Node, evt: InputEvent, pos: Vector3, nor: Vector3, shape: int)
 							a_targets.append(self)
 						ArtRes.GroupType.TEAM:
 							a_targets.append_array(bm.aliveBattlers.filter(func(b): return b.team == Battler.Team.FOE))
+				else: #will do nothing if wrong target clicked
+					return
 			
 			bm.targets.append_array(a_targets)
 			bm.cast()
+			
+			# update selector ui
+			for b in bm.targets:
+				var out := 100.0 * (float(curHP) / maxHP)
+				b.selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100.0 * (float(curHP) / maxHP)
+				
 		else:
-			#show analyse menu or somethin
+			# show analyse menu or somethin
 			pass

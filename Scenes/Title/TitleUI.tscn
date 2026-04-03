@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://duc8wlswgptot" path="res://Scripts/Title/title_ui.gd" id="1_0sc1q"]
 [ext_resource type="PackedScene" uid="uid://hcptrv3t5bku" path="res://Scenes/Title/TitleSaveSlot.tscn" id="2_fv6gq"]
-[ext_resource type="PackedScene" uid="uid://7yxg2t1tjna7" path="res://Scenes/UI/ClassSlot.tscn" id="3_cxqlk"]
+[ext_resource type="PackedScene" uid="uid://7yxg2t1tjna7" path="res://Scenes/Title/ClassSlot.tscn" id="3_cxqlk"]
 
 [node name="TitleUI" type="Control"]
 layout_mode = 3
