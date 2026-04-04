@@ -31,6 +31,13 @@ func start_turn():
 	bm.casted_art = select_art.id
 	bm.targets.append_array(select_targets)
 	bm.cast()
+	
+	# update selector ui
+	bm.cur_turn.selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100.0 * (float(bm.cur_turn.curHP) / bm.cur_turn.maxHP)
+	for b in bm.targets:
+		b.selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100.0 * (float(b.curHP) / b.maxHP)
+	
+	end_turn()
 
 func end_turn():
 	super()

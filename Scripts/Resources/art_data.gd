@@ -39,8 +39,12 @@ enum ArtType {
 	RUN,
 }
 
-func cast(caster: Battler, targets: Array):
-	#move character forward
+func cast(caster: Battler, targets: Array) -> String:
+	var out := feedback
+	#move character forward if player otherwise make foe flash?
+	
+	#check crit here and do crit logic
+	
 	match (type):
 		ArtType.ATTACK:
 			attack_cast(caster, targets)
@@ -54,24 +58,19 @@ func cast(caster: Battler, targets: Array):
 			run_cast(caster, targets)
 			
 	caster.set_cur_stats()
-	var out: float = 100.0 * (float(caster.curHP) / caster.maxHP)
-	caster.selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100.0 * (float(caster.curHP) / caster.maxHP)
 	for t in targets:
 		t.set_cur_stats()
-		out = 100.0 * (float(t.curHP) / t.maxHP)
-		t.selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100.0 * (float(t.curHP) / t.maxHP)
-	
-	#caster.end_turn()
+	return out
 
-func attack_cast(caster: Battler, targets: Array):
+func attack_cast(caster: Battler, targets: Array, crit: bool = false):
 	print("attack")
 	for t in targets:
 		t.take_damage(-5)
 
-func magic_cast(caster: Battler, targets: Array):
+func magic_cast(caster: Battler, targets: Array, crit: bool = false):
 	print("magic")
 	for t in targets:
-		t.take_damage(-5)
+		t.take_damage(5)
 	
 func defend_cast(caster: Battler, targets: Array):
 	print("defend")

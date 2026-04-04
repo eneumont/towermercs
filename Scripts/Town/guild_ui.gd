@@ -2,7 +2,7 @@ extends BuildingUI
 
 var hireMode: bool = true
 
-var slot_scn: PackedScene = preload("res://Scenes/UI/GuildSlot.tscn")
+var slot_scn: PackedScene = preload("res://Scenes/UI/Town/GuildSlot.tscn")
 
 var classes: Array = []
 

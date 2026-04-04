@@ -9,7 +9,7 @@ enum ShopMode {
 
 var mode: ShopMode = ShopMode.ALL
 
-var item_scn: PackedScene = preload("res://Scenes/UI/ShopSlot.tscn")
+var item_scn: PackedScene = preload("res://Scenes/UI/Town/ShopSlot.tscn")
 
 var shop_inventory: Array[String]
 @export var weapon_inventory: Array[String]

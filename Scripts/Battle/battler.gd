@@ -108,6 +108,7 @@ func set_cur_stats():
 	maxHP = currentStats[CharData.StatType.HEALTH]
 
 func start_turn():
+	if dead: end_turn()
 	defending = false
 	set_cur_stats()
 
@@ -133,7 +134,7 @@ func die():
 	bm.cur_turnOrder.erase(self)
 	bm.next_turnOrder.erase(self)
 	
-	if player == Player.AI: queue_free() # checks ai for multiplayer... maybe...
+	if player == Player.AI: call_deferred("queue_free") # checks ai for multiplayer... maybe...
 
 func do_effects():
 	pass
@@ -178,12 +179,13 @@ func clicked(cam: Node, evt: InputEvent, pos: Vector3, nor: Vector3, shape: int)
 			
 			bm.targets.append_array(a_targets)
 			bm.cast()
-			
+			 
 			# update selector ui
+			bm.cur_turn.selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100.0 * (float(bm.cur_turn.curHP) / bm.cur_turn.maxHP)
 			for b in bm.targets:
-				var out := 100.0 * (float(curHP) / maxHP)
-				b.selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100.0 * (float(curHP) / maxHP)
+				b.selector.get_node("SubViewport/SelectUI/VBox/SelectHP").value = 100.0 * (float(b.curHP) / b.maxHP)
 				
+			bm.cur_turn.end_turn()
 		else:
 			# show analyse menu or somethin
 			pass

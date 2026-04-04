@@ -2,7 +2,7 @@ extends BuildingUI
 
 var buymode: bool = true
 
-var item_scn: PackedScene = preload("res://Scenes/UI/ShopSlot.tscn")
+var item_scn: PackedScene = preload("res://Scenes/UI/Town/ShopSlot.tscn")
 
 @export var shop_inventory: Array[String]
 

@@ -12,6 +12,7 @@ extends Node3D
 
 #prob gonna need to change how casting arts work to rely on bm more to allow more interactivity
 var casted_art: String
+var cur_turn: Battler
 var cur_turnOrder = []
 var next_turnOrder = []
 var targets = []
@@ -32,9 +33,11 @@ func _ready() -> void:
 func new_turn():
 	casted_art = ""
 	targets = []
+	cur_turn = null
 	if not cur_turnOrder.is_empty():
 		UI.set_turns()
-		cur_turnOrder[0].start_turn()
+		cur_turn = cur_turnOrder[0]
+		cur_turn.start_turn()
 	else:
 		new_turnOrder(false)
 
@@ -68,7 +71,7 @@ func new_nextTurnOrder():
 				next_turnOrder[c + 1] = temp
 
 func spawn_battlers():
-	var scn = load("res://Scenes/Battle/Characters/BattlerPlayer.tscn")
+	var scn = load("res://Scenes/Battle/Characters/BattlerPlayer.tscn") #may change for specific char spawning
 	
 	for i in PlayerData.party.size():
 		var new_battler = scn.instantiate()
@@ -79,7 +82,7 @@ func spawn_battlers():
 		if new_battler.curHP > 0: aliveBattlers.append(new_battler)
 		BattlerPosList[i].add_child(new_battler)
 	
-	scn = load("res://Scenes/Battle/Characters/BattlerEnemy.tscn")
+	scn = load("res://Scenes/Battle/Characters/BattlerEnemy.tscn") #prob change for specific foe spawning
 	
 	for i in SceneManager.encounter.split(",").size():
 		var new_battler = scn.instantiate()
@@ -104,5 +107,5 @@ func new_feed(f: String):
 
 func cast():
 	var art = ArtDatabase.get_art(casted_art)
-	art.cast(cur_turnOrder[0], targets)
-	new_feed(art.feedback.replace("NAME", cur_turnOrder[0].displayName))
+	art.cast(cur_turn, targets)
+	new_feed(art.feedback.replace("NAME", cur_turn.displayName))
