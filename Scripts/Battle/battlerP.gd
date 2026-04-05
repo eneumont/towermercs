@@ -28,7 +28,7 @@ func create(is_player: bool, c_data: CharData = null, f_data: EnemyData = null, 
 
 func set_cur_stats():
 	super()
-	curAP = curAP/maxAP * currentStats[CharData.StatType.ARTISTRY]
+	curAP = float(curAP)/maxAP * currentStats[CharData.StatType.ARTISTRY]
 	maxAP = currentStats[CharData.StatType.ARTISTRY]
 
 func _ready() -> void:

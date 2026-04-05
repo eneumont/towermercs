@@ -104,7 +104,7 @@ func set_cur_stats():
 	currentStats[CharData.StatType.DEFENSE] = stats[CharData.StatType.DEFENSE] * modifiers[CharData.StatType.DEFENSE]
 	currentStats[CharData.StatType.RESISTANCE] = stats[CharData.StatType.RESISTANCE] * modifiers[CharData.StatType.RESISTANCE]
 	currentStats[CharData.StatType.SPEED] = stats[CharData.StatType.SPEED] * modifiers[CharData.StatType.SPEED]
-	curHP = curHP/maxHP * currentStats[CharData.StatType.HEALTH]
+	curHP = float(curHP)/maxHP * currentStats[CharData.StatType.HEALTH]
 	maxHP = currentStats[CharData.StatType.HEALTH]
 
 func start_turn():
@@ -153,8 +153,8 @@ func clicked(cam: Node, evt: InputEvent, pos: Vector3, nor: Vector3, shape: int)
 			var art := ArtDatabase.get_art(bm.casted_art)
 			var a_targets: Array[Battler]
 			
-			if (art.hp_cost >= bm.cur_turnOrder[0].curHP) || (art.ap_cost > bm.cur_turnOrder[0].curAP):
-				bm.new_feed(bm.cur_turnOrder[0].displayName + " can't muster the strength to do that...")
+			if (art.hp_cost >= bm.cur_turn.curHP) || (art.ap_cost > bm.cur_turn.curAP):
+				bm.new_feed(bm.cur_turn.displayName + " can't muster the strength to do that...")
 				return
 			
 			if art.team == ArtRes.TargetTeam.ALL:

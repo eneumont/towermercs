@@ -95,6 +95,8 @@ func spawn_battlers():
 		BattlerPosList[i + 4].add_child(new_battler)
 
 func battle_end(win: bool):
+	UI.end(win)
+	
 	if win:
 		#give rewards
 		SceneManager.pop_scene()
@@ -106,6 +108,4 @@ func new_feed(f: String):
 	UI.feed(f)
 
 func cast():
-	var art = ArtDatabase.get_art(casted_art)
-	art.cast(cur_turn, targets)
-	new_feed(art.feedback.replace("NAME", cur_turn.displayName))
+	new_feed(ArtDatabase.get_art(casted_art).cast(cur_turn, targets).replace("NAME", cur_turn.displayName))

@@ -1,0 +1,436 @@
+[gd_scene format=3 uid="uid://bjimd7jnp0bmb"]
+
+[node name="ResultUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -207.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyScr" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Result" type="Panel" parent="EnemyScr"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 520.0
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="EnemyScr/Result"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -336.0
+offset_top = -134.0
+offset_bottom = 134.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="SaveBtn" type="Button" parent="EnemyScr/Result/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Return to last save..."
+
+[node name="TitleBtn" type="Button" parent="EnemyScr/Result/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Return to title..."
+
+[node name="TitleTxt" type="Label" parent="EnemyScr"]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -199.0
+offset_top = 56.0
+offset_right = 199.0
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Another victim..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerScr" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Result" type="Panel" parent="PlayerScr"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -524.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="RewardBox" type="VBoxContainer" parent="PlayerScr/Result"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -206.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MoneyTxt" type="Label" parent="PlayerScr/Result/RewardBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Money: 9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpTxt" type="Label" parent="PlayerScr/Result/RewardBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Exp: 9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpTxt" type="Label" parent="PlayerScr/Result/RewardBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 30
+text = "Sp: 9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PArtyBox" type="HBoxContainer" parent="PlayerScr/Result"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -30.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox1" type="VBoxContainer" parent="PlayerScr/Result/PArtyBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel1" type="Panel" parent="PlayerScr/Result/PArtyBox/VBox1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="PlayerScr/Result/PArtyBox/VBox1/Panel1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox1/Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name Lv.99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="PlayerScr/Result/PArtyBox/VBox1/Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="ExpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox1/Panel1/VBox/ExpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exp: 9/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox1/Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Sp: 9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="PlayerScr/Result/PArtyBox/VBox1"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="PlayerScr/Result/PArtyBox/VBox1/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox1/Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name Lv.99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="PlayerScr/Result/PArtyBox/VBox1/Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="ExpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox1/Panel2/VBox/ExpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exp: 9/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox1/Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Sp: 9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBox2" type="VBoxContainer" parent="PlayerScr/Result/PArtyBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel1" type="Panel" parent="PlayerScr/Result/PArtyBox/VBox2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="PlayerScr/Result/PArtyBox/VBox2/Panel1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox2/Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name Lv.99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="PlayerScr/Result/PArtyBox/VBox2/Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="ExpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox2/Panel1/VBox/ExpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exp: 9/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox2/Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Sp: 9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="PlayerScr/Result/PArtyBox/VBox2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="PlayerScr/Result/PArtyBox/VBox2/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox2/Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name Lv.99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="PlayerScr/Result/PArtyBox/VBox2/Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="ExpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox2/Panel2/VBox/ExpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exp: 9/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox2/Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Sp: 9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBox3" type="VBoxContainer" parent="PlayerScr/Result/PArtyBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel1" type="Panel" parent="PlayerScr/Result/PArtyBox/VBox3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="PlayerScr/Result/PArtyBox/VBox3/Panel1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox3/Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name Lv.99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="PlayerScr/Result/PArtyBox/VBox3/Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="ExpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox3/Panel1/VBox/ExpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exp: 9/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox3/Panel1/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Sp: 9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="PlayerScr/Result/PArtyBox/VBox3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="PlayerScr/Result/PArtyBox/VBox3/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NameTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox3/Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Name Lv.99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExpBar" type="ProgressBar" parent="PlayerScr/Result/PArtyBox/VBox3/Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="ExpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox3/Panel2/VBox/ExpBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exp: 9/100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpTxt" type="Label" parent="PlayerScr/Result/PArtyBox/VBox3/Panel2/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Sp: 9999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleTxt" type="Label" parent="PlayerScr"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -132.0
+offset_top = 51.0
+offset_right = 50.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Victory!"
+
+[node name="ContinueBtn" type="Button" parent="PlayerScr"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -163.0
+offset_top = -108.0
+offset_right = 48.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "continue..."
