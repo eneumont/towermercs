@@ -4,6 +4,7 @@ const SAVE_DIR := "user://saves/"
 const SAVE_EXT := ".json"
 
 var save_slots: Dictionary = {}
+var recent: String = ""
 
 func _ready():
 	#SaveManager.delete_save(0, true)
@@ -26,10 +27,12 @@ func save_game(slot: int, data: Dictionary, autosave := false) -> void:
 			"timestamp": Time.get_datetime_string_from_system(),
 			"playtime": _get_playtime_string()
 		})
-
+		
 		file.store_string(JSON.stringify(data, "\t"))
 		file.close()
 		_load_save_metadata()
+		
+		recent = str(slot) + " " + str(autosave)
 
 ##saving note 0 -> auto, 1,2,3 -> regular
 func load_game(slot: int, autosave := false) -> Dictionary:

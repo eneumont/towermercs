@@ -133,6 +133,9 @@ func die():
 	if team == Team.FOE: bm.FoeBattlers.erase(self)
 	bm.cur_turnOrder.erase(self)
 	bm.next_turnOrder.erase(self)
+	if player == Player.AI: 
+		bm.exp_won += curExp
+		bm.sp_won += curSp
 	
 	if player == Player.AI: call_deferred("queue_free") # checks ai for multiplayer... maybe...
 

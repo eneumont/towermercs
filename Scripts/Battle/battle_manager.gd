@@ -13,9 +13,12 @@ extends Node3D
 #prob gonna need to change how casting arts work to rely on bm more to allow more interactivity
 var casted_art: String
 var cur_turn: Battler
+var targets = []
 var cur_turnOrder = []
 var next_turnOrder = []
-var targets = []
+
+var exp_won: int = 0
+var sp_won: int = 0
 
 func _ready() -> void:
 	MusicManager.stream = audio
@@ -34,6 +37,15 @@ func new_turn():
 	casted_art = ""
 	targets = []
 	cur_turn = null
+	
+	if aliveBattlers.filter(func(b): return b.get_script().get_global_name() == "BattlerP").is_empty(): 
+		battle_end(false)
+		return
+		
+	if aliveBattlers.filter(func(b): return b.get_script().get_global_name() == "BattlerE").is_empty(): 
+		battle_end(true)
+		return
+	
 	if not cur_turnOrder.is_empty():
 		UI.set_turns()
 		cur_turn = cur_turnOrder[0]
@@ -97,12 +109,12 @@ func spawn_battlers():
 func battle_end(win: bool):
 	UI.end(win)
 	
-	if win:
-		#give rewards
-		SceneManager.pop_scene()
-	else:
-		#go to main menu or something else
-		pass
+	#if win:
+		##give rewards
+		#SceneManager.pop_scene()
+	#else:
+		##go to main menu or something else
+		#pass
 
 func new_feed(f: String):
 	UI.feed(f)

@@ -26,18 +26,30 @@ func feed(f: String):
 	fb.visible = false
 
 func end(win: bool):
+	turnOrder.visible = false
+	for p in party_slots:
+		p.visible = false
+	
 	result.visible = true
 	
+	var scr
 	if win:
-		result.get_node("PlayerScr").visible = true
+		scr = result.get_node("PlayerScr")
+		scr.visible = true
+		scr.get_node("ContinueBtn").connect(continue_click)
+		#give rewards
 	else:
-		result.get_node("EnemyScr").visible = true
+		scr = result.get_node("EnemyScr")
+		scr.visible = true
+		scr.get_node("Result/VBox/SaveBtn").connect(save_click)
+		scr.get_node("Result/VBox/TitleBtn").connect(title_click)
 
 func continue_click():
-	pass
+	SceneManager.pop_scene()
 
 func save_click():
-	pass
+	var out := SaveManager.recent.split(" ")
+	SaveManager.load_game(int(out[0]), out[1] == "true")
 	
 func title_click():
-	pass
+	get_tree().change_scene_to_file("res://Scenes/Title/TitleUI.tscn")
