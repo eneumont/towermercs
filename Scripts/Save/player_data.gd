@@ -28,7 +28,6 @@ var cur_scn: String = "WorldMap/WorldMap"
 var foes: Dictionary
 
 var ui_open: bool = false
-
 var loadin: bool = false
 
 func save() -> Dictionary:
@@ -80,3 +79,22 @@ func array_to_data(arr: Array) -> Array[CharData]:
 		out.append(CharData.new("", 0, 0, c))
 	
 	return out
+
+##remeber this should be same as default
+func reset():
+	s_name = ""
+	time = ""
+	money = 100 #0
+	inventory.clear()
+	
+	party.clear()
+	reserve.clear()
+	collection.clear()
+	available_classes.clear()
+	
+	player_pos = Vector3(0, 0, 0)
+	cur_scn = "WorldMap/WorldMap"
+	foes.clear()
+	
+	ui_open = false
+	loadin = false

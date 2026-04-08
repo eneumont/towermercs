@@ -4,7 +4,7 @@ const SAVE_DIR := "user://saves/"
 const SAVE_EXT := ".json"
 
 var save_slots: Dictionary = {}
-var recent: String = ""
+var recent: String = "0 true"
 
 func _ready():
 	#SaveManager.delete_save(0, true)

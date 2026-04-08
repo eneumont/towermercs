@@ -36,13 +36,13 @@ func end(win: bool):
 	if win:
 		scr = result.get_node("PlayerScr")
 		scr.visible = true
-		scr.get_node("ContinueBtn").connect(continue_click)
+		scr.get_node("ContinueBtn").connect("button_up", continue_click)
 		#give rewards
 	else:
 		scr = result.get_node("EnemyScr")
 		scr.visible = true
-		scr.get_node("Result/VBox/SaveBtn").connect(save_click)
-		scr.get_node("Result/VBox/TitleBtn").connect(title_click)
+		scr.get_node("Result/VBox/SaveBtn").connect("button_up", save_click)
+		scr.get_node("Result/VBox/TitleBtn").connect("button_up", title_click)
 
 func continue_click():
 	SceneManager.pop_scene()
@@ -50,6 +50,9 @@ func continue_click():
 func save_click():
 	var out := SaveManager.recent.split(" ")
 	SaveManager.load_game(int(out[0]), out[1] == "true")
+	SceneManager.new_scene(PlayerData.cur_scn, PlayerData.player_pos)
+	SceneManager.stack.clear()
 	
 func title_click():
+	PlayerData.reset()
 	get_tree().change_scene_to_file("res://Scenes/Title/TitleUI.tscn")

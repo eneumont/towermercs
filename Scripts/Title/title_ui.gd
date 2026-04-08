@@ -83,7 +83,4 @@ func arena_click():
 
 func pick_screen(num: int):
 	for i in range(screens.size()):
-		if (i == num):
-			screens[i].visible = true 
-		else:
-			screens[i].visible = false
+		screens[i].visible = (i == num)
