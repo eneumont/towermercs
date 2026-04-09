@@ -32,9 +32,9 @@ _bundled = {
 "version": 3
 }
 
-[node name="Field1" type="Node3D" node_paths=PackedStringArray("spawners")]
+[node name="Field1" type="Node3D" node_paths=PackedStringArray("enemies")]
 script = ExtResource("1_46v5i")
-spawners = [NodePath("Spawners/Enemies/Foe1"), NodePath("Spawners/Enemies/Foe2"), NodePath("Spawners/Enemies/Foe3")]
+enemies = [NodePath("Spawners/Enemies/Foe1"), NodePath("Spawners/Enemies/Foe2"), NodePath("Spawners/Enemies/Foe3")]
 audio = ExtResource("2_elxp8")
 
 [node name="Layout" type="Node3D" parent="."]
@@ -72,6 +72,9 @@ spawn_node = SubResource("PackedScene_il158")
 type = 1
 encounters = Array[String](["Goblin1,Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1", "Goblin1,Goblin1,Slime1,Slime1", "Goblin1,Goblin1,Goblin1,Slime1", "Goblin1,Slime1", "Goblin1,Fairy1,Goblin1,Fairy1", "Goblin1,Fairy1,Slime1", "Goblin1,Fairy1"])
 battle = "Battlefield1"
+spawn_info = Dictionary[String, Array]({
+"Foe1": [true, Vector3(0, 0, 0)]
+})
 
 [node name="Foe2" type="Node3D" parent="Spawners/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6703806, 0, -0.08108759)
@@ -80,6 +83,9 @@ spawn_node = SubResource("PackedScene_il158")
 type = 1
 encounters = Array[String](["Goblin1,Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1", "Goblin1,Goblin1,Slime1,Slime1", "Goblin1,Goblin1,Goblin1,Slime1", "Goblin1,Slime1", "Goblin1,Fairy1,Goblin1,Fairy1", "Goblin1,Fairy1,Slime1", "Goblin1,Fairy1"])
 battle = "Battlefield1"
+spawn_info = Dictionary[String, Array]({
+"Foe2": [true, Vector3(0, 0, 0)]
+})
 
 [node name="Foe3" type="Node3D" parent="Spawners/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4367266, 0, 6.2175174)
@@ -88,6 +94,9 @@ spawn_node = SubResource("PackedScene_il158")
 type = 1
 encounters = Array[String](["Goblin1,Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1", "Goblin1,Goblin1,Slime1,Slime1", "Goblin1,Goblin1,Goblin1,Slime1", "Goblin1,Slime1", "Goblin1,Fairy1,Goblin1,Fairy1", "Goblin1,Fairy1,Slime1", "Goblin1,Fairy1"])
 battle = "Battlefield1"
+spawn_info = Dictionary[String, Array]({
+"Foe3": [true, Vector3(0, 0, 0)]
+})
 
 [node name="Items" type="Node3D" parent="Spawners"]
 

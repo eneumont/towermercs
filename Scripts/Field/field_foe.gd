@@ -44,4 +44,4 @@ func _physics_process(delta: float) -> void:
 func body_enter(body: Node3D) -> void:
 	if body.name == "FieldChar":
 		SceneManager.encounter = encounters[randi_range(0, encounters.size() - 1)]
-		SceneManager.push_scene("res://Scenes/Battle/Fields/" + battle + ".tscn")
+		SceneManager.enter_battle("res://Scenes/Battle/Fields/" + battle + ".tscn", self) #consider mutliple encounters

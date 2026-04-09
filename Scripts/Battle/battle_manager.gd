@@ -107,14 +107,13 @@ func spawn_battlers():
 		BattlerPosList[i + 4].add_child(new_battler)
 
 func battle_end(win: bool):
+	#oh yeah give money too...
+	if win: 
+		var result = UI.result.get_node("PlayerScr").get_node("Result").get_node("RewardBox")
+		result.get_node("MoneyTxt").text = "Money: " + str(100)
+		result.get_node("ExpTxt").text = "Exp: " + str(exp_won)
+		result.get_node("SpTxt").text = "Sp: " + str(sp_won)
 	UI.end(win)
-	
-	#if win:
-		##give rewards
-		#SceneManager.pop_scene()
-	#else:
-		##go to main menu or something else
-		#pass
 
 func new_feed(f: String):
 	UI.feed(f)

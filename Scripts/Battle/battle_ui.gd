@@ -45,14 +45,15 @@ func end(win: bool):
 		scr.get_node("Result/VBox/TitleBtn").connect("button_up", title_click)
 
 func continue_click():
-	SceneManager.pop_scene()
+	SceneManager.leave_battle()
 
 func save_click():
+	SceneManager.empty()
 	var out := SaveManager.recent.split(" ")
 	SaveManager.load_game(int(out[0]), out[1] == "true")
 	SceneManager.new_scene(PlayerData.cur_scn, PlayerData.player_pos)
-	SceneManager.stack.clear()
 	
 func title_click():
+	SceneManager.empty()
 	PlayerData.reset()
 	get_tree().change_scene_to_file("res://Scenes/Title/TitleUI.tscn")

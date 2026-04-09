@@ -26,7 +26,7 @@ func update_next():
 		i.queue_free()
 	
 	create_order(bm.next_turnOrder, 600, nx)
-
+	
 func create_order(order: Array, startI: int, pl: Panel):
 	for i in order.size():
 		var img = turnImg.instantiate()
