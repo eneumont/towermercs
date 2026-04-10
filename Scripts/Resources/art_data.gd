@@ -41,6 +41,9 @@ enum ArtType {
 
 func cast(caster: Battler, targets: Array) -> String:
 	var out := feedback
+	
+	caster.curHP -= hp_cost
+	if caster.player == Battler.Player.PLAYER: caster.curAP -= ap_cost
 	#move character forward if player otherwise make foe flash?
 	
 	#check crit here and do crit logic

@@ -35,6 +35,17 @@ var growths: Dictionary = {
 	StatType.SPEED : 50.0,
 }
 
+#fuck...
+#also setup based on class...
+#FUCK!!!
+var stat_growths: Dictionary = {
+	1 : [],
+	2 : [],
+	3 : [],
+	4 : [],
+	5 : [],
+}
+
 var arts: Array = [
 	
 ]
@@ -53,10 +64,18 @@ func _init(c_name: String, type: ClassType, pos: int = 0, c_data: Dictionary = {
 		cur_exp = 0
 		class_type = type
 		
+		# HP, AP, ATK, MAG, DEF, RES, SPD, * 24, * 6, * 9, MAX_EXP
 		match type:
 			ClassType.KNIGHT:
-				set_stats([10, 10, 10, 10, 10, 10, 10])
+				set_growths([
+					[11, 8, 11, 9, 13, 9, 8, 10],
+					[14, 9, 14, 9, 17, 10, 9, 25],
+					[],
+					[],
+					[]
+				])
 				set_arts(["test_attack", "test_defend", ""])
+				set_other_arts(["knight_art01, knight_art02, knight_art03, knight_art04"])
 				set_equipment(["", "", ""])
 				set_affinities({
 					AffinityType.BLUNT : AffinityRate.NEUTRAL,
@@ -70,7 +89,13 @@ func _init(c_name: String, type: ClassType, pos: int = 0, c_data: Dictionary = {
 					AffinityType.DARK : AffinityRate.NEUTRAL,
 				})
 			ClassType.THIEF:
-				set_stats([10, 10, 10, 10, 10, 10, 10])
+				set_growths([
+					[11, 8, 11, 9, 13, 9, 8, 10],
+					[14, 9, 14, 9, 17, 10, 9, 25],
+					[],
+					[],
+					[]
+				])
 				set_arts(["test_attack", "test_defend", ""])
 				set_equipment(["", "", ""])
 				set_affinities({
@@ -85,7 +110,13 @@ func _init(c_name: String, type: ClassType, pos: int = 0, c_data: Dictionary = {
 					AffinityType.DARK : AffinityRate.NEUTRAL,
 				})
 			ClassType.MAGE:
-				set_stats([10, 10, 10, 10, 10, 10, 10])
+				set_growths([
+					[11, 8, 11, 9, 13, 9, 8, 10],
+					[14, 9, 14, 9, 17, 10, 9, 25],
+					[],
+					[],
+					[]
+				])
 				set_arts(["test_attack", "test_defend", ""])
 				set_equipment(["", "", ""])
 				set_affinities({
@@ -100,7 +131,13 @@ func _init(c_name: String, type: ClassType, pos: int = 0, c_data: Dictionary = {
 					AffinityType.DARK : AffinityRate.NEUTRAL,
 				})
 			ClassType.CLERIC:
-				set_stats([10, 10, 10, 10, 10, 10, 10])
+				set_growths([
+					[11, 8, 11, 9, 13, 9, 8, 10],
+					[14, 9, 14, 9, 17, 10, 9, 25],
+					[],
+					[],
+					[]
+				])
 				set_arts(["test_attack", "test_defend", ""])
 				set_equipment(["", "", ""])
 				set_affinities({
@@ -265,8 +302,6 @@ func _init(c_name: String, type: ClassType, pos: int = 0, c_data: Dictionary = {
 					AffinityType.DARK : AffinityRate.NEUTRAL,
 				})
 		
-		maxAP = stats[StatType.ARTISTRY]
-		curAP = maxAP
 	else:
 		act_name = c_data["act_name"]
 		display_name = c_data["display_name"]
@@ -292,15 +327,29 @@ func set_equipment(new_equip: Array):
 	if not new_equip[1].is_empty(): equipment[ItemRes.ItemType.ARMOR] = new_equip[1]
 	if not new_equip[2].is_empty(): equipment[ItemRes.ItemType.ACCESSORY] = new_equip[2]
 
-## param Array[float]
+## param Array[Array[ints]]
 func set_growths(new_growths: Array):
-	growths[StatType.HEALTH] = new_growths[0]
-	growths[StatType.ARTISTRY] = new_growths[1]
-	growths[StatType.ATTACK] = new_growths[2]
-	growths[StatType.MAGIC] = new_growths[3]
-	growths[StatType.DEFENSE] = new_growths[4]
-	growths[StatType.RESISTANCE] = new_growths[5]
-	growths[StatType.SPEED] = new_growths[6]
+	for g in stat_growths:
+		stat_growths[g] = new_growths[g - 1] 
+
+## *24 *6  *9                                                                     none [br]
+## HP, AP, ATK, MAG, DEF, RES, SPD, (Acu, Eva, Crit), MAX_EXP
+func set_stats(new_stats: Array):
+	stats[StatType.HEALTH] = new_stats[0]
+	stats[StatType.ARTISTRY] = new_stats[1]
+	stats[StatType.ATTACK] = new_stats[2]
+	stats[StatType.MAGIC] = new_stats[3]
+	stats[StatType.DEFENSE] = new_stats[4]
+	stats[StatType.RESISTANCE] = new_stats[5]
+	stats[StatType.SPEED] = new_stats[6]
+	#stats[StatType.ACCURACY] = new_stats[7]
+	#stats[StatType.EVASION] = new_stats[8]
+	#stats[StatType.CRITICAL] = new_stats[9]
+	max_exp = new_stats[7] #new_stats[10]
+	maxHP = stats[BeingData.StatType.HEALTH]
+	curHP = maxHP
+	maxAP = stats[StatType.ARTISTRY]
+	curAP = maxAP
 
 ## param Array[String]
 func set_other_arts(new_arts: Array):
@@ -362,3 +411,16 @@ func assign_name(type: ClassType) -> String:
 				break
 	
 	return out
+
+func gain_rewards(exp: int, sp: int):
+	if cur_level < 100:
+		next_exp += exp
+		if next_exp >= max_exp:
+			next_exp = next_exp - max_exp
+			cur_level += 1
+			set_stats(stat_growths[cur_level])
+			if cur_level == 100: cur_exp = max_exp
+	
+	if cur_sp < 9999: 
+		cur_sp += sp
+		if cur_sp > 9999: cur_sp = 9999

@@ -8,7 +8,10 @@ enum StatType {
 	MAGIC,
 	DEFENSE,
 	RESISTANCE,
-	SPEED
+	SPEED,
+	ACCURACY,
+	EVASION,
+	CRITICAL,
 }
 
 enum AffinityType {

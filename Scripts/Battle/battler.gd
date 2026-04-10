@@ -47,6 +47,9 @@ var currentStats = {
 	CharData.StatType.DEFENSE: 10,
 	CharData.StatType.RESISTANCE: 10,
 	CharData.StatType.SPEED: 10,
+	CharData.StatType.ACCURACY: 10,
+	CharData.StatType.EVASION: 10,
+	CharData.StatType.CRITICAL: 10,
 }
 
 var stats = {
@@ -57,6 +60,9 @@ var stats = {
 	CharData.StatType.DEFENSE: 10,
 	CharData.StatType.RESISTANCE: 10,
 	CharData.StatType.SPEED: 10,
+	CharData.StatType.ACCURACY: 10,
+	CharData.StatType.EVASION: 10,
+	CharData.StatType.CRITICAL: 10,
 }
 
 var modifiers = {
@@ -67,6 +73,9 @@ var modifiers = {
 	CharData.StatType.DEFENSE: 1.0,
 	CharData.StatType.RESISTANCE: 1.0,
 	CharData.StatType.SPEED: 1.0,
+	CharData.StatType.ACCURACY: 1.0,
+	CharData.StatType.EVASION: 1.0,
+	CharData.StatType.CRITICAL: 1.0,
 }
 
 var arts: Array
@@ -104,6 +113,9 @@ func set_cur_stats():
 	currentStats[CharData.StatType.DEFENSE] = stats[CharData.StatType.DEFENSE] * modifiers[CharData.StatType.DEFENSE]
 	currentStats[CharData.StatType.RESISTANCE] = stats[CharData.StatType.RESISTANCE] * modifiers[CharData.StatType.RESISTANCE]
 	currentStats[CharData.StatType.SPEED] = stats[CharData.StatType.SPEED] * modifiers[CharData.StatType.SPEED]
+	currentStats[CharData.StatType.ACCURACY] = stats[CharData.StatType.ACCURACY] * modifiers[CharData.StatType.ACCURACY]
+	currentStats[CharData.StatType.EVASION] = stats[CharData.StatType.EVASION] * modifiers[CharData.StatType.EVASION]
+	currentStats[CharData.StatType.CRITICAL] = stats[CharData.StatType.CRITICAL] * modifiers[CharData.StatType.CRITICAL]
 	curHP = float(curHP)/maxHP * currentStats[CharData.StatType.HEALTH]
 	maxHP = currentStats[CharData.StatType.HEALTH]
 
