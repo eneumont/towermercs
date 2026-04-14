@@ -76,7 +76,7 @@ func array_to_data(arr: Array) -> Array[CharData]:
 	var out: Array[CharData] = []
 	
 	for c in arr:
-		out.append(CharData.new("", 0, 0, c))
+		out.append(CharData.new("", 0 as CharData.ClassType, c))
 	
 	return out
 

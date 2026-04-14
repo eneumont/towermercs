@@ -78,30 +78,48 @@ var modifiers = {
 	CharData.StatType.CRITICAL: 1.0,
 }
 
+var curAffinities = {
+	
+}
+
+var affinities = {
+	
+}
+
+var modAffinities = {
+	
+}
+
 var arts: Array
 
-var equipment
+var equipment: Dictionary = {
+	ItemRes.ItemType.WEAPON : "",
+	ItemRes.ItemType.ARMOR : "",
+	ItemRes.ItemType.ACCESSORY : "",
+}
 
-#figure multiplayer with control
-func create(is_player: bool, c_data: CharData = null, f_data: EnemyData = null, control: Controller = Controller.PLAYER1) -> void:
+#figure multiplayer with control, also don't need c_data/f_data just make them one
+func create(is_player: bool, data, control: Controller = Controller.PLAYER1) -> void:
 	team = Team.ALLY if is_player else Team.FOE
 	player = Player.PLAYER if is_player else Player.AI
-	displayName = c_data.display_name if is_player else f_data.display_name
-	act_name = c_data.act_name if is_player else "" #determine foe act name
-	arts = c_data.equippedArts if is_player else f_data.equippedArts
-	curExp = c_data.cur_exp if is_player else f_data.cur_exp
-	level = c_data.cur_level if is_player else f_data.cur_level
-	curSp = c_data.cur_sp if is_player else f_data.cur_sp
-	if is_player: nextExp = c_data.next_exp #how should give exp?
+	displayName = data.display_name
+	act_name = data.act_name
+	arts = data.equippedArts
+	curExp = data.cur_exp
+	level = data.cur_level
+	curSp = data.cur_sp
+	if is_player: nextExp = data.next_exp
 	if is_player: controller = control #assign controller, multiplayer though
 	
 	#set player equipment do i wanna give foes equipment?
-	#set affinities too...
+	#set affinities too... need mul affinities just like stats...
+	affinities = data.affinities
 	
-	stats = c_data.stats if is_player else f_data.stats
-	curHP = c_data.curHP if is_player else f_data.curHP
-	maxHP = c_data.maxHP if is_player else f_data.maxHP
+	stats = data.stats
+	curHP = data.curHP
+	maxHP = data.maxHP
 	set_cur_stats()
+	set_curAffinities()
 
 ## sets cur stats to be stats * modifiers  [br]
 ## cur stats are primarily used in battle
@@ -113,16 +131,20 @@ func set_cur_stats():
 	currentStats[CharData.StatType.DEFENSE] = stats[CharData.StatType.DEFENSE] * modifiers[CharData.StatType.DEFENSE]
 	currentStats[CharData.StatType.RESISTANCE] = stats[CharData.StatType.RESISTANCE] * modifiers[CharData.StatType.RESISTANCE]
 	currentStats[CharData.StatType.SPEED] = stats[CharData.StatType.SPEED] * modifiers[CharData.StatType.SPEED]
-	currentStats[CharData.StatType.ACCURACY] = stats[CharData.StatType.ACCURACY] * modifiers[CharData.StatType.ACCURACY]
-	currentStats[CharData.StatType.EVASION] = stats[CharData.StatType.EVASION] * modifiers[CharData.StatType.EVASION]
-	currentStats[CharData.StatType.CRITICAL] = stats[CharData.StatType.CRITICAL] * modifiers[CharData.StatType.CRITICAL]
+	#currentStats[CharData.StatType.ACCURACY] = stats[CharData.StatType.ACCURACY] * modifiers[CharData.StatType.ACCURACY]
+	#currentStats[CharData.StatType.EVASION] = stats[CharData.StatType.EVASION] * modifiers[CharData.StatType.EVASION]
+	#currentStats[CharData.StatType.CRITICAL] = stats[CharData.StatType.CRITICAL] * modifiers[CharData.StatType.CRITICAL]
 	curHP = float(curHP)/maxHP * currentStats[CharData.StatType.HEALTH]
 	maxHP = currentStats[CharData.StatType.HEALTH]
+
+func set_curAffinities():
+	pass
 
 func start_turn():
 	if dead: end_turn()
 	defending = false
 	set_cur_stats()
+	set_curAffinities()
 
 func end_turn():
 	bm.cur_turnOrder.remove_at(0)

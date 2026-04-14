@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_4lbf4")
 id = "Fairy1"
+act_name = "Fairy"
 display_name = "Fairy"
 cur_level = 1
 cur_exp = 8

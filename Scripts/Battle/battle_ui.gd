@@ -1,10 +1,14 @@
 extends Control
 
 @export var party_slots: Array[Control]
-@export var turnOrder: Control
 
+@onready var turnOrder = $TurnOrderUI
 @onready var fb = $Feedback
 @onready var result = $ResultUI
+
+var money_won: int= 0
+var exp_won: int = 0
+var sp_won: int = 0
 
 func set_bm(b: Node3D):
 	turnOrder.bm = b
@@ -37,7 +41,18 @@ func end(win: bool):
 		scr = result.get_node("PlayerScr")
 		scr.visible = true
 		scr.get_node("ContinueBtn").connect("button_up", continue_click)
-		#give rewards
+		#give rewards, gonna have little animation for this, bar filling, etc...
+		scr.get_node("Result/RewardBox/MoneyTxt").text = "Money: " + str(money_won)
+		scr.get_node("Result/RewardBox/ExpTxt").text = "Exp: " + str(exp_won)
+		scr.get_node("Result/RewardBox/SpTxt").text = "Sp: " + str(sp_won)
+		
+		
+		
+		PlayerData.money += money_won
+		for p in PlayerData.party:
+			p.gain_rewards(exp_won, sp_won)
+		for p in PlayerData.reserve:
+			p.gain_rewards(float(exp_won * 0.7), float(sp_won * 0.7)) #or could do same rate...
 	else:
 		scr = result.get_node("EnemyScr")
 		scr.visible = true

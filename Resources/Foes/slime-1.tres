@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_6e2ew")
 id = "Slime1"
+act_name = "Slime"
 display_name = "Slime"
 cur_level = 1
 cur_exp = 11

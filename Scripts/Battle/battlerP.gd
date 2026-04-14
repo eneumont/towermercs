@@ -1,15 +1,14 @@
 extends Battler
 class_name BattlerP
 
-var growths: Dictionary = {
-	CharData.StatType.HEALTH : 50.0,
-	CharData.StatType.ARTISTRY : 50.0,
-	CharData.StatType.ATTACK : 50.0,
-	CharData.StatType.MAGIC : 50.0,
-	CharData.StatType.DEFENSE : 50.0,
-	CharData.StatType.RESISTANCE : 50.0,
-	CharData.StatType.SPEED : 50.0,
+var stat_growths: Dictionary = {
+	1 : [],
+	2 : [],
+	3 : [],
+	4 : [],
+	5 : [],
 }
+var maxExp: int
 
 var curAP: int
 var maxAP: int
@@ -20,11 +19,13 @@ var classType: CharData.ClassType
 @onready var cm: Control = $Sprite3D2/SubViewport/CommandMenu
 @onready var anim_sprite: AnimatedSprite3D = $AnimatedSprite3D
 
-func create(is_player: bool, c_data: CharData = null, f_data: EnemyData = null, control: Controller = Controller.PLAYER1) -> void:
-	classType = c_data.class_type
-	curAP = c_data.curAP
-	maxAP = c_data.maxAP
-	super(is_player, c_data, f_data, control)
+func create(is_player: bool, data, control: Controller = Controller.PLAYER1) -> void:
+	classType = data.class_type
+	curAP = data.curAP
+	maxAP = data.maxAP
+	maxExp = data.max_exp
+	stat_growths = data.stat_growths
+	super(is_player, data, control)
 
 func set_cur_stats():
 	super()
@@ -64,3 +65,24 @@ func _process(delta: float) -> void:
 func set_sprites(anim := "idle"):
 	anim_sprite.sprite_frames = load("res://Images/Sprites/Battle/" + CharData.ClassType.keys()[classType].to_lower() + "_battle.tres")
 	anim_sprite.play(anim)
+
+func battler_to_char() -> CharData:
+	return CharData.new("", 0 as CharData.ClassType, {
+		"act_name": act_name,
+		"display_name": displayName,
+		"cur_level": level,
+		"cur_exp": curExp,
+		"curHP": float(curHP)/maxHP * stats[CharData.StatType.HEALTH],
+		"maxHP": stats[CharData.StatType.HEALTH],
+		"class_type": int(classType),
+		"max_exp": maxExp,
+		"cur_sp": curSp,
+		"curAP": float(curAP)/maxAP * stats[CharData.StatType.ARTISTRY],
+		"maxAP": stats[CharData.StatType.ARTISTRY],
+		"stats": [stats[CharData.StatType.HEALTH], stats[CharData.StatType.ARTISTRY], stats[CharData.StatType.ATTACK], stats[CharData.StatType.MAGIC], stats[CharData.StatType.DEFENSE], stats[CharData.StatType.RESISTANCE], stats[CharData.StatType.SPEED]],
+		"arts": arts,
+		"equippedArts": arts,
+		"affinities": affinities,
+		"growths": [stat_growths[1], stat_growths[2], stat_growths[3], stat_growths[4], stat_growths[5]], #extend to 100...
+		"equipment": [equipment[ItemRes.ItemType.WEAPON], equipment[ItemRes.ItemType.ARMOR], equipment[ItemRes.ItemType.ACCESSORY]]
+	})

@@ -2,10 +2,12 @@ extends Resource
 class_name EnemyData
 
 @export var id: String
+@export var act_name: String
 @export var display_name: String
 @export var cur_level: int
 @export var cur_exp: int
 @export var cur_sp: int
+@export var money: int
 @export var model: PackedScene
 @export var pos: Vector3
 @export var rot: Vector3

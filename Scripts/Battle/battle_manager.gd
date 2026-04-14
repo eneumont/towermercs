@@ -1,16 +1,16 @@
 extends Node3D
 
 @export var audio: AudioStream
-
+@export var center_pos: Vector3
 @export var BattlerPosList: Array[Marker3D]
-@export var Battlers: Array[Battler]
-@export var aliveBattlers: Array[Battler]
-@export var PlayerBattlers: Array[BattlerP]
-@export var FoeBattlers: Array[BattlerE]
 
 @onready var UI = $BattleUI
 
-#prob gonna need to change how casting arts work to rely on bm more to allow more interactivity
+var Battlers: Array[Battler]
+var aliveBattlers: Array[Battler]
+var PlayerBattlers: Array[BattlerP]
+var FoeBattlers: Array[BattlerE]
+
 var casted_art: String
 var cur_turn: Battler
 var targets = []
@@ -19,6 +19,7 @@ var next_turnOrder = []
 
 var exp_won: int = 0
 var sp_won: int = 0
+var money_won: int = 0
 
 func _ready() -> void:
 	MusicManager.stream = audio
@@ -86,33 +87,44 @@ func spawn_battlers():
 	var scn = load("res://Scenes/Battle/Characters/BattlerPlayer.tscn") #may change for specific char spawning
 	
 	for i in PlayerData.party.size():
-		var new_battler = scn.instantiate()
-		new_battler.bm = self
-		new_battler.create(true, PlayerData.party[i]) #assign multiplayer with control
-		PlayerBattlers.append(new_battler)
-		Battlers.append(new_battler)
-		if new_battler.curHP > 0: aliveBattlers.append(new_battler)
-		BattlerPosList[i].add_child(new_battler)
+		spawn_battler(true, scn, PlayerData.party[i], i)
 	
 	scn = load("res://Scenes/Battle/Characters/BattlerEnemy.tscn") #prob change for specific foe spawning
 	
 	for i in SceneManager.encounter.split(",").size():
-		var new_battler = scn.instantiate()
-		new_battler.bm = self
-		new_battler.create(false, null, EnemyDatabase.get_foe(SceneManager.encounter.split(",")[i]))
-		new_battler.displayName = new_battler.displayName + str(i) #figure how naming enemies should work
+		spawn_battler(false, scn, EnemyDatabase.get_foe(SceneManager.encounter.split(",")[i]), i + 4)
+
+func spawn_battler(player: bool, scene, data, pos: int, control = null): #control for multiplayer
+	var new_battler = scene.instantiate()
+	new_battler.bm = self
+	new_battler.create(player, data) #assign multiplayer with control
+	
+	if player:
+		PlayerBattlers.append(new_battler)
+	else:
+		new_battler.displayName = new_battler.displayName + str(pos) #figure how naming enemies should work
+		new_battler.act_name = new_battler.displayName + str(pos) #figure naming
 		FoeBattlers.append(new_battler)
-		Battlers.append(new_battler)
-		aliveBattlers.append(new_battler)
-		BattlerPosList[i + 4].add_child(new_battler)
+	
+	Battlers.append(new_battler)
+	if new_battler.curHP > 0: aliveBattlers.append(new_battler)
+	BattlerPosList[pos].add_child(new_battler)
 
 func battle_end(win: bool):
-	#oh yeah give money too...
-	if win: 
-		var result = UI.result.get_node("PlayerScr").get_node("Result").get_node("RewardBox")
-		result.get_node("MoneyTxt").text = "Money: " + str(100)
-		result.get_node("ExpTxt").text = "Exp: " + str(exp_won)
-		result.get_node("SpTxt").text = "Sp: " + str(sp_won)
+	if win:
+		#update party
+		for p in PlayerBattlers:
+			if PlayerData.party.any(func(c): return p.act_name == c.act_name):
+				PlayerData.party[PlayerData.party.rfind_custom(func(c): return p.act_name == c.act_name)] = p.battler_to_char()
+				continue
+			if PlayerData.reserve.any(func(c): return p.act_name == c.act_name):
+				PlayerData.reserve[PlayerData.reserve.rfind_custom(func(c): return p.act_name == c.act_name)] = p.battler_to_char()
+				continue
+		
+		#probably change value on lv dif or not...
+		UI.money_won = money_won
+		UI.exp_won = exp_won
+		UI.sp_won = sp_won
 	UI.end(win)
 
 func new_feed(f: String):
@@ -120,3 +132,4 @@ func new_feed(f: String):
 
 func cast():
 	new_feed(ArtDatabase.get_art(casted_art).cast(cur_turn, targets).replace("NAME", cur_turn.displayName))
+	UI.set_party()

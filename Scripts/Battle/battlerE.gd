@@ -1,13 +1,16 @@
 extends Battler
 class_name BattlerE
 
-func create(is_player: bool, c_data: CharData = null, f_data: EnemyData = null, control: Controller = Controller.PLAYER1) -> void:
-	super(is_player, c_data, f_data, control)
-	var model = f_data.model.instantiate()
+var money: int = 0
+
+func create(is_player: bool, data, control: Controller = Controller.NONE) -> void:
+	super(is_player, data, control)
+	money = data.money
+	var model = data.model.instantiate()
 	add_child(model)
-	model.position = f_data.pos
-	model.rotation = f_data.rot
-	model.scale = f_data.sca
+	model.position = data.pos
+	model.rotation = data.rot
+	model.scale = data.sca
 
 func start_turn():
 	super()
@@ -40,4 +43,8 @@ func start_turn():
 	end_turn()
 
 func end_turn():
+	super()
+
+func die():
+	bm.money_won += money
 	super()
