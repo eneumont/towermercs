@@ -73,4 +73,5 @@ func _physics_process(delta: float) -> void:
 func ui_show():
 	ui.visible = !ui.visible
 	ui.set_process(ui.visible)
+	ui.change_scr(0)
 	PlayerData.ui_open = ui.visible

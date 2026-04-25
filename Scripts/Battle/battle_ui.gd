@@ -46,7 +46,29 @@ func end(win: bool):
 		scr.get_node("Result/RewardBox/ExpTxt").text = "Exp: " + str(exp_won)
 		scr.get_node("Result/RewardBox/SpTxt").text = "Sp: " + str(sp_won)
 		
-		
+		var party = scr.get_node("Result/PartyBox")
+		var collection := PlayerData.party + PlayerData.reserve
+		for b in collection.size():
+			var player_box
+			match b:
+				0:
+					player_box = party.get_node("VBox1/Panel1/VBox")
+				1:
+					player_box = party.get_node("VBox1/Panel2/VBox")
+				2:
+					player_box = party.get_node("VBox2/Panel1/VBox")
+				3:
+					player_box = party.get_node("VBox2/Panel2/VBox")
+				4:
+					player_box = party.get_node("VBox3/Panel1/VBox")
+				5:
+					player_box = party.get_node("VBox3/Panel2/VBox")
+			var c := collection[b]
+			player_box.get_node("NameTxt").text = c.display_name + " Lv." + str(c.cur_level)
+			create_tween().tween_property(player_box.get_node("ExpBar"), "value", clamp(((float(c.cur_exp + exp_won) / c.max_exp) * 100.0), 0, 100), 1.0)
+			player_box.get_node("ExpBar/ExpTxt").text = "Exp: " + str(c.cur_exp + exp_won) + "/" + str(c.max_exp) 
+			player_box.get_node("SpTxt").text = "Sp: " + str(c.cur_sp + sp_won)
+			#animation play while gain exp etc...
 		
 		PlayerData.money += money_won
 		for p in PlayerData.party:

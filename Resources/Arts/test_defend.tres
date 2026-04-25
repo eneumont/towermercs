@@ -14,5 +14,5 @@ type = 2
 anim = "anim_name"
 crit_art = "test_defend_crit"
 description = "Brace for impact and prepare for the next turn."
-feedback = "NAME is guarding..."
+feedback = "Defend"
 metadata/_custom_type_script = "uid://ys26fldtku2b"

@@ -197,7 +197,10 @@ func clicked(cam: Node, evt: InputEvent, pos: Vector3, nor: Vector3, shape: int)
 			if art.team == ArtRes.TargetTeam.ALL:
 				a_targets = bm.aliveBattlers
 			elif art.team == ArtRes.TargetTeam.SELF:
-				a_targets = bm.aliveBattlers.filter(func(b): return b == self)
+				if self == bm.cur_turn:
+					a_targets.append(self)
+				else: #do nothing if wrong target clicked
+					return
 			else:
 				if team == Team.ALLY && art.team == ArtRes.TargetTeam.ALLY:
 					match art.group:
@@ -211,7 +214,7 @@ func clicked(cam: Node, evt: InputEvent, pos: Vector3, nor: Vector3, shape: int)
 							a_targets.append(self)
 						ArtRes.GroupType.TEAM:
 							a_targets.append_array(bm.aliveBattlers.filter(func(b): return b.team == Battler.Team.FOE))
-				else: #will do nothing if wrong target clicked
+				else: #do nothing if wrong target clicked
 					return
 			
 			bm.targets.append_array(a_targets)

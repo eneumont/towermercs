@@ -11,6 +11,7 @@
 [node name="Battlefield1" type="Node3D" node_paths=PackedStringArray("BattlerPosList")]
 script = ExtResource("1_b8ys1")
 audio = ExtResource("2_oqfcn")
+center_pos = Vector3(-2, 0, 0)
 BattlerPosList = [NodePath("Layout/Positions/PlayerPos1"), NodePath("Layout/Positions/PlayerPos2"), NodePath("Layout/Positions/PlayerPos3"), NodePath("Layout/Positions/PlayerPos4"), NodePath("Layout/Positions/EnemyPos1"), NodePath("Layout/Positions/EnemyPos2"), NodePath("Layout/Positions/EnemyPos3"), NodePath("Layout/Positions/EnemyPos4")]
 
 [node name="Layout" type="Node3D" parent="."]

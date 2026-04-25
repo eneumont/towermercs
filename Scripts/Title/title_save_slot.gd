@@ -33,6 +33,8 @@ func click():
 		if full_game:
 			PlayerData.load_save(SaveManager.load_game(slot) if slot > 0 else SaveManager.load_game(slot, true))
 			title_ui.pick_save()
+		else:
+			title_ui.new_click()
 
 func design(used: bool):
 	full.visible = used

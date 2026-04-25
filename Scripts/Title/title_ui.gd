@@ -10,6 +10,7 @@ extends Control
 	$ModeScreen,
 	$PartyScreen,
 ]
+#some screens will probably need a more specific back func
 
 var solo: bool = true
 var story: bool = true
@@ -26,7 +27,7 @@ func play_screen():
 	
 func options_screen():
 	pick_screen(4)
-	
+
 func quit():
 	get_tree().quit()
 
@@ -58,13 +59,14 @@ func new_click():
 		#CharData.new("Test5", CharData.ClassType.CLERIC),
 		#CharData.new("Test6", CharData.ClassType.THIEF),
 	#]
+	delete = false
 	pick_screen(6)
 
 func delete_click():
 	delete = !delete
 
 func pick_save():
-	#will be used by title save slot to set stuff
+	delete = false
 	mode_screen()
 
 func party_done():
@@ -72,13 +74,14 @@ func party_done():
 		if not (slot.done): return
 	
 	#do stuff then start story mode
-	story_click()
+	delete = false
+	mode_screen()
 
 func story_click():
 	SceneManager.new_scene(PlayerData.cur_scn, PlayerData.player_pos)
 	
-func arena_click():
-	#SceneManager.new_scene("Arena/ArenaBase", Vector3(0,0,0)
+func arena_click(): #figure how arena works
+	#SceneManager.new_arena("Arena/ArenaBase", Vector3(0,0,0)
 	pass
 
 func pick_screen(num: int):

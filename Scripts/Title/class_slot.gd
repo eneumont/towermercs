@@ -1,7 +1,6 @@
 extends Node
 
-var title
-
+@export var title: Control
 @export var type: CharData.ClassType
 @export var slot: int
 
@@ -57,6 +56,12 @@ func done_click(): #error could happen if multiple dones could happen at same ti
 	if done: 
 		c_name = name_input.text
 		PlayerData.party[slot] = CharData.new(c_name, type)
+		
+		for slot in title.get_node("PartyScreen/PartyBox").get_children():
+			if not (slot.done): return
+		
+		title.delete = false
+		title.mode_screen()
 
 func class_scroll(num: int):
 	var options = PlayerData.available_classes
@@ -69,7 +74,6 @@ func class_scroll(num: int):
 		type += num
 	
 	PlayerData.party[slot] = CharData.new(c_name, type)
-	
 	class_setup()
 
 func left():

@@ -50,6 +50,8 @@ func new_turn():
 	if not cur_turnOrder.is_empty():
 		UI.set_turns()
 		cur_turn = cur_turnOrder[0]
+		if cur_turn.team == Battler.Team.ALLY: 
+			create_tween().tween_property(cur_turn, "global_position", center_pos, 1)
 		cur_turn.start_turn()
 	else:
 		new_turnOrder(false)
@@ -101,6 +103,7 @@ func spawn_battler(player: bool, scene, data, pos: int, control = null): #contro
 	
 	if player:
 		PlayerBattlers.append(new_battler)
+		new_battler.origin_pos = BattlerPosList[pos].position
 	else:
 		new_battler.displayName = new_battler.displayName + str(pos) #figure how naming enemies should work
 		new_battler.act_name = new_battler.displayName + str(pos) #figure naming
@@ -131,5 +134,5 @@ func new_feed(f: String):
 	UI.feed(f)
 
 func cast():
-	new_feed(ArtDatabase.get_art(casted_art).cast(cur_turn, targets).replace("NAME", cur_turn.displayName))
+	new_feed(ArtDatabase.get_art(casted_art).cast(cur_turn, targets))
 	UI.set_party()

@@ -11,6 +11,7 @@ display_name = "Goblin"
 cur_level = 1
 cur_exp = 10
 cur_sp = 1
+money = 7
 model = ExtResource("1_oxls3")
 rot = Vector3(0, -90, 0)
 sca = Vector3(0.6, 0.6, 0.6)

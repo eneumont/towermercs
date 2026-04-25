@@ -15,5 +15,5 @@ team = 1
 anim = "anim_name"
 crit_art = "test_attack_crit"
 description = "Hit a foe... hard!"
-feedback = "NAME attacked!"
+feedback = "Attack"
 metadata/_custom_type_script = "uid://ys26fldtku2b"

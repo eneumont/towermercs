@@ -15,6 +15,8 @@ var maxAP: int
 
 var classType: CharData.ClassType
 
+var origin_pos: Vector3
+
 @onready var command = $Sprite3D2
 @onready var cm: Control = $Sprite3D2/SubViewport/CommandMenu
 @onready var anim_sprite: AnimatedSprite3D = $AnimatedSprite3D
@@ -42,6 +44,7 @@ func start_turn():
 	command.visible = true
 
 func end_turn():
+	create_tween().tween_property(self, "global_position", origin_pos, 1)
 	super()
 	cm.flip = false
 	command.visible = false

@@ -1,6 +1,34 @@
-[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://7nhuon4u6q78"]
+[gd_resource type="SpriteFrames" load_steps=15 format=3 uid="uid://7nhuon4u6q78"]
 
 [ext_resource type="Texture2D" uid="uid://ciut2urp32i0m" path="res://Images/Textures/Classes/Thief/thief_battle.png" id="1_d6vo3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6vo3"]
+atlas = ExtResource("1_d6vo3")
+region = Rect2(0, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3qra"]
+atlas = ExtResource("1_d6vo3")
+region = Rect2(800, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uis8a"]
+atlas = ExtResource("1_d6vo3")
+region = Rect2(1600, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrd5t"]
+atlas = ExtResource("1_d6vo3")
+region = Rect2(2400, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y61qn"]
+atlas = ExtResource("1_d6vo3")
+region = Rect2(3200, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo5y1"]
+atlas = ExtResource("1_d6vo3")
+region = Rect2(4000, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gtrr"]
+atlas = ExtResource("1_d6vo3")
+region = Rect2(5600, 0, 800, 1000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xna8b"]
 atlas = ExtResource("1_d6vo3")
@@ -10,8 +38,60 @@ region = Rect2(6400, 0, 800, 1000)
 atlas = ExtResource("1_d6vo3")
 region = Rect2(4800, 0, 800, 1000)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ga75"]
+atlas = ExtResource("1_d6vo3")
+region = Rect2(7200, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j062x"]
+atlas = ExtResource("1_d6vo3")
+region = Rect2(8000, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npg3k"]
+atlas = ExtResource("1_d6vo3")
+region = Rect2(8800, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shkcp"]
+atlas = ExtResource("1_d6vo3")
+region = Rect2(9600, 0, 800, 1000)
+
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6vo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3qra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uis8a")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrd5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y61qn")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo5y1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gtrr")
+}],
+"loop": true,
+"name": &"guard",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xna8b")
@@ -21,5 +101,27 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ga75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j062x")
+}],
+"loop": false,
+"name": &"item",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npg3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shkcp")
+}],
+"loop": false,
+"name": &"skill",
 "speed": 5.0
 }]
