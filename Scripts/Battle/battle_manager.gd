@@ -50,8 +50,6 @@ func new_turn():
 	if not cur_turnOrder.is_empty():
 		UI.set_turns()
 		cur_turn = cur_turnOrder[0]
-		if cur_turn.team == Battler.Team.ALLY: 
-			create_tween().tween_property(cur_turn, "global_position", center_pos, 1)
 		cur_turn.start_turn()
 	else:
 		new_turnOrder(false)

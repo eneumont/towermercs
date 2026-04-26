@@ -2,6 +2,7 @@ extends Battler
 class_name BattlerE
 
 var money: int = 0
+var anim_tree: AnimationTree
 
 func create(is_player: bool, data, control: Controller = Controller.NONE) -> void:
 	super(is_player, data, control)
@@ -11,6 +12,7 @@ func create(is_player: bool, data, control: Controller = Controller.NONE) -> voi
 	model.position = data.pos
 	model.rotation = data.rot
 	model.scale = data.sca
+	anim_tree = model.get_node("AnimationTree")
 
 func start_turn():
 	super()
@@ -45,6 +47,11 @@ func start_turn():
 func end_turn():
 	super()
 
+func take_damage(dmg: int):
+	anim_tree.set("parameters/hit_shot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	super(dmg)
+
 func die():
+	anim_tree.set("parameters/ld_blend/blend_amount", 1.0)
 	bm.money_won += money
 	super()

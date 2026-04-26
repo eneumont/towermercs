@@ -35,4 +35,4 @@ func design():
 	texture_rect.texture = load("res://Images/Textures/Icons/Characters/" + CharData.ClassType.keys()[char.class_type].capitalize() + ".png")
 
 func char_click():
-	if not empty: menu.change_scr(9, 0, pos)
+	if not empty: menu.change_scr(8, 0, pos)

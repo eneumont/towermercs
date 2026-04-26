@@ -44,7 +44,6 @@ func cast(caster: Battler, targets: Array) -> String:
 	
 	caster.curHP -= hp_cost
 	if caster.player == Battler.Player.PLAYER: caster.curAP -= ap_cost
-	#move character forward if player otherwise make foe flash?
 	
 	#check crit here and do crit logic
 	
@@ -66,21 +65,29 @@ func cast(caster: Battler, targets: Array) -> String:
 	return out
 
 func attack_cast(caster: Battler, targets: Array, crit: bool = false):
-	print("attack")
+	if caster.team == Battler.Team.ALLY: caster.play_anim("attack") 
+	else: caster.anim_tree.set("parameters/atk_shot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	
 	for t in targets:
 		t.take_damage(-5)
 
 func magic_cast(caster: Battler, targets: Array, crit: bool = false):
-	print("magic")
+	if caster.team == Battler.Team.ALLY: caster.play_anim("skill") 
+	else: caster.anim_tree.set("parameters/skill_shot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+	
 	for t in targets:
 		t.take_damage(5)
 	
 func defend_cast(caster: Battler, targets: Array):
-	print("defend")
+	if caster.team == Battler.Team.ALLY: caster.play_anim("guard") 
+	else: caster.anim_tree.set("parameters/skill_shot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE) #maybe tweak
+	
 	caster.defending = true
 	
 func item_cast(caster: Battler, targets: Array):
-	print("item")
+	if caster.team == Battler.Team.ALLY: caster.play_anim("item") 
+	else: caster.anim_tree.set("parameters/skill_shot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE) #maybe tweak
 	
 func run_cast(caster: Battler, targets: Array):
-	print("run")
+	if caster.team == Battler.Team.ALLY: caster.play_anim("run") 
+	else: caster.anim_tree.set("parameters/skill_shot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE) #maybe tweak

@@ -34,13 +34,26 @@ func set_cur_stats():
 	curAP = float(curAP)/maxAP * currentStats[CharData.StatType.ARTISTRY]
 	maxAP = currentStats[CharData.StatType.ARTISTRY]
 
+func die():
+	play_anim("death")
+	super()
+
 func _ready() -> void:
 	cm.bm = bm
 	
-	set_sprites()
+	anim_sprite.sprite_frames = load("res://Images/Sprites/Battle/" + CharData.ClassType.keys()[classType].to_lower() + "_battle.tres")
+	if curHP <= 0: play_anim("death")
+	else: play_anim("idle")
 
 func start_turn():
 	super()
+	
+	play_anim()
+	
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", bm.center_pos, 1)
+	await tween.finished
+	
 	command.visible = true
 
 func end_turn():
@@ -65,9 +78,12 @@ func _process(delta: float) -> void:
 		elif (Input.is_action_just_released("right_bumper")):
 			cm.key_click("right_bump")
 
-func set_sprites(anim := "idle"):
-	anim_sprite.sprite_frames = load("res://Images/Sprites/Battle/" + CharData.ClassType.keys()[classType].to_lower() + "_battle.tres")
+func play_anim(anim := "idle"):
 	anim_sprite.play(anim)
+	
+	if anim != "idle" && anim != "guard" && anim != "death":
+		await anim_sprite.animation_finished
+		play_anim()
 
 func battler_to_char() -> CharData:
 	return CharData.new("", 0 as CharData.ClassType, {
