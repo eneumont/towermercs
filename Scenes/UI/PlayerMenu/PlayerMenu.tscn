@@ -1195,8 +1195,20 @@ script = ExtResource("6_05mor")
 screen = NodePath("../../..")
 list = "Key"
 
+[node name="Title" type="Label" parent="ItemMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -139.5
+offset_top = 51.0
+offset_right = 139.5
+offset_bottom = 134.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Inventory"
+
 [node name="ArtMenu" type="Panel" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1276,6 +1288,390 @@ theme_override_font_sizes/font_size = 33
 text = "Back"
 script = ExtResource("2_a0fii")
 menu = NodePath("../..")
+
+[node name="Title" type="Label" parent="ArtMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 46.0
+offset_right = 100.0
+offset_bottom = 129.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Artistry"
+
+[node name="Main" type="Panel" parent="ArtMenu"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -498.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CharBox" type="VBoxContainer" parent="ArtMenu/Main"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="CharBtn1" type="Button" parent="ArtMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+
+[node name="HBox" type="HBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn1/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ArtMenu/Main/CharBox/CharBtn1/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn1/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn1/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn1/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn1/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ArtMenu/Main/CharBox/CharBtn1/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="CharBtn2" type="Button" parent="ArtMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+pos = 1
+
+[node name="HBox" type="HBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn2/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ArtMenu/Main/CharBox/CharBtn2/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn2/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn2/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn2/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn2/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ArtMenu/Main/CharBox/CharBtn2/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="CharBtn3" type="Button" parent="ArtMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+pos = 2
+
+[node name="HBox" type="HBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn3/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ArtMenu/Main/CharBox/CharBtn3/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn3/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn3/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn3/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn3/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ArtMenu/Main/CharBox/CharBtn3/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="CharBtn4" type="Button" parent="ArtMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+pos = 3
+
+[node name="HBox" type="HBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn4/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ArtMenu/Main/CharBox/CharBtn4/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn4/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn4/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn4/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn4/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ArtMenu/Main/CharBox/CharBtn4/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="CharBtn5" type="Button" parent="ArtMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+pos = 4
+
+[node name="HBox" type="HBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn5/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ArtMenu/Main/CharBox/CharBtn5/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn5/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn5/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn5/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn5/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ArtMenu/Main/CharBox/CharBtn5/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="CharBtn6" type="Button" parent="ArtMenu/Main/CharBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("5_1rcy1")
+pos = 5
+
+[node name="HBox" type="HBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ArtMenu/Main/CharBox/CharBtn6/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="ArtMenu/Main/CharBox/CharBtn6/HBox/VBox"]
+self_modulate = Color(1, 0.9137255, 0, 1)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="HPBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn6/HBox/VBox"]
+self_modulate = Color(0, 1, 0, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="HPTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn6/HBox/VBox/HPBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="APBar" type="ProgressBar" parent="ArtMenu/Main/CharBox/CharBtn6/HBox/VBox"]
+self_modulate = Color(0, 1, 1, 1)
+layout_mode = 2
+size_flags_vertical = 3
+show_percentage = false
+
+[node name="APTxt" type="Label" parent="ArtMenu/Main/CharBox/CharBtn6/HBox/VBox/APBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Img" type="TextureRect" parent="ArtMenu/Main/CharBox/CharBtn6/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+expand_mode = 2
+
+[node name="ScrollBox" type="ScrollContainer" parent="ArtMenu/Main"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -263.0
+offset_right = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="ArtMenu/Main/ScrollBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="EquipMenu" type="Panel" parent="."]
 visible = false
@@ -1766,6 +2162,19 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="EquipMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -159.0
+offset_top = 39.0
+offset_right = 158.0
+offset_bottom = 122.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Equipment"
 
 [node name="TacticsMenu" type="Panel" parent="."]
 visible = false
