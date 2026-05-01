@@ -7,3 +7,7 @@ extends Control
 
 func menu_click():
 	menu.change_scr(menu_num)
+
+func title_click():
+	PlayerData.reset()
+	get_tree().change_scene_to_file("res://Scenes/Title/TitleUI.tscn")

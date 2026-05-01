@@ -1932,6 +1932,7 @@ script = ExtResource("2_a0fii")
 menu = NodePath("../..")
 
 [node name="SettingsMenu" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1996,6 +1997,21 @@ grow_vertical = 2
 script = ExtResource("2_a0fii")
 menu = NodePath("../../..")
 menu_num = 1
+
+[node name="TitleBtn" type="Button" parent="SettingsMenu" node_paths=PackedStringArray("menu")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -78.0
+offset_right = 123.0
+offset_bottom = -11.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 33
+text = "Title"
+script = ExtResource("2_a0fii")
+menu = NodePath("../..")
 
 [node name="BackBtn" type="Button" parent="SettingsMenu" node_paths=PackedStringArray("menu")]
 layout_mode = 1
@@ -2096,4 +2112,5 @@ scr = 8
 [connection signal="button_up" from="SettingsMenu/MenuBtnPanel/LeftBtn" to="SettingsMenu/MenuBtnPanel/LeftBtn" method="menu_click"]
 [connection signal="button_up" from="SettingsMenu/MenuBtnPanel/MainBtn" to="SettingsMenu/MenuBtnPanel/MainBtn" method="menu_click"]
 [connection signal="button_up" from="SettingsMenu/MenuBtnPanel/RightBtn" to="SettingsMenu/MenuBtnPanel/RightBtn" method="menu_click"]
+[connection signal="button_up" from="SettingsMenu/TitleBtn" to="SettingsMenu/TitleBtn" method="title_click"]
 [connection signal="button_up" from="SettingsMenu/BackBtn" to="SettingsMenu/BackBtn" method="menu_click"]

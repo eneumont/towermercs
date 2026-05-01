@@ -48,7 +48,7 @@ func save() -> Dictionary:
 		#"ui_open": ui_open,dont think ui_open is needed
 		"loadin": loadin,
 	}
-	
+
 func load_save(data: Dictionary):
 	s_name = data["name"]
 	time = data["time"]
