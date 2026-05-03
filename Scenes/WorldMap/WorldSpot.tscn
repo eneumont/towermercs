@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://367lbofltl1t" path="res://Images/Textures/Icons/Spots/Town.png" id="2_g4hlx"]
 [ext_resource type="PackedScene" uid="uid://ix1cfcmaihci" path="res://Scenes/WorldMap/WorldSpotUI.tscn" id="3_vvmhn"]
 
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_44gyx"]
 radius = 1.82198
 
@@ -19,12 +18,11 @@ radius = 1.82198
 [sub_resource type="ViewportTexture" id="ViewportTexture_412fj"]
 viewport_path = NodePath("Sprite3D/SubViewport")
 
-[node name="WorldSpot" type="Node3D" node_paths=PackedStringArray("spot_ui")]
+[node name="WorldSpot" type="Node3D"]
 script = ExtResource("1_0ofam")
 displayName = "Town"
 description = "A Basic Town"
 icon = ExtResource("2_g4hlx")
-spot_ui = NodePath("Sprite3D/SubViewport/Control/WorldSpotUI")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0860023, 0.0401359, 0.554457)

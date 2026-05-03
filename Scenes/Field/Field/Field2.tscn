@@ -1,0 +1,140 @@
+[gd_scene load_steps=16 format=3 uid="uid://doiqryt5y2t7l"]
+
+[ext_resource type="Script" uid="uid://dcxxouomxwvev" path="res://Scripts/Field/field.gd" id="1_2sugo"]
+[ext_resource type="AudioStream" uid="uid://basqyoad0w2kt" path="res://Audio/field.mp3" id="2_ye23l"]
+[ext_resource type="Material" uid="uid://c5tppwumkrkwt" path="res://Resources/Materials/green_mat.tres" id="3_r2u7o"]
+[ext_resource type="Script" uid="uid://c6hqoke1s4v3d" path="res://Scripts/Field/area_exit.gd" id="4_83o3c"]
+[ext_resource type="Material" uid="uid://lnefwc8qkwnk" path="res://Resources/Materials/green2_mat.tres" id="5_iejgh"]
+[ext_resource type="Script" uid="uid://bhcbewusdisi2" path="res://Scripts/Field/field_spawner.gd" id="6_0t2fb"]
+[ext_resource type="Script" uid="uid://bl76v205yksnu" path="res://Scripts/Field/field_foe.gd" id="7_gxg0l"]
+[ext_resource type="PackedScene" uid="uid://dpcrab6x40y70" path="res://Scenes/Models/GoblinModel.tscn" id="8_25bib"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xqksw"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_46v5i"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_il158"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t2wbd"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1dmhx"]
+radius = 1.8833563
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oixsr"]
+radius = 2.0
+
+[sub_resource type="PackedScene" id="PackedScene_il158"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("FieldFoe-Goblin", "CharacterBody3D", "transform", "script", "Model", "transform", "Collision", "CollisionShape3D", "transform", "shape", "Area", "Area3D", "transform", "Shape", "CollisionShape3D", "transform", "shape"),
+"node_count": 5,
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("./Area")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 2, 2, 0, 3, 1, 0, 1073741824, 0, 2147483647, 4, 2, 1, 5, 3, 0, 1073741825, 0, 7, 6, -1, 2, 8, 4, 9, 5, 0, 1073741826, 0, 11, 10, -1, 1, 12, 6, 0, 1073741827, 0, 14, 13, -1, 2, 15, 7, 16, 8, 0),
+"variants": [Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0), ExtResource("7_gxg0l"), ExtResource("8_25bib"), Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0), SubResource("SphereShape3D_1dmhx"), Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 1.5132987, 1.1868315), Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0), SubResource("SphereShape3D_oixsr")],
+"version": 3
+}
+
+[node name="Field1" type="Node3D" node_paths=PackedStringArray("enemies")]
+script = ExtResource("1_2sugo")
+enemies = [NodePath("Spawners/Enemies/Foe1"), NodePath("Spawners/Enemies/Foe2"), NodePath("Spawners/Enemies/Foe3")]
+audio = ExtResource("2_ye23l")
+
+[node name="Layout2" type="Node3D" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="Layout2"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Layout2/Ground"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+material_override = ExtResource("3_r2u7o")
+mesh = SubResource("PlaneMesh_xqksw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/Ground"]
+shape = SubResource("WorldBoundaryShape3D_46v5i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Layout2"]
+transform = Transform3D(1, 0, 0, 0, 0.89712733, 0.44177204, 0, -0.44177204, 0.89712733, 0.2790215, 4.516794, 6.681136)
+
+[node name="AreaExits" type="Node3D" parent="Layout2"]
+
+[node name="Field1" type="Area3D" parent="Layout2/AreaExits"]
+transform = Transform3D(12.141473, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, 0, 0.35931683, 9.850746)
+script = ExtResource("4_83o3c")
+area_name = "Field/Field/Field1"
+pos = Vector3(0, 0, -6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/AreaExits/Field1"]
+shape = SubResource("BoxShape3D_il158")
+
+[node name="Field4" type="Area3D" parent="Layout2/AreaExits"]
+transform = Transform3D(12.001948, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, -0.13113737, 0.35931683, -9.688295)
+script = ExtResource("4_83o3c")
+area_name = "Field/Field/Field4"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/AreaExits/Field4"]
+shape = SubResource("BoxShape3D_il158")
+
+[node name="Field3" type="Area3D" parent="Layout2/AreaExits"]
+transform = Transform3D(-3.047435e-07, 0, -0.34525174, 0, 1.0030001, 0, 6.971719, 0, -1.5091432e-08, 9.764148, 0.3593173, -0.5801716)
+script = ExtResource("4_83o3c")
+area_name = "Field/Field/Field3"
+pos = Vector3(-7, 0, -7)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/AreaExits/Field3"]
+shape = SubResource("BoxShape3D_il158")
+
+[node name="Path" type="Node3D" parent="Layout2"]
+
+[node name="Path1" type="MeshInstance3D" parent="Layout2/Path"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10.035702, 0, 0.024881363, 0.031108856)
+material_override = ExtResource("5_iejgh")
+mesh = SubResource("PlaneMesh_t2wbd")
+
+[node name="Path2" type="MeshInstance3D" parent="Layout2/Path"]
+transform = Transform3D(-4.3711385e-08, 0, 5.3939447, 0, 0.99999994, 0, -0.99999994, 0, -2.3577681e-07, 4.6062336, 0.02488184, -0.10032272)
+material_override = ExtResource("5_iejgh")
+mesh = SubResource("PlaneMesh_t2wbd")
+
+[node name="Spawners" type="Node3D" parent="."]
+
+[node name="Enemies" type="Node3D" parent="Spawners"]
+
+[node name="Foe1" type="Node3D" parent="Spawners/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.673532, 9.536743e-07, -1.5519319)
+script = ExtResource("6_0t2fb")
+spawn_node = SubResource("PackedScene_il158")
+type = 1
+encounters = Array[String](["Goblin1,Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1", "Goblin1,Goblin1,Slime1,Slime1", "Goblin1,Goblin1,Goblin1,Slime1", "Goblin1,Slime1", "Goblin1,Fairy1,Goblin1,Fairy1", "Goblin1,Fairy1,Slime1", "Goblin1,Fairy1"])
+battle = "Battlefield1"
+spawn_info = Dictionary[String, Array]({
+"Foe1": [true, Vector3(0, 0, 0)]
+})
+
+[node name="Foe2" type="Node3D" parent="Spawners/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.063923, 0, -4.850943)
+script = ExtResource("6_0t2fb")
+spawn_node = SubResource("PackedScene_il158")
+type = 1
+encounters = Array[String](["Goblin1,Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1", "Goblin1,Goblin1,Slime1,Slime1", "Goblin1,Goblin1,Goblin1,Slime1", "Goblin1,Slime1", "Goblin1,Fairy1,Goblin1,Fairy1", "Goblin1,Fairy1,Slime1", "Goblin1,Fairy1"])
+battle = "Battlefield1"
+spawn_info = Dictionary[String, Array]({
+"Foe2": [true, Vector3(0, 0, 0)]
+})
+
+[node name="Foe3" type="Node3D" parent="Spawners/Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.452216, 0, 4.6838727)
+script = ExtResource("6_0t2fb")
+spawn_node = SubResource("PackedScene_il158")
+type = 1
+encounters = Array[String](["Goblin1,Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1", "Goblin1,Goblin1,Slime1,Slime1", "Goblin1,Goblin1,Goblin1,Slime1", "Goblin1,Slime1", "Goblin1,Fairy1,Goblin1,Fairy1", "Goblin1,Fairy1,Slime1", "Goblin1,Fairy1"])
+battle = "Battlefield1"
+spawn_info = Dictionary[String, Array]({
+"Foe3": [true, Vector3(0, 0, 0)]
+})
+
+[node name="Items" type="Node3D" parent="Spawners"]
+
+[connection signal="body_entered" from="Layout2/AreaExits/Field1" to="Layout2/AreaExits/Field1" method="body_enter"]
+[connection signal="body_entered" from="Layout2/AreaExits/Field4" to="Layout2/AreaExits/Field4" method="body_enter"]
+[connection signal="body_entered" from="Layout2/AreaExits/Field3" to="Layout2/AreaExits/Field3" method="body_enter"]

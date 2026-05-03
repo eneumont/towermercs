@@ -36,7 +36,8 @@ scn_name = "Town/Town1"
 
 [node name="Field1" parent="Spots" instance=ExtResource("2_alaw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97802, -2.38419e-07, -2.91194)
-scn_name = "Field/Field1"
+scn_name = "Field/Field/Field1"
+s_pos = Vector3(0, 0, 7)
 displayName = "Field"
 description = "A Basic Field"
 icon = ExtResource("3_8gn5q")

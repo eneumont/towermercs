@@ -4,6 +4,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
 var next_scn: String = ""
+var next_pos: Vector3 = Vector3.ZERO
 
 @export var ui: Control
 
@@ -67,7 +68,7 @@ func _physics_process(delta: float) -> void:
 		ui_show()
 
 	if Input.is_action_just_pressed("confirm") && next_scn != "":
-		SceneManager.new_scene(next_scn, Vector3(0, 0, 0)) #might want to create var for player pos tracking
+		SceneManager.new_scene(next_scn, next_pos) #might want to create var for player pos tracking
 		# might want to use return
 
 func ui_show():
