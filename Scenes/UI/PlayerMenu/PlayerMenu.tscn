@@ -1209,6 +1209,7 @@ theme_override_font_sizes/font_size = 60
 text = "Inventory"
 
 [node name="ArtMenu" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1663,10 +1664,11 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -263.0
-offset_right = 242.0
+offset_left = -186.0
+offset_right = 319.0
 grow_horizontal = 2
 grow_vertical = 2
+vertical_scroll_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="ArtMenu/Main/ScrollBox"]
 layout_mode = 2
@@ -2258,6 +2260,19 @@ text = "Back"
 script = ExtResource("2_a0fii")
 menu = NodePath("../..")
 
+[node name="Title" type="Label" parent="TacticsMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.75
+offset_top = 32.0
+offset_right = 102.75
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Tactics"
+
 [node name="QuestsMenu" type="Panel" parent="."]
 visible = false
 layout_mode = 1
@@ -2339,6 +2354,19 @@ theme_override_font_sizes/font_size = 33
 text = "Back"
 script = ExtResource("2_a0fii")
 menu = NodePath("../..")
+
+[node name="Title" type="Label" parent="QuestsMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -89.375
+offset_top = 41.0
+offset_right = 89.375
+offset_bottom = 124.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Quest"
 
 [node name="SettingsMenu" type="Panel" parent="."]
 visible = false
@@ -2436,6 +2464,19 @@ theme_override_font_sizes/font_size = 33
 text = "Back"
 script = ExtResource("2_a0fii")
 menu = NodePath("../..")
+
+[node name="Title" type="Label" parent="SettingsMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -105.0
+offset_top = 36.0
+offset_right = 105.0
+offset_bottom = 119.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "System"
 
 [node name="TreeMenu" type="Panel" parent="."]
 visible = false

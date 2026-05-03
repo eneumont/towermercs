@@ -91,3 +91,14 @@ func item_cast(caster: Battler, targets: Array):
 func run_cast(caster: Battler, targets: Array):
 	if caster.team == Battler.Team.ALLY: caster.play_anim("run") 
 	else: caster.anim_tree.set("parameters/skill_shot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE) #maybe tweak
+
+func field_cast(caster: CharData, targets: Array) -> String:
+	if caster.curHP == 0 or caster.curHP - hp_cost <= 0 or caster.cur_ap - ap_cost < 0:
+		return "NAME can't..."
+		
+	caster.curHP -= hp_cost
+	caster.curAP -= ap_cost
+	
+	#cast logic
+	
+	return "NAME cast " + display_name + "!"

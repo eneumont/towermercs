@@ -9,6 +9,8 @@ var item_list: String = "All"
 
 var equip_equipBtn: PackedScene = preload("res://Scenes/UI/PlayerMenu/equip_equip_btn.tscn")
 
+var art_artBtn: PackedScene = preload("res://Scenes/UI/PlayerMenu/art_art_btn.tscn")
+
 ## 0 - MAIN, 1 - ITEMS, 2 - ARTS, 3 - Equip, 4 - Tactics, 5 - Quests, 6 - SETTINGS, 7 - Tree, 8 - CHAR
 func design():
 	match scr:
@@ -69,7 +71,17 @@ func list_items():
 		new_item.setup()
 
 func art_design():
-	pass
+	list_arts()
+
+func list_arts():
+	for c in PlayerData.party + PlayerData.reserve:
+		for a in c.equippedArts:
+			var new_art = art_artBtn.instantiate()
+			var art = ArtDatabase.get_art(a)
+			new_art.get_node("HBox/ArtPic").texture = load("res://Images/Textures/Icons/Items/Mushroom.png")
+			new_art.get_node("HBox/ArtName").text = art.display_name
+			new_art.get_node("HBox/ArtCost").text = str(art.hp_cost) + "hp" if art.hp_cost > 0 && art.ap_cost == 0 else str(art.ap_cost) + "ap"
+			$"../ArtMenu/Main/ScrollBox/VBox".add_child(new_art)
 
 func equip_design():
 	equip_party()
