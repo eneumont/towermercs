@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://budi5l05n7v4h"]
+
+[ext_resource type="Script" uid="uid://cik62ltryynnf" path="res://Scripts/Characters/foe_data.gd" id="1_k681d"]
+[ext_resource type="PackedScene" uid="uid://b7bfswsab5x2v" path="res://Scenes/Models/WolfModel.tscn" id="1_kpuqs"]
+
+[resource]
+script = ExtResource("1_k681d")
+id = "Wolf1"
+act_name = "Wolf"
+display_name = "Wolf"
+model = ExtResource("1_kpuqs")
+metadata/_custom_type_script = "uid://cik62ltryynnf"

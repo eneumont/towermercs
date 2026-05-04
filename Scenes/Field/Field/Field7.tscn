@@ -97,29 +97,40 @@ transform = Transform3D(1, 0, 0, 0, 0.89712733, 0.44177204, 0, -0.44177204, 0.89
 
 [node name="AreaExits" type="Node3D" parent="Layout6"]
 
-[node name="Field1" type="Area3D" parent="Layout6/AreaExits"]
-transform = Transform3D(12.141473, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, 0, 0.35931683, 9.850746)
+[node name="Field6" type="Area3D" parent="Layout6/AreaExits"]
+transform = Transform3D(4.3720946, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, 0, 0.35931683, 9.850746)
 script = ExtResource("7_k5adm")
-area_name = "Field/Field/Field1"
-pos = Vector3(0, 0, -6)
+area_name = "Field/Field/Field6"
+pos = Vector3(0, 0, -7)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout6/AreaExits/Field1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout6/AreaExits/Field6"]
 shape = SubResource("BoxShape3D_kx5ht")
 
-[node name="Field4" type="Area3D" parent="Layout6/AreaExits"]
-transform = Transform3D(12.001948, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, -0.13113737, 0.35931683, -9.688295)
+[node name="Field10" type="Area3D" parent="Layout6/AreaExits"]
+transform = Transform3D(6.113971, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, -0.13113737, 0.35931683, -9.688295)
 script = ExtResource("7_k5adm")
-area_name = "Field/Field/Field4"
+area_name = "Field/Field/Field10"
+pos = Vector3(0, 0, 8.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout6/AreaExits/Field4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout6/AreaExits/Field10"]
 shape = SubResource("BoxShape3D_kx5ht")
 
-[node name="Field3" type="Area3D" parent="Layout6/AreaExits"]
-transform = Transform3D(-3.047435e-07, 0, -0.34525174, 0, 1.0030001, 0, 6.971719, 0, -1.5091432e-08, 9.764148, 0.3593173, -0.5801716)
+[node name="Field9" type="Area3D" parent="Layout6/AreaExits"]
+transform = Transform3D(-2.1449533e-07, 0, -0.34525174, 0, 1.0030001, 0, 4.907081, 0, -1.5091432e-08, 9.764148, 0.3593173, -0.5801716)
 script = ExtResource("7_k5adm")
-area_name = "Field/Field/Field3"
+area_name = "Field/Field/Field9"
+pos = Vector3(-8, 0, 1)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout6/AreaExits/Field3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout6/AreaExits/Field9"]
+shape = SubResource("BoxShape3D_kx5ht")
+
+[node name="Field8" type="Area3D" parent="Layout6/AreaExits"]
+transform = Transform3D(-2.0783574e-07, 0, -0.34525174, 0, 1.0030001, 0, 4.7547274, 0, -1.5091432e-08, -9.761025, 0.3593173, -0.5801716)
+script = ExtResource("7_k5adm")
+area_name = "Field/Field/Field8"
+pos = Vector3(8, 0, 0.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout6/AreaExits/Field8"]
 shape = SubResource("BoxShape3D_kx5ht")
 
 [node name="Path" type="Node3D" parent="Layout6"]
@@ -134,6 +145,7 @@ transform = Transform3D(-4.371139e-08, 0, 10, 0, 1, 0, -1, 0, -4.371139e-07, 0, 
 material_override = ExtResource("8_eqr85")
 mesh = SubResource("PlaneMesh_l0rcw")
 
-[connection signal="body_entered" from="Layout6/AreaExits/Field1" to="Layout6/AreaExits/Field1" method="body_enter"]
-[connection signal="body_entered" from="Layout6/AreaExits/Field4" to="Layout6/AreaExits/Field4" method="body_enter"]
-[connection signal="body_entered" from="Layout6/AreaExits/Field3" to="Layout6/AreaExits/Field3" method="body_enter"]
+[connection signal="body_entered" from="Layout6/AreaExits/Field6" to="Layout6/AreaExits/Field6" method="body_enter"]
+[connection signal="body_entered" from="Layout6/AreaExits/Field10" to="Layout6/AreaExits/Field10" method="body_enter"]
+[connection signal="body_entered" from="Layout6/AreaExits/Field9" to="Layout6/AreaExits/Field9" method="body_enter"]
+[connection signal="body_entered" from="Layout6/AreaExits/Field8" to="Layout6/AreaExits/Field8" method="body_enter"]

@@ -101,7 +101,7 @@ transform = Transform3D(1, 0, 0, 0, 0.89712733, 0.44177204, 0, -0.44177204, 0.89
 transform = Transform3D(3.9929354, 0, -0.17116876, 0, 1.0030001, 0, 3.1666915, 0, 0.2158297, 7.814468, 0.3593166, -7.9727035)
 script = ExtResource("7_qs1sf")
 area_name = "Field/Field/Field9"
-pos = Vector3(0, 0, -6)
+pos = Vector3(-7.5, 0, 8.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout5/AreaExits/Field9"]
 shape = SubResource("BoxShape3D_g2mti")
@@ -110,6 +110,7 @@ shape = SubResource("BoxShape3D_g2mti")
 transform = Transform3D(3.085123, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, 0.05547154, 0.35931683, -9.688295)
 script = ExtResource("7_qs1sf")
 area_name = "Field/Field/Field7"
+pos = Vector3(0, 0, 8)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout5/AreaExits/Field7"]
 shape = SubResource("BoxShape3D_g2mti")

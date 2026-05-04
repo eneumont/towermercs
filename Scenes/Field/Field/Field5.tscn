@@ -101,7 +101,7 @@ transform = Transform3D(1, 0, 0, 0, 0.89712733, 0.44177204, 0, -0.44177204, 0.89
 transform = Transform3D(4.466291, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, -0.19305146, 0.35931683, 9.850746)
 script = ExtResource("7_mcswc")
 area_name = "Field/Field/Field4"
-pos = Vector3(0, 0, 7)
+pos = Vector3(0, 0, -7)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout4/AreaExits/Field4"]
 shape = SubResource("BoxShape3D_hf5jo")

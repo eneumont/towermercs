@@ -10,6 +10,19 @@ var player
 var foe_id
 var battle
 
+##should be walking when patroling and running when chase
+enum FIELD_STATE {
+	IDLE,
+	PATROL,
+	CHASE,
+}
+
+##whether will not move or walk around, etc...
+enum FIELD_TYPE {
+	STILL,
+	GUARD,
+}
+
 func _ready() -> void:
 	model = get_node("Model")
 	anim_tree = model.get_node("AnimationTree")

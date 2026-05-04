@@ -1,0 +1,131 @@
+[gd_scene load_steps=15 format=3 uid="uid://cvsjrlck34kbo"]
+
+[ext_resource type="PackedScene" uid="uid://c4c1fg3onogha" path="res://Models/Test/Cactoro.glb" id="1_2xbuq"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_utn5l"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2xbuq"]
+animation = &"CharacterArmature|Punch"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b246s"]
+animation = &"CharacterArmature|Death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ntsj"]
+animation = &"CharacterArmature|HitReact"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_1ntsj"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_utn5l"]
+animation = &"CharacterArmature|Idle"
+
+[sub_resource type="AnimationNodeBlend3" id="AnimationNodeBlend3_b246s"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_2xbuq"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l65qe"]
+animation = &"CharacterArmature|Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uho5j"]
+animation = &"CharacterArmature|Wave"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_l65qe"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dlvbw"]
+animation = &"CharacterArmature|Walk"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_b246s"]
+graph_offset = Vector2(-819, 35)
+nodes/skill_shot/node = SubResource("AnimationNodeOneShot_l65qe")
+nodes/skill_shot/position = Vector2(140, 140)
+nodes/hit_shot/node = SubResource("AnimationNodeOneShot_1ntsj")
+nodes/hit_shot/position = Vector2(-20, 140)
+nodes/atk_shot/node = SubResource("AnimationNodeOneShot_utn5l")
+nodes/atk_shot/position = Vector2(-180, 140)
+nodes/ld_blend/node = SubResource("AnimationNodeBlend2_2xbuq")
+nodes/ld_blend/position = Vector2(-340, 140)
+nodes/iwr_blend/node = SubResource("AnimationNodeBlend3_b246s")
+nodes/iwr_blend/position = Vector2(-500, 140)
+nodes/idle/node = SubResource("AnimationNodeAnimation_utn5l")
+nodes/idle/position = Vector2(-760, 100)
+nodes/walk/node = SubResource("AnimationNodeAnimation_dlvbw")
+nodes/walk/position = Vector2(-760, 280)
+nodes/run/node = SubResource("AnimationNodeAnimation_l65qe")
+nodes/run/position = Vector2(-760, 460)
+nodes/death/node = SubResource("AnimationNodeAnimation_b246s")
+nodes/death/position = Vector2(-520, 460)
+nodes/attack/node = SubResource("AnimationNodeAnimation_2xbuq")
+nodes/attack/position = Vector2(-260, 460)
+nodes/hit/node = SubResource("AnimationNodeAnimation_1ntsj")
+nodes/hit/position = Vector2(0, 460)
+nodes/skill/node = SubResource("AnimationNodeAnimation_uho5j")
+nodes/skill/position = Vector2(300, 460)
+node_connections = [&"output", 0, &"skill_shot", &"skill_shot", 0, &"hit_shot", &"skill_shot", 1, &"skill", &"hit_shot", 0, &"atk_shot", &"hit_shot", 1, &"hit", &"atk_shot", 0, &"ld_blend", &"atk_shot", 1, &"attack", &"ld_blend", 0, &"iwr_blend", &"ld_blend", 1, &"death", &"iwr_blend", 0, &"idle", &"iwr_blend", 1, &"walk", &"iwr_blend", 2, &"run"]
+
+[node name="TreeantModel" instance=ExtResource("1_2xbuq")]
+
+[node name="Skeleton3D" parent="RootNode/CharacterArmature" index="0"]
+bones/2/position = Vector3(2.1529802e-05, 0.008374705, 0.0016757363)
+bones/4/rotation = Quaternion(0.16683148, 4.3189968e-07, 1.03120215e-07, 0.98598546)
+bones/5/rotation = Quaternion(0.043271873, -8.2844826e-07, -2.2450342e-08, 0.9990633)
+bones/7/rotation = Quaternion(-0.31380174, -0.00026179885, 8.616001e-05, 0.94948846)
+bones/8/position = Vector3(0.0017719383, 0.0027178414, 0.0004098453)
+bones/8/rotation = Quaternion(-0.1711452, 0.05082959, -0.4173081, 0.89105535)
+bones/10/rotation = Quaternion(-0.03887025, 0.26759604, -0.2155694, 0.9383024)
+bones/19/rotation = Quaternion(-0.07661203, -0.0015270485, -0.019867478, 0.99686193)
+bones/22/position = Vector3(-0.0017591707, 0.0027178414, 0.00040984745)
+bones/22/rotation = Quaternion(-0.17114498, -0.050829038, 0.41730815, 0.8910555)
+bones/24/rotation = Quaternion(-0.038870208, -0.2675961, 0.21556947, 0.9383024)
+bones/32/rotation = Quaternion(0.042254016, -0.025641702, -0.2323047, 0.9713865)
+bones/33/rotation = Quaternion(-0.076612234, 0.0015270568, 0.019867597, 0.9968619)
+bones/36/rotation = Quaternion(0.9767676, 0.009338108, 0.0014760306, 0.214093)
+bones/37/rotation = Quaternion(0.4351075, 0.005500639, 0.009057291, 0.9003161)
+bones/38/rotation = Quaternion(0.97676754, -0.0093397675, -0.0014755137, 0.21409293)
+bones/39/rotation = Quaternion(0.4351075, -0.005500657, -0.009057328, 0.9003161)
+
+[node name="Head" parent="RootNode/CharacterArmature/Skeleton3D" index="1"]
+transform = Transform3D(0.99999976, -1.1700547e-07, -0.00055005145, -0.00050644425, -0.3904167, -0.9206381, -0.00021464164, 0.9206381, -0.39041665, -6.3832977e-06, -0.0012059335, 0.01907851)
+
+[node name="Pinky3_L" parent="RootNode/CharacterArmature/Skeleton3D" index="2"]
+transform = Transform3D(-0.23985158, 0.41869515, 0.87588, -0.93169993, 0.15422398, -0.32886073, -0.27277428, -0.89493525, 0.35310718, 0.014269055, 0.0030418118, 0.0037392525)
+
+[node name="Middle3_L" parent="RootNode/CharacterArmature/Skeleton3D" index="3"]
+transform = Transform3D(-0.39152223, 0.45046687, 0.80236524, -0.91897684, -0.14706261, -0.36585963, -0.046809964, -0.8805978, 0.4715466, 0.013946712, 0.0013475006, 0.0031120402)
+
+[node name="Index3_L" parent="RootNode/CharacterArmature/Skeleton3D" index="4"]
+transform = Transform3D(-0.48870945, 0.41548184, 0.7671622, -0.8627337, -0.36098802, -0.35408694, 0.12981941, -0.8349025, 0.5348682, 0.013096007, -0.00029659003, 0.0035830413)
+
+[node name="Thumb2_L" parent="RootNode/CharacterArmature/Skeleton3D" index="5"]
+transform = Transform3D(-0.63343763, -0.10108929, 0.7671624, -0.2867793, -0.8901569, -0.35408708, 0.7186893, -0.44429868, 0.5348684, 0.010986093, -0.0005015386, 0.0059660035)
+
+[node name="Pinky3_R" parent="RootNode/CharacterArmature/Skeleton3D" index="6"]
+transform = Transform3D(-0.23985188, -0.41869545, -0.8758792, 0.93169993, 0.15422371, -0.32886103, 0.27277428, -0.89493495, 0.3531072, -0.014269054, 0.003041808, 0.0037392625)
+
+[node name="Middle3_R" parent="RootNode/CharacterArmature/Skeleton3D" index="7"]
+transform = Transform3D(-0.39152268, -0.45046687, -0.8023648, 0.91897696, -0.14706288, -0.36585996, 0.04681001, -0.88059735, 0.47154683, -0.013946714, 0.0013474969, 0.0031120488)
+
+[node name="Index3_R" parent="RootNode/CharacterArmature/Skeleton3D" index="8"]
+transform = Transform3D(-0.48870984, -0.41548187, -0.76716167, 0.86273336, -0.36098817, -0.35408726, -0.12981926, -0.8349023, 0.53486836, -0.013096006, -0.0002965934, 0.0035830496)
+
+[node name="Thumb2_R" parent="RootNode/CharacterArmature/Skeleton3D" index="9"]
+transform = Transform3D(-0.6334378, 0.10108976, -0.76716167, 0.28677878, -0.890157, -0.35408732, -0.718689, -0.4442984, 0.5348683, -0.0109860925, -0.0005015386, 0.00596601)
+
+[node name="LowerLeg_L" parent="RootNode/CharacterArmature/Skeleton3D" index="10"]
+transform = Transform3D(0.99993825, 0.004811521, 0.008262455, -0.009545389, 0.45186222, 0.8919809, 0.0005577307, -0.8920615, 0.45193392, 0.0034780905, 0.00042685703, 0.0045237048)
+
+[node name="LowerLeg_R" parent="RootNode/CharacterArmature/Skeleton3D" index="11"]
+transform = Transform3D(0.99993837, -0.0048140353, -0.008260895, 0.009545135, 0.4518624, 0.89198095, -0.0005606737, -0.89206153, 0.45193404, -0.0034781029, 0.0004268561, 0.004523703)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_b246s")
+anim_player = NodePath("../AnimationPlayer")
+parameters/skill_shot/active = false
+parameters/skill_shot/internal_active = false
+parameters/skill_shot/request = 0
+parameters/hit_shot/active = false
+parameters/hit_shot/internal_active = false
+parameters/hit_shot/request = 0
+parameters/atk_shot/active = false
+parameters/atk_shot/internal_active = false
+parameters/atk_shot/request = 0
+parameters/ld_blend/blend_amount = 0.0
+parameters/iwr_blend/blend_amount = -1.0

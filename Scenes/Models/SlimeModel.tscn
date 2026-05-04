@@ -1,0 +1,86 @@
+[gd_scene load_steps=15 format=3 uid="uid://080kh3gp214v"]
+
+[ext_resource type="PackedScene" uid="uid://ce7ydb8ui08sn" path="res://Models/Test/Slime.glb" id="1_cec7h"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_owje8"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_owje8"]
+animation = &"CharacterArmature|Bite_Front"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nywme"]
+animation = &"CharacterArmature|Death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dvx07"]
+animation = &"CharacterArmature|HitRecieve"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_nywme"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_quq6f"]
+animation = &"CharacterArmature|Idle"
+
+[sub_resource type="AnimationNodeBlend3" id="AnimationNodeBlend3_c6oq1"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_cec7h"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c6oq1"]
+animation = &"CharacterArmature|Dance"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yt6li"]
+animation = &"CharacterArmature|No"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_dvx07"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cec7h"]
+animation = &"CharacterArmature|Walk"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_c6oq1"]
+graph_offset = Vector2(-810, 2)
+nodes/skill_shot/node = SubResource("AnimationNodeOneShot_dvx07")
+nodes/skill_shot/position = Vector2(160, 140)
+nodes/hit_shot/node = SubResource("AnimationNodeOneShot_nywme")
+nodes/hit_shot/position = Vector2(0, 140)
+nodes/atk_shot/node = SubResource("AnimationNodeOneShot_owje8")
+nodes/atk_shot/position = Vector2(-160, 140)
+nodes/ld_blend/node = SubResource("AnimationNodeBlend2_cec7h")
+nodes/ld_blend/position = Vector2(-320, 160)
+nodes/iwr_blend/node = SubResource("AnimationNodeBlend3_c6oq1")
+nodes/iwr_blend/position = Vector2(-480, 180)
+nodes/idle/node = SubResource("AnimationNodeAnimation_quq6f")
+nodes/idle/position = Vector2(-740, 120)
+nodes/walk/node = SubResource("AnimationNodeAnimation_cec7h")
+nodes/walk/position = Vector2(-740, 300)
+nodes/run/node = SubResource("AnimationNodeAnimation_c6oq1")
+nodes/run/position = Vector2(-760, 480)
+nodes/death/node = SubResource("AnimationNodeAnimation_nywme")
+nodes/death/position = Vector2(-480, 460)
+nodes/attack/node = SubResource("AnimationNodeAnimation_owje8")
+nodes/attack/position = Vector2(-220, 460)
+nodes/hit/node = SubResource("AnimationNodeAnimation_dvx07")
+nodes/hit/position = Vector2(60, 440)
+nodes/skill/node = SubResource("AnimationNodeAnimation_yt6li")
+nodes/skill/position = Vector2(340, 440)
+node_connections = [&"output", 0, &"skill_shot", &"skill_shot", 0, &"hit_shot", &"skill_shot", 1, &"skill", &"hit_shot", 0, &"atk_shot", &"hit_shot", 1, &"hit", &"atk_shot", 0, &"ld_blend", &"atk_shot", 1, &"attack", &"ld_blend", 0, &"iwr_blend", &"ld_blend", 1, &"death", &"iwr_blend", 0, &"idle", &"iwr_blend", 1, &"walk", &"iwr_blend", 2, &"run"]
+
+[node name="SlimeModel" instance=ExtResource("1_cec7h")]
+
+[node name="Skeleton3D" parent="RootNode/CharacterArmature" index="0"]
+bones/1/position = Vector3(0, 0, 0.0048319353)
+bones/3/rotation = Quaternion(5.327999e-12, 3.5467496e-10, -0.01766022, 0.99984413)
+
+[node name="Head3" parent="RootNode/CharacterArmature/Skeleton3D" index="1"]
+transform = Transform3D(0.9993762, 0.035314925, 7.0905104e-10, 4.9192943e-09, -1.1913305e-07, -0.99999994, -0.03531492, 0.9993761, -1.1923247e-07, 0, -1.0808237e-09, 0.01389854)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_c6oq1")
+anim_player = NodePath("../AnimationPlayer")
+parameters/skill_shot/active = false
+parameters/skill_shot/internal_active = false
+parameters/skill_shot/request = 0
+parameters/hit_shot/active = false
+parameters/hit_shot/internal_active = false
+parameters/hit_shot/request = 0
+parameters/atk_shot/active = false
+parameters/atk_shot/internal_active = false
+parameters/atk_shot/request = 0
+parameters/ld_blend/blend_amount = 0.0
+parameters/iwr_blend/blend_amount = -1.0

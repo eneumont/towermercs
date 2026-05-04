@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://qg0w7dufqrvp"]
 
 [ext_resource type="Script" uid="uid://cik62ltryynnf" path="res://Scripts/Characters/foe_data.gd" id="1_4lbf4"]
-[ext_resource type="PackedScene" uid="uid://dpcrab6x40y70" path="res://Scenes/Models/GoblinModel.tscn" id="1_67pwq"]
+[ext_resource type="PackedScene" uid="uid://dhvqb1syu1awu" path="res://Scenes/Models/FairyModel.tscn" id="1_67pwq"]
 
 [resource]
 script = ExtResource("1_4lbf4")

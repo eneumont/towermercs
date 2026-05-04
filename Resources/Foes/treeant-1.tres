@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://bsu4tx2palr4j"]
+
+[ext_resource type="Script" uid="uid://cik62ltryynnf" path="res://Scripts/Characters/foe_data.gd" id="1_aq1ib"]
+[ext_resource type="PackedScene" uid="uid://cvsjrlck34kbo" path="res://Scenes/Models/TreeantModel.tscn" id="1_yyf6j"]
+
+[resource]
+script = ExtResource("1_aq1ib")
+id = "Treeant1"
+act_name = "Treeant"
+display_name = "Treeant"
+model = ExtResource("1_yyf6j")
+metadata/_custom_type_script = "uid://cik62ltryynnf"

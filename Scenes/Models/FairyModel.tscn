@@ -1,0 +1,102 @@
+[gd_scene load_steps=15 format=3 uid="uid://dhvqb1syu1awu"]
+
+[ext_resource type="PackedScene" uid="uid://0cs23xb00jvi" path="res://Models/Test/Bee.glb" id="1_ow6e7"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ow6e7"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oq4rv"]
+animation = &"CharacterArmature|Headbutt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_llse5"]
+animation = &"CharacterArmature|Death"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mbrtg"]
+animation = &"CharacterArmature|HitReact"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_uvl6t"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rat1d"]
+animation = &"CharacterArmature|Flying_Idle"
+
+[sub_resource type="AnimationNodeBlend3" id="AnimationNodeBlend3_jknot"]
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_bef5j"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lde32"]
+animation = &"CharacterArmature|Fast_Flying"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fw73o"]
+animation = &"CharacterArmature|No"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_nm6nq"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cf7cr"]
+animation = &"CharacterArmature|Flying_Idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ow6e7"]
+graph_offset = Vector2(-936, 15.199997)
+nodes/iwr_blend/node = SubResource("AnimationNodeBlend3_jknot")
+nodes/iwr_blend/position = Vector2(-580, 220)
+nodes/ld_blend/node = SubResource("AnimationNodeBlend2_bef5j")
+nodes/ld_blend/position = Vector2(-420, 220)
+nodes/atk_shot/node = SubResource("AnimationNodeOneShot_ow6e7")
+nodes/atk_shot/position = Vector2(-260, 220)
+nodes/skill_shot/node = SubResource("AnimationNodeOneShot_nm6nq")
+nodes/skill_shot/position = Vector2(160, 140)
+nodes/hit_shot/node = SubResource("AnimationNodeOneShot_uvl6t")
+nodes/hit_shot/position = Vector2(-100, 140)
+nodes/skill/node = SubResource("AnimationNodeAnimation_fw73o")
+nodes/skill/position = Vector2(160, 440)
+nodes/hit/node = SubResource("AnimationNodeAnimation_mbrtg")
+nodes/hit/position = Vector2(-100, 440)
+nodes/attack/node = SubResource("AnimationNodeAnimation_oq4rv")
+nodes/attack/position = Vector2(-380, 520)
+nodes/death/node = SubResource("AnimationNodeAnimation_llse5")
+nodes/death/position = Vector2(-640, 520)
+nodes/idle/node = SubResource("AnimationNodeAnimation_rat1d")
+nodes/idle/position = Vector2(-880, 120)
+nodes/walk/node = SubResource("AnimationNodeAnimation_cf7cr")
+nodes/walk/position = Vector2(-880, 300)
+nodes/run/node = SubResource("AnimationNodeAnimation_lde32")
+nodes/run/position = Vector2(-940, 480)
+node_connections = [&"output", 0, &"skill_shot", &"iwr_blend", 0, &"idle", &"iwr_blend", 1, &"walk", &"iwr_blend", 2, &"run", &"ld_blend", 0, &"iwr_blend", &"ld_blend", 1, &"death", &"atk_shot", 0, &"ld_blend", &"atk_shot", 1, &"attack", &"skill_shot", 0, &"hit_shot", &"skill_shot", 1, &"skill", &"hit_shot", 0, &"atk_shot", &"hit_shot", 1, &"hit"]
+
+[node name="FairyModel" instance=ExtResource("1_ow6e7")]
+
+[node name="Skeleton3D" parent="RootNode/CharacterArmature" index="0"]
+bones/1/position = Vector3(3.1971842e-05, 0.0143151535, -0.0011103946)
+bones/3/rotation = Quaternion(0.57707345, -0.00022524095, -0.00015821434, 0.81669223)
+bones/4/rotation = Quaternion(-0.2594906, 0.1814554, -0.5683143, 0.7594456)
+bones/5/rotation = Quaternion(0.092439786, -0.690607, -0.1388164, 0.70373785)
+bones/6/rotation = Quaternion(-0.046049006, 0.0011801921, 0.0038733655, 0.998931)
+bones/8/rotation = Quaternion(-0.25955233, -0.17825553, 0.56384045, 0.7635061)
+bones/9/rotation = Quaternion(0.09243976, 0.6906069, 0.13881642, 0.703738)
+bones/10/rotation = Quaternion(-0.046049047, -0.0011801524, -0.0038734255, 0.99893105)
+bones/12/position = Vector3(3.197184e-05, 0.014346371, -0.001112804)
+
+[node name="Head" parent="RootNode/CharacterArmature/Skeleton3D" index="0"]
+transform = Transform3D(0.9999998, -1.5765261e-07, -0.0005500189, 5.8867765e-05, -0.9942249, 0.10731381, -0.00054686016, -0.10731372, -0.9942249, -6.383777e-06, -0.0007217268, 0.022193491)
+
+[node name="Wing4_L" parent="RootNode/CharacterArmature/Skeleton3D" index="1"]
+transform = Transform3D(0.3610009, 0.93236375, 0.019396514, -0.9325527, 0.3608104, 0.01268959, 0.0048327446, -0.022669338, 0.99973166, 0.017283507, 0.009964356, 0.02258769)
+
+[node name="Wing4_R" parent="RootNode/CharacterArmature/Skeleton3D" index="2"]
+transform = Transform3D(0.36100158, -0.9323635, -0.019397125, 0.9325528, 0.36081088, 0.012689255, -0.0048322976, -0.022669688, 0.9997315, -0.017283507, 0.009964358, 0.022587685)
+
+[node name="Body1" parent="RootNode/CharacterArmature/Skeleton3D" index="3"]
+transform = Transform3D(0.99954796, -0.025646327, -0.0159978, 0.01716872, 0.046113238, 0.998805, -0.024877682, -0.99860686, 0.04653324, 1.8856615e-05, 0.001113949, 0.014322217)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeBlendTree_ow6e7")
+anim_player = NodePath("../AnimationPlayer")
+parameters/iwr_blend/blend_amount = -1.0
+parameters/ld_blend/blend_amount = 0.0
+parameters/atk_shot/active = false
+parameters/atk_shot/internal_active = false
+parameters/atk_shot/request = 0
+parameters/skill_shot/active = false
+parameters/skill_shot/internal_active = false
+parameters/skill_shot/request = 0
+parameters/hit_shot/active = false
+parameters/hit_shot/internal_active = false
+parameters/hit_shot/request = 0

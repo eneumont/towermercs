@@ -68,9 +68,10 @@ pos = Vector3(0, 0, -6)
 shape = SubResource("BoxShape3D_il158")
 
 [node name="Field4" type="Area3D" parent="Layout2/AreaExits"]
-transform = Transform3D(12.001948, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, -0.13113737, 0.35931683, -9.688295)
+transform = Transform3D(3.5994465, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, -0.13113737, 0.35931683, -9.688295)
 script = ExtResource("4_83o3c")
 area_name = "Field/Field/Field4"
+pos = Vector3(0, 0, 9)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/AreaExits/Field4"]
 shape = SubResource("BoxShape3D_il158")

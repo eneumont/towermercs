@@ -97,21 +97,22 @@ transform = Transform3D(1, 0, 0, 0, 0.89712733, 0.44177204, 0, -0.44177204, 0.89
 
 [node name="AreaExits" type="Node3D" parent="Layout3"]
 
-[node name="Field2" type="Area3D" parent="Layout3/AreaExits"]
-transform = Transform3D(-1.4875326e-07, 0, -0.34525174, 0, 1.0030001, 0, 3.4030778, 0, -1.5091432e-08, -9.935288, 0.35931778, -0.12534547)
+[node name="Field7" type="Area3D" parent="Layout3/AreaExits"]
+transform = Transform3D(-1.4875326e-07, 0, -0.34525174, 0, 1.0030001, 0, 3.4030778, 0, -1.5091432e-08, -9.935288, 0.35931778, 0.22294152)
 script = ExtResource("7_6kklp")
-area_name = "Field/Field/Field2"
+area_name = "Field/Field/Field7"
+pos = Vector3(8, 0, 0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout3/AreaExits/Field2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout3/AreaExits/Field7"]
 shape = SubResource("BoxShape3D_awril")
 
-[node name="Field1" type="Area3D" parent="Layout3/AreaExits"]
+[node name="Field6" type="Area3D" parent="Layout3/AreaExits"]
 transform = Transform3D(-1.6688729e-07, 0, -0.34525174, 0, 1.0030001, 0, 3.8179362, 0, -1.5091432e-08, -9.918657, 0.35931778, 8.066003)
 script = ExtResource("7_6kklp")
-area_name = "Field/Field/Field1"
-pos = Vector3(7, 0, -3.5)
+area_name = "Field/Field/Field6"
+pos = Vector3(7, 0, -5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout3/AreaExits/Field1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout3/AreaExits/Field6"]
 shape = SubResource("BoxShape3D_awril")
 
 [node name="Path" type="Node3D" parent="Layout3"]
@@ -131,5 +132,5 @@ transform = Transform3D(0.35823753, 0, 5.035951, 0, 0.9999999, 0, -0.93363035, 0
 material_override = ExtResource("8_e13s2")
 mesh = SubResource("PlaneMesh_oiitr")
 
-[connection signal="body_entered" from="Layout3/AreaExits/Field2" to="Layout3/AreaExits/Field2" method="body_enter"]
-[connection signal="body_entered" from="Layout3/AreaExits/Field1" to="Layout3/AreaExits/Field1" method="body_enter"]
+[connection signal="body_entered" from="Layout3/AreaExits/Field7" to="Layout3/AreaExits/Field7" method="body_enter"]
+[connection signal="body_entered" from="Layout3/AreaExits/Field6" to="Layout3/AreaExits/Field6" method="body_enter"]
