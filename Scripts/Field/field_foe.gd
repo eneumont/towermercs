@@ -3,12 +3,12 @@ extends CharacterBody3D
 var speed  = randf_range(3.0, 6.0)
 var anim_tree: AnimationTree
 var encounters: Array[String]
-var model: Node3D
-var area: Area3D
 
 var player
 var foe_id
 var battle
+
+@export var f_data: EnemyData
 
 ##should be walking when patroling and running when chase
 enum FIELD_STATE {
@@ -24,22 +24,26 @@ enum FIELD_TYPE {
 }
 
 func _ready() -> void:
-	model = get_node("Model")
+	var model = f_data.model.instantiate()
+	add_child(model)
+	model.position = f_data.pos
+	model.rotation = f_data.rot
+	model.scale = f_data.sca
+	
 	anim_tree = model.get_node("AnimationTree")
-	area = get_node("Area")
-	area.connect("body_entered", body_enter)
+	
+	var area = $Area
+	area.position = f_data.a_pos
+	area.rotation = f_data.a_rot
+	area.scale = f_data.a_sca
+	
+	#for detect... =(
+	#var detect = $Detect
+	#detect.position = f_data.d_pos
+	#detect.rotation = f_data.d_rot
+	#detect.scale = f_data.d_sca
 	
 func _physics_process(delta: float) -> void:
-	var space_state = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(global_position, Vector3(0, 3, 9))
-	query.exclude = [self]
-	var result = space_state.intersect_ray(query)
-	
-	if (result && result["collider"].name == "FieldChar" && !player):
-		player = result["collider"]
-	else:
-		player = null
-	
 	velocity = Vector3.ZERO
 	if player:
 		var direction = global_position.direction_to(player.global_position)
@@ -58,3 +62,11 @@ func body_enter(body: Node3D) -> void:
 	if body.name == "FieldChar":
 		SceneManager.encounter = encounters[randi_range(0, encounters.size() - 1)]
 		SceneManager.enter_battle("res://Scenes/Battle/Fields/" + battle + ".tscn", self) #consider mutliple encounters
+
+func foe_enter(body:Node3D) -> void:
+	if body.name.contains("FieldChar"):
+		player = body
+	
+func foe_exit(body:Node3D) -> void:
+	if body == player:
+		player = null
