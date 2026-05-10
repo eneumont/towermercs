@@ -16,15 +16,17 @@ enum Spawner_Type {
 
 func spawn():
 	var new_spawn = spawn_node.instantiate()
+	#new_spawn.spawner = self
 	
 	match (type):
 		Spawner_Type.ITEM:
 			pass
 		Spawner_Type.FOE:
 			new_spawn.foe_id = spawn_info.keys()[0]
+			new_spawn.f_data = spawn_data
 			new_spawn.encounters = encounters
 			new_spawn.battle = battle
 	
-	#new_spawn.spawner = self
 	add_child(new_spawn)
 	new_spawn.global_position = position
+	new_spawn.spawn()

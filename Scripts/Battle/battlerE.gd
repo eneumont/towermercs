@@ -10,7 +10,7 @@ func create(is_player: bool, data, control: Controller = Controller.NONE) -> voi
 	var model = data.model.instantiate()
 	add_child(model)
 	model.position = data.pos
-	model.rotation = data.rot
+	model.rotation = Vector3(0, -90, 0)
 	model.scale = data.sca
 	anim_tree = model.get_node("AnimationTree")
 

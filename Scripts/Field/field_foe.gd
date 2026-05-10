@@ -8,7 +8,7 @@ var player
 var foe_id
 var battle
 
-@export var f_data: EnemyData
+var f_data: EnemyData
 
 ##should be walking when patroling and running when chase
 enum FIELD_STATE {
@@ -23,7 +23,7 @@ enum FIELD_TYPE {
 	GUARD,
 }
 
-func _ready() -> void:
+func spawn():
 	var model = f_data.model.instantiate()
 	add_child(model)
 	model.position = f_data.pos
@@ -37,12 +37,11 @@ func _ready() -> void:
 	area.rotation = f_data.a_rot
 	area.scale = f_data.a_sca
 	
-	#for detect... =(
 	#var detect = $Detect
 	#detect.position = f_data.d_pos
 	#detect.rotation = f_data.d_rot
 	#detect.scale = f_data.d_sca
-	
+
 func _physics_process(delta: float) -> void:
 	velocity = Vector3.ZERO
 	if player:
@@ -64,7 +63,7 @@ func body_enter(body: Node3D) -> void:
 		SceneManager.enter_battle("res://Scenes/Battle/Fields/" + battle + ".tscn", self) #consider mutliple encounters
 
 func foe_enter(body:Node3D) -> void:
-	if body.name.contains("FieldChar"):
+	if body is CharacterBody3D:
 		player = body
 	
 func foe_exit(body:Node3D) -> void:
