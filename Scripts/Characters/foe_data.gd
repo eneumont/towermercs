@@ -12,6 +12,9 @@ class_name EnemyData
 @export var pos: Vector3
 @export var rot: Vector3
 @export var sca: Vector3
+@export var a_pos: Vector3
+@export var a_rot: Vector3
+@export var a_sca: Vector3
 
 @export var maxHP: int = 1
 @export var curHP: int = 1
