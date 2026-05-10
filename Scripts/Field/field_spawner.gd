@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var spawn_node: PackedScene
+@export var spawn_data: Resource
 @export var type: Spawner_Type
 @export var encounters: Array[String]
 @export var battle: String
@@ -15,15 +16,15 @@ enum Spawner_Type {
 
 func spawn():
 	var new_spawn = spawn_node.instantiate()
-	add_child(new_spawn)
-	new_spawn.global_position = position
-	new_spawn.foe_id = spawn_info[spawn_info.keys()[0]]
-	#new_spawn.spawner = self
-	new_spawn.encounters = encounters
-	new_spawn.battle = battle
-
+	
 	match (type):
 		Spawner_Type.ITEM:
 			pass
 		Spawner_Type.FOE:
-			pass
+			new_spawn.foe_id = spawn_info.keys()[0]
+			new_spawn.encounters = encounters
+			new_spawn.battle = battle
+	
+	#new_spawn.spawner = self
+	add_child(new_spawn)
+	new_spawn.global_position = position
