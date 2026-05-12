@@ -63,7 +63,19 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	
+	var dir_s = ""
+	if direction.z > 0:
+		dir_s = "up"
+		anim_sprite.flip_h = false
+	elif direction.z < 0:
+		dir_s = "down"
+		anim_sprite.flip_h = false
+	elif direction.x > 0:
+		dir_s = "right"
+		anim_sprite.flip_h = false
+	elif direction.x < 0:
+		dir_s = "right"
+		anim_sprite.flip_h = true
 	
 	if Input.is_action_just_pressed("menu"):
 		ui_show()

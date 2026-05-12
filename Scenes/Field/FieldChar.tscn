@@ -1,23 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddo6ivruo5ap6"]
+[gd_scene load_steps=5 format=3 uid="uid://ddo6ivruo5ap6"]
 
 [ext_resource type="Script" uid="uid://cqsnrjq7fv110" path="res://Scripts/Field/field_char.gd" id="1_om8w3"]
-[ext_resource type="Texture2D" uid="uid://bcw8qfn36rlma" path="res://Images/Textures/Classes/Thief/thief_field.png" id="2_b70oe"]
+[ext_resource type="SpriteFrames" uid="uid://dlyco38w4nhy8" path="res://Images/Sprites/Field/alchemist_field.tres" id="2_mgob6"]
 [ext_resource type="PackedScene" uid="uid://buwla5ajslfd8" path="res://Scenes/UI/PlayerMenu/PlayerMenu.tscn" id="3_mgob6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_be0aq"]
-atlas = ExtResource("2_b70oe")
-region = Rect2(12800, 0, 800, 1000)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sasfl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_be0aq")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2f0qm"]
 
@@ -27,8 +12,8 @@ ui = NodePath("PlayerMenu")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
-sprite_frames = SubResource("SpriteFrames_sasfl")
-animation = &"idle"
+sprite_frames = ExtResource("2_mgob6")
+animation = &"idle_down"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

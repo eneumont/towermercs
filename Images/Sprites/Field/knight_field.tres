@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=32 format=3 uid="uid://c03lag1oqqk8o"]
+[gd_resource type="SpriteFrames" load_steps=35 format=3 uid="uid://c03lag1oqqk8o"]
 
 [ext_resource type="Texture2D" uid="uid://dkdnypn7fcj5v" path="res://Images/Textures/Classes/Knight/knight_field.png" id="1_86by0"]
 
@@ -61,6 +61,18 @@ region = Rect2(14400, 0, 800, 1000)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cr5vn"]
 atlas = ExtResource("1_86by0")
 region = Rect2(13600, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kwby"]
+atlas = ExtResource("1_86by0")
+region = Rect2(1600, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbs20"]
+atlas = ExtResource("1_86by0")
+region = Rect2(0, 0, 800, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6viml"]
+atlas = ExtResource("1_86by0")
+region = Rect2(800, 0, 800, 1000)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g4gun"]
 atlas = ExtResource("1_86by0")
@@ -137,7 +149,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5so72")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_down",
 "speed": 5.0
 }, {
@@ -154,7 +166,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c7o0e")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_right",
 "speed": 5.0
 }, {
@@ -171,7 +183,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sb5d6")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_up",
 "speed": 5.0
 }, {
@@ -197,6 +209,30 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kwby")
+}],
+"loop": true,
+"name": &"skill_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbs20")
+}],
+"loop": true,
+"name": &"skill_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6viml")
+}],
+"loop": true,
+"name": &"skill_up",
 "speed": 5.0
 }, {
 "frames": [{
