@@ -36,13 +36,18 @@ func spawn():
 	area.position = f_data.a_pos
 	area.rotation = f_data.a_rot
 	area.scale = f_data.a_sca
-	
-	#var detect = $Detect
-	#detect.position = f_data.d_pos
-	#detect.rotation = f_data.d_rot
-	#detect.scale = f_data.d_sca
 
 func _physics_process(delta: float) -> void:
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(global_position + Vector3(0, 3, 0), global_position + Vector3(0, 3, 9))
+	query.exclude = [self]
+	var result = space_state.intersect_ray(query)
+	if result: print(result["collider"].name) #delete once done
+	if (result && result["collider"].name == "FieldChar" && !player):
+		player = result["collider"]
+	else:
+		player = null
+	
 	velocity = Vector3.ZERO
 	if player:
 		var direction = global_position.direction_to(player.global_position)
@@ -58,14 +63,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func body_enter(body: Node3D) -> void:
-	if body.name == "FieldChar":
+	if body.name.contains("FieldChar"):
 		SceneManager.encounter = encounters[randi_range(0, encounters.size() - 1)]
 		SceneManager.enter_battle("res://Scenes/Battle/Fields/" + battle + ".tscn", self) #consider mutliple encounters
-
-func foe_enter(body:Node3D) -> void:
-	if body is CharacterBody3D:
-		player = body
-	
-func foe_exit(body:Node3D) -> void:
-	if body == player:
-		player = null

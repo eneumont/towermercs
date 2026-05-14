@@ -1,10 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b506hr54qt135"]
+[gd_scene load_steps=3 format=3 uid="uid://b506hr54qt135"]
 
 [ext_resource type="Script" uid="uid://bl76v205yksnu" path="res://Scripts/Field/field_foe.gd" id="1_oc55i"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uv76x"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_7u73i"]
 
 [node name="FieldFoe" type="CharacterBody3D"]
 script = ExtResource("1_oc55i")
@@ -14,13 +12,4 @@ script = ExtResource("1_oc55i")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
 shape = SubResource("SphereShape3D_uv76x")
 
-[node name="Detect" type="Area3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 2, 0, 0, 0, 2, -4, 0.5, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Detect"]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("CylinderShape3D_7u73i")
-
 [connection signal="body_entered" from="Area" to="." method="body_enter"]
-[connection signal="body_entered" from="Detect" to="." method="foe_enter"]
-[connection signal="body_exited" from="Detect" to="." method="foe_exit"]
