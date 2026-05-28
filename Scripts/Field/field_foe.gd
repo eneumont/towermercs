@@ -39,10 +39,9 @@ func spawn():
 
 func _physics_process(delta: float) -> void:
 	var space_state = get_world_3d().direct_space_state
-	var query = PhysicsRayQueryParameters3D.create(global_position + Vector3(0, 3, 0), global_position + Vector3(0, 3, 9))
+	var query = PhysicsRayQueryParameters3D.create(global_position + Vector3(0, 1, 0), global_position + Vector3(0, 1, 9))
 	query.exclude = [self]
 	var result = space_state.intersect_ray(query)
-	if result: print(result["collider"].name) #delete once done
 	if (result && result["collider"].name == "FieldChar" && !player):
 		player = result["collider"]
 	else:
