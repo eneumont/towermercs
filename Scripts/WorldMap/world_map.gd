@@ -8,5 +8,5 @@ func _ready() -> void:
 	MusicManager.play()
 	
 	var worldPlayer = player_scn.instantiate()
-	add_child(worldPlayer)
 	worldPlayer.position = PlayerData.player_pos
+	add_child(worldPlayer)

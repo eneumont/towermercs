@@ -1,32 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://gkgqgpenyile"]
+[gd_scene load_steps=15 format=3 uid="uid://gkgqgpenyile"]
 
 [ext_resource type="Script" uid="uid://dcxxouomxwvev" path="res://Scripts/Field/field.gd" id="1_b8k6e"]
 [ext_resource type="AudioStream" uid="uid://basqyoad0w2kt" path="res://Audio/field.mp3" id="2_vebau"]
 [ext_resource type="Script" uid="uid://bhcbewusdisi2" path="res://Scripts/Field/field_spawner.gd" id="3_78pku"]
-[ext_resource type="Script" uid="uid://bl76v205yksnu" path="res://Scripts/Field/field_foe.gd" id="4_k0kr7"]
-[ext_resource type="PackedScene" uid="uid://dpcrab6x40y70" path="res://Scenes/Models/GoblinModel.tscn" id="5_vw17k"]
+[ext_resource type="PackedScene" uid="uid://b506hr54qt135" path="res://Scenes/Field/FieldFoe.tscn" id="4_78pku"]
+[ext_resource type="Resource" uid="uid://v7c03db0p8gn" path="res://Resources/Foes/goblin-1.tres" id="5_k0kr7"]
+[ext_resource type="Resource" uid="uid://qg0w7dufqrvp" path="res://Resources/Foes/fairy-1.tres" id="6_vw17k"]
 [ext_resource type="Material" uid="uid://c5tppwumkrkwt" path="res://Resources/Materials/green_mat.tres" id="6_wktx1"]
 [ext_resource type="Script" uid="uid://c6hqoke1s4v3d" path="res://Scripts/Field/area_exit.gd" id="7_nmfmm"]
+[ext_resource type="Resource" uid="uid://ch0nsgy5dchwp" path="res://Resources/Foes/slime-1.tres" id="7_wktx1"]
 [ext_resource type="Material" uid="uid://lnefwc8qkwnk" path="res://Resources/Materials/green2_mat.tres" id="8_c71xl"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_1dmhx"]
-radius = 1.8833563
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_oixsr"]
-radius = 2.0
-
-[sub_resource type="PackedScene" id="PackedScene_il158"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"names": PackedStringArray("FieldFoe-Goblin", "CharacterBody3D", "transform", "script", "Model", "transform", "Collision", "CollisionShape3D", "transform", "shape", "Area", "Area3D", "transform", "Shape", "CollisionShape3D", "transform", "shape"),
-"node_count": 5,
-"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("./Area")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 2, 2, 0, 3, 1, 0, 1073741824, 0, 2147483647, 4, 2, 1, 5, 3, 0, 1073741825, 0, 7, 6, -1, 2, 8, 4, 9, 5, 0, 1073741826, 0, 11, 10, -1, 1, 12, 6, 0, 1073741827, 0, 14, 13, -1, 2, 15, 7, 16, 8, 0),
-"variants": [Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0), ExtResource("4_k0kr7"), ExtResource("5_vw17k"), Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0), SubResource("SphereShape3D_1dmhx"), Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, 1.5132987, 1.1868315), Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0), SubResource("SphereShape3D_oixsr")],
-"version": 3
-}
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_b8k6e"]
 
@@ -48,7 +31,8 @@ audio = ExtResource("2_vebau")
 [node name="Foe1" type="Node3D" parent="Spawners/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7817707, 0, -5.5594087)
 script = ExtResource("3_78pku")
-spawn_node = SubResource("PackedScene_il158")
+spawn_node = ExtResource("4_78pku")
+spawn_data = ExtResource("5_k0kr7")
 type = 1
 encounters = Array[String](["Goblin1,Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1", "Goblin1,Goblin1,Slime1,Slime1", "Goblin1,Goblin1,Goblin1,Slime1", "Goblin1,Slime1", "Goblin1,Fairy1,Goblin1,Fairy1", "Goblin1,Fairy1,Slime1", "Goblin1,Fairy1"])
 battle = "Battlefield1"
@@ -59,9 +43,10 @@ spawn_info = Dictionary[String, Array]({
 [node name="Foe2" type="Node3D" parent="Spawners/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6703806, 0, -0.08108759)
 script = ExtResource("3_78pku")
-spawn_node = SubResource("PackedScene_il158")
+spawn_node = ExtResource("4_78pku")
+spawn_data = ExtResource("6_vw17k")
 type = 1
-encounters = Array[String](["Goblin1,Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1", "Goblin1,Goblin1,Slime1,Slime1", "Goblin1,Goblin1,Goblin1,Slime1", "Goblin1,Slime1", "Goblin1,Fairy1,Goblin1,Fairy1", "Goblin1,Fairy1,Slime1", "Goblin1,Fairy1"])
+encounters = Array[String](["Fairy1, Fairy1, Fairy1, Fairy1", "Fairy1, Fairy1, Fairy1", "Fairy1, Fairy1", "Fairy1, Slime1", "Fairy1, Goblin1", "Fairy1, Slime1, Goblin1", "Fairy1, Fairy1, Slime1", "Fairy1, Fairy1, Slime1, Slime1", "Fairy1, Goblin1, Slime1, Slime1"])
 battle = "Battlefield1"
 spawn_info = Dictionary[String, Array]({
 "Foe2": [true, Vector3(0, 0, 0)]
@@ -70,9 +55,10 @@ spawn_info = Dictionary[String, Array]({
 [node name="Foe3" type="Node3D" parent="Spawners/Enemies"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4367266, 0, 6.2175174)
 script = ExtResource("3_78pku")
-spawn_node = SubResource("PackedScene_il158")
+spawn_node = ExtResource("4_78pku")
+spawn_data = ExtResource("7_wktx1")
 type = 1
-encounters = Array[String](["Goblin1,Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1,Goblin1", "Goblin1,Goblin1", "Goblin1,Goblin1,Slime1,Slime1", "Goblin1,Goblin1,Goblin1,Slime1", "Goblin1,Slime1", "Goblin1,Fairy1,Goblin1,Fairy1", "Goblin1,Fairy1,Slime1", "Goblin1,Fairy1"])
+encounters = Array[String](["Slime1,Slime1,Slime1,Slime1", "Slime1,Slime1,Slime1", "Slime1,Slime1", "Slime1,Slime1,Fairy1,Goblin1", "Slime1,Slime1,Slime1,Fairy1", "Goblin1,Slime1", "Slime1,Fairy1,Slime1,Fairy1", "Slime1,Fairy1,Slime1", "Slime1,Fairy1"])
 battle = "Battlefield1"
 spawn_info = Dictionary[String, Array]({
 "Foe3": [true, Vector3(0, 0, 0)]

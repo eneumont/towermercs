@@ -22,5 +22,5 @@ func _ready() -> void:
 			s.spawn()
 	
 	var fieldChar = player_scn.instantiate()
-	add_child(fieldChar)
 	fieldChar.position = PlayerData.player_pos
+	add_child(fieldChar)

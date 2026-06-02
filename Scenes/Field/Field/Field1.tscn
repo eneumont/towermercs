@@ -49,7 +49,7 @@ pos = Vector3(6, 0, 0.5)
 shape = SubResource("BoxShape3D_il158")
 
 [node name="Field2" type="Area3D" parent="Layout/AreaExits"]
-transform = Transform3D(12.001948, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, 2.7403293, 0.35931683, -9.688295)
+transform = Transform3D(5.1970115, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, 0.81997967, 0.35931683, -9.688295)
 script = ExtResource("6_ap43e")
 area_name = "Field/Field/Field2"
 pos = Vector3(0, 0, 8)
@@ -58,7 +58,7 @@ pos = Vector3(0, 0, 8)
 shape = SubResource("BoxShape3D_il158")
 
 [node name="Field3" type="Area3D" parent="Layout/AreaExits"]
-transform = Transform3D(-3.047435e-07, 0, -0.34525174, 0, 1.0030001, 0, 6.971719, 0, -1.5091432e-08, 9.764148, 0.3593173, -4.727571)
+transform = Transform3D(-1.551218e-07, 0, -0.34525174, 0, 1.0030001, 0, 3.5487733, 0, -1.5091432e-08, 9.764148, 0.3593173, -3.3570094)
 script = ExtResource("6_ap43e")
 area_name = "Field/Field/Field3"
 pos = Vector3(-8, 0, 8.5)
