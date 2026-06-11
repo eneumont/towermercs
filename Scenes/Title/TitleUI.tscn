@@ -95,19 +95,27 @@ anchor_bottom = 0.5
 offset_left = -161.5
 offset_top = -92.0
 offset_right = 161.5
-offset_bottom = 92.0
+offset_bottom = 187.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SoloBtn" type="Button" parent="PlayScreen/PlayButtons"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_font_sizes/font_size = 33
 text = "Solo"
 
-[node name="MultiBtn" type="Button" parent="PlayScreen/PlayButtons"]
+[node name="CoopBtn" type="Button" parent="PlayScreen/PlayButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Multi"
+theme_override_font_sizes/font_size = 33
+text = "Co-op"
+
+[node name="OnlineBtn" type="Button" parent="PlayScreen/PlayButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 33
+text = "Online"
 
 [node name="BackBtn" type="Button" parent="PlayScreen"]
 layout_mode = 1
@@ -212,6 +220,7 @@ theme_override_font_sizes/font_size = 33
 text = "Back"
 
 [node name="MultiScreen" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -233,7 +242,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 33
 text = "Back"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MultiScreen"]
+[node name="VBox" type="VBoxContainer" parent="MultiScreen"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -247,40 +256,64 @@ offset_bottom = 257.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MultiScreen/VBoxContainer"]
+[node name="HBox" type="HBoxContainer" parent="MultiScreen/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Host" type="Button" parent="MultiScreen/VBoxContainer/HBoxContainer"]
+[node name="Host" type="Button" parent="MultiScreen/VBox/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 theme_override_font_sizes/font_size = 33
 text = "Host"
 
-[node name="Join" type="Button" parent="MultiScreen/VBoxContainer/HBoxContainer"]
+[node name="Join" type="Button" parent="MultiScreen/VBox/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 theme_override_font_sizes/font_size = 33
 text = "Join"
 
-[node name="LineEdit" type="LineEdit" parent="MultiScreen/VBoxContainer/HBoxContainer"]
+[node name="NameEdit" type="LineEdit" parent="MultiScreen/VBox/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
 theme_override_font_sizes/font_size = 33
-placeholder_text = "Online Code"
+placeholder_text = "Name"
 alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MultiScreen/VBoxContainer"]
+[node name="CodeEdit" type="LineEdit" parent="MultiScreen/VBox/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+theme_override_font_sizes/font_size = 33
+placeholder_text = "Code"
+alignment = 1
+
+[node name="ScrollBox" type="ScrollContainer" parent="MultiScreen/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MultiScreen/VBoxContainer/ScrollContainer"]
+[node name="VBox" type="VBoxContainer" parent="MultiScreen/VBox/ScrollBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="RefreshBtn" type="Button" parent="MultiScreen"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -192.0
+offset_bottom = -102.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "⟳"
 
 [node name="OptionsScreen" type="Panel" parent="."]
 visible = false
@@ -490,19 +523,230 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 33
 text = "Back"
 
+[node name="CoopScreen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackBtn" type="Button" parent="CoopScreen"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -165.0
+offset_bottom = 81.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="ReadyBtn" type="Button" parent="CoopScreen"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -112.5
+offset_top = -109.0
+offset_right = 112.5
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Ready!?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CoopScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -217.0
+offset_right = 450.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player1" type="Button" parent="CoopScreen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = 34.0
+offset_right = 78.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 33
+text = "Player1?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -107.0
+offset_right = 66.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player2" type="Button" parent="CoopScreen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = 34.0
+offset_right = 78.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 33
+text = "Player2?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -107.0
+offset_right = 66.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player3" type="Button" parent="CoopScreen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = 34.0
+offset_right = 78.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 33
+text = "Player3?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -107.0
+offset_right = 66.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player4" type="Button" parent="CoopScreen/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = 34.0
+offset_right = 78.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 33
+text = "Player4?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -107.0
+offset_right = 66.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleTxt" type="Label" parent="CoopScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -235.0
+offset_right = 235.0
+offset_bottom = 86.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "Who's playing?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="button_up" from="TitleScreen/TitleButtons/PlayBtn" to="." method="play_screen"]
 [connection signal="button_up" from="TitleScreen/TitleButtons/OptionsBtn" to="." method="options_screen"]
 [connection signal="button_up" from="TitleScreen/TitleButtons/QuitBtn" to="." method="quit"]
 [connection signal="button_up" from="PlayScreen/PlayButtons/SoloBtn" to="." method="solo_click"]
-[connection signal="button_up" from="PlayScreen/PlayButtons/MultiBtn" to="." method="multi_screen"]
+[connection signal="button_up" from="PlayScreen/PlayButtons/CoopBtn" to="." method="coop_screen"]
+[connection signal="button_up" from="PlayScreen/PlayButtons/OnlineBtn" to="." method="multi_screen"]
 [connection signal="button_up" from="PlayScreen/BackBtn" to="." method="title_screen"]
 [connection signal="button_up" from="SaveScreen/SaveButtons/NewBtn" to="." method="new_click"]
 [connection signal="button_up" from="SaveScreen/SaveButtons/DeleteBtn" to="." method="delete_click"]
 [connection signal="button_up" from="SaveScreen/BackBtn" to="." method="play_screen"]
 [connection signal="button_up" from="MultiScreen/BackBtn" to="." method="play_screen"]
+[connection signal="button_up" from="MultiScreen/RefreshBtn" to="." method="online_refresh"]
 [connection signal="button_up" from="OptionsScreen/BackBtn" to="." method="title_screen"]
 [connection signal="button_up" from="ModeScreen/ModesBox/StoryBtn" to="." method="story_click"]
 [connection signal="button_up" from="ModeScreen/ModesBox/ArenaBtn" to="." method="arena_click"]
 [connection signal="button_up" from="ModeScreen/BackBtn" to="." method="save_screen"]
 [connection signal="button_up" from="PartyScreen/DoneBtn" to="." method="party_done"]
 [connection signal="button_up" from="PartyScreen/BackBtn" to="." method="save_screen"]
+[connection signal="button_up" from="CoopScreen/BackBtn" to="." method="play_screen"]

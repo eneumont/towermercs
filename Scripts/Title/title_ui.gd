@@ -9,10 +9,15 @@ extends Control
 	$OptionsScreen,
 	$ModeScreen,
 	$PartyScreen,
+	$CoopScreen,
 ]
 #some screens will probably need a more specific back func
 
-var solo: bool = true
+@onready var online_slot: PackedScene = preload("res://Scenes/Title/OnlineSlot.tscn")
+
+var solo := true
+var coop := false
+var online := false
 var story: bool = true
 var delete: bool = false
 
@@ -39,8 +44,28 @@ func save_screen():
 	
 func multi_screen():
 	solo = false
-	pick_screen(3)
+	online = true
 	
+	online_refresh()
+	pick_screen(3)
+
+func online_refresh():
+	for c in $MultiScreen/VBox/ScrollBox/VBox.get_children():
+		c.queue_free()
+		
+	#create children based on online stuff...
+	#for o in online:
+	#	var new_slot = online_slot.instantiate()
+	#	new_slot.get_node("SlotName").text = ""
+	#	new_slot.get_node("SlotCount").text = ""
+	#	#other setup
+	#	$MultiScreen/VBox/ScrollBox/VBox.add_child(new_slot)
+
+func coop_screen():
+	coop = true
+	solo = false
+	pick_screen(7)
+
 func mode_screen():
 	pick_screen(5)
 

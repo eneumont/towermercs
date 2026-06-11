@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ctlclxq3dl050"]
+
+[node name="OnlineSlot" type="Button"]
+custom_minimum_size = Vector2(0, 100)
+offset_right = 8.0
+offset_bottom = 100.0
+
+[node name="SlotName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 484.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 33
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SlotCount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "#/#"
+horizontal_alignment = 1
+vertical_alignment = 1
