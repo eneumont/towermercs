@@ -750,3 +750,4 @@ vertical_alignment = 1
 [connection signal="button_up" from="PartyScreen/DoneBtn" to="." method="party_done"]
 [connection signal="button_up" from="PartyScreen/BackBtn" to="." method="save_screen"]
 [connection signal="button_up" from="CoopScreen/BackBtn" to="." method="play_screen"]
+[connection signal="button_up" from="CoopScreen/ReadyBtn" to="." method="coop_ready"]

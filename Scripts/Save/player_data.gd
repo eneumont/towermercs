@@ -1,5 +1,10 @@
 extends Node
 
+var solo := true
+var coop := true
+var online := true
+var players := 1
+
 var s_name: String = ""
 var time: String = ""
 var money: int = 100 #0

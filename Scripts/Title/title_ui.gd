@@ -18,6 +18,13 @@ extends Control
 var solo := true
 var coop := false
 var online := false
+var player_count := 1
+var players := {
+		"Player1" : -1,
+		"Player2" : -1,
+		"Player3" : -1,
+		"Player4" : -1,
+	}
 var story: bool = true
 var delete: bool = false
 
@@ -27,7 +34,23 @@ func _ready() -> void:
 	
 	title_screen()
 
+func _input(event: InputEvent) -> void:
+	#should prob do some disconnect checks
+	#check for other couch coop options
+	if not coop and event is InputEventJoypadButton:
+		for player in players:
+			if players[player] == -1:
+				players[player] = event.device
+				player_count += 1
+				break
+
 func play_screen():
+	solo = true
+	coop = false
+	online = false
+	PlayerData.solo = true
+	PlayerData.coop = false
+	PlayerData.online = false
 	pick_screen(1)
 	
 func options_screen():
@@ -62,9 +85,25 @@ func online_refresh():
 	#	$MultiScreen/VBox/ScrollBox/VBox.add_child(new_slot)
 
 func coop_screen():
+	player_count = 0
+	players = {
+		"Player1" : -1,
+		"Player2" : -1,
+		"Player3" : -1,
+		"Player4" : -1,
+	}
 	coop = true
 	solo = false
 	pick_screen(7)
+
+func coop_ready():
+	#get all player devices/controllers/etc...
+	if player_count > 1:
+		PlayerData.coop = true
+		save_screen()
+
+func update_coop():
+	pass
 
 func mode_screen():
 	pick_screen(5)
