@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dlyco38w4nhy8"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://dlyco38w4nhy8"]
 
 [ext_resource type="Texture2D" uid="uid://bcw8qfn36rlma" path="res://Images/Textures/Classes/Thief/thief_field.png" id="1_dlg7e"]
 
@@ -12,7 +12,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j7enr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle_down",
 "speed": 5.0
 }]

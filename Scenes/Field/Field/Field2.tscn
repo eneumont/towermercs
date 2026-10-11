@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://doiqryt5y2t7l"]
+[gd_scene format=3 uid="uid://doiqryt5y2t7l"]
 
 [ext_resource type="Script" uid="uid://dcxxouomxwvev" path="res://Scripts/Field/field.gd" id="1_2sugo"]
 [ext_resource type="AudioStream" uid="uid://basqyoad0w2kt" path="res://Audio/field.mp3" id="2_ye23l"]
@@ -18,72 +18,74 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_t2wbd"]
 
-[node name="Field1" type="Node3D" node_paths=PackedStringArray("enemies")]
+[node name="Field1" type="Node3D" unique_id=985712020 node_paths=PackedStringArray("enemies")]
 script = ExtResource("1_2sugo")
 enemies = [NodePath("Spawners/Enemies/Foe1"), NodePath("Spawners/Enemies/Foe2"), NodePath("Spawners/Enemies/Foe3")]
 audio = ExtResource("2_ye23l")
 
-[node name="Layout2" type="Node3D" parent="."]
+[node name="Layout2" type="Node3D" parent="." unique_id=618330706]
 
-[node name="Ground" type="StaticBody3D" parent="Layout2"]
+[node name="Ground" type="StaticBody3D" parent="Layout2" unique_id=1164032420]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Layout2/Ground"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Layout2/Ground" unique_id=871603783]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 material_override = ExtResource("3_r2u7o")
 mesh = SubResource("PlaneMesh_xqksw")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/Ground"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/Ground" unique_id=1491664438]
 shape = SubResource("WorldBoundaryShape3D_46v5i")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Layout2"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Layout2" unique_id=1920442349]
 transform = Transform3D(1, 0, 0, 0, 0.89712733, 0.44177204, 0, -0.44177204, 0.89712733, 0.2790215, 4.516794, 6.681136)
 
-[node name="AreaExits" type="Node3D" parent="Layout2"]
+[node name="AreaExits" type="Node3D" parent="Layout2" unique_id=1397539518]
 
-[node name="Field1" type="Area3D" parent="Layout2/AreaExits"]
+[node name="Field1" type="Area3D" parent="Layout2/AreaExits" unique_id=1244738793]
 transform = Transform3D(12.141473, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, 0, 0.35931683, 9.850746)
 script = ExtResource("4_83o3c")
 area_name = "Field/Field/Field1"
 pos = Vector3(0, 0, -6)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/AreaExits/Field1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/AreaExits/Field1" unique_id=1745178190]
 shape = SubResource("BoxShape3D_il158")
 
-[node name="Field4" type="Area3D" parent="Layout2/AreaExits"]
+[node name="Field4" type="Area3D" parent="Layout2/AreaExits" unique_id=18797239]
 transform = Transform3D(3.5994465, 0, 0, 0, 1.003, 0, 0, 0, 0.34525174, -0.13113737, 0.35931683, -9.688295)
 script = ExtResource("4_83o3c")
 area_name = "Field/Field/Field4"
 pos = Vector3(0, 0, 9)
+rot = 180
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/AreaExits/Field4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/AreaExits/Field4" unique_id=394294330]
 shape = SubResource("BoxShape3D_il158")
 
-[node name="Field3" type="Area3D" parent="Layout2/AreaExits"]
+[node name="Field3" type="Area3D" parent="Layout2/AreaExits" unique_id=196132873]
 transform = Transform3D(-3.047435e-07, 0, -0.34525174, 0, 1.0030001, 0, 6.971719, 0, -1.5091432e-08, 9.764148, 0.3593173, -0.5801716)
 script = ExtResource("4_83o3c")
 area_name = "Field/Field/Field3"
 pos = Vector3(-7, 0, -7)
+rot = 90
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/AreaExits/Field3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout2/AreaExits/Field3" unique_id=173180705]
 shape = SubResource("BoxShape3D_il158")
 
-[node name="Path" type="Node3D" parent="Layout2"]
+[node name="Path" type="Node3D" parent="Layout2" unique_id=11515166]
 
-[node name="Path1" type="MeshInstance3D" parent="Layout2/Path"]
+[node name="Path1" type="MeshInstance3D" parent="Layout2/Path" unique_id=1280303338]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10.035702, 0, 0.024881363, 0.031108856)
 material_override = ExtResource("5_iejgh")
 mesh = SubResource("PlaneMesh_t2wbd")
 
-[node name="Path2" type="MeshInstance3D" parent="Layout2/Path"]
+[node name="Path2" type="MeshInstance3D" parent="Layout2/Path" unique_id=1527288272]
 transform = Transform3D(-4.3711385e-08, 0, 5.3939447, 0, 0.99999994, 0, -0.99999994, 0, -2.3577681e-07, 4.6062336, 0.02488184, -0.10032272)
 material_override = ExtResource("5_iejgh")
 mesh = SubResource("PlaneMesh_t2wbd")
 
-[node name="Spawners" type="Node3D" parent="."]
+[node name="Spawners" type="Node3D" parent="." unique_id=137248944]
 
-[node name="Enemies" type="Node3D" parent="Spawners"]
+[node name="Enemies" type="Node3D" parent="Spawners" unique_id=1196680630]
 
-[node name="Foe1" type="Node3D" parent="Spawners/Enemies"]
+[node name="Foe1" type="Node3D" parent="Spawners/Enemies" unique_id=521183549]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.673532, 9.536743e-07, -1.5519319)
 script = ExtResource("6_0t2fb")
 spawn_node = ExtResource("7_ye23l")
@@ -95,7 +97,7 @@ spawn_info = Dictionary[String, Array]({
 "Foe1": [true, Vector3(0, 0, 0)]
 })
 
-[node name="Foe2" type="Node3D" parent="Spawners/Enemies"]
+[node name="Foe2" type="Node3D" parent="Spawners/Enemies" unique_id=1022086452]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.063923, 0, -4.850943)
 script = ExtResource("6_0t2fb")
 spawn_node = ExtResource("7_ye23l")
@@ -107,7 +109,7 @@ spawn_info = Dictionary[String, Array]({
 "Foe2": [true, Vector3(0, 0, 0)]
 })
 
-[node name="Foe3" type="Node3D" parent="Spawners/Enemies"]
+[node name="Foe3" type="Node3D" parent="Spawners/Enemies" unique_id=43630867]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.452216, 0, 4.6838727)
 script = ExtResource("6_0t2fb")
 spawn_node = ExtResource("7_ye23l")
@@ -119,7 +121,7 @@ spawn_info = Dictionary[String, Array]({
 "Foe3": [true, Vector3(0, 0, 0)]
 })
 
-[node name="Items" type="Node3D" parent="Spawners"]
+[node name="Items" type="Node3D" parent="Spawners" unique_id=2098485957]
 
 [connection signal="body_entered" from="Layout2/AreaExits/Field1" to="Layout2/AreaExits/Field1" method="body_enter"]
 [connection signal="body_entered" from="Layout2/AreaExits/Field4" to="Layout2/AreaExits/Field4" method="body_enter"]

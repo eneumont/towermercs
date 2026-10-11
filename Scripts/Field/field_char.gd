@@ -18,6 +18,7 @@ func _ready() -> void:
 	ui_show()
 	
 	anim_sprite.sprite_frames = load("res://Images/Sprites/Field/" + CharData.ClassType.keys()[PlayerData.party[0].class_type].to_lower() + "_field.tres")
+	anim_sprite.play("idle" + PlayerData.player_dir)
 
 func _physics_process(delta: float) -> void:
 	if PlayerData.ui_open:

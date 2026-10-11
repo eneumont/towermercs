@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mxengseas8iy"]
+[gd_scene format=3 uid="uid://mxengseas8iy"]
 
 [ext_resource type="Script" uid="uid://cysjj02rnov31" path="res://Scripts/WorldMap/world_map.gd" id="1_4xxrh"]
 [ext_resource type="AudioStream" uid="uid://quo1y7at22gu" path="res://Audio/world.mp3" id="2_5uvr7"]
@@ -9,32 +9,32 @@
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1y3ao"]
 
-[node name="WorldMap" type="Node3D"]
+[node name="WorldMap" type="Node3D" unique_id=205956145]
 script = ExtResource("1_4xxrh")
 audio = ExtResource("2_5uvr7")
 
-[node name="Layout" type="Node3D" parent="."]
+[node name="Layout" type="Node3D" parent="." unique_id=148108405]
 
-[node name="Ground" type="StaticBody3D" parent="Layout"]
+[node name="Ground" type="StaticBody3D" parent="Layout" unique_id=1160555023]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Layout/Ground"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Layout/Ground" unique_id=1849552723]
 transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
 mesh = SubResource("PlaneMesh_0hbk2")
 skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Ground"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout/Ground" unique_id=1768170946]
 shape = SubResource("WorldBoundaryShape3D_1y3ao")
 
-[node name="Light" type="DirectionalLight3D" parent="Layout"]
+[node name="Light" type="DirectionalLight3D" parent="Layout" unique_id=1637251912]
 transform = Transform3D(0.898763, -0.435068, 0.0542216, 0, 0.123671, 0.992323, -0.438434, -0.891864, 0.111151, 0, 0, 0)
 
-[node name="Spots" type="Node3D" parent="."]
+[node name="Spots" type="Node3D" parent="." unique_id=116671518]
 
-[node name="Town1" parent="Spots" instance=ExtResource("2_alaw4")]
+[node name="Town1" parent="Spots" unique_id=138577296 instance=ExtResource("2_alaw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.36825, -2.38419e-07, -3.9854)
 scn_name = "Town/Town1"
 
-[node name="Field1" parent="Spots" instance=ExtResource("2_alaw4")]
+[node name="Field1" parent="Spots" unique_id=748073210 instance=ExtResource("2_alaw4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97802, -2.38419e-07, -2.91194)
 scn_name = "Field/Field/Field1"
 s_pos = Vector3(0, 0, 7)

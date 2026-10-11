@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyp27a18y6erj"]
+[gd_scene format=3 uid="uid://dyp27a18y6erj"]
 
 [ext_resource type="Script" uid="uid://dcxxouomxwvev" path="res://Scripts/Field/field.gd" id="1_nuhwp"]
 [ext_resource type="AudioStream" uid="uid://basqyoad0w2kt" path="res://Audio/field.mp3" id="2_jlo8w"]
@@ -18,16 +18,68 @@
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_oiitr"]
 
-[node name="Field1" type="Node3D" node_paths=PackedStringArray("enemies")]
+[node name="Field1" type="Node3D" unique_id=698728575 node_paths=PackedStringArray("enemies")]
 script = ExtResource("1_nuhwp")
 enemies = [NodePath("Spawners/Enemies/Foe1"), NodePath("Spawners/Enemies/Foe2")]
 audio = ExtResource("2_jlo8w")
 
-[node name="Spawners" type="Node3D" parent="."]
+[node name="Layout3" type="Node3D" parent="." unique_id=1804014718]
 
-[node name="Enemies" type="Node3D" parent="Spawners"]
+[node name="Ground" type="StaticBody3D" parent="Layout3" unique_id=336670069]
 
-[node name="Foe1" type="Node3D" parent="Spawners/Enemies"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Layout3/Ground" unique_id=277874958]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+material_override = ExtResource("3_awril")
+mesh = SubResource("PlaneMesh_nuhwp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout3/Ground" unique_id=1986634107]
+shape = SubResource("WorldBoundaryShape3D_jlo8w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Layout3" unique_id=1564428941]
+transform = Transform3D(1, 0, 0, 0, 0.89712733, 0.44177204, 0, -0.44177204, 0.89712733, 0.2790215, 4.516794, 6.681136)
+
+[node name="AreaExits" type="Node3D" parent="Layout3" unique_id=1211976869]
+
+[node name="Field2" type="Area3D" parent="Layout3/AreaExits" unique_id=230744598]
+transform = Transform3D(-1.4875326e-07, 0, -0.34525174, 0, 1.0030001, 0, 3.4030778, 0, -1.5091432e-08, -10.096672, 0.35931778, -8.19921)
+script = ExtResource("4_oiitr")
+area_name = "Field/Field/Field2"
+pos = Vector3(7, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout3/AreaExits/Field2" unique_id=841115782]
+shape = SubResource("BoxShape3D_awril")
+
+[node name="Field1" type="Area3D" parent="Layout3/AreaExits" unique_id=1160892526]
+transform = Transform3D(-1.3394697e-07, 0, -0.34525174, 0, 1.0030001, 0, 3.0643494, 0, -1.5091432e-08, -9.977273, 0.35931778, 8.12728)
+script = ExtResource("4_oiitr")
+area_name = "Field/Field/Field1"
+pos = Vector3(7, 0, -3.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout3/AreaExits/Field1" unique_id=557533206]
+shape = SubResource("BoxShape3D_awril")
+
+[node name="Path" type="Node3D" parent="Layout3" unique_id=1069509132]
+
+[node name="Path1" type="MeshInstance3D" parent="Layout3/Path" unique_id=955888595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 9.223959, -0.19183731, 0.024881363, 0.031108856)
+material_override = ExtResource("5_62cxj")
+mesh = SubResource("PlaneMesh_oiitr")
+
+[node name="Path2" type="MeshInstance3D" parent="Layout3/Path" unique_id=1088823006]
+transform = Transform3D(-4.3711385e-08, 0, 5.3939447, 0, 0.99999994, 0, -0.99999994, 0, -2.3577681e-07, -4.594778, 0.02488184, 8.264883)
+material_override = ExtResource("5_62cxj")
+mesh = SubResource("PlaneMesh_oiitr")
+
+[node name="Path3" type="MeshInstance3D" parent="Layout3/Path" unique_id=609818175]
+transform = Transform3D(-4.3711385e-08, 0, 5.3939447, 0, 0.99999994, 0, -0.99999994, 0, -2.3577681e-07, -4.599531, 0.02488184, -8.203791)
+material_override = ExtResource("5_62cxj")
+mesh = SubResource("PlaneMesh_oiitr")
+
+[node name="Spawners" type="Node3D" parent="." unique_id=1417334097]
+
+[node name="Enemies" type="Node3D" parent="Spawners" unique_id=1810378254]
+
+[node name="Foe1" type="Node3D" parent="Spawners/Enemies" unique_id=605874916]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7817707, 0, -2.9645305)
 script = ExtResource("6_ixo00")
 spawn_node = ExtResource("4_jlo8w")
@@ -39,7 +91,7 @@ spawn_info = Dictionary[String, Array]({
 "Foe1": [true, Vector3(0, 0, 0)]
 })
 
-[node name="Foe2" type="Node3D" parent="Spawners/Enemies"]
+[node name="Foe2" type="Node3D" parent="Spawners/Enemies" unique_id=2037937668]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3334417, 0, 6.1526976)
 script = ExtResource("6_ixo00")
 spawn_node = ExtResource("4_jlo8w")
@@ -51,59 +103,16 @@ spawn_info = Dictionary[String, Array]({
 "Foe2": [true, Vector3(0, 0, 0)]
 })
 
-[node name="Items" type="Node3D" parent="Spawners"]
+[node name="Items" type="Node3D" parent="Spawners" unique_id=284321935]
 
-[node name="Layout3" type="Node3D" parent="."]
-
-[node name="Ground" type="StaticBody3D" parent="Layout3"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Layout3/Ground"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-material_override = ExtResource("3_awril")
-mesh = SubResource("PlaneMesh_nuhwp")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout3/Ground"]
-shape = SubResource("WorldBoundaryShape3D_jlo8w")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Layout3"]
-transform = Transform3D(1, 0, 0, 0, 0.89712733, 0.44177204, 0, -0.44177204, 0.89712733, 0.2790215, 4.516794, 6.681136)
-
-[node name="AreaExits" type="Node3D" parent="Layout3"]
-
-[node name="Field2" type="Area3D" parent="Layout3/AreaExits"]
-transform = Transform3D(-1.4875326e-07, 0, -0.34525174, 0, 1.0030001, 0, 3.4030778, 0, -1.5091432e-08, -10.096672, 0.35931778, -8.19921)
-script = ExtResource("4_oiitr")
-area_name = "Field/Field/Field2"
-pos = Vector3(7, 0, 1)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout3/AreaExits/Field2"]
-shape = SubResource("BoxShape3D_awril")
-
-[node name="Field1" type="Area3D" parent="Layout3/AreaExits"]
-transform = Transform3D(-1.3394697e-07, 0, -0.34525174, 0, 1.0030001, 0, 3.0643494, 0, -1.5091432e-08, -9.977273, 0.35931778, 8.12728)
-script = ExtResource("4_oiitr")
-area_name = "Field/Field/Field1"
-pos = Vector3(7, 0, -3.5)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Layout3/AreaExits/Field1"]
-shape = SubResource("BoxShape3D_awril")
-
-[node name="Path" type="Node3D" parent="Layout3"]
-
-[node name="Path1" type="MeshInstance3D" parent="Layout3/Path"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 9.223959, -0.19183731, 0.024881363, 0.031108856)
-material_override = ExtResource("5_62cxj")
-mesh = SubResource("PlaneMesh_oiitr")
-
-[node name="Path2" type="MeshInstance3D" parent="Layout3/Path"]
-transform = Transform3D(-4.3711385e-08, 0, 5.3939447, 0, 0.99999994, 0, -0.99999994, 0, -2.3577681e-07, -4.594778, 0.02488184, 8.264883)
-material_override = ExtResource("5_62cxj")
-mesh = SubResource("PlaneMesh_oiitr")
-
-[node name="Path3" type="MeshInstance3D" parent="Layout3/Path"]
-transform = Transform3D(-4.3711385e-08, 0, 5.3939447, 0, 0.99999994, 0, -0.99999994, 0, -2.3577681e-07, -4.599531, 0.02488184, -8.203791)
-material_override = ExtResource("5_62cxj")
-mesh = SubResource("PlaneMesh_oiitr")
+[node name="Item1" type="Node3D" parent="Spawners/Items" unique_id=145463368]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.370392, 0, -4.655777)
+script = ExtResource("6_ixo00")
+spawn_node = ExtResource("4_jlo8w")
+spawn_data = ExtResource("6_oiitr")
+spawn_info = Dictionary[String, Array]({
+"Foe2": [true, Vector3(0, 0, 0)]
+})
 
 [connection signal="body_entered" from="Layout3/AreaExits/Field2" to="Layout3/AreaExits/Field2" method="body_enter"]
 [connection signal="body_entered" from="Layout3/AreaExits/Field1" to="Layout3/AreaExits/Field1" method="body_enter"]

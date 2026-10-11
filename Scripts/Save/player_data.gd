@@ -29,6 +29,7 @@ var available_classes: Array = [ ##Array[CharData.ClassType]
 ]
 
 var player_pos: Vector3 = Vector3(0, 0, 0)
+var player_dir := "_down"
 var cur_scn: String = "WorldMap/WorldMap"
 var foes: Dictionary
 
@@ -48,6 +49,7 @@ func save() -> Dictionary:
 		"collection": data_array(collection),
 		"available_classes": available_classes,
 		"player_pos": player_pos,
+		"player_dir": player_dir,
 		"cur_scn": cur_scn,
 		"foes": foes,
 		#"ui_open": ui_open,dont think ui_open is needed
@@ -65,6 +67,7 @@ func load_save(data: Dictionary):
 	available_classes = data["available_classes"]
 	var a = data["player_pos"].replace("(", "").replace(")", "").split(", ", false)
 	player_pos = Vector3(float(a[0]), float(a[1]), float(a[2]))
+	player_dir = data["player_dir"]
 	cur_scn = data["cur_scn"]
 	foes = data["foes"]
 	loadin = data["loadin"]
@@ -98,8 +101,25 @@ func reset():
 	available_classes.clear()
 	
 	player_pos = Vector3(0, 0, 0)
+	player_dir = "_down"
 	cur_scn = "WorldMap/WorldMap"
 	foes.clear()
 	
 	ui_open = false
 	loadin = false
+
+##should be at bottom
+var item_keys: Dictionary = {
+	"Field": {},
+	"Forest": {},
+	"Town1": {},
+	"Tower1": {},
+}
+
+var persist_item_keys: Dictionary = {
+	
+}
+
+var temp_item_keys: Dictionary = {
+	
+}

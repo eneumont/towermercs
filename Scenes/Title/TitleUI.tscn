@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://brbjfgp2m57v6"]
+[gd_scene format=3 uid="uid://brbjfgp2m57v6"]
 
 [ext_resource type="Script" uid="uid://duc8wlswgptot" path="res://Scripts/Title/title_ui.gd" id="1_0sc1q"]
 [ext_resource type="PackedScene" uid="uid://hcptrv3t5bku" path="res://Scenes/Title/TitleSaveSlot.tscn" id="2_fv6gq"]
 [ext_resource type="PackedScene" uid="uid://7yxg2t1tjna7" path="res://Scenes/Title/ClassSlot.tscn" id="3_cxqlk"]
 
-[node name="TitleUI" type="Control"]
+[node name="TitleUI" type="Control" unique_id=1765524216]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0sc1q")
 
-[node name="TitleScreen" type="Panel" parent="."]
+[node name="TitleScreen" type="Panel" parent="." unique_id=1254303400]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleTxt" type="Label" parent="TitleScreen"]
+[node name="TitleTxt" type="Label" parent="TitleScreen" unique_id=118963444]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -35,7 +35,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 99
 text = "Tower Mercs"
 
-[node name="TitleButtons" type="VBoxContainer" parent="TitleScreen"]
+[node name="TitleButtons" type="VBoxContainer" parent="TitleScreen" unique_id=1820249125]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -48,22 +48,22 @@ offset_right = 189.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="PlayBtn" type="Button" parent="TitleScreen/TitleButtons"]
+[node name="PlayBtn" type="Button" parent="TitleScreen/TitleButtons" unique_id=1192775863]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Play"
 
-[node name="OptionsBtn" type="Button" parent="TitleScreen/TitleButtons"]
+[node name="OptionsBtn" type="Button" parent="TitleScreen/TitleButtons" unique_id=1058719041]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Options"
 
-[node name="QuitBtn" type="Button" parent="TitleScreen/TitleButtons"]
+[node name="QuitBtn" type="Button" parent="TitleScreen/TitleButtons" unique_id=913126794]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Quit"
 
-[node name="PlayScreen" type="Panel" parent="."]
+[node name="PlayScreen" type="Panel" parent="." unique_id=692137752]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -72,7 +72,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayTitle" type="Label" parent="PlayScreen"]
+[node name="PlayTitle" type="Label" parent="PlayScreen" unique_id=563271099]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -85,7 +85,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 66
 text = "How do you want to play?"
 
-[node name="PlayButtons" type="VBoxContainer" parent="PlayScreen"]
+[node name="PlayButtons" type="VBoxContainer" parent="PlayScreen" unique_id=1918735337]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -99,25 +99,25 @@ offset_bottom = 187.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SoloBtn" type="Button" parent="PlayScreen/PlayButtons"]
+[node name="SoloBtn" type="Button" parent="PlayScreen/PlayButtons" unique_id=1643829998]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 33
 text = "Solo"
 
-[node name="CoopBtn" type="Button" parent="PlayScreen/PlayButtons"]
+[node name="CoopBtn" type="Button" parent="PlayScreen/PlayButtons" unique_id=116690834]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 33
 text = "Co-op"
 
-[node name="OnlineBtn" type="Button" parent="PlayScreen/PlayButtons"]
+[node name="OnlineBtn" type="Button" parent="PlayScreen/PlayButtons" unique_id=81692131]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 33
 text = "Online"
 
-[node name="BackBtn" type="Button" parent="PlayScreen"]
+[node name="BackBtn" type="Button" parent="PlayScreen" unique_id=169541914]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -131,7 +131,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 33
 text = "Back"
 
-[node name="SaveScreen" type="Panel" parent="."]
+[node name="SaveScreen" type="Panel" parent="." unique_id=1683545177]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -140,7 +140,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SaveTitle" type="Label" parent="SaveScreen"]
+[node name="SaveTitle" type="Label" parent="SaveScreen" unique_id=1759719440]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -153,7 +153,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 66
 text = "Pick your save..."
 
-[node name="SavesBox" type="HBoxContainer" parent="SaveScreen"]
+[node name="SavesBox" type="HBoxContainer" parent="SaveScreen" unique_id=1021232503]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -167,22 +167,22 @@ offset_bottom = 138.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SaveSlot" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
+[node name="SaveSlot" parent="SaveScreen/SavesBox" unique_id=1963549599 instance=ExtResource("2_fv6gq")]
 layout_mode = 2
 
-[node name="SaveSlot2" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
+[node name="SaveSlot2" parent="SaveScreen/SavesBox" unique_id=1961713746 instance=ExtResource("2_fv6gq")]
 layout_mode = 2
 slot = 1
 
-[node name="SaveSlot3" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
+[node name="SaveSlot3" parent="SaveScreen/SavesBox" unique_id=781352813 instance=ExtResource("2_fv6gq")]
 layout_mode = 2
 slot = 2
 
-[node name="SaveSlot4" parent="SaveScreen/SavesBox" instance=ExtResource("2_fv6gq")]
+[node name="SaveSlot4" parent="SaveScreen/SavesBox" unique_id=1806346475 instance=ExtResource("2_fv6gq")]
 layout_mode = 2
 slot = 3
 
-[node name="SaveButtons" type="HBoxContainer" parent="SaveScreen"]
+[node name="SaveButtons" type="HBoxContainer" parent="SaveScreen" unique_id=545813352]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -195,17 +195,17 @@ offset_right = 276.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="NewBtn" type="Button" parent="SaveScreen/SaveButtons"]
+[node name="NewBtn" type="Button" parent="SaveScreen/SaveButtons" unique_id=1019674076]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "New Game"
 
-[node name="DeleteBtn" type="Button" parent="SaveScreen/SaveButtons"]
+[node name="DeleteBtn" type="Button" parent="SaveScreen/SaveButtons" unique_id=17879202]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Delete"
 
-[node name="BackBtn" type="Button" parent="SaveScreen"]
+[node name="BackBtn" type="Button" parent="SaveScreen" unique_id=2069739719]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -219,7 +219,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 33
 text = "Back"
 
-[node name="MultiScreen" type="Panel" parent="."]
+[node name="MultiScreen" type="Panel" parent="." unique_id=2134901300]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -228,7 +228,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackBtn" type="Button" parent="MultiScreen"]
+[node name="BackBtn" type="Button" parent="MultiScreen" unique_id=963550239]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -242,7 +242,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 33
 text = "Back"
 
-[node name="VBox" type="VBoxContainer" parent="MultiScreen"]
+[node name="VBox" type="VBoxContainer" parent="MultiScreen" unique_id=1928832280]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -256,26 +256,26 @@ offset_bottom = 257.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBox" type="HBoxContainer" parent="MultiScreen/VBox"]
+[node name="HBox" type="HBoxContainer" parent="MultiScreen/VBox" unique_id=169439607]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="Host" type="Button" parent="MultiScreen/VBox/HBox"]
+[node name="Host" type="Button" parent="MultiScreen/VBox/HBox" unique_id=1887424563]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 theme_override_font_sizes/font_size = 33
 text = "Host"
 
-[node name="Join" type="Button" parent="MultiScreen/VBox/HBox"]
+[node name="Join" type="Button" parent="MultiScreen/VBox/HBox" unique_id=1026244333]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 theme_override_font_sizes/font_size = 33
 text = "Join"
 
-[node name="NameEdit" type="LineEdit" parent="MultiScreen/VBox/HBox"]
+[node name="NameEdit" type="LineEdit" parent="MultiScreen/VBox/HBox" unique_id=802985497]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
@@ -283,7 +283,7 @@ theme_override_font_sizes/font_size = 33
 placeholder_text = "Name"
 alignment = 1
 
-[node name="CodeEdit" type="LineEdit" parent="MultiScreen/VBox/HBox"]
+[node name="CodeEdit" type="LineEdit" parent="MultiScreen/VBox/HBox" unique_id=484551986]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.7
@@ -291,16 +291,16 @@ theme_override_font_sizes/font_size = 33
 placeholder_text = "Code"
 alignment = 1
 
-[node name="ScrollBox" type="ScrollContainer" parent="MultiScreen/VBox"]
+[node name="ScrollBox" type="ScrollContainer" parent="MultiScreen/VBox" unique_id=1870784098]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBox" type="VBoxContainer" parent="MultiScreen/VBox/ScrollBox"]
+[node name="VBox" type="VBoxContainer" parent="MultiScreen/VBox/ScrollBox" unique_id=2131845429]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RefreshBtn" type="Button" parent="MultiScreen"]
+[node name="RefreshBtn" type="Button" parent="MultiScreen" unique_id=1452093999]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -315,7 +315,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "⟳"
 
-[node name="OptionsScreen" type="Panel" parent="."]
+[node name="OptionsScreen" type="Panel" parent="." unique_id=1923635811]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -324,7 +324,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="OptionsTitle" type="Label" parent="OptionsScreen"]
+[node name="OptionsTitle" type="Label" parent="OptionsScreen" unique_id=1416244371]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -337,7 +337,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 66
 text = "Options"
 
-[node name="OptionsScroll" type="ScrollContainer" parent="OptionsScreen"]
+[node name="OptionsScroll" type="ScrollContainer" parent="OptionsScreen" unique_id=1759122652]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -352,13 +352,13 @@ grow_vertical = 0
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="OptionsList" type="VBoxContainer" parent="OptionsScreen/OptionsScroll"]
+[node name="OptionsList" type="VBoxContainer" parent="OptionsScreen/OptionsScroll" unique_id=1591429376]
 custom_minimum_size = Vector2(579, 522)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BackBtn" type="Button" parent="OptionsScreen"]
+[node name="BackBtn" type="Button" parent="OptionsScreen" unique_id=916883603]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -372,7 +372,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 33
 text = "Back"
 
-[node name="ModeScreen" type="Panel" parent="."]
+[node name="ModeScreen" type="Panel" parent="." unique_id=640600558]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -381,7 +381,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ModelTitle" type="Label" parent="ModeScreen"]
+[node name="ModelTitle" type="Label" parent="ModeScreen" unique_id=879131003]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -394,7 +394,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 66
 text = "Which mode?"
 
-[node name="ModesBox" type="HBoxContainer" parent="ModeScreen"]
+[node name="ModesBox" type="HBoxContainer" parent="ModeScreen" unique_id=2072597189]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -408,17 +408,17 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StoryBtn" type="Button" parent="ModeScreen/ModesBox"]
+[node name="StoryBtn" type="Button" parent="ModeScreen/ModesBox" unique_id=1788086713]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Story"
 
-[node name="ArenaBtn" type="Button" parent="ModeScreen/ModesBox"]
+[node name="ArenaBtn" type="Button" parent="ModeScreen/ModesBox" unique_id=1501919361]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Arena"
 
-[node name="BackBtn" type="Button" parent="ModeScreen"]
+[node name="BackBtn" type="Button" parent="ModeScreen" unique_id=1498585580]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -432,7 +432,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 33
 text = "Back"
 
-[node name="PartyScreen" type="Panel" parent="."]
+[node name="PartyScreen" type="Panel" parent="." unique_id=1820014311]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -441,7 +441,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PartyTitle" type="Label" parent="PartyScreen"]
+[node name="PartyTitle" type="Label" parent="PartyScreen" unique_id=1335651391]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -454,7 +454,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 66
 text = "Choose your members..."
 
-[node name="PartyBox" type="HBoxContainer" parent="PartyScreen"]
+[node name="PartyBox" type="HBoxContainer" parent="PartyScreen" unique_id=848121351]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -468,33 +468,33 @@ offset_bottom = 251.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ClassSlot" parent="PartyScreen/PartyBox" node_paths=PackedStringArray("title") instance=ExtResource("3_cxqlk")]
+[node name="ClassSlot" parent="PartyScreen/PartyBox" unique_id=190766528 node_paths=PackedStringArray("title") instance=ExtResource("3_cxqlk")]
 layout_mode = 2
 size_flags_horizontal = 3
 title = NodePath("../../..")
 
-[node name="ClassSlot2" parent="PartyScreen/PartyBox" node_paths=PackedStringArray("title") instance=ExtResource("3_cxqlk")]
+[node name="ClassSlot2" parent="PartyScreen/PartyBox" unique_id=1945978803 node_paths=PackedStringArray("title") instance=ExtResource("3_cxqlk")]
 layout_mode = 2
 size_flags_horizontal = 3
 title = NodePath("../../..")
 type = 1
 slot = 1
 
-[node name="ClassSlot3" parent="PartyScreen/PartyBox" node_paths=PackedStringArray("title") instance=ExtResource("3_cxqlk")]
+[node name="ClassSlot3" parent="PartyScreen/PartyBox" unique_id=532825887 node_paths=PackedStringArray("title") instance=ExtResource("3_cxqlk")]
 layout_mode = 2
 size_flags_horizontal = 3
 title = NodePath("../../..")
 type = 2
 slot = 2
 
-[node name="ClassSlot4" parent="PartyScreen/PartyBox" node_paths=PackedStringArray("title") instance=ExtResource("3_cxqlk")]
+[node name="ClassSlot4" parent="PartyScreen/PartyBox" unique_id=272453929 node_paths=PackedStringArray("title") instance=ExtResource("3_cxqlk")]
 layout_mode = 2
 size_flags_horizontal = 3
 title = NodePath("../../..")
 type = 3
 slot = 3
 
-[node name="DoneBtn" type="Button" parent="PartyScreen"]
+[node name="DoneBtn" type="Button" parent="PartyScreen" unique_id=805674680]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -509,7 +509,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 33
 text = "DONE"
 
-[node name="BackBtn" type="Button" parent="PartyScreen"]
+[node name="BackBtn" type="Button" parent="PartyScreen" unique_id=818935932]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -523,7 +523,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 33
 text = "Back"
 
-[node name="CoopScreen" type="Panel" parent="."]
+[node name="CoopScreen" type="Panel" parent="." unique_id=286790157]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -532,7 +532,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackBtn" type="Button" parent="CoopScreen"]
+[node name="BackBtn" type="Button" parent="CoopScreen" unique_id=885978179]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -543,7 +543,7 @@ grow_horizontal = 0
 theme_override_font_sizes/font_size = 50
 text = "Back"
 
-[node name="ReadyBtn" type="Button" parent="CoopScreen"]
+[node name="ReadyBtn" type="Button" parent="CoopScreen" unique_id=54430677]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -559,7 +559,7 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "Ready!?"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CoopScreen"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CoopScreen" unique_id=1653923565]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -573,11 +573,11 @@ offset_bottom = 191.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Player1" type="Button" parent="CoopScreen/HBoxContainer"]
+[node name="Player1" type="Button" parent="CoopScreen/HBoxContainer" unique_id=1598149165]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player1"]
+[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player1" unique_id=1913131183]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -595,7 +595,7 @@ text = "Player1?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player1"]
+[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player1" unique_id=514195303]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -609,11 +609,11 @@ offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Player2" type="Button" parent="CoopScreen/HBoxContainer"]
+[node name="Player2" type="Button" parent="CoopScreen/HBoxContainer" unique_id=1312353324]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player2"]
+[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player2" unique_id=964835563]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -631,7 +631,7 @@ text = "Player2?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player2"]
+[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player2" unique_id=2131635560]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -645,11 +645,11 @@ offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Player3" type="Button" parent="CoopScreen/HBoxContainer"]
+[node name="Player3" type="Button" parent="CoopScreen/HBoxContainer" unique_id=1678188202]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player3"]
+[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player3" unique_id=904091464]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -667,7 +667,7 @@ text = "Player3?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player3"]
+[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player3" unique_id=240472948]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -681,11 +681,11 @@ offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Player4" type="Button" parent="CoopScreen/HBoxContainer"]
+[node name="Player4" type="Button" parent="CoopScreen/HBoxContainer" unique_id=807701344]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player4"]
+[node name="NameTxt" type="Label" parent="CoopScreen/HBoxContainer/Player4" unique_id=1696895242]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -703,7 +703,7 @@ text = "Player4?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player4"]
+[node name="Img" type="TextureRect" parent="CoopScreen/HBoxContainer/Player4" unique_id=716775130]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -717,7 +717,7 @@ offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TitleTxt" type="Label" parent="CoopScreen"]
+[node name="TitleTxt" type="Label" parent="CoopScreen" unique_id=1177040053]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
